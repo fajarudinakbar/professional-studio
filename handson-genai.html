@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-On with Generative AI: Personalizing ELT Materials</title>
+    
+    <!-- Open Graph / Facebook & GitHub Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fajarudinakbar.github.io/hands-on-genai/">
+    <meta property="og:title" content="Hands-On with Generative AI: Personalizing ELT Materials">
+    <meta property="og:description" content="A practical guide by Fajarudin Akbar on personalizing ELT materials for different learners and contexts.">
+    <meta property="og:image" content="https://img.youtube.com/vi/eOXMtO94F3g/maxresdefault.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://fajarudinakbar.github.io/hands-on-generative-ai/">
+    <meta name="twitter:title" content="Hands-On with Generative AI: Personalizing ELT Materials">
+    <meta name="twitter:description" content="A practical guide by Fajarudin Akbar on personalizing ELT materials for different learners and contexts.">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/eOXMtO94F3g/maxresdefault.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Brutalist Shadows -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'brutal': '8px 8px 0px 0px rgba(0,0,0,1)',
+                        'brutal-hover': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'brutal-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'brutal-sm-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
+                        'brutal-lg': '12px 12px 0px 0px rgba(0,0,0,1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-light: #fdfdf8; 
+            --text-light: #000000;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Blueprint Grid Background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .brutal-card {
+            background: #ffffff;
+            border: 4px solid #000000;
+            box-shadow: 12px 12px 0px 0px #000000;
+        }
+
+        .brutal-interactive {
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .brutal-interactive:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0px 0px #000 !important;
+        }
+
+        .brutal-interactive:active {
+            transform: translate(8px, 8px);
+            box-shadow: 0px 0px 0px 0px #000 !important;
+        }
+
+        /* Vertical Stepper Styles (Brutalist) */
+        .step {
+            position: relative;
+            padding-left: 4rem;
+            padding-bottom: 2rem;
+        }
+        .step:last-child {
+            padding-bottom: 0;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: -0.25rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: #fef08a; /* yellow-200 */
+            border: 4px solid #000;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            box-shadow: 4px 4px 0px 0px #000;
+        }
+        .step-line {
+            position: absolute;
+            left: 1.35rem; 
+            top: 3rem;
+            bottom: -0.5rem;
+            width: 4px;
+            background-color: #000;
+            transition: all 0.3s ease;
+        }
+        .step:last-child .step-line {
+            display: none;
+        }
+        .step-header {
+            cursor: pointer;
+            padding: 1rem;
+            border: 4px solid transparent;
+            transition: all 0.2s ease-in-out;
+            background-color: #f8fafc;
+            border: 4px solid #000;
+            box-shadow: 4px 4px 0px 0px #000;
+        }
+        .step-header:hover {
+            background-color: #fef08a; /* yellow-200 */
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #000;
+        }
+        .step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.5s ease;
+            margin-top: 0;
+        }
+        .step.active .step-number {
+            background-color: #000;
+            color: #fff;
+            box-shadow: 0px 0px 0px 0px #000;
+            transform: translate(4px, 4px);
+        }
+        .step.active .step-content {
+            max-height: 800px;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            border: 4px solid #000;
+            background-color: #fff;
+            box-shadow: 4px 4px 0px 0px #000;
+        }
+        .step.active .step-arrow {
+            transform: rotate(180deg);
+        }
+        .step-arrow {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Responsive Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px 0px #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+        #scrollTopBtn.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Custom selection color */
+        ::selection {
+            background-color: #fef08a; /* yellow-200 */
+            color: #000;
+        }
+    </style>
+</head>
+<body class="text-slate-900 selection:bg-yellow-300 selection:text-black antialiased">
+    <!-- Blueprint Grid -->
+    <div class="bg-grid"></div>
+
+    <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
+
+        <!-- Header Section -->
+        <header class="text-center mb-24 animate__animated animate__fadeInDown">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-black uppercase tracking-tight leading-none mb-6">
+                Hands-On with <br class="hidden md:block">
+                <span class="inline-block mt-4 bg-orange-400 text-black px-6 py-2 border-4 border-black shadow-brutal transform -rotate-2">
+                    Generative AI
+                </span>
+            </h1>
+            
+            <div class="mt-12 inline-block bg-white border-4 border-black p-4 shadow-brutal">
+                <p class="text-xl md:text-2xl font-bold">A practical guide to personalizing ELT materials</p>
+                <p class="mt-2 text-md font-semibold text-slate-600">for different learners and contexts.</p>
+            </div>
+        </header>
+
+        <main class="space-y-20 max-w-5xl mx-auto">
+
+            <!-- Why Personalize with AI? -->
+            <div class="brutal-card p-8 md:p-12 opacity-0" data-animate>
+                <h2 class="text-4xl md:text-5xl font-black uppercase mb-8 flex items-center">
+                    <span class="flex items-center justify-center h-16 w-16 border-4 border-black bg-emerald-300 mr-5 shadow-brutal-sm">
+                        <i data-lucide="target" class="h-8 w-8 text-black stroke-[3]"></i>
+                    </span>
+                    Why Personalize?
+                </h2>
+                <div class="space-y-6 text-xl">
+                    <div class="flex items-start bg-emerald-50 border-4 border-black p-5 shadow-brutal-sm brutal-interactive">
+                        <span class="flex-shrink-0 h-10 w-10 flex items-center justify-center border-4 border-black bg-emerald-300 text-black font-black mr-4 mt-1">✓</span>
+                        <div>
+                            <p class="font-black uppercase mb-1">Clear Goals</p>
+                            <p class="font-medium">Create measurable, learner-specific materials.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-violet-50 border-4 border-black p-5 shadow-brutal-sm brutal-interactive">
+                        <span class="flex-shrink-0 h-10 w-10 flex items-center justify-center border-4 border-black bg-violet-300 text-black font-black mr-4 mt-1">✓</span>
+                        <div>
+                            <p class="font-black uppercase mb-1">Adaptable Content</p>
+                            <p class="font-medium">Adapt for diverse learning contexts and proficiency levels.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start bg-yellow-50 border-4 border-black p-5 shadow-brutal-sm brutal-interactive">
+                        <span class="flex-shrink-0 h-10 w-10 flex items-center justify-center border-4 border-black bg-yellow-300 text-black font-black mr-4 mt-1">✓</span>
+                        <div>
+                            <p class="font-black uppercase mb-1">Increased Efficiency</p>
+                            <p class="font-medium">Significantly boost efficiency and spark innovation in lesson planning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Foundation: The Art of Prompting -->
+            <div class="brutal-card p-8 md:p-12 opacity-0" data-animate>
+                <h2 class="text-4xl md:text-5xl font-black uppercase mb-8 flex items-center">
+                    <span class="flex items-center justify-center h-16 w-16 border-4 border-black bg-cyan-300 mr-5 shadow-brutal-sm">
+                        <i data-lucide="message-square" class="h-8 w-8 text-black stroke-[3]"></i>
+                    </span>
+                    The Art of Prompting
+                </h2>
+                <p class="text-xl font-medium mb-8">Master communicating your needs to AI. Clearly describe the following elements for the best results:</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                    <div class="border-4 border-black bg-cyan-200 p-6 shadow-brutal-sm flex flex-col items-center justify-center">
+                        <div class="bg-white border-4 border-black p-3 rounded-full mb-4">
+                            <i data-lucide="clipboard-list" class="h-8 w-8 text-black"></i>
+                        </div>
+                        <span class="text-2xl font-black uppercase">Task</span>
+                    </div>
+                    <div class="border-4 border-black bg-pink-300 p-6 shadow-brutal-sm flex flex-col items-center justify-center">
+                        <div class="bg-white border-4 border-black p-3 rounded-full mb-4">
+                            <i data-lucide="users" class="h-8 w-8 text-black"></i>
+                        </div>
+                        <span class="text-2xl font-black uppercase">Context</span>
+                    </div>
+                    <div class="border-4 border-black bg-emerald-300 p-6 shadow-brutal-sm flex flex-col items-center justify-center">
+                        <div class="bg-white border-4 border-black p-3 rounded-full mb-4">
+                            <i data-lucide="award" class="h-8 w-8 text-black"></i>
+                        </div>
+                        <span class="text-2xl font-black uppercase">Outcome</span>
+                    </div>
+                </div>
+                <div class="mt-10 bg-slate-100 border-4 border-black p-4 inline-block transform rotate-1">
+                    <p class="text-lg font-bold">Inspired by Google's <a href="https://artsandculture.google.com/experiment/say-what-you-see/jwG3m7wQShZngw?hl=en" target="_blank" class="underline decoration-4 underline-offset-2 hover:bg-yellow-300 transition-colors">"Say What You See"</a> experiment.</p>
+                </div>
+            </div>
+            
+            <!-- A Practical Workflow for Personalization -->
+            <div class="brutal-card p-8 md:p-12 opacity-0" data-animate>
+                <h2 class="text-4xl md:text-5xl font-black uppercase mb-12 flex items-center">
+                    <span class="flex items-center justify-center h-16 w-16 border-4 border-black bg-blue-300 mr-5 shadow-brutal-sm">
+                        <i data-lucide="layers" class="h-8 w-8 text-black stroke-[3]"></i>
+                    </span>
+                    A Practical Workflow
+                </h2>
+                <div id="stepper-container">
+                    <!-- Step 1 -->
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-line"></div>
+                        <div class="step-header flex justify-between items-center">
+                            <h3 class="font-black uppercase text-2xl lg:text-3xl">Define Learner Needs</h3>
+                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 text-black stroke-[3]"></i>
+                        </div>
+                        <div class="step-content text-xl">
+                            <p class="font-medium mb-4 pb-4 border-b-4 border-black">Use frameworks to define learning objectives. Specify the learner profile, target skill, and proficiency level.</p>
+                            <p class="font-bold uppercase text-sm bg-yellow-200 inline-block px-2 py-1 border-2 border-black mb-2">Key Tool:</p><br>
+                            <a href="https://www.english.com/gse/teacher-toolkit/user/lo" target="_blank" class="font-bold underline decoration-4 hover:bg-yellow-200 transition-colors inline-block mt-1">GSE Teacher Toolkit</a> to align materials with GSE/CEFR standards.
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-line"></div>
+                        <div class="step-header flex justify-between items-center">
+                            <h3 class="font-black uppercase text-2xl lg:text-3xl">Choose Your AI Co-Pilot</h3>
+                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 text-black stroke-[3]"></i>
+                        </div>
+                        <div class="step-content text-xl">
+                            <p class="font-medium mb-4 pb-4 border-b-4 border-black">Select a powerful Generative AI model and assign a specific role for your pedagogical goal.</p>
+                            <ul class="space-y-4 font-medium mt-4">
+                                <li class="flex items-center flex-wrap gap-2"><span class="bg-black text-white px-3 py-1 font-bold uppercase border-2 border-black">ChatGPT</span> The Content Creator for lessons and scripts.</li>
+                                <li class="flex items-center flex-wrap gap-2"><span class="bg-black text-white px-3 py-1 font-bold uppercase border-2 border-black">Gemini</span> The App Developer to build interactive tools.</li>
+                                <li class="flex items-center flex-wrap gap-2"><span class="bg-black text-white px-3 py-1 font-bold uppercase border-2 border-black">Copilot</span> The Practice Partner for speaking scenarios.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-line"></div>
+                        <div class="step-header flex justify-between items-center">
+                            <h3 class="font-black uppercase text-2xl lg:text-3xl">Generate Diverse Media</h3>
+                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 text-black stroke-[3]"></i>
+                        </div>
+                        <div class="step-content text-xl">
+                            <p class="font-medium mb-4 pb-4 border-b-4 border-black">Go beyond text. Create engaging, multimodal content to cater to different learning styles.</p>
+                            <div class="mb-4">
+                                <p class="font-bold uppercase text-sm bg-yellow-200 inline-block px-2 py-1 border-2 border-black mb-2">Key Platform:</p><br>
+                                <a href="https://aistudio.google.com/generate-speech" target="_blank" class="font-bold underline decoration-4 hover:bg-yellow-200 transition-colors">Google AI Studio</a>
+                            </div>
+                            <div class="flex flex-wrap gap-3 mt-4">
+                                <span class="border-2 border-black bg-white px-3 py-1 font-black uppercase shadow-[2px_2px_0px_0px_#000]">Images</span>
+                                <span class="border-2 border-black bg-white px-3 py-1 font-black uppercase shadow-[2px_2px_0px_0px_#000]">Speech</span>
+                                <span class="border-2 border-black bg-white px-3 py-1 font-black uppercase shadow-[2px_2px_0px_0px_#000]">Video</span>
+                                <span class="border-2 border-black bg-white px-3 py-1 font-black uppercase shadow-[2px_2px_0px_0px_#000]">Music</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-line"></div>
+                        <div class="step-header flex justify-between items-center">
+                            <h3 class="font-black uppercase text-2xl lg:text-3xl">Use Specialized Tools</h3>
+                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 text-black stroke-[3]"></i>
+                        </div>
+                        <div class="step-content text-xl">
+                            <p class="font-medium mb-4 pb-4 border-b-4 border-black">Leverage platforms designed specifically for education to enhance your teaching workflow.</p>
+                            <p class="font-bold uppercase text-sm bg-yellow-200 inline-block px-2 py-1 border-2 border-black mb-2">Platform Example:</p><br>
+                            <a href="https://www.trinitycollege.com/qualifications/english-language/notelab-english" target="_blank" class="font-bold underline decoration-4 hover:bg-yellow-200 transition-colors inline-block mt-1">NoteLab English</a>, a dedicated teacher tool.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsible-Use Checklist -->
+            <div class="brutal-card p-8 md:p-12 opacity-0" data-animate>
+                <h2 class="text-4xl md:text-5xl font-black uppercase mb-8 flex items-center">
+                     <span class="flex items-center justify-center h-16 w-16 border-4 border-black bg-red-300 mr-5 shadow-brutal-sm">
+                        <i data-lucide="shield-check" class="h-8 w-8 text-black stroke-[3]"></i>
+                    </span>
+                    Responsible-Use Checklist
+                </h2>
+                <p class="text-xl font-bold mb-8 uppercase border-b-4 border-black pb-4">Before using AI-generated content, confirm:</p>
+                <div class="space-y-4">
+                    <label class="flex items-center group cursor-pointer border-4 border-black p-4 brutal-interactive bg-slate-50 hover:bg-yellow-100">
+                        <div class="relative flex items-center justify-center flex-shrink-0">
+                            <input type="checkbox" class="peer sr-only">
+                            <div class="w-8 h-8 border-4 border-black bg-white peer-checked:bg-black transition-colors"></div>
+                            <i data-lucide="check" class="absolute text-white opacity-0 peer-checked:opacity-100 w-6 h-6"></i>
+                        </div>
+                        <span class="ml-4 text-xl font-medium select-none group-hover:font-bold">The language level is appropriate.</span>
+                    </label>
+
+                    <label class="flex items-center group cursor-pointer border-4 border-black p-4 brutal-interactive bg-slate-50 hover:bg-yellow-100">
+                        <div class="relative flex items-center justify-center flex-shrink-0">
+                            <input type="checkbox" class="peer sr-only">
+                            <div class="w-8 h-8 border-4 border-black bg-white peer-checked:bg-black transition-colors"></div>
+                            <i data-lucide="check" class="absolute text-white opacity-0 peer-checked:opacity-100 w-6 h-6"></i>
+                        </div>
+                        <span class="ml-4 text-xl font-medium select-none group-hover:font-bold">Content is free of bias, stereotypes, and factual errors.</span>
+                    </label>
+
+                    <label class="flex items-center group cursor-pointer border-4 border-black p-4 brutal-interactive bg-slate-50 hover:bg-yellow-100">
+                        <div class="relative flex items-center justify-center flex-shrink-0">
+                            <input type="checkbox" class="peer sr-only">
+                            <div class="w-8 h-8 border-4 border-black bg-white peer-checked:bg-black transition-colors"></div>
+                            <i data-lucide="check" class="absolute text-white opacity-0 peer-checked:opacity-100 w-6 h-6"></i>
+                        </div>
+                        <span class="ml-4 text-xl font-medium select-none group-hover:font-bold">I have reviewed and edited the content.</span>
+                    </label>
+
+                    <label class="flex items-center group cursor-pointer border-4 border-black p-4 brutal-interactive bg-slate-50 hover:bg-yellow-100">
+                        <div class="relative flex items-center justify-center flex-shrink-0">
+                            <input type="checkbox" class="peer sr-only">
+                            <div class="w-8 h-8 border-4 border-black bg-white peer-checked:bg-black transition-colors"></div>
+                            <i data-lucide="check" class="absolute text-white opacity-0 peer-checked:opacity-100 w-6 h-6"></i>
+                        </div>
+                        <span class="ml-4 text-xl font-medium select-none group-hover:font-bold">Using AI as an assistant, not replacing professional judgment.</span>
+                    </label>
+
+                    <label class="flex items-center group cursor-pointer border-4 border-black p-4 brutal-interactive bg-slate-50 hover:bg-yellow-100">
+                        <div class="relative flex items-center justify-center flex-shrink-0">
+                            <input type="checkbox" class="peer sr-only">
+                            <div class="w-8 h-8 border-4 border-black bg-white peer-checked:bg-black transition-colors"></div>
+                            <i data-lucide="check" class="absolute text-white opacity-0 peer-checked:opacity-100 w-6 h-6"></i>
+                        </div>
+                        <span class="ml-4 text-xl font-medium select-none group-hover:font-bold">Learners understand what AI is at an age-appropriate level.</span>
+                    </label>
+                </div>
+            </div>
+            
+            <!-- Talk to my AI Agent -->
+            <div class="brutal-card bg-violet-300 p-8 md:p-12 text-center overflow-hidden opacity-0" data-animate>
+                <div class="bg-white p-4 border-4 border-black rounded-full inline-block mb-6 shadow-brutal-sm">
+                    <i data-lucide="bot" class="w-12 h-12 text-black"></i>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-black uppercase mb-6 text-black">Talk to an AI Agent</h2>
+                <p class="mb-10 text-xl lg:text-2xl font-medium text-slate-900 max-w-3xl mx-auto">Get personalized ideas, practice prompting, and explore more ELT tools with a custom chatbot designed specifically for educators.</p>
+                <a href="https://gemini.google.com/gem/a9f9701314a2?usp=sharing" target="_blank" class="inline-block bg-orange-400 text-black font-black text-2xl py-4 px-10 border-4 border-black shadow-brutal brutal-interactive">
+                    START CHATTING
+                </a>
+            </div>
+
+            <!-- See It in Action -->
+            <div class="brutal-card p-8 md:p-12 opacity-0 bg-white" data-animate>
+                <h2 class="text-4xl md:text-5xl font-black uppercase mb-6 flex items-center">
+                    <span class="flex items-center justify-center h-16 w-16 border-4 border-black bg-orange-300 mr-5 shadow-brutal-sm">
+                        <i data-lucide="play" class="h-8 w-8 text-black fill-current stroke-[3]"></i>
+                    </span>
+                    See It in Action
+                </h2>
+                <p class="mb-8 text-xl font-medium">Watch the recorded webinar to see a live demonstration of these principles and tools being used to create personalized ELT materials.</p>
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/eOXMtO94F3g" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-32 mb-12 pt-12 border-t-8 border-black opacity-0" data-animate>
+            <h3 class="text-3xl md:text-4xl font-black uppercase mb-4 text-black">
+                Designed by <br class="md:hidden"><a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="underline decoration-4 underline-offset-4 hover:bg-yellow-300 transition-colors duration-200 px-2 py-1 leading-relaxed">fajarudinakbar.com</a>
+            </h3>
+            <p class="mt-8 text-sm font-bold uppercase text-slate-500">GSE Ambassador | EdTech Practitioner | TEFL/TESOL Educator</p>
+        </footer>
+
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="bg-blue-400 border-4 border-black p-4 shadow-brutal brutal-interactive z-50 pointer-events-none" aria-label="Scroll to top">
+        <i data-lucide="arrow-up" class="w-6 h-6 font-bold text-black stroke-[3]"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Lucide Icons
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                try { lucide.createIcons(); } catch (e) { console.error('Error running lucide.createIcons():', e); }
+            }
+
+            // --- Vertical Stepper Functionality ---
+            const stepperContainer = document.getElementById('stepper-container');
+            if (stepperContainer) {
+                stepperContainer.addEventListener('click', function (event) {
+                    const header = event.target.closest('.step-header');
+                    if (!header) return;
+
+                    const step = header.parentElement;
+                    const allSteps = stepperContainer.querySelectorAll('.step');
+                    const wasActive = step.classList.contains('active');
+
+                    allSteps.forEach(s => {
+                        if (s !== step) {
+                            s.classList.remove('active');
+                        }
+                    });
+
+                    if (!wasActive) {
+                        step.classList.add('active');
+                    } else {
+                        step.classList.remove('active');
+                    }
+                });
+                
+                // Activate first step by default
+                const firstStep = stepperContainer.querySelector('.step');
+                if(firstStep) firstStep.classList.add('active');
+            }
+
+            // --- Scroll to Top Functionality ---
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (scrollTopBtn) {
+                window.onscroll = function() {
+                    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                        scrollTopBtn.classList.add('show');
+                    } else {
+                        scrollTopBtn.classList.remove('show');
+                    }
+                };
+                scrollTopBtn.addEventListener('click', function() {
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+            }
+            
+            // --- Animate on Scroll (Intersection Observer) ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                        entry.target.classList.remove('opacity-0');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+            document.querySelectorAll('[data-animate]').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

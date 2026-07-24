@@ -1,0 +1,15 @@
+{
+  "name": "fajarudin-akbar-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "echo 'No build step needed'",
+    "lint": "echo 'No lint step needed'",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

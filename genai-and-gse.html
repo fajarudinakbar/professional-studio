@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guiding Generative AI with GSE Learning Objectives | Fajarudin Akbar</title>
+
+    <!-- Social Media Meta Tags (Open Graph & Twitter) -->
+    <meta property="og:title" content="Guiding Generative AI with GSE Learning Objectives">
+    <meta property="og:description" content="Exploring Principled, Effective, and Accessible ELT Material Design">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fajarudinakbar.github.io/GenAI-with-GSE/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Screenshot%202025-08-28%20225611.png">
+    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Screenshot%202025-08-28%20225611.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Guiding Generative AI with GSE Learning Objectives">
+    <meta name="twitter:description" content="Exploring Principled, Effective, and Accessible ELT Material Design">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Screenshot%202025-08-28%20225611.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+   
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Animate CSS & Lucide Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Brutalist Shadows -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'brutal': '8px 8px 0px 0px rgba(0,0,0,1)',
+                        'brutal-hover': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'brutal-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'brutal-sm-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
+                        'brutal-lg': '12px 12px 0px 0px rgba(0,0,0,1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-light: #fdfdf8; 
+            --text-light: #000000;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Blueprint Grid Background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        /* Modern text selection style */
+        ::selection {
+            background-color: #fef08a; /* yellow-200 */
+            color: #000;
+        }
+
+        /* Brutalist Base Components */
+        .brutal-card {
+            background: #ffffff;
+            border: 4px solid #000000;
+            box-shadow: 8px 8px 0px 0px #000000;
+        }
+
+        .brutal-interactive {
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .brutal-interactive:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0px 0px #000 !important;
+        }
+
+        .brutal-interactive:active {
+            transform: translate(8px, 8px);
+            box-shadow: 0px 0px 0px 0px #000 !important;
+        }
+
+        /* Custom focus ring */
+        .focus-ring {
+            @apply focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-black;
+        }
+
+        /* Styling for the prompt code blocks */
+        .prompt-block {
+            background-color: #fff;
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px 0px #000;
+            padding: 1.5rem;
+            position: relative;
+        }
+        .prompt-block pre {
+            white-space: pre-wrap;
+            word-break: break-word; /* Prevents long words/URLs from breaking the container */
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: monospace;
+        }
+        @media (min-width: 640px) {
+            .prompt-block pre {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Responsive Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px 0px #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="text-slate-900 selection:bg-yellow-300 selection:text-black antialiased">
+    
+    <!-- Blueprint Grid -->
+    <div class="bg-grid"></div>
+
+    <!-- Header & Navigation -->
+    <header class="bg-white border-b-4 border-black sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="font-black text-xl uppercase tracking-wide bg-yellow-300 px-3 py-1 border-2 border-black">
+                Fajarudin Akbar | ELT-AI
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-base lg:text-lg font-bold uppercase">
+                <a href="#challenge" class="hover:bg-black hover:text-white px-2 py-1 transition-colors">Challenge</a>
+                <a href="#method" class="hover:bg-black hover:text-white px-2 py-1 transition-colors">Method</a>
+                <a href="#findings" class="hover:bg-black hover:text-white px-2 py-1 transition-colors">Findings</a>
+                <a href="#examples" class="hover:bg-black hover:text-white px-2 py-1 transition-colors">Examples</a>
+                <a href="#webinar" class="hover:bg-black hover:text-white px-2 py-1 transition-colors">Webinar</a>
+                <a href="#conclusion" class="hover:bg-black hover:text-white px-2 py-1 transition-colors">Conclusion</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden border-2 border-black bg-yellow-300 p-2 brutal-interactive shadow-[4px_4px_0px_0px_#000] focus-ring">
+                <i data-lucide="menu" class="w-6 h-6 stroke-[3]"></i>
+                <span class="sr-only">Open menu</span>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t-4 border-black bg-white px-4 py-4 text-lg font-bold uppercase">
+            <a href="#challenge" class="block py-3 px-4 border-b-2 border-black hover:bg-yellow-200">Challenge</a>
+            <a href="#method" class="block py-3 px-4 border-b-2 border-black hover:bg-yellow-200">Method</a>
+            <a href="#findings" class="block py-3 px-4 border-b-2 border-black hover:bg-yellow-200">Findings</a>
+            <a href="#examples" class="block py-3 px-4 border-b-2 border-black hover:bg-yellow-200">Examples</a>
+            <a href="#webinar" class="block py-3 px-4 border-b-2 border-black hover:bg-yellow-200">Webinar</a>
+            <a href="#conclusion" class="block py-3 px-4 border-b-2 border-black hover:bg-yellow-200">Conclusion</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center" data-animate>
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-black uppercase tracking-tight leading-tight mb-6">
+                    Guiding Generative AI with 
+                    <span class="inline-block mt-2 sm:mt-4 bg-emerald-400 text-black px-4 sm:px-6 py-2 border-4 border-black shadow-brutal transform rotate-2">
+                        GSE Learning Objectives
+                    </span>
+                </h1>
+                
+                <div class="mt-12 sm:mt-16 inline-block bg-white border-4 border-black p-4 sm:p-6 shadow-brutal max-w-3xl mx-auto">
+                    <p class="text-lg sm:text-xl md:text-2xl font-bold uppercase">
+                        Exploring Principled, Effective, and Accessible ELT Material Design
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Challenge Section -->
+        <section id="challenge" class="py-16 md:py-24" aria-labelledby="challenge-heading">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 sm:mb-16" data-animate>
+                    <h2 id="challenge-heading" class="flex flex-col sm:flex-row items-center justify-center gap-4 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase">
+                        <span class="bg-blue-300 border-4 border-black p-3 shadow-brutal-sm"><i data-lucide="puzzle" class="w-8 h-8 sm:w-10 sm:h-10 stroke-[3]"></i></span>
+                        <span>The Core Challenge</span>
+                    </h2>
+                    <p class="mt-6 text-lg sm:text-xl font-bold bg-white inline-block px-4 py-2 border-4 border-black shadow-brutal-sm">Exploring the bridge between AI potential and pedagogical principle.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 sm:gap-10 items-stretch mt-8 sm:mt-12">
+                    <div class="bg-white p-6 sm:p-8 md:p-10 border-4 border-black shadow-[8px_8px_0px_0px_#000] sm:shadow-[12px_12px_0px_0px_#000] flex flex-col justify-center" data-animate>
+                        <h3 class="text-2xl sm:text-3xl font-black uppercase mb-4 sm:mb-6 flex items-center gap-3">
+                            <i data-lucide="alert-circle" class="w-6 h-6 sm:w-8 sm:h-8 text-red-500 stroke-[3]"></i> The Problem
+                        </h3>
+                        <p class="text-lg font-medium leading-relaxed">
+                            <span class="bg-yellow-200 font-bold px-1 border-2 border-black">Generative AI tools offer immense possibilities for English teaching,</span> 
+                            but many implementations can lack pedagogical grounding. This may result in generic, misaligned, or ineffective learning content that doesn't meet specific student needs.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 sm:gap-6 text-center" data-animate>
+                        <div class="bg-red-300 p-4 sm:p-6 md:p-8 border-4 border-black shadow-[6px_6px_0px_0px_#000] sm:shadow-[8px_8px_0px_0px_#000] flex flex-col items-center justify-center">
+                            <span class="text-4xl sm:text-5xl md:text-6xl font-black text-black">4K+</span>
+                            <p class="text-sm sm:text-base md:text-lg font-bold uppercase mt-2 border-t-4 border-black pt-2 w-full">GSE Descriptors</p>
+                        </div>
+                        <div class="bg-yellow-300 p-4 sm:p-6 md:p-8 border-4 border-black shadow-[6px_6px_0px_0px_#000] sm:shadow-[8px_8px_0px_0px_#000] flex flex-col items-center justify-center">
+                            <span class="text-4xl sm:text-5xl md:text-6xl font-black text-black counter" data-target="3">0</span>
+                            <p class="text-sm sm:text-base md:text-lg font-bold uppercase mt-2 border-t-4 border-black pt-2 w-full">AI Tools Tested</p>
+                        </div>
+                        <div class="col-span-2 bg-white p-6 sm:p-8 border-4 border-black shadow-[6px_6px_0px_0px_#000] sm:shadow-[8px_8px_0px_0px_#000] flex items-center">
+                             <p class="text-lg font-medium text-left">
+                                This application explores aligning <span class="bg-black text-white px-2 py-1 font-bold uppercase mx-1 inline-block my-1 sm:my-0">ChatGPT, Copilot & Claude</span> with the 
+                                <a href="https://www.pearson.com/english/gse.html" target="_blank" rel="noopener noreferrer" class="font-bold underline decoration-4 underline-offset-4 hover:bg-yellow-200 transition-colors inline-block mt-1">Global Scale of English (GSE)</a> 
+                                framework for a systematic approach to ELT material design.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Method Section -->
+        <section id="method" class="py-16 md:py-24" aria-labelledby="method-heading">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 sm:mb-16" data-animate>
+                    <h2 id="method-heading" class="flex flex-col sm:flex-row items-center justify-center gap-4 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase">
+                        <span class="bg-violet-300 border-4 border-black p-3 shadow-brutal-sm"><i data-lucide="network" class="w-8 h-8 sm:w-10 sm:h-10 stroke-[3]"></i></span>
+                        <span>Application Method</span>
+                    </h2>
+                    <p class="mt-6 text-lg sm:text-xl font-bold bg-white inline-block px-4 py-2 border-4 border-black shadow-brutal-sm">A practical approach to testing and applying AI tools.</p>
+                </div>
+                
+                <div class="bg-white p-6 sm:p-8 md:p-12 border-4 sm:border-8 border-black shadow-[8px_8px_0px_0px_#000] sm:shadow-[12px_12px_0px_0px_#000]" data-animate>
+                    <ul class="space-y-8 sm:space-y-10">
+                        <li class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 border-b-4 border-black pb-6 sm:pb-8">
+                            <div class="bg-cyan-300 border-4 border-black p-3 sm:p-4 shadow-brutal-sm flex-shrink-0 self-start sm:self-auto">
+                                <i data-lucide="flask-conical" class="w-6 h-6 sm:w-8 sm:h-8 stroke-[3]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-2xl md:text-3xl uppercase mb-2">Exploratory Testing</h4>
+                                <p class="text-lg font-medium">Iteratively refining prompts based on specific GSE learning objectives to test the AI's ability to generate level-appropriate content.</p>
+                            </div>
+                        </li>
+                        <li class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 border-b-4 border-black pb-6 sm:pb-8">
+                            <div class="bg-pink-300 border-4 border-black p-3 sm:p-4 shadow-brutal-sm flex-shrink-0 self-start sm:self-auto">
+                                <i data-lucide="scale" class="w-6 h-6 sm:w-8 sm:h-8 stroke-[3]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-2xl md:text-3xl uppercase mb-2">Comparative Analysis</h4>
+                                <p class="text-lg font-medium">Evaluating outputs from different GenAI tools for consistency, quality, accuracy, and adherence to the prompt's pedagogical constraints.</p>
+                            </div>
+                        </li>
+                        <li class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+                            <div class="bg-orange-300 border-4 border-black p-3 sm:p-4 shadow-brutal-sm flex-shrink-0 self-start sm:self-auto">
+                                <i data-lucide="book-open" class="w-6 h-6 sm:w-8 sm:h-8 stroke-[3]"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-black text-2xl md:text-3xl uppercase mb-2">Contextual Review</h4>
+                                <p class="text-lg font-medium">Connecting the practical application to current ideas in EdTech and language teaching to ensure it's relevant and informed.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-10 sm:mt-12 pt-8 sm:pt-10 border-t-4 sm:border-t-8 border-black grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center">
+                        <!-- Tool 1 -->
+                        <a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer" class="block p-4 sm:p-6 border-4 border-black bg-emerald-200 brutal-interactive focus-ring">
+                            <div class="flex items-center justify-center gap-2 sm:gap-3 mb-2">
+                                <span class="font-black text-xl sm:text-2xl uppercase">ChatGPT</span>
+                                <i data-lucide="external-link" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[3]"></i>
+                            </div>
+                            <span class="font-bold border-t-2 border-black pt-2 block text-sm sm:text-base">(OpenAI)</span>
+                        </a>
+                        <!-- Tool 2 -->
+                        <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="block p-4 sm:p-6 border-4 border-black bg-blue-300 brutal-interactive focus-ring">
+                             <div class="flex items-center justify-center gap-2 sm:gap-3 mb-2">
+                                <span class="font-black text-xl sm:text-2xl uppercase">Copilot</span>
+                                <i data-lucide="external-link" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[3]"></i>
+                            </div>
+                            <span class="font-bold border-t-2 border-black pt-2 block text-sm sm:text-base">(Microsoft)</span>
+                        </a>
+                        <!-- Tool 3 -->
+                        <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer" class="block p-4 sm:p-6 border-4 border-black bg-amber-400 brutal-interactive focus-ring">
+                             <div class="flex items-center justify-center gap-2 sm:gap-3 mb-2">
+                                <span class="font-black text-xl sm:text-2xl uppercase">Claude</span>
+                                <i data-lucide="external-link" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[3]"></i>
+                            </div>
+                            <span class="font-bold border-t-2 border-black pt-2 block text-sm sm:text-base">(Anthropic)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Findings Section -->
+        <section id="findings" class="py-16 md:py-24" aria-labelledby="findings-heading">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 sm:mb-16" data-animate>
+                    <h2 id="findings-heading" class="flex flex-col sm:flex-row items-center justify-center gap-4 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase">
+                        <span class="bg-pink-300 border-4 border-black p-3 shadow-brutal-sm"><i data-lucide="search" class="w-8 h-8 sm:w-10 sm:h-10 stroke-[3]"></i></span>
+                        <span>Key Observations</span>
+                    </h2>
+                    <p class="mt-6 text-lg sm:text-xl font-bold bg-white inline-block px-4 py-2 border-4 border-black shadow-brutal-sm">How explicit pedagogical guidance can lead to better results.</p>
+                </div>
+                
+                <div class="bg-yellow-300 border-4 border-black p-6 sm:p-8 md:p-10 shadow-[8px_8px_0px_0px_#000] sm:shadow-[12px_12px_0px_0px_#000] flex flex-col md:flex-row items-center gap-6 sm:gap-8 mb-10 sm:mb-12 transform sm:-rotate-1" data-animate>
+                    <div class="bg-white border-4 border-black p-4 sm:p-5 shadow-brutal-sm flex-shrink-0">
+                        <i data-lucide="lightbulb" class="w-8 h-8 sm:w-12 sm:h-12 stroke-[3]"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <p class="text-xl sm:text-2xl font-black uppercase leading-snug">
+                            Using explicit GSE descriptors in prompts appears to improve the quality and pedagogical alignment of GenAI responses.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 sm:gap-10 items-stretch mt-8 sm:mt-12">
+                    <div class="bg-white p-6 sm:p-8 md:p-10 border-4 border-black shadow-[8px_8px_0px_0px_#000] sm:shadow-[12px_12px_0px_0px_#000]" data-animate>
+                        <h4 class="font-black text-2xl md:text-3xl uppercase mb-6 sm:mb-8 border-b-4 border-black pb-4">GSE-aligned prompts appeared to yield:</h4>
+                        <ul class="space-y-4 sm:space-y-6 text-lg">
+                            <li class="flex items-start gap-3 sm:gap-4">
+                                <div class="bg-green-400 border-2 border-black p-1 shadow-brutal-sm-hover mt-1 flex-shrink-0"><i data-lucide="check" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[4]"></i></div>
+                                <span><strong class="uppercase">More Level-Appropriate Content:</strong> Vocabulary & grammar seemed better matched to the target proficiency.</span>
+                            </li>
+                            <li class="flex items-start gap-3 sm:gap-4">
+                                <div class="bg-green-400 border-2 border-black p-1 shadow-brutal-sm-hover mt-1 flex-shrink-0"><i data-lucide="check" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[4]"></i></div>
+                                <span><strong class="uppercase">Better Task Matching:</strong> Activities felt more relevant to the specific skill.</span>
+                            </li>
+                            <li class="flex items-start gap-3 sm:gap-4">
+                                <div class="bg-green-400 border-2 border-black p-1 shadow-brutal-sm-hover mt-1 flex-shrink-0"><i data-lucide="check" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[4]"></i></div>
+                                <span><strong class="uppercase">Increased Consistency:</strong> Outputs were generally more reliable across different AI tools.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-slate-900 text-white p-6 sm:p-8 md:p-10 border-4 border-black shadow-[8px_8px_0px_0px_#000] sm:shadow-[12px_12px_0px_0px_#000] flex flex-col" data-animate>
+                        <h4 class="font-black text-2xl md:text-3xl uppercase mb-6 sm:mb-8 border-b-4 border-white pb-4">Example GSE Descriptor:</h4>
+                        <div class="bg-black border-4 border-white p-4 sm:p-6 font-mono text-base sm:text-lg flex-grow shadow-[4px_4px_0px_0px_#fff]">
+                            <p class="mb-4 text-yellow-300">
+                                > <span class="text-white">Skill:</span> Speaking<br>
+                                > <span class="text-white">CEFR:</span> A2 / <span class="text-white">GSE:</span> 30
+                            </p>
+                            <p class="text-green-400 leading-relaxed font-bold">
+                                "Can give a short, basic description of their home, family and job, given some help with vocabulary."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Examples Section -->
+        <section id="examples" class="py-16 md:py-24" aria-labelledby="examples-heading">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 sm:mb-16" data-animate>
+                    <h2 id="examples-heading" class="flex flex-col sm:flex-row items-center justify-center gap-4 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase">
+                        <span class="bg-cyan-300 border-4 border-black p-3 shadow-brutal-sm"><i data-lucide="laptop" class="w-8 h-8 sm:w-10 sm:h-10 stroke-[3]"></i></span>
+                        <span>Practical Application</span>
+                    </h2>
+                    <p class="mt-6 text-lg sm:text-xl font-bold bg-white inline-block px-4 py-2 border-4 border-black shadow-brutal-sm">Example prompts for direct use and adaptation.</p>
+                </div>
+                
+                <div class="mt-12 sm:mt-16 space-y-12 sm:space-y-16">
+                    <!-- Example 1 -->
+                    <div class="bg-white border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_#000] sm:shadow-[8px_8px_0px_0px_#000]" data-animate>
+                        <h3 class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 font-black uppercase text-xl sm:text-2xl md:text-3xl mb-6 bg-yellow-200 inline-flex px-3 sm:px-4 py-2 border-4 border-black shadow-brutal-sm sm:transform sm:-rotate-1">
+                            <i data-lucide="book" class="w-6 h-6 sm:w-8 sm:h-8 stroke-[3] hidden sm:block"></i>
+                            <span>Example 1: Reading (A2)</span>
+                        </h3>
+                        <div class="prompt-block">
+                            <button class="copy-btn static mb-4 sm:absolute sm:top-4 sm:right-4 bg-blue-400 hover:bg-blue-500 text-black border-4 border-black font-black uppercase py-2 px-4 shadow-brutal-sm brutal-interactive focus-ring text-sm sm:text-base w-full sm:w-auto" data-clipboard-target="#prompt1">
+                                <i data-lucide="copy" class="w-4 h-4 sm:w-5 sm:h-5 inline mr-2 stroke-[3]"></i> Copy
+                            </button>
+                            <pre id="prompt1" class="pt-0 sm:pt-14 md:pt-0">Act as an English language teaching material designer. Create a short reading text (around 100 words) suitable for an A2 level learner.
+
+The text should be based on the GSE learning objective (Reading, 34): "Can understand clearly written, straightforward instructions on how to use a piece of equipment."
+
+After the text, create 3 simple multiple-choice questions to check comprehension.</pre>
+                        </div>
+                    </div>
+                    
+                    <!-- Example 2 -->
+                    <div class="bg-white border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_#000] sm:shadow-[8px_8px_0px_0px_#000]" data-animate>
+                        <h3 class="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 font-black uppercase text-xl sm:text-2xl md:text-3xl mb-6 bg-pink-300 inline-flex px-3 sm:px-4 py-2 border-4 border-black shadow-brutal-sm sm:transform sm:rotate-1">
+                            <i data-lucide="pen-tool" class="w-6 h-6 sm:w-8 sm:h-8 stroke-[3] hidden sm:block"></i>
+                            <span>Example 2: Writing (B1)</span>
+                        </h3>
+                        <div class="prompt-block">
+                            <button class="copy-btn static mb-4 sm:absolute sm:top-4 sm:right-4 bg-blue-400 hover:bg-blue-500 text-black border-4 border-black font-black uppercase py-2 px-4 shadow-brutal-sm brutal-interactive focus-ring text-sm sm:text-base w-full sm:w-auto" data-clipboard-target="#prompt2">
+                                <i data-lucide="copy" class="w-4 h-4 sm:w-5 sm:h-5 inline mr-2 stroke-[3]"></i> Copy
+                            </button>
+                            <pre id="prompt2" class="pt-0 sm:pt-14 md:pt-0">As an expert in ELT, design a writing task for a B1 level student.
+
+The task must align with the GSE learning objective (Writing, 46): "Can write simple informal emails/letters and online postings giving news or opinions."
+
+The task is to write a short email to a friend (about 50-80 words).
+
+Provide a clear scenario for the email (e.g., inviting them to a weekend trip) and include 3 bullet points of information they must include in their email.</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Webinar Section -->
+        <section id="webinar" class="py-16 md:py-24" aria-labelledby="webinar-heading">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" data-animate>
+                <div class="text-center mb-12 sm:mb-16">
+                    <h2 id="webinar-heading" class="flex flex-col sm:flex-row items-center justify-center gap-4 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase">
+                        <span class="bg-red-400 border-4 border-black p-3 shadow-brutal-sm"><i data-lucide="youtube" class="w-8 h-8 sm:w-10 sm:h-10 stroke-[3]"></i></span>
+                        <span>Webinar in Action</span>
+                    </h2>
+                    <p class="mt-6 text-lg sm:text-xl font-bold bg-white inline-block px-4 py-2 border-4 border-black shadow-brutal-sm">Watch a practical demonstration of these principles at work.</p>
+                </div>
+                
+                <div class="video-container mt-8 sm:mt-12 bg-white">
+                    <iframe 
+                        src="https://www.youtube.com/embed/eOXMtO94F3g" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="mt-8 sm:mt-10 bg-yellow-200 border-4 border-black p-4 sm:p-6 shadow-[6px_6px_0px_0px_#000] sm:shadow-[8px_8px_0px_0px_#000] max-w-3xl mx-auto sm:transform sm:rotate-1">
+                    <p class="text-center text-black text-lg sm:text-xl font-bold leading-relaxed">
+                        In this recorded session, I walk through the process of using GSE-aligned prompts to generate high-quality, level-appropriate ELT materials with various Generative AI tools.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="py-16 md:py-24" aria-labelledby="conclusion-heading">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 sm:mb-16" data-animate>
+                    <h2 id="conclusion-heading" class="flex flex-col sm:flex-row items-center justify-center gap-4 text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase">
+                        <span class="bg-emerald-300 border-4 border-black p-3 shadow-brutal-sm"><i data-lucide="flag" class="w-8 h-8 sm:w-10 sm:h-10 stroke-[3]"></i></span>
+                        <span>Conclusion & Impact</span>
+                    </h2>
+                    <p class="mt-6 text-lg sm:text-xl font-bold bg-white inline-block px-4 py-2 border-4 border-black shadow-brutal-sm">Exploring how educators can leverage AI responsibly and effectively.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 sm:gap-10 items-stretch mt-8 sm:mt-12">
+                    <div class="bg-white p-6 sm:p-8 md:p-10 border-4 border-black shadow-[8px_8px_0px_0px_#000] sm:shadow-[12px_12px_0px_0px_#000]" data-animate>
+                        <h4 class="flex items-center gap-3 sm:gap-4 font-black text-2xl md:text-3xl uppercase mb-6 sm:mb-8 border-b-4 border-black pb-4">
+                            <i data-lucide="key" class="w-6 h-6 sm:w-8 sm:h-8 text-amber-500 stroke-[3]"></i> Key Takeaways
+                        </h4>
+                        <ul class="space-y-4 sm:space-y-6 text-lg">
+                            <li class="flex items-start gap-3 sm:gap-4">
+                                <div class="bg-blue-400 border-2 border-black p-1 shadow-brutal-sm-hover mt-1 flex-shrink-0"><i data-lucide="rocket" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[3]"></i></div>
+                                <span><strong class="uppercase">Powerful Enhancement:</strong> GenAI tools, when guided, can be powerful aids for ELT material creation.</span>
+                            </li>
+                            <li class="flex items-start gap-3 sm:gap-4">
+                                <div class="bg-blue-400 border-2 border-black p-1 shadow-brutal-sm-hover mt-1 flex-shrink-0"><i data-lucide="shield" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[3]"></i></div>
+                                <span><strong class="uppercase">Pedagogical Soundness:</strong> Framework integration helps ensure outputs are coherent and educationally valuable.</span>
+                            </li>
+                            <li class="flex items-start gap-3 sm:gap-4">
+                                <div class="bg-blue-400 border-2 border-black p-1 shadow-brutal-sm-hover mt-1 flex-shrink-0"><i data-lucide="graduation-cap" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[3]"></i></div>
+                                <span><strong class="uppercase">Teacher Agency is Key:</strong> The educator's role in prompt design and evaluation remains critical for responsible AI integration.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-orange-300 p-6 sm:p-8 md:p-10 border-4 border-black shadow-[8px_8px_0px_0px_#000] sm:shadow-[12px_12px_0px_0px_#000] flex flex-col" data-animate>
+                        <h4 class="flex items-center gap-3 sm:gap-4 font-black text-2xl md:text-3xl uppercase mb-6 sm:mb-8 border-b-4 border-black pb-4">
+                            <i data-lucide="binoculars" class="w-6 h-6 sm:w-8 sm:h-8 stroke-[3]"></i> Future Outlook
+                        </h4>
+                        <p class="text-lg font-medium mb-6 sm:mb-8 leading-relaxed">
+                            The future may lie in developing more intuitive interfaces and AI training that inherently understands pedagogical frameworks. This could lower the barrier to entry for educators and enable even more dynamic, personalized learning experiences.
+                        </p>
+                        <div class="bg-white border-4 border-black p-4 sm:p-6 shadow-brutal-sm mt-auto">
+                            <p class="text-lg sm:text-xl font-black uppercase text-center">
+                                This systematic approach can help empower educators to move from being simple users of AI to becoming architects of AI-driven learning.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="connect" class="bg-white border-t-8 border-black pt-16 sm:pt-20 pb-12 sm:pb-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+            <h3 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase mb-4 text-black leading-tight">
+                Designed by <br class="sm:hidden"><a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="underline decoration-4 underline-offset-4 hover:bg-yellow-300 transition-colors duration-200 px-2 py-1 leading-relaxed inline-block mt-2 sm:mt-0">fajarudinakbar.com</a>
+            </h3>
+            <p class="mt-6 sm:mt-8 text-sm font-bold uppercase text-slate-500 tracking-wide">GSE Ambassador | EdTech Practitioner | TEFL/TESOL Educator</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="bg-yellow-400 border-4 border-black p-3 sm:p-4 shadow-brutal brutal-interactive z-50 pointer-events-none fixed bottom-6 sm:bottom-8 right-6 sm:right-8 transition-opacity duration-300 opacity-0" aria-label="Scroll to top">
+        <i data-lucide="arrow-up" class="w-6 h-6 sm:w-8 sm:h-8 font-bold text-black stroke-[3]"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Initialize Lucide Icons ---
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                try { lucide.createIcons(); } catch (e) { console.error('Error running lucide.createIcons():', e); }
+            }
+
+            // --- Mobile menu toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+            
+            // --- Intersection Observer for animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                        entry.target.classList.remove('opacity-0');
+                        
+                        // Animate counter if it contains a counter element
+                        const counter = entry.target.querySelector('.counter');
+                        if (counter && !counter.classList.contains('counted')) {
+                            animateCounter(counter);
+                            counter.classList.add('counted');
+                        }
+                        
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            document.querySelectorAll('[data-animate]').forEach(el => {
+                el.classList.add('opacity-0');
+                observer.observe(el);
+            });
+
+            // --- Counter Animation Function ---
+            function animateCounter(element) {
+                const target = +element.getAttribute('data-target');
+                const duration = 1500; 
+                const stepTime = Math.abs(Math.floor(duration / target));
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += 1;
+                    if (target > 1000) { 
+                         current += Math.floor(target / 100);
+                    }
+                    if (current >= target) {
+                        clearInterval(timer);
+                        current = target;
+                    }
+                    element.innerText = current.toLocaleString(); 
+                }, stepTime < 1 ? 1 : stepTime);
+            }
+
+            // --- Clipboard copy functionality ---
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.clipboardTarget;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const textArea = document.createElement('textarea');
+                        textArea.value = targetElement.innerText;
+                        textArea.style.position = 'fixed';
+                        textArea.style.top = '-9999px';
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        try {
+                            document.execCommand('copy');
+                            const originalHTML = button.innerHTML;
+                            button.innerHTML = '<i data-lucide="check" class="w-4 h-4 sm:w-5 sm:h-5 inline mr-1 sm:mr-2 stroke-[3]"></i> COPIED!';
+                            lucide.createIcons();
+                            button.classList.replace('bg-blue-400', 'bg-green-400');
+                            
+                            setTimeout(() => { 
+                                button.innerHTML = originalHTML; 
+                                button.classList.replace('bg-green-400', 'bg-blue-400');
+                                lucide.createIcons();
+                            }, 2000);
+                        } catch (err) {
+                            console.error('Failed to copy text: ', err);
+                        }
+                        document.body.removeChild(textArea);
+                    }
+                });
+            });
+
+            // --- Scroll to Top Functionality ---
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (scrollTopBtn) {
+                window.onscroll = function() {
+                    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                        scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                        scrollTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                    } else {
+                        scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                        scrollTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                    }
+                };
+                scrollTopBtn.addEventListener('click', function() {
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+            }
+        });
+    </script>
+</body>
+</html>

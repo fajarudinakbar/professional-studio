@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYP: Visual Framework - Optimized & Interactive</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Brutalist Shadows -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'brutal': '8px 8px 0px 0px rgba(0,0,0,1)',
+                        'brutal-hover': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'brutal-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'brutal-lg': '12px 12px 0px 0px rgba(0,0,0,1)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom styles for Neo-Brutalism */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: #fdfdf8;
+            color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* Blueprint Grid Background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        /* Interactive "Press" Effect */
+        .brutal-interactive {
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .brutal-interactive:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0px 0px #000 !important;
+        }
+
+        .brutal-interactive:active {
+            transform: translate(8px, 8px);
+            box-shadow: 0px 0px 0px 0px #000 !important;
+        }
+
+        /* Custom selection color */
+        ::selection {
+            background-color: #fef08a; /* yellow-200 */
+            color: #000;
+        }
+
+        /* Custom focus ring */
+        .focus-ring {
+            @apply focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-black;
+        }
+
+        /* Animation for elements fading in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        
+        /* Staggered animation delays */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+    </style>
+</head>
+<body class="antialiased selection:bg-yellow-300 selection:text-black" x-data="framework">
+
+    <!-- Blueprint Grid -->
+    <div class="bg-grid"></div>
+
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-8 sm:py-12 flex flex-col justify-center relative z-10 min-h-screen">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12 md:mb-20 fade-in delay-1">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase text-black tracking-tight leading-tight">
+                The 
+                <span class="inline-block bg-yellow-300 px-4 sm:px-6 py-2 border-4 border-black shadow-brutal transform -rotate-2">
+                    FYP
+                </span> 
+                Framework
+            </h1>
+            <div class="mt-8 inline-block bg-white border-4 border-black p-3 sm:p-4 shadow-brutal-sm max-w-3xl mx-auto">
+                <p class="text-base sm:text-lg md:text-xl font-bold uppercase text-slate-800">
+                    Stop settling for generic AI. Start shaping an AI that understands YOU.
+                </p>
+            </div>
+        </header>
+
+        <!-- Framework Visual Section -->
+        <div class="relative max-w-6xl mx-auto w-full">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+                
+                <!-- Phase 1: Your Profile -->
+                <div @click="open(1)" @keydown.enter.prevent="open(1)" role="button" tabindex="0" aria-label="Learn more about setting up Your Profile" class="bg-white border-4 border-black p-6 sm:p-8 shadow-brutal brutal-interactive cursor-pointer flex flex-col h-full fade-in delay-2 focus-ring">
+                    <div class="bg-cyan-300 border-4 border-black p-3 sm:p-4 w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#000] transform rotate-2">
+                        <i data-lucide="user" class="w-8 h-8 stroke-[3]"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black uppercase text-black mb-3">1. Your Profile</h3>
+                    <p class="text-sm sm:text-base font-medium text-slate-700 flex-grow mb-6 leading-relaxed">
+                        Define your needs, goals, and communication style so the AI can tailor its assistance to you.
+                    </p>
+                    <div class="mt-auto inline-flex items-center font-black uppercase text-sm sm:text-base text-black bg-yellow-200 border-2 border-black px-3 py-1 self-start shadow-[2px_2px_0px_0px_#000]">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1 stroke-[3]"></i>
+                    </div>
+                </div>
+
+                <!-- Phase 2: Dynamic Adaptation -->
+                <div @click="open(2)" @keydown.enter.prevent="open(2)" role="button" tabindex="0" aria-label="Learn more about Dynamic Adaptation" class="bg-white border-4 border-black p-6 sm:p-8 shadow-brutal brutal-interactive cursor-pointer flex flex-col h-full fade-in delay-3 focus-ring">
+                    <div class="bg-pink-300 border-4 border-black p-3 sm:p-4 w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#000] transform -rotate-2">
+                        <i data-lucide="refresh-cw" class="w-8 h-8 stroke-[3]"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black uppercase text-black mb-3">2. Dynamic Adaptation</h3>
+                    <p class="text-sm sm:text-base font-medium text-slate-700 flex-grow mb-6 leading-relaxed">
+                        Guide the AI with your feedback, allowing it to learn your preferences and improve over time.
+                    </p>
+                    <div class="mt-auto inline-flex items-center font-black uppercase text-sm sm:text-base text-black bg-yellow-200 border-2 border-black px-3 py-1 self-start shadow-[2px_2px_0px_0px_#000]">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1 stroke-[3]"></i>
+                    </div>
+                </div>
+
+                <!-- Phase 3: Contextual Intelligence -->
+                <div @click="open(3)" @keydown.enter.prevent="open(3)" role="button" tabindex="0" aria-label="Learn more about Contextual Intelligence" class="bg-white border-4 border-black p-6 sm:p-8 shadow-brutal brutal-interactive cursor-pointer flex flex-col h-full fade-in delay-4 focus-ring">
+                    <div class="bg-emerald-300 border-4 border-black p-3 sm:p-4 w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center mb-6 shadow-[4px_4px_0px_0px_#000] transform rotate-3">
+                        <i data-lucide="brain" class="w-8 h-8 stroke-[3]"></i>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-black uppercase text-black mb-3">3. Contextual Intelligence</h3>
+                    <p class="text-sm sm:text-base font-medium text-slate-700 flex-grow mb-6 leading-relaxed">
+                        The AI applies its understanding of you across different tasks, from advising to coaching.
+                    </p>
+                     <div class="mt-auto inline-flex items-center font-black uppercase text-sm sm:text-base text-black bg-yellow-200 border-2 border-black px-3 py-1 self-start shadow-[2px_2px_0px_0px_#000]">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1 stroke-[3]"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Looping Arrow for Iteration (Neo-Brutalist style) -->
+            <div class="hidden md:block absolute w-full -bottom-16 left-0 text-center fade-in delay-5 pointer-events-none">
+                 <svg class="mx-auto text-black" width="50%" height="60" viewBox="0 0 500 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M490 20C490 45 410 50 250 50C90 50 10 45 10 20" stroke="currentColor" stroke-width="4" stroke-dasharray="12 12" stroke-linecap="square"/>
+                    <path d="M25 5L10 20L25 35" stroke="currentColor" stroke-width="4" stroke-linejoin="miter" stroke-linecap="square"/>
+                </svg>
+            </div>
+
+        </div>
+
+        <!-- Tagline Footer -->
+        <footer class="text-center mt-20 md:mt-32 fade-in delay-5 relative z-10">
+            <p class="text-xl sm:text-2xl md:text-3xl font-black uppercase text-black mb-4">
+                FYP: An AI that's truly <span class="bg-blue-400 border-4 border-black px-3 py-1 shadow-brutal-sm inline-block transform -rotate-1">For You.</span>
+            </p>
+            <p class="text-sm sm:text-base font-bold text-slate-600 mt-6 uppercase tracking-wide">
+                Designed by <br class="sm:hidden"><a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="text-black underline decoration-4 underline-offset-4 hover:bg-yellow-300 px-1 transition-colors inline-block mt-2 sm:mt-0">fajarudinakbar.com</a>
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- Modal for Explanations -->
+    <div x-show="openModal" style="display: none;" @keydown.escape.window="close()" class="fixed inset-0 z-50 flex items-center justify-center px-4 sm:px-6">
+        
+        <!-- Overlay -->
+        <div x-show="openModal" 
+             x-transition:enter="ease-out duration-300" 
+             x-transition:enter-start="opacity-0" 
+             x-transition:enter-end="opacity-100" 
+             x-transition:leave="ease-in duration-200" 
+             x-transition:leave-start="opacity-100" 
+             x-transition:leave-end="opacity-0" 
+             @click="close()" 
+             class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+        
+        <!-- Modal Panel -->
+        <div x-show="openModal" 
+             x-transition:enter="ease-out duration-300" 
+             x-transition:enter-start="opacity-0 translate-y-8" 
+             x-transition:enter-end="opacity-100 translate-y-0" 
+             x-transition:leave="ease-in duration-200" 
+             x-transition:leave-start="opacity-100 translate-y-0" 
+             x-transition:leave-end="opacity-0 translate-y-8" 
+             class="relative z-10 w-full max-w-2xl bg-white border-4 sm:border-8 border-black shadow-[12px_12px_0px_0px_#000] p-6 sm:p-10 text-left max-h-[90vh] overflow-y-auto">
+            
+            <!-- Close Button -->
+            <button @click="close()" class="absolute top-4 sm:top-6 right-4 sm:right-6 bg-red-400 border-4 border-black p-2 shadow-brutal-sm brutal-interactive focus-ring" aria-label="Close modal">
+                <i data-lucide="x" class="w-6 h-6 stroke-[4]"></i>
+            </button>
+
+            <template x-if="openModal">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-black uppercase text-black mb-6 inline-block border-4 border-black shadow-brutal-sm px-4 sm:px-6 py-2 transform -rotate-1" 
+                        :class="modalContent[openModal - 1].bgClass" 
+                        x-text="modalContent[openModal - 1].title"></h2>
+                    
+                    <p class="text-base sm:text-lg font-medium text-slate-800 leading-relaxed bg-slate-100 border-4 border-black p-4 sm:p-6 mb-8" 
+                       x-text="modalContent[openModal - 1].description"></p>
+                    
+                    <div>
+                        <h3 class="font-black text-xl uppercase mb-4 border-b-4 border-black pb-2 inline-block">Key Actions:</h3>
+                        <ul class="space-y-4">
+                            <template x-for="action in modalContent[openModal - 1].actions" :key="action">
+                                <li class="flex items-start gap-4">
+                                    <div class="bg-yellow-300 border-2 border-black p-1 shadow-[2px_2px_0px_0px_#000] flex-shrink-0 mt-0.5">
+                                        <i data-lucide="check" class="w-4 h-4 sm:w-5 sm:h-5 stroke-[4]"></i>
+                                    </div>
+                                    <span class="text-base sm:text-lg font-bold text-slate-800" x-text="action"></span>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                    
+                    <div class="mt-10 text-center">
+                        <p class="text-sm font-bold uppercase text-slate-500">
+                            Press <kbd class="font-sans border-2 border-black bg-slate-100 rounded-md px-2 py-1 mx-1 text-black shadow-[2px_2px_0px_0px_#000]">Esc</kbd> to close
+                        </p>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+    
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
+    <!-- Initialization Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Re-initialize Lucide icons when Alpine renders modal content
+            document.addEventListener('alpine:initialized', () => {
+                Alpine.effect(() => {
+                    // Watch for openModal changes to render icons inside the newly created template
+                    const isOpen = Alpine.store('framework') ? Alpine.store('framework').openModal : null;
+                    setTimeout(() => {
+                        if (typeof lucide !== 'undefined') {
+                            lucide.createIcons();
+                        }
+                    }, 50);
+                });
+            });
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('framework', () => ({
+                openModal: null,
+
+                modalContent: [
+                    {
+                        title: 'Phase 1: Your Profile',
+                        bgClass: 'bg-cyan-300',
+                        description: 'You set a profile defining your unique needs, communication style, and goals. The AI uses this as its foundational guide to assist you, ensuring relevance from the very first interaction.',
+                        actions: [
+                            'Define your personal or professional goals.',
+                            'Set your preferred communication style and tone.',
+                            'Establish a knowledge base for the AI to use.',
+                            'Create a starting point for a truly personalized AI.'
+                        ]
+                    },
+                    {
+                        title: 'Phase 2: Dynamic Adaptation',
+                        bgClass: 'bg-pink-300',
+                        description: 'The AI dynamically adapts based on your feedback. If a response isn\'t quite right, you can guide it by providing corrections or clarifications, and the AI learns your preferences for all future interactions.',
+                        actions: [
+                            'Provide real-time feedback to refine AI responses.',
+                            'Guide the AI towards your authentic and desired tone.',
+                            'Correct the AI to improve its accuracy and style.',
+                            'Enable the AI to remember and apply your preferences.'
+                        ]
+                    },
+                    {
+                        title: 'Phase 3: Contextual Intelligence',
+                        bgClass: 'bg-emerald-300',
+                        description: 'Your profile allows the AI to apply its understanding of you across different contexts. Whether you need an academic advisor, a business consultant, or an exam coach, the AI remains aligned with your specific goals and needs.',
+                        actions: [
+                            'Apply your profile to various contexts and tasks.',
+                            'Fine-tune the AI for specific roles like advising or coaching.',
+                            'Move beyond a generic bot to a specialized partner.',
+                            'Achieve a stable, reusable AI assistant that understands you.'
+                        ]
+                    }
+                ],
+
+                open(modalId) {
+                    this.openModal = modalId;
+                    // Prevent body scrolling when modal is open
+                    document.body.style.overflow = 'hidden';
+                },
+
+                close() {
+                    this.openModal = null;
+                    // Restore body scrolling
+                    document.body.style.overflow = '';
+                }
+            }));
+        });
+    </script>
+</body>
+</html>
