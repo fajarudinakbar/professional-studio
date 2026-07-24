@@ -1,165 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Beyond with AI | Online Course</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #818CF8, #C7D2FE, #A5B4FC);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero-bg {
-            /* Light mode gradient */
-            background-image: radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.05) 0%, rgba(79, 70, 229, 0) 25%),
-                              radial-gradient(circle at 80% 40%, rgba(129, 140, 248, 0.08) 0%, rgba(129, 140, 248, 0) 35%);
-        }
-        .card {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border-color: rgba(129, 140, 248, 0.5);
-        }
-        @media (prefers-color-scheme: dark) {
-            .hero-bg {
-                /* Dark mode gradient */
-                background-image: radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.2) 0%, rgba(79, 70, 229, 0) 25%),
-                                  radial-gradient(circle at 80% 40%, rgba(129, 140, 248, 0.15) 0%, rgba(129, 140, 248, 0) 35%);
-            }
-            .card {
-                background: rgba(17, 24, 39, 0.5); /* Semi-transparent card background */
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-            }
-             .card:hover {
-                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-                border-color: rgba(129, 140, 248, 0.5);
-            }
-        }
-        .section-title {
-            animation: fadeIn 1s ease-out forwards;
-        }
-        .card-container > a {
-             animation: popIn 0.5s ease-out forwards;
-             opacity: 0;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    <title>Generative AI in ELT (GBAI) | Fajarudin Akbar</title>
 
-        @keyframes popIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
+    <meta name="description" content="Generative AI in English Language Teaching workshop modules and resources by Fajarudin Akbar.">
+    <meta property="og:title" content="Generative AI in ELT (GBAI) - Workshop Modules">
+    <meta property="og:description" content="Explore interactive AI modules for English Language Teaching: Prompting, Multimodal AI, Coding, Delegating, and AI Companions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fajarudinakbar.com/GBAI.html">
+    <meta property="og:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Generative AI in ELT (GBAI)">
+    <meta name="twitter:description" content="Explore interactive AI modules for English Language Teaching.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0f172a',
+                        highlight: '#FACC15',
+                        accent: '#0D9488',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .neo-card {
+            border: 3px solid #0f172a;
+            box-shadow: 5px 5px 0px 0px #0f172a;
+        }
+        .neo-btn {
+            border: 3px solid #0f172a;
+            box-shadow: 4px 4px 0px 0px #0f172a;
+            transition: all 0.2s ease;
+        }
+        .neo-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #0f172a;
         }
     </style>
 </head>
-<body class="bg-white text-gray-800 dark:bg-[#050a18] dark:text-gray-200">
-
-    <!-- Header Section -->
-    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/50 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700/50">
-        <div class="container mx-auto px-6 py-4">
-            <!-- Title moved to main hero section -->
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <header class="bg-white border-b-4 border-dark sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-black text-xl uppercase tracking-tight text-dark flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Fajarudin Akbar
+            </a>
+            <span class="bg-highlight px-3 py-1 font-black border-2 border-dark text-xs uppercase shadow-[2px_2px_0px_0px_#0f172a]">
+                GBAI Modules
+            </span>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12 md:py-20">
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <span class="inline-block bg-accent text-white px-4 py-1 font-black uppercase text-xs border-2 border-dark shadow-[3px_3px_0px_0px_#0f172a] mb-4">
+                Workshop & Learning Series
+            </span>
+            <h1 class="text-4xl sm:text-5xl font-black text-dark uppercase tracking-tight mb-4">
+                Generative AI in ELT (GBAI)
+            </h1>
+            <p class="text-lg font-bold text-slate-600 max-w-2xl mx-auto">
+                Practical, hands-on interactive modules for English language teachers exploring generative AI prompt engineering, multimodal creation, coding, delegation, and AI companions.
+            </p>
+        </div>
 
-        <!-- Hero Section -->
-        <section class="text-center mb-24 md:mb-32 hero-bg py-16 rounded-3xl">
-             <div class="max-w-4xl mx-auto px-4" style="animation: fadeIn 1s ease-out;">
-                
-                <h1 class="text-6xl md:text-8xl font-extrabold mb-6 leading-tight text-gray-900 dark:text-white">Go Beyond with<br><span class="gradient-text">Generative AI</span></h1>
-                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                    Unlock the potential of Generative AI. This course is designed for learners, educators, and professionals to build confidence and creativity in working with AI as a tool for productivity, problem-solving, and innovation.
-                </p>
-            </div>
-        </section>
-
-        <!-- What You'll Learn Section -->
-        <section class="mb-24 md:mb-32">
-            <h3 class="text-5xl font-bold text-center mb-16 text-gray-900 dark:text-white section-title">What You’ll Learn</h3>
-            <div class="flex flex-col items-center space-y-8 card-container">
-                <!-- Module 1 -->
-                <a href="https://fajarudinakbar.github.io/GBAI/M1-PromptingAI" target="_blank" class="flex items-center p-8 rounded-2xl card no-underline w-full max-w-3xl" style="animation-delay: 0.1s;">
-                    <div class="text-6xl mr-8">✍️</div>
+        <div class="space-y-6 flex flex-col items-center">
+            <!-- Module 1 -->
+            <a href="https://fajarudinakbar.github.io/GBAI/M1-PromptingAI" target="_blank" class="neo-btn bg-white hover:bg-yellow-50 p-6 rounded-2xl w-full max-w-3xl flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-highlight border-2 border-dark flex items-center justify-center font-black text-xl">
+                        M1
+                    </div>
                     <div>
-                        <h4 class="text-3xl font-semibold text-gray-900 dark:text-white mb-2"><span class="text-indigo-600 dark:text-indigo-400 font-bold">Module 1:</span> Prompting with AI</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">Learn the art and science of crafting effective prompts to guide AI responses.</p>
+                        <h3 class="text-xl font-black uppercase text-dark group-hover:text-accent transition-colors">Prompting AI in ELT</h3>
+                        <p class="text-slate-600 text-sm font-medium">Mastering prompt engineering techniques tailored for communicative language teaching.</p>
                     </div>
-                </a>
+                </div>
+                <i class="fa-solid fa-arrow-right text-xl text-dark group-hover:translate-x-2 transition-transform"></i>
+            </a>
 
-                <!-- Module 2 -->
-                <a href="https://fajarudinakbar.github.io/GBAI/M2-MultimodalAI" target="_blank" class="flex items-center p-8 rounded-2xl card no-underline w-full max-w-3xl" style="animation-delay: 0.2s;">
-                    <div class="text-6xl mr-8">🎨</div>
+            <!-- Module 2 -->
+            <a href="https://fajarudinakbar.github.io/GBAI/M2-MultimodalAI" target="_blank" class="neo-btn bg-white hover:bg-yellow-50 p-6 rounded-2xl w-full max-w-3xl flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-300 border-2 border-dark flex items-center justify-center font-black text-xl">
+                        M2
+                    </div>
                     <div>
-                        <h4 class="text-3xl font-semibold text-gray-900 dark:text-white mb-2"><span class="text-indigo-600 dark:text-indigo-400 font-bold">Module 2:</span> Multimodality with AI</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">Integrate text, images, audio, and video for richer AI-driven outputs.</p>
+                        <h3 class="text-xl font-black uppercase text-dark group-hover:text-accent transition-colors">Multimodal AI Tools</h3>
+                        <p class="text-slate-600 text-sm font-medium">Combining text, audio, and visual AI models for immersive classroom content.</p>
                     </div>
-                </a>
+                </div>
+                <i class="fa-solid fa-arrow-right text-xl text-dark group-hover:translate-x-2 transition-transform"></i>
+            </a>
 
-                <!-- Module 3 -->
-                <a href="https://fajarudinakbar.github.io/GBAI/M3-CodingAI" target="_blank" class="flex items-center p-8 rounded-2xl card no-underline w-full max-w-3xl" style="animation-delay: 0.3s;">
-                    <div class="text-6xl mr-8">💻</div>
+            <!-- Module 3 -->
+            <a href="https://fajarudinakbar.github.io/GBAI/M3-CodingAI" target="_blank" class="neo-btn bg-white hover:bg-yellow-50 p-6 rounded-2xl w-full max-w-3xl flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-sky-300 border-2 border-dark flex items-center justify-center font-black text-xl">
+                        M3
+                    </div>
                     <div>
-                        <h4 class="text-3xl font-semibold text-gray-900 dark:text-white mb-2"><span class="text-indigo-600 dark:text-indigo-400 font-bold">Module 3:</span> Coding with AI</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">Enhance digital skills by collaborating with AI to write, debug, and understand code.</p>
+                        <h3 class="text-xl font-black uppercase text-dark group-hover:text-accent transition-colors">Coding AI for Educators</h3>
+                        <p class="text-slate-600 text-sm font-medium">Building custom web widgets and interactive learning applets without prior code experience.</p>
                     </div>
-                </a>
+                </div>
+                <i class="fa-solid fa-arrow-right text-xl text-dark group-hover:translate-x-2 transition-transform"></i>
+            </a>
 
-                <!-- Module 4 -->
-                <a href="https://fajarudinakbar.github.io/GBAI/M4-DelegatingAI" target="_blank" class="flex items-center p-8 rounded-2xl card no-underline w-full max-w-3xl" style="animation-delay: 0.4s;">
-                     <div class="text-6xl mr-8">🤖</div>
-                     <div>
-                        <h4 class="text-3xl font-semibold text-gray-900 dark:text-white mb-2"><span class="text-indigo-600 dark:text-indigo-400 font-bold">Module 4:</span> Delegating with AI</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">Create powerful business chatbots directly in AI tools—no external software needed.</p>
+            <!-- Module 4 -->
+            <a href="https://fajarudinakbar.github.io/GBAI/M4-DelegatingAI" target="_blank" class="neo-btn bg-white hover:bg-yellow-50 p-6 rounded-2xl w-full max-w-3xl flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-300 border-2 border-dark flex items-center justify-center font-black text-xl">
+                        M4
                     </div>
-                </a>
-
-                <!-- Module 5 -->
-                <a href="https://fajarudinakbar.github.io/GBAI/M5-AICompanion" target="_blank" class="flex items-center p-8 rounded-2xl card no-underline w-full max-w-3xl" style="animation-delay: 0.5s;">
-                    <div class="text-6xl mr-8">💡</div>
                     <div>
-                        <h4 class="text-3xl font-semibold text-gray-900 dark:text-white mb-2"><span class="text-indigo-600 dark:text-indigo-400 font-bold">Module 5:</span> AI as Companion</h4>
-                        <p class="text-lg text-gray-600 dark:text-gray-400">Explore AI as a creative, educational, and personal companion in daily life.</p>
+                        <h3 class="text-xl font-black uppercase text-dark group-hover:text-accent transition-colors">Delegating AI Workflows</h3>
+                        <p class="text-slate-600 text-sm font-medium">Automating routine administrative, grading, and preparation tasks responsibly.</p>
                     </div>
-                </a>
-            </div>
-        </section>
+                </div>
+                <i class="fa-solid fa-arrow-right text-xl text-dark group-hover:translate-x-2 transition-transform"></i>
+            </a>
 
-        <!-- Why This Course Section -->
-        <section class="bg-gray-100 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700/50 rounded-2xl p-8 md:p-12 section-title">
-             <div class="max-w-4xl mx-auto text-center">
-                <h3 class="text-5xl font-bold mb-6 text-gray-900 dark:text-white">Why This Course?</h3>
-                <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-                    Generative AI is more than a trend—it’s a transformative force. This course empowers you to not just use AI, but to <span class="font-semibold text-indigo-600 dark:text-indigo-400">go beyond</span> by integrating it meaningfully into your personal and professional contexts.
-                </p>
-             </div>
-        </section>
-
+            <!-- Module 5 -->
+            <a href="https://fajarudinakbar.github.io/GBAI/M5-AICompanion" target="_blank" class="neo-btn bg-white hover:bg-yellow-50 p-6 rounded-2xl w-full max-w-3xl flex items-center justify-between group">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-pink-300 border-2 border-dark flex items-center justify-center font-black text-xl">
+                        M5
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-black uppercase text-dark group-hover:text-accent transition-colors">AI Learning Companions</h3>
+                        <p class="text-slate-600 text-sm font-medium">Designing student-facing conversational tutors and personalized practice partners.</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-right text-xl text-dark group-hover:translate-x-2 transition-transform"></i>
+            </a>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="text-gray-500 dark:text-gray-400 mt-16 border-t border-gray-200 dark:border-gray-800">
-        <div class="container mx-auto px-6 py-6 text-center">
-            <p>Course Designed by <a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors">Fajarudin Akbar</a></p>
-        </div>
+    <footer class="bg-dark text-white border-t-4 border-dark py-8 text-center mt-12">
+        <p class="font-bold text-slate-400 text-sm">
+            &copy; <script>document.write(new Date().getFullYear())</script> Fajarudin Akbar. Generative AI in ELT Series.
+        </p>
     </footer>
-
 </body>
 </html>
-

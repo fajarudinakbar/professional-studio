@@ -1,426 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELT Fundamentals: A Complete Course</title>
+    <title>Revisiting ELT Fundamentals | Fajarudin Akbar</title>
+
+    <meta name="description" content="An in-depth exploration of core English Language Teaching principles, communicative methodologies, and modern pedagogical grounding.">
+    <meta property="og:title" content="Revisiting ELT Fundamentals - Fajarudin Akbar">
+    <meta property="og:description" content="Essential principles of Communicative Language Teaching, material design, and classroom practice.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://fajarudinakbar.com/Revisiting-ELT-Fundamentals.html">
+    <meta property="og:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0f172a',
+                        highlight: '#FACC15',
+                        accent: '#0D9488',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow: hidden; /* Prevent body scroll */
+        .neo-card {
+            border: 3px solid #0f172a;
+            box-shadow: 5px 5px 0px 0px #0f172a;
         }
-
-        /* --- Animations --- */
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .neo-btn {
+            border: 3px solid #0f172a;
+            box-shadow: 4px 4px 0px 0px #0f172a;
+            transition: all 0.2s ease;
         }
-
-        .module-panel {
-            animation: fade-in 0.5s ease-out forwards;
-        }
-
-        /* Scrollbar styles for the main content area */
-        #content-area::-webkit-scrollbar {
-            width: 8px;
-        }
-        #content-area::-webkit-scrollbar-track {
-            background-color: #f1f5f9;
-        }
-        #content-area::-webkit-scrollbar-thumb {
-            background-color: #94a3b8;
-            border-radius: 10px;
-            border: 2px solid #f1f5f9;
-        }
-        #content-area::-webkit-scrollbar-thumb:hover {
-            background-color: #64748b;
-        }
-        
-        .nav-item.active {
-            background-color: #e0f2fe; /* light-blue-100 */
-            color: #0369a1; /* sky-700 */
-            font-weight: 600;
-        }
-        
-        .nav-item:not(.active):hover {
-            background-color: #f1f5f9; /* slate-100 */
-        }
-
-        /* Color specific styles for content panel header */
-        .color-yellow { --main-color: #f59e0b; }
-        .color-blue { --main-color: #3b82f6; }
-        .color-green { --main-color: #10b981; }
-        .color-pink { --main-color: #ec4899; }
-        .color-purple { --main-color: #8b5cf6; }
-        .color-orange { --main-color: #f97316; }
-        .color-cyan { --main-color: #06b6d4; }
-        .color-red { --main-color: #ef4444; }
-        .color-emerald { --main-color: #10b981; }
-
-        .module-header {
-            border-left: 4px solid var(--main-color);
-            padding-left: 1.5rem;
-        }
-
-        .prompt-border {
-            border-left: 3px solid var(--main-color);
-        }
-        
-        .content-section h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 0.75rem;
-            margin-top: 1.75rem;
-        }
-        .content-section ul, .content-section ol {
-            list-style-position: inside;
-            color: #4b5563;
-            space-y: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-         .content-section p {
-            color: #4b5563;
-            line-height: 1.6;
-             margin-bottom: 1rem;
-        }
-        .content-section a {
-            color: #2563eb;
-            text-decoration: underline;
-            transition: color 0.2s ease;
-        }
-        .content-section a:hover {
-            color: #1d4ed8;
+        .neo-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #0f172a;
         }
     </style>
 </head>
-<body class="text-gray-800 antialiased">
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-white border-b-4 border-dark sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-black text-xl uppercase tracking-tight text-dark flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Fajarudin Akbar
+            </a>
+            <span class="bg-highlight px-3 py-1 font-black border-2 border-dark text-xs uppercase shadow-[2px_2px_0px_0px_#0f172a]">
+                ELT Pedagogy
+            </span>
+        </div>
+    </header>
 
-    <div class="flex h-screen bg-slate-100">
-        <!-- Left Navigation Pane -->
-        <nav class="w-full md:w-1/3 lg:w-1/4 flex-shrink-0 bg-white shadow-lg flex flex-col p-6">
-            <header class="mb-8">
-                <h1 class="text-2xl font-extrabold text-gray-900 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-700">ELT Fundamentals</h1>
-                <p class="text-sm text-gray-500 mt-1">Course Modules</p>
-            </header>
-            <ul id="nav-links" class="space-y-2 overflow-y-auto">
-                <!-- JS injects nav links here -->
-            </ul>
-            <footer class="text-center mt-auto pt-6 text-xs">
-                <p class="text-gray-500">Adapted and expanded for professional development.</p>
-                <a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-indigo-600 font-medium transition-colors">Original design by Fajarudin Akbar</a>
-            </footer>
-        </nav>
-        
-        <!-- Right Content Area -->
-        <main id="content-area" class="w-full md:w-2/3 lg:w-3/4 p-4 md:p-10 overflow-y-auto">
-            <div id="module-content-container">
-                <!-- JS injects content panels here -->
-            </div>
-        </main>
-    </div>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const navLinksContainer = document.getElementById('nav-links');
-            const contentContainer = document.getElementById('module-content-container');
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-12">
+        <article class="bg-white border-4 border-dark shadow-[8px_8px_0px_0px_#0f172a] p-6 sm:p-10 rounded-2xl">
+            <span class="inline-block bg-accent text-white px-3 py-1 font-black text-xs uppercase border-2 border-dark mb-4">
+                Academic & Pedagogical Essay
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black text-dark uppercase tracking-tight mb-6">
+                Revisiting ELT Fundamentals
+            </h1>
             
-            const trainingData = [
-                {    
-                    title: "0. Introduction & Warm-up",
-                    color: "yellow",
-                    content: `
-                        <div class="content-section">
-                            <h4>Session Goals:</h4>
-                            <ul>
-                                <li>Share your background, context, and expectations.</li>
-                                <li>Clarify the session objectives together.</li>
-                            </ul>
-                            
-                            <h4>Key Concepts:</h4>
-                            <p>This initial stage is about <strong>situational analysis</strong> and <strong>needs assessment</strong>. Before diving into pedagogical theories, it's crucial to understand the learners, the teaching environment, and your own professional goals. This ensures the training is relevant and immediately applicable.</p>
-                            
-                            <div class="mt-8 p-4 rounded-lg context-prompt prompt-border bg-slate-50">
-                                <h5 class="font-bold text-gray-900">For Your Context (Reflection):</h5>
-                                <p class="mt-1 text-gray-700">Let's start by discussing your current teaching role. What are the common challenges your students (e.g., in Business English or IELTS prep) face in their everyday English communication? What is one area of your teaching practice you hope to enhance through this course?</p>
-                            </div>
-                        </div>`
-                },
-                {    
-                    title: "1. CEFR and GSE", 
-                    color: "blue",
-                    content: `
-                        <div class="content-section">
-                            <h4>Session Goals:</h4>
-                            <ul>
-                                <li>Explore the CEFR and the Global Scale of English (GSE).</li>
-                                <li>Compare CEFR levels with GSE’s more detailed descriptors.</li>
-                                <li>Match descriptors with activities you can use in your classroom.</li>
-                            </ul>
-                            <h4>Key Concepts:</h4>
-                            <p>The <strong>Common European Framework of Reference for Languages (CEFR)</strong> provides a six-level scale (A1, A2, B1, B2, C1, C2) to describe what language learners 'can do'. It's a foundational standard for curriculum design and assessment worldwide. For test preparation, it correlates directly with scores (e.g., IELTS bands 4.0-5.0 roughly align with B1).</p>
-                            <p>The <strong>Global Scale of English (GSE)</strong>, developed by Pearson, expands on the CEFR. It provides a more granular scale from 10 to 90, with hundreds of specific 'Can-Do Statements' for each skill at each point on the scale. This allows for highly precise objective-setting and progress tracking.</p>
-                            
-                            <h4>Practical Application:</h4>
-                             <p>For a Business English class aiming for a B2 level, instead of a vague goal like "improve presentation skills," you can use a GSE 'Can-Do Statement' as a specific learning objective: <em>"Can give a clear, prepared presentation, giving reasons in support of or against a particular point of view" (GSE 67, B2).</em> This makes the learning target concrete for both you and your students.</p>
+            <p class="text-gray-500 font-bold text-sm border-b-2 border-slate-100 pb-4 mb-8">
+                Revisiting ELT Fundamentals &bull; By Fajarudin Akbar
+            </p>
 
-                            <div class="mt-8 p-4 rounded-lg context-prompt prompt-border bg-slate-50">
-                                <h5 class="font-bold text-gray-900">For Your Context (Task):</h5>
-                                <p class="mt-1 text-gray-700">How can using GSE's 'Can-Do' statements help you set clearer goals for a general conversation class, for instance, designing a role-play about making travel plans? Try finding a specific GSE learning objective for an A2-level learner related to asking for directions.</p>
-                            </div>
+            <div class="prose prose-slate max-w-none font-medium leading-relaxed space-y-6 text-slate-800 text-base sm:text-lg">
+                <p>
+                    As educational technology advances rapidly and artificial intelligence tools redefine classroom prep, grounding teaching practice in core <strong>English Language Teaching (ELT) fundamentals</strong> remains paramount. Without strong pedagogical rationale, even the most sophisticated digital tools risk becoming superficial novelty.
+                </p>
 
-                            <h4>Further Resources:</h4>
-                            <ul>
-                                <li><a href="https://www.teachingenglish.org.uk/publications/case-studies-insights-and-research/british-council-eaquals-core-inventory-general" target="_blank" rel="noopener noreferrer">British Council-Eaquals Core Inventory</a></li>
-                                <li><a href="https://www.english.com/gse/teacher-toolkit/user/lo" target="_blank" rel="noopener noreferrer">Pearson: GSE Teacher Toolkit</a></li>
-                            </ul>
-                        </div>`
-                },
-                {    
-                    title: "2. Input Hypotheses",
-                    color: "green",
-                    content: `
-                         <div class="content-section">
-                            <h4>Session Goals:</h4>
-                            <ul>
-                                <li>Understand Krashen’s Input Hypothesis and related ideas.</li>
-                                <li>Identify examples of “i+1” in authentic materials.</li>
-                                <li>Reflect on how you can apply this in your teaching.</li>
-                            </ul>
-                            <h4>Key Concepts:</h4>
-                            <p>Stephen Krashen's Monitor Model consists of five main hypotheses:</p>
-                            <ol class="list-decimal space-y-2 mb-4">
-                                <li><strong>The Acquisition-Learning Hypothesis:</strong> Distinguishes 'acquisition' (a subconscious process, like a child learning L1) from 'learning' (conscious knowledge of rules). We should aim for acquisition.</li>
-                                <li><strong>The Monitor Hypothesis:</strong> The 'learned' system acts as an editor or 'monitor' for the 'acquired' system. Its use is limited.</li>
-                                <li><strong>The Natural Order Hypothesis:</strong> Grammatical structures are acquired in a predictable order, regardless of teaching order.</li>
-                                <li><strong>The Input Hypothesis (i+1):</strong> The core idea. Language acquisition occurs when learners receive 'comprehensible input' that is one step beyond their current level of competence.</li>
-                                <li><strong>The Affective Filter Hypothesis:</strong> Affective variables like motivation, self-confidence, and anxiety can block comprehensible input from reaching the brain's language acquisition device. A low filter is essential for acquisition.</li>
-                            </ol>
-                            
-                            <h4>Practical Application:</h4>
-                            <p>In an academic writing class, instead of just teaching grammar rules for thesis statements, provide students with several well-written examples from authentic academic articles (input). Their task could be to identify the key features (i). Then, introduce a slightly more complex structure or vocabulary (the +1) and have them adapt their own writing, lowering the affective filter through collaborative work and peer feedback.</p>
+                <div class="neo-card bg-amber-50 p-6 rounded-xl my-6">
+                    <h3 class="text-xl font-black uppercase text-dark mb-2">Core Pillar: Communicative Purpose</h3>
+                    <p class="text-slate-700 text-base">
+                        Language acquisition thrives when tasks reflect authentic, real-world communication. Learner output should be driven by meaningful goals rather than mechanical repetition.
+                    </p>
+                </div>
 
-                            <div class="mt-8 p-4 rounded-lg context-prompt prompt-border bg-slate-50">
-                                <h5 class="font-bold text-gray-900">For Your Context (Strategy):</h5>
-                                <p class="mt-1 text-gray-700">For general English learners, the 'affective filter' (anxiety) can be high. What strategies can you use to create a relaxed atmosphere when introducing a slightly challenging but interesting article or video (e.g., pre-teaching key vocabulary, using think-pair-share, or focusing on gist before details)?</p>
-                            </div>
-                         </div>`
-                },
-                {    
-                    title: "3. Listening and Speaking",
-                    color: "pink",
-                    content: `
-                        <div class="content-section">
-                            <h4>Session Goals:</h4>
-                            <ul>
-                                <li>Review the connection between listening as comprehensible input and speaking as acquired output.</li>
-                                <li>Frame CLT and TBLT as methods for delivering 'i+1' input.</li>
-                                <li>Design a short listening-to-speaking activity that manages cognitive load and affective filters.</li>
-                            </ul>
-                            <h4>Key Concepts: Input-Focused Speaking Development</h4>
-                            <p>From an Input Hypothesis perspective, speaking is not practiced; it <em>emerges</em> as a result of sufficient comprehensible input. Our goal in a speaking-focused class is not to force output, but to provide rich, compelling, and comprehensible listening input (i+1).</p>
-                            <p><strong>Communicative & Task-Based Language Teaching (CLT/TBLT)</strong> are ideal frameworks for this. They create a genuine need to understand and process input to achieve a goal. The task itself provides context that makes challenging language comprehensible, while the collaborative nature of the task helps to lower the <strong>affective filter</strong>.</p>
-                            
-                            <h4>Practical Application:</h4>
-                             <p>For a TOEFL prep class, a TBLT task could be: "Listen to a short university lecture clip (the input). The clip contains 3 key terms you may not know (the '+1'). In your group, use the context of the lecture to guess their meanings. Then, use these terms to create a simple diagram explaining the process." Speaking emerges naturally from the need to complete the task, based on the input received.</p>
-
-                            <div class="mt-8 p-4 rounded-lg context-prompt prompt-border bg-slate-50">
-                                <h5 class="font-bold text-gray-900">For Your Context (Design):</h5>
-                                <p class="mt-1 text-gray-700">Consider using a short, authentic audio clip (e.g., a weather forecast) for a general English class. How would you scaffold the listening to ensure the input is comprehensible (i+1) before asking students to perform a speaking task (e.g., planning an outfit)? Think about pre-listening questions or visuals you could use.</p>
-                            </div>
-                        </div>`
-                },
-                {    
-                    title: "4. Reading and Writing",
-                    color: "purple",
-                    content: `
-                        <div class="content-section">
-                            <h4>Session Goals:</h4>
-                            <ul>
-                                <li>Frame reading as the primary source of input for writing development.</li>
-                                <li>Connect writing strategies to managing the affective filter.</li>
-                                <li>Create a short reading-to-writing activity based on comprehensible input.</li>
-                            </ul>
-                            <h4>Key Concepts: Input-Focused Writing Development</h4>
-                            <p>Good writers are first good readers. Reading provides the essential, comprehensible input—vocabulary, sentence structures, rhetorical devices, and genre conventions—that fuels writing ability. The language learners acquire through reading becomes the reservoir they draw from when they write.</p>
-                            <p>Strategies like <strong>skimming and scanning</strong> help manage cognitive load by allowing learners to process texts efficiently. The <strong>process writing</strong> approach is a powerful tool for lowering the affective filter. By breaking writing into non-graded, manageable stages (brainstorming, drafting, revising), it reduces the anxiety of producing a 'perfect' text and encourages experimentation with newly acquired language.</p>
-                            
-                            <h4>Practical Application:</h4>
-                            <p>In an academic writing course, a model essay is the comprehensible input (i+1). Students read and analyze it not just for content, but to 'notice' specific language features (e.g., transition signals, citation phrasing). This noticed input is then available for them to use. By providing a template or scaffold based on the model text, you lower the affective filter and enable them to produce output that would otherwise be too challenging.</p>
-
-                            <div class="mt-8 p-4 rounded-lg context-prompt prompt-border bg-slate-50">
-                                <h5 class="font-bold text-gray-900">For Your Context (Design):</h5>
-                                <p class="mt-1 text-gray-700">How can you use a simple blog post about a hobby as comprehensible input (i+1) to guide learners in writing their own paragraph? What specific vocabulary chunks or sentence patterns would you ask them to 'notice' in the text before they begin the writing process?</p>
-                            </div>
-                        </div>`
-                },
-                {    
-                    title: "5. Vocabulary and Grammar",
-                    color: "orange",
-                    content: `
-                        <div class="content-section">
-                            <h4>Session Goals:</h4>
-                            <ul>
-                                <li>See how vocabulary works as chunks and grammar as patterns in context.</li>
-                                <li>Explore ways to integrate vocabulary and grammar naturally into skills practice.</li>
-                                <li>Adapt a text to extract vocabulary chunks and grammar features.</li>
-                            </ul>
-                            <h4>Key Concepts:</h4>
-                            <p>The <strong>Lexical Approach</strong> suggests that language consists not of traditional grammar and vocabulary, but of multi-word prefabricated chunks or 'lexical chunks' (e.g., collocations, fixed expressions). Fluency depends on having a large store of these chunks.</p>
-                            <p><strong>Noticing:</strong> Learners need to consciously 'notice' grammatical patterns and lexical chunks in the input they receive for them to become part of their acquired language system. Your role as a teacher is often to guide their attention to these features.</p>
-                            
-                            <h4>Practical Application:</h4>
-                            <p>For a Business English class analyzing a sample email, instead of just highlighting individual words like "propose," "solution," and "implement," draw attention to the chunks: "propose a solution," "look forward to hearing from you," "please do not hesitate to contact me." Then, use a gap-fill exercise where students have to complete the chunks, reinforcing the pattern.</p>
-
-                            <div class="mt-8 p-4 rounded-lg context-prompt prompt-border bg-slate-50">
-                                <h5 class="font-bold text-gray-900">For Your Context (Technique):</h5>
-                                <p class="mt-1 text-gray-700">When using a simple story or dialogue in class, how can you draw students' attention to useful phrases ('collocations') and common sentence patterns (e.g., use of present perfect) they can use in their own conversations? Could you use highlighting, matching exercises, or a discovery-based task?</p>
-                            </div>
-                        </div>`
-                },
-                {    
-                    title: "6. Materials Design with AI",
-                    color: "cyan",
-                    content: `
-                        <div class="content-section">
-                            <h4>Session Goals:</h4>
-                            <ul>
-                                <li>Explore principles of effective materials design.</li>
-                                <li>Experiment with how AI tools can help you adapt or create classroom materials.</li>
-                                <li>Design a short activity or worksheet aligned with CEFR/GSE descriptors.</li>
-                            </ul>
-                            <h4>Key Concepts:</h4>
-                            <p>Effective materials should have clear aims, be engaging, provide appropriate language input, and offer opportunities for practice and output. As an EdTech practitioner, you can leverage AI to achieve this with unprecedented efficiency.</p>
-                            <p><strong>Prompt Engineering for ELT:</strong> This is the skill of writing clear, specific instructions for an AI model to get the desired output. A good prompt includes the role, format, topic, CEFR level, and specific constraints.</p>
-                            
-                            <h4>Practical Application (AI Prompts):</h4>
-                            <p><strong>To generate a reading text:</strong> <em>"Act as an ELT materials writer. Write a 200-word article for B1-level Business English students about the pros and cons of remote work. Include the following vocabulary: 'flexibility', 'collaboration', 'work-life balance'. End with two comprehension questions."</em></p>
-                            <p><strong>To simplify a text:</strong> <em>"Take the following news article [paste article here] and rewrite it for A2-level English learners. Simplify the vocabulary and sentence structure, but keep the main ideas."</em></p>
-
-                            <div class="mt-8 p-4 rounded-lg context-prompt prompt-border bg-slate-50">
-                                <h5 class="font-bold text-gray-900">For Your Context (Experiment):</h5>
-                                <p class="mt-1 text-gray-700">Let's craft an AI prompt together. What instructions would you give an AI to generate a simple, A2-level role-play dialogue about ordering coffee, ensuring it uses natural, everyday language and includes at least two clarification questions (e.g., "Sorry, what was that?")?</p>
-                            </div>
-                        </div>`
-                },
-                {    
-                    title: "7. Assessment",
-                    color: "red",
-                    content: `
-                        <div class="content-section">
-                            <h4>Session Goals:</h4>
-                            <ul>
-                                <li>Differentiate between formative and summative assessment.</li>
-                                <li>Learn how to align tasks with CEFR/GSE descriptors.</li>
-                                <li>Draft a quick rubric for a speaking or writing task.</li>
-                            </ul>
-                            <h4>Key Concepts:</h4>
-                            <p><strong>Summative Assessment:</strong> Assessment OF learning. It evaluates student learning at the end of an instructional unit by comparing it against a standard or benchmark (e.g., final exam, TOEFL test).</p>
-                            <p><strong>Formative Assessment:</strong> Assessment FOR learning. It is an ongoing process to monitor student learning and provide feedback to improve teaching and learning. Examples include exit tickets, think-pair-share, and teacher observation.</p>
-                            <p><strong>Rubrics:</strong> A scoring tool that explicitly represents the performance expectations for an assignment. A good rubric breaks down the assigned task into its component parts and provides a detailed description of what constitutes acceptable and unacceptable levels of performance for each part.</p>
-
-                            <h4>Practical Application:</h4>
-                            <p>For a presentation task, a simple rubric could have three criteria: Content (Clarity of message), Delivery (Pace, body language), and Language (Accuracy, range of vocabulary). Each criterion could be scored from 1 (Needs Improvement) to 4 (Excellent), with clear descriptors for each level. This makes feedback specific and actionable.</p>
-
-                            <div class="mt-8 p-4 rounded-lg context-prompt prompt-border bg-slate-50">
-                                <h5 class="font-bold text-gray-900">For Your Context (Create):</h5>
-                                <p class="mt-1 text-gray-700">When giving formative feedback on a student's short business email, what are 2-3 simple, positive criteria you could use in a rubric to encourage their progress? For example: 'Clear Purpose', 'Appropriate Tone', and 'Effective Call to Action'.</p>
-                            </div>
-                        </div>`
-                },
-                {    
-                    title: "8. Wrap-up & Action Plan",
-                    color: "emerald",
-                    content: `
-                        <div class="content-section">
-                            <h4>Session Goals:</h4>
-                            <ul>
-                                <li>Review the key takeaways from the session.</li>
-                                <li>Set one immediate action point for your teaching practice.</li>
-                                <li>Take away recommended resources and tools for follow-up.</li>
-                            </ul>
-                            <h4>Key Concepts:</h4>
-                            <p><strong>Reflective Practice:</strong> This is the process of critically examining your teaching experiences to identify areas for improvement. It transforms experience into genuine learning and is the cornerstone of continuous professional development (CPD).</p>
-                            <p><strong>Action Research:</strong> A disciplined process of inquiry conducted by and for those taking the action. The primary reason for engaging in action research is to assist the “actor” in improving and/or refining his or her actions. It involves a cycle of Plan -> Act -> Observe -> Reflect.</p>
-
-                            <div class="mt-8 p-4 rounded-lg context-prompt prompt-border bg-slate-50">
-                                <h5 class="font-bold text-gray-900">For Your Context (Commitment):</h5>
-                                <p class="mt-1 text-gray-700">Based on our discussion, what is one concrete, actionable step you will take in the next week? It could be trying a new AI prompt to generate a text, adapting a piece of material using the lexical approach, or applying a simple formative assessment rubric.</p>
-                            </div>
-                        </div>`
-                }
-            ];
-
-            // 1. Populate Nav and Content
-            trainingData.forEach((item, index) => {
-                // Create Nav Link
-                const navLinkLi = document.createElement('li');
-                const navLinkA = document.createElement('a');
-                navLinkA.href = '#';
-                navLinkA.className = 'nav-item block p-3 rounded-lg text-gray-700 transition-colors duration-200';
-                navLinkA.dataset.target = `module-${index}`;
-                navLinkA.textContent = item.title;
-                navLinkLi.appendChild(navLinkA);
-                navLinksContainer.appendChild(navLinkA);
-
-                // Create Content Panel
-                const contentPanel = document.createElement('div');
-                contentPanel.id = `module-${index}`;
-                contentPanel.className = `module-panel color-${item.color} hidden`;
-                contentPanel.innerHTML = `
-                    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
-                        <header class="module-header mb-6">
-                            <h2 class="text-3xl font-extrabold text-gray-800">${item.title}</h2>
-                            <p class="text-gray-500">Revisiting ELT Fundamentals</p>
-                        </header>
-                        <div class="content-container">
-                            ${item.content}
+                <h2 class="text-2xl font-black text-dark uppercase tracking-tight pt-4">Key Methodological Principles</h2>
+                
+                <ul class="space-y-4 pl-0">
+                    <li class="flex items-start gap-3 bg-slate-100 p-4 border-2 border-dark rounded-xl">
+                        <i class="fa-solid fa-check text-accent text-xl mt-0.5"></i>
+                        <div>
+                            <strong class="font-black uppercase text-dark">Learner-Centered Design:</strong>
+                            Prioritizing student talking time, cooperative problem-solving, and personalized task choices over teacher-fronted lecture.
                         </div>
-                    </div>
-                `;
-                contentContainer.appendChild(contentPanel);
-            });
+                    </li>
+                    <li class="flex items-start gap-3 bg-slate-100 p-4 border-2 border-dark rounded-xl">
+                        <i class="fa-solid fa-check text-accent text-xl mt-0.5"></i>
+                        <div>
+                            <strong class="font-black uppercase text-dark">Authentic Materials & Contexts:</strong>
+                            Integrating real-world text types, podcasts, and digital artifacts that resonate with students' professional and academic aspirations.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-slate-100 p-4 border-2 border-dark rounded-xl">
+                        <i class="fa-solid fa-check text-accent text-xl mt-0.5"></i>
+                        <div>
+                            <strong class="font-black uppercase text-dark">Balanced Focus on Form & Fluency:</strong>
+                            Developing communicative confidence alongside linguistic precision through timely, constructive feedback loops.
+                        </div>
+                    </li>
+                </ul>
 
-            const navItems = document.querySelectorAll('.nav-item');
-            const contentPanels = document.querySelectorAll('.module-panel');
-            
-            function showModule(indexToShow) {
-                // Hide all content panels
-                contentPanels.forEach(panel => {
-                    panel.classList.add('hidden');
-                });
-                // Show the target panel
-                contentPanels[indexToShow].classList.remove('hidden');
+                <h2 class="text-2xl font-black text-dark uppercase tracking-tight pt-4">Connecting Theory to EdTech</h2>
+                <p>
+                    When evaluated through foundational ELT theories—such as Vygotsky’s Zone of Proximal Development and Krashen’s Input Hypothesis—EdTech tools can be purposefully selected to scaffold input, lower affective filters, and elevate student autonomy.
+                </p>
+            </div>
 
-                // Update nav active states
-                navItems.forEach((item, index) => {
-                    if (index === indexToShow) {
-                        item.classList.add('active');
-                    } else {
-                        item.classList.remove('active');
-                    }
-                });
-            }
+            <div class="mt-10 border-t-4 border-dark pt-6 flex justify-between items-center flex-wrap gap-4">
+                <a href="index.html" class="neo-btn bg-highlight text-dark px-6 py-3 font-black text-sm uppercase flex items-center gap-2">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+                </a>
+                <a href="kursus.html" class="neo-btn bg-accent text-white px-6 py-3 font-black text-sm uppercase flex items-center gap-2">
+                    Explore English Classes <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </article>
+    </main>
 
-            // Add click event listeners to nav items
-            navItems.forEach((item, index) => {
-                item.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showModule(index);
-                });
-            });
-
-            // Show the first module by default
-            if (navItems.length > 0) {
-                showModule(0);
-            }
-        });
-    </script>
+    <!-- Footer -->
+    <footer class="bg-dark text-white border-t-4 border-dark py-8 text-center mt-12">
+        <p class="font-bold text-slate-400 text-sm">
+            &copy; <script>document.write(new Date().getFullYear())</script> Fajarudin Akbar. All rights reserved.
+        </p>
+    </footer>
 </body>
 </html>
-
