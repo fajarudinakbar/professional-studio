@@ -13,7 +13,6 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
 
-    <!-- STREAMING_CHUNK:Loading fonts, icons, and Tailwind CSS... -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +20,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- STREAMING_CHUNK:Configuring Tailwind for a Vibrant Neo-Brutalism... -->
     <script>
         tailwind.config = {
             theme: {
@@ -29,23 +27,23 @@
                     fontFamily: {
                         sans: ['"Space Grotesk"', 'sans-serif'],
                     },
-                    boxShadow: {
-                        'brutal': '8px 8px 0px 0px rgba(0,0,0,1)',
-                        'brutal-hover': '4px 4px 0px 0px rgba(0,0,0,1)',
-                        'brutal-active': '0px 0px 0px 0px rgba(0,0,0,1)',
-                        'brutal-sm': '4px 4px 0px 0px rgba(0,0,0,1)',
-                        'brutal-sm-hover': '2px 2px 0px 0px rgba(0,0,0,1)',
-                    },
                     colors: {
+                        // Softer contrast foundation
+                        slate: {
+                            800: '#1e293b', 
+                            900: '#0f172a', // Replaces harsh pure black
+                        },
                         brand: {
-                            yellow: '#fef08a', 
-                            blue: '#93c5fd',   
-                            green: '#86efac',  
-                            red: '#fca5a5',
-                            purple: '#d8b4fe', // New vibrant purple
-                            orange: '#fdba74', // New bright orange
-                            teal: '#5eead4',   // New crisp teal
-                            cream: '#fdfbf7',  
+                            yellow: '#fde047', // Soft sunny yellow
+                            blue: '#bfdbfe',   // Soft sky blue
+                            green: '#bbf7d0',  // Positive mint green
+                            red: '#fecaca',    // Soft coral/red
+                            purple: '#e9d5ff', // Gentle lavender
+                            orange: '#fed7aa', // Warm peach
+                            teal: '#99f6e4',   // Refreshing teal
+                            cream: '#fdfbf7',  // Warm off-white
+                            pink: '#fbcfe8',   // Light positive pink
+                            indigo: '#c7d2fe'  // Vibrant but soft indigo (for Learning Experience)
                         }
                     }
                 }
@@ -53,19 +51,18 @@
         }
     </script>
 
-    <!-- STREAMING_CHUNK:Adding custom structural and interactive CSS... -->
     <style>
         body {
-            background-color: #fdfbf7;
-            color: #000000;
+            background-color: #f8fafc; 
+            color: #0f172a; 
         }
 
-        /* Subtle Graph Paper Grid for a "Blueprint/Document" feel */
+        /* Subtle Graph Paper Grid */
         .bg-grid {
             background-size: 40px 40px;
             background-image: 
-                linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+                linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
             position: fixed;
             top: 0;
             left: 0;
@@ -74,510 +71,373 @@
             z-index: -1;
         }
 
-        /* Base Card Styling */
         .brutal-card {
             background: #ffffff;
-            border: 4px solid #000000;
-            box-shadow: 8px 8px 0px 0px #000000;
+            border: 4px solid #0f172a;
         }
 
-        /* Interactive Element Styling */
         .brutal-btn {
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            transition: background-color 0.15s ease, color 0.15s ease;
             cursor: pointer;
         }
-        .brutal-btn:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 4px 4px 0px 0px #000 !important;
-        }
-        .brutal-btn:active {
-            transform: translate(8px, 8px);
-            box-shadow: 0px 0px 0px 0px #000 !important;
-        }
 
-        /* Highly Visible External Link Styling */
         .brutal-link {
             display: inline-flex;
             align-items: center;
             gap: 0.25rem;
-            border: 2px solid #000;
+            border: 2px solid #0f172a;
             padding: 0.1rem 0.4rem;
             font-weight: 800;
-            transition: all 0.15s ease;
-            box-shadow: 3px 3px 0px 0px #000;
+            transition: background-color 0.15s ease;
             text-decoration: none;
         }
         .brutal-link:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 1px 1px 0px 0px #000;
+            background-color: #f1f5f9;
         }
 
-        /* Refined Stepper Styles */
-        .step {
-            position: relative;
-            padding-left: 4.5rem;
-            padding-bottom: 2.5rem;
+        /* Custom Scrollbar for Modal */
+        .modal-scroll::-webkit-scrollbar {
+            width: 12px;
         }
-        .step:last-child {
-            padding-bottom: 0;
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #f8fafc; 
+            border-left: 4px solid #0f172a;
         }
-        .step-number {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 3.5rem;
-            height: 3.5rem;
-            background-color: #ffffff;
-            border: 4px solid #000;
-            color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1.5rem;
-            transition: all 0.2s ease;
-            box-shadow: 4px 4px 0px 0px #000;
-            z-index: 10;
-        }
-        .step-line {
-            position: absolute;
-            left: 1.6rem; 
-            top: 3.5rem;
-            bottom: -0.5rem;
-            width: 4px;
-            background-color: #000;
-        }
-        .step:last-child .step-line {
-            display: none;
-        }
-        
-        /* Stepper Header */
-        .step-header {
-            cursor: pointer;
-            padding: 1.25rem 1.5rem;
-            background-color: #ffffff;
-            border: 4px solid #000;
-            box-shadow: 4px 4px 0px 0px #000;
-            transition: all 0.15s ease;
-        }
-        .step-header:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px 0px #000;
-            background-color: #f8fafc;
-        }
-        
-        /* Stepper Content */
-        .step-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.3s ease, opacity 0.3s ease;
-            margin-top: 0;
-            opacity: 0;
-        }
-        
-        /* Active Step States */
-        .step.active .step-number {
-            background-color: #000;
-            color: #fff;
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px 0px #000;
-        }
-        .step.active .step-header {
-            background-color: #fef08a; /* brand-yellow */
-        }
-        .step.active .step-content {
-            max-height: 2500px; /* High enough to accommodate content */
-            margin-top: 1.5rem;
-            opacity: 1;
-        }
-        .step.active .step-arrow {
-            transform: rotate(180deg);
-        }
-        .step-arrow {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background-color: #0f172a; 
+            border: 2px solid #f8fafc;
         }
 
         ::selection {
-            background-color: #000;
-            color: #5eead4;
+            background-color: #0f172a;
+            color: #99f6e4;
+        }
+        
+        /* Modal Animation */
+        .modal-backdrop {
+            transition: opacity 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .modal-backdrop.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content-wrapper {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+            transform: scale(0.9) translateY(20px);
+            opacity: 0;
+        }
+        .modal-backdrop.is-open .modal-content-wrapper {
+            transform: scale(1) translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-black selection:text-brand-teal text-gray-900 text-lg leading-relaxed">
+<body class="antialiased selection:bg-slate-900 selection:text-brand-teal text-slate-900 text-lg leading-relaxed">
     
     <div class="bg-grid"></div>
 
-    <!-- STREAMING_CHUNK:Structuring the main layout and colorful massive header... -->
     <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-24">
 
         <!-- Header Section -->
         <header class="mb-24 animate__animated animate__fadeInDown max-w-6xl mx-auto">
-            <div class="inline-flex items-center border-4 border-black bg-brand-purple px-4 py-1.5 mb-8 shadow-brutal-sm text-black">
-                <i data-lucide="bot" class="w-5 h-5 mr-2 stroke-[3]"></i>
+            <div class="inline-flex items-center border-4 border-slate-900 bg-brand-purple px-4 py-1.5 mb-8 text-slate-900">
+                <i data-lucide="bot" class="w-5 h-5 mr-2 stroke-[2.5]"></i>
                 <span class="font-bold uppercase tracking-wider text-sm md:text-base">Teaching English with AI</span>
             </div>
             
-            <h1 class="text-6xl md:text-7xl lg:text-[5.5rem] font-black uppercase leading-[1.05] tracking-tighter text-black mb-10">
+            <h1 class="text-6xl md:text-7xl lg:text-[5.5rem] font-black uppercase leading-[1.05] tracking-tighter text-slate-900 mb-10">
                 From Learner Needs <br>
-                <span class="inline-block mt-3 bg-brand-yellow px-5 py-2 border-4 border-black shadow-brutal text-black">To Materials</span> <br>
-                <span class="inline-block mt-4 bg-brand-teal px-5 py-2 border-4 border-black shadow-brutal text-black">&amp; Learning Experiences</span>
+                <span class="inline-block mt-3 bg-brand-yellow px-5 py-2 border-4 border-slate-900 text-slate-900">To Materials</span> <br>
+                <span class="inline-block mt-4 bg-brand-teal px-5 py-2 border-4 border-slate-900 text-slate-900">&amp; Learning Experiences</span>
             </h1>
         </header>
 
-        <!-- STREAMING_CHUNK:Building the vibrant Presentation Summary Section... -->
-        <main class="space-y-16 max-w-5xl mx-auto">
+        <main class="space-y-32 max-w-[100vw] overflow-hidden mx-auto">
 
-            <!-- Summary Section -->
-            <div class="brutal-card p-8 md:p-12 opacity-0 bg-white" data-animate>
-                <div class="border-b-4 border-black pb-6 mb-10 flex justify-between items-end">
-                    <h2 class="text-4xl md:text-5xl font-black uppercase">Presentation Summary</h2>
-                    <i data-lucide="layout-dashboard" class="h-10 w-10 stroke-[3] hidden sm:block text-brand-purple"></i>
+            <div class="brutal-card p-8 md:p-12 opacity-0 bg-white max-w-5xl mx-auto" data-animate>
+                <div class="border-b-4 border-slate-900 pb-6 mb-10 flex justify-between items-end">
+                    <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900">Presentation Summary</h2>
+                    <i data-lucide="layout-dashboard" class="h-10 w-10 stroke-[2.5] hidden sm:block text-brand-purple"></i>
                 </div>
                 
                 <div class="space-y-8">
                     <!-- Point 1 -->
-                    <div class="bg-brand-cream border-4 border-black p-6 shadow-brutal-sm flex flex-col md:flex-row gap-6 items-start">
-                        <div class="flex-shrink-0 h-16 w-16 bg-brand-yellow text-black border-4 border-black flex items-center justify-center font-black text-3xl shadow-[4px_4px_0px_0px_#000]">1</div>
+                    <div class="bg-brand-cream border-4 border-slate-900 p-6 flex flex-col md:flex-row gap-6 items-start">
+                        <div class="flex-shrink-0 h-16 w-16 bg-brand-yellow text-slate-900 border-4 border-slate-900 flex items-center justify-center font-black text-3xl">01</div>
                         <div>
-                            <h3 class="font-black text-2xl uppercase mb-3">Learners, Not Tools</h3>
-                            <p class="font-medium text-xl leading-relaxed">Generative AI gives English teachers new possibilities for creating materials and designing learning experiences. However, effective use starts with <strong>learners, learning objectives, and teaching context</strong>, not with the selection of an AI tool.</p>
+                            <h3 class="font-black text-2xl uppercase mb-3 text-slate-900">Learners, Not Tools</h3>
+                            <p class="font-medium text-xl leading-relaxed text-slate-800">Teachers use AI to create materials and design learning experiences. But effective use starts with <strong>learners, learning objectives, and teaching context</strong>, not with choosing an AI tool.</p>
                         </div>
                     </div>
                     
                     <!-- Point 2 -->
-                    <div class="bg-brand-cream border-4 border-black p-6 shadow-brutal-sm flex flex-col md:flex-row gap-6 items-start">
-                        <div class="flex-shrink-0 h-16 w-16 bg-brand-blue text-black border-4 border-black flex items-center justify-center font-black text-3xl shadow-[4px_4px_0px_0px_#000]">2</div>
+                    <div class="bg-brand-cream border-4 border-slate-900 p-6 flex flex-col md:flex-row gap-6 items-start">
+                        <div class="flex-shrink-0 h-16 w-16 bg-brand-blue text-slate-900 border-4 border-slate-900 flex items-center justify-center font-black text-3xl">02</div>
                         <div>
-                            <h3 class="font-black text-2xl uppercase mb-3">Directed Workflow</h3>
-                            <p class="font-medium text-xl leading-relaxed mb-4">This practical session presents a workflow for Teaching English with AI through two purposes: <strong>creating materials</strong> with AI and <strong>integrating AI directly</strong> into lessons for students to use.</p>
-                            <p class="font-medium text-lg bg-white border-2 border-black p-3 inline-block">
-                                Tools explored: ChatGPT, Gemini, Copilot, Google AI Studio, and NoteLab English.
+                            <h3 class="font-black text-2xl uppercase mb-3 text-slate-900">A Directed Workflow</h3>
+                            <p class="font-medium text-xl leading-relaxed mb-4 text-slate-800">This session follows a practical pathway from identifying learner needs to deciding how AI can be used. Two purposes guide the process:</p>
+                            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-white border-2 border-slate-900 p-4 text-slate-900">
+                                    <span class="font-black text-2xl uppercase text-brand-purple block mb-1">Create</span> Teachers use AI to create, adapt, differentiate, or extend materials.
+                                </div>
+                                <div class="bg-white border-2 border-slate-900 p-4 text-slate-900">
+                                    <span class="font-black text-2xl uppercase text-brand-green block mb-1">Integrate</span> Teachers design activities in which learners interact directly with AI for a specific learning purpose.
+                                </div>
+                            </div>
+                            <p class="font-bold text-[17px] bg-slate-900 text-white p-3 inline-block border-2 border-slate-900">
+                                Tools explored include ChatGPT, Gemini, Copilot, Google AI Studio, and NoteLab English.
                             </p>
                         </div>
                     </div>
 
                     <!-- Point 3 -->
-                    <div class="bg-brand-cream border-4 border-black p-6 shadow-brutal-sm flex flex-col md:flex-row gap-6 items-start">
-                        <div class="flex-shrink-0 h-16 w-16 bg-brand-green text-black border-4 border-black flex items-center justify-center font-black text-3xl shadow-[4px_4px_0px_0px_#000]">3</div>
+                    <div class="bg-brand-cream border-4 border-slate-900 p-6 flex flex-col md:flex-row gap-6 items-start">
+                        <div class="flex-shrink-0 h-16 w-16 bg-brand-green text-slate-900 border-4 border-slate-900 flex items-center justify-center font-black text-3xl">03</div>
                         <div>
-                            <h3 class="font-black text-2xl uppercase mb-3">The Art of Prompting & Ethics</h3>
-                            <p class="font-medium text-xl leading-relaxed">Participants begin with <em>The Art of Prompting</em> to experience communicating ideas precisely. Ethical considerations—learner age, privacy, safeguarding, accuracy, bias, and learning integrity—are integrated directly into the workflow.</p>
+                            <h3 class="font-black text-2xl uppercase mb-3 text-slate-900">The Art of Prompting & Ethics</h3>
+                            <p class="font-medium text-xl leading-relaxed text-slate-800">The session begins with <em>The Art of Prompting</em>, using <strong>Say What You See</strong> to explore how precisely we communicate what we want. Ethical considerations are built into the workflow: age, privacy, safeguarding, accuracy, bias, and learning integrity.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- STREAMING_CHUNK:Constructing the Interactive Workflow Stepper (Steps 1-4)... -->
-            <div class="opacity-0" data-animate>
-                <div class="inline-flex items-center gap-4 bg-brand-purple text-black px-8 py-4 border-4 border-black shadow-brutal mb-12">
-                    <h2 class="text-4xl font-black uppercase tracking-widest">The Workflow</h2>
+            <div class="opacity-0 max-w-6xl mx-auto" data-animate>
+                
+                <div class="inline-flex items-center gap-4 bg-brand-purple text-slate-900 px-8 py-4 border-4 border-slate-900 mb-12">
+                    <h2 class="text-4xl md:text-5xl font-black uppercase tracking-widest">The Presentation</h2>
                 </div>
                 
-                <div id="stepper-container" class="relative pl-2 md:pl-4 space-y-2">
+                <p class="text-2xl font-bold mb-8 bg-white text-slate-900 inline-block px-4 py-2 border-4 border-slate-900">Click a card to explore the content:</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                     
-                    <!-- Step 1 -->
-                    <div class="step">
-                        <div class="step-number bg-brand-yellow">1</div>
-                        <div class="step-line"></div>
-                        <div class="step-header flex justify-between items-center brutal-btn">
-                            <h3 class="font-black text-2xl uppercase tracking-tight">The Art of Prompting</h3>
-                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 stroke-[3]"></i>
+                    <!-- Card 01 -->
+                    <button class="popup-trigger text-left bg-brand-yellow text-slate-900 border-4 border-slate-900 p-6 brutal-btn hover:bg-slate-900 hover:text-white transition-colors flex flex-col group h-64" data-target="content-01">
+                        <div class="flex items-center justify-between w-full mb-auto">
+                            <span class="text-4xl font-black bg-white text-slate-900 border-4 border-slate-900 w-16 h-16 flex items-center justify-center">01</span>
+                            <i data-lucide="external-link" class="w-8 h-8 stroke-[2.5] opacity-50 group-hover:opacity-100 group-hover:text-brand-teal transition-all"></i>
                         </div>
-                        <div class="step-content">
-                            <div class="bg-white border-4 border-black p-6 md:p-8 shadow-brutal-sm text-xl">
-                                <div class="flex flex-wrap gap-3 items-center mb-8 font-black text-lg uppercase bg-brand-cream p-4 border-4 border-black">
-                                    <span class="bg-brand-orange border-2 border-black px-3 py-1 text-black shadow-sm">Say What You See</span>
-                                    <i data-lucide="arrow-right" class="w-6 h-6 mx-1 stroke-[3]"></i>
-                                    <span class="bg-white border-2 border-black px-3 py-1">Task</span>
-                                    <span>+</span>
-                                    <span class="bg-white border-2 border-black px-3 py-1">Context</span>
-                                    <span>+</span>
-                                    <span class="bg-white border-2 border-black px-3 py-1">Outcome</span>
-                                </div>
-                                <p class="font-medium leading-relaxed mb-6">Participants experience prompting through <a href="https://artsandculture.google.com/experiment/say-what-you-see/jwG3m7wQShZngw" target="_blank" rel="noopener noreferrer" class="brutal-link bg-brand-orange text-black">Say What You See <i data-lucide="external-link" class="w-4 h-4"></i></a>, describing AI-generated images with increasing precision. The activity demonstrates that communicating an idea requires more than identifying the subject. Participants need to communicate relevant details about the image, including its medium, subject, and context.</p>
-                                
-                                <div class="bg-brand-teal text-black border-4 border-black p-6 mb-6 shadow-brutal-sm">
-                                    <p class="font-black text-2xl mb-4 uppercase">The experience leads to the question:<br>How clearly can we communicate what we want?</p>
-                                    <p class="font-bold text-lg mb-3">Participants then apply:</p>
-                                    <ul class="space-y-3 font-medium bg-white p-4 border-2 border-black">
-                                        <li class="flex items-start"><i data-lucide="check-square" class="w-6 h-6 mr-3 text-brand-teal flex-shrink-0"></i> <span><strong>Task:</strong> What do I want the AI to do?</span></li>
-                                        <li class="flex items-start"><i data-lucide="check-square" class="w-6 h-6 mr-3 text-brand-teal flex-shrink-0"></i> <span><strong>Context:</strong> What does it need to know?</span></li>
-                                        <li class="flex items-start"><i data-lucide="check-square" class="w-6 h-6 mr-3 text-brand-teal flex-shrink-0"></i> <span><strong>Outcome:</strong> What should the result achieve?</span></li>
-                                    </ul>
-                                </div>
-                                <p class="font-medium border-l-4 border-black pl-4">The activity can also be transferred directly into English teaching, particularly as a writing or descriptive language activity.</p>
-                            </div>
+                        <h3 class="font-black text-3xl uppercase tracking-tight mt-4">The Art of Prompting</h3>
+                    </button>
+
+                    <!-- Card 02 -->
+                    <button class="popup-trigger text-left bg-brand-blue text-slate-900 border-4 border-slate-900 p-6 brutal-btn hover:bg-slate-900 hover:text-white transition-colors flex flex-col group h-64" data-target="content-02">
+                        <div class="flex items-center justify-between w-full mb-auto">
+                            <span class="text-4xl font-black bg-white text-slate-900 border-4 border-slate-900 w-16 h-16 flex items-center justify-center">02</span>
+                            <i data-lucide="external-link" class="w-8 h-8 stroke-[2.5] opacity-50 group-hover:opacity-100 group-hover:text-brand-red transition-all"></i>
                         </div>
-                    </div>
+                        <h3 class="font-black text-3xl uppercase tracking-tight mt-4">Define Learner Needs</h3>
+                    </button>
+
+                    <!-- Card 03 -->
+                    <button class="popup-trigger text-left bg-brand-purple text-slate-900 border-4 border-slate-900 p-6 brutal-btn hover:bg-slate-900 hover:text-white transition-colors flex flex-col group h-64" data-target="content-03">
+                        <div class="flex items-center justify-between w-full mb-auto">
+                            <span class="text-4xl font-black bg-white text-slate-900 border-4 border-slate-900 w-16 h-16 flex items-center justify-center">03</span>
+                            <i data-lucide="external-link" class="w-8 h-8 stroke-[2.5] opacity-50 group-hover:opacity-100 group-hover:text-brand-yellow transition-all"></i>
+                        </div>
+                        <h3 class="font-black text-3xl uppercase tracking-tight mt-4">Decide the Purpose</h3>
+                    </button>
+
+                    <!-- Card 04 -->
+                    <button class="popup-trigger text-left bg-brand-orange text-slate-900 border-4 border-slate-900 p-6 brutal-btn hover:bg-slate-900 hover:text-white transition-colors flex flex-col group h-64" data-target="content-04">
+                        <div class="flex items-center justify-between w-full mb-auto">
+                            <span class="text-4xl font-black bg-white text-slate-900 border-4 border-slate-900 w-16 h-16 flex items-center justify-center">04</span>
+                            <i data-lucide="external-link" class="w-8 h-8 stroke-[2.5] opacity-50 group-hover:opacity-100 group-hover:text-brand-blue transition-all"></i>
+                        </div>
+                        <h3 class="font-black text-3xl uppercase tracking-tight mt-4">Choose the Tool</h3>
+                    </button>
+
+                    <!-- Card 05 -->
+                    <button class="popup-trigger text-left bg-brand-cream text-slate-900 border-4 border-slate-900 p-6 brutal-btn hover:bg-slate-900 hover:text-white transition-colors flex flex-col group h-64" data-target="content-05">
+                        <div class="flex items-center justify-between w-full mb-auto">
+                            <span class="text-4xl font-black bg-white text-slate-900 border-4 border-slate-900 w-16 h-16 flex items-center justify-center">05</span>
+                            <i data-lucide="external-link" class="w-8 h-8 stroke-[2.5] opacity-50 group-hover:opacity-100 group-hover:text-brand-purple transition-all"></i>
+                        </div>
+                        <h3 class="font-black text-3xl uppercase tracking-tight mt-4">Execute Pathway</h3>
+                    </button>
+
+                    <!-- Card 06 -->
+                    <button class="popup-trigger text-left bg-brand-pink text-slate-900 border-4 border-slate-900 p-6 brutal-btn hover:bg-slate-900 hover:text-white transition-colors flex flex-col group h-64" data-target="content-06">
+                        <div class="flex items-center justify-between w-full mb-auto">
+                            <span class="text-4xl font-black bg-white text-slate-900 border-4 border-slate-900 w-16 h-16 flex items-center justify-center">06</span>
+                            <i data-lucide="external-link" class="w-8 h-8 stroke-[2.5] opacity-50 group-hover:opacity-100 group-hover:text-brand-green transition-all"></i>
+                        </div>
+                        <h3 class="font-black text-3xl uppercase tracking-tight mt-4 leading-tight">Learner AI Activities</h3>
+                    </button>
+
+                    <!-- Card 07 -->
+                    <button class="popup-trigger text-left bg-brand-red text-slate-900 border-4 border-slate-900 p-6 brutal-btn hover:bg-slate-900 hover:text-white transition-colors flex flex-col group h-64" data-target="content-07">
+                        <div class="flex items-center justify-between w-full mb-auto">
+                            <span class="text-4xl font-black bg-white text-slate-900 border-4 border-slate-900 w-16 h-16 flex items-center justify-center">07</span>
+                            <i data-lucide="external-link" class="w-8 h-8 stroke-[2.5] opacity-50 group-hover:opacity-100 group-hover:text-white transition-all"></i>
+                        </div>
+                        <h3 class="font-black text-3xl uppercase tracking-tight mt-4">Ethical Check</h3>
+                    </button>
+
+                    <!-- Card 08 -->
+                    <button class="popup-trigger text-left bg-brand-teal text-slate-900 border-4 border-slate-900 p-6 brutal-btn hover:bg-slate-900 hover:text-white transition-colors flex flex-col group h-64" data-target="content-08">
+                        <div class="flex items-center justify-between w-full mb-auto">
+                            <span class="text-4xl font-black bg-white text-slate-900 border-4 border-slate-900 w-16 h-16 flex items-center justify-center">08</span>
+                            <i data-lucide="external-link" class="w-8 h-8 stroke-[2.5] opacity-50 group-hover:opacity-100 group-hover:text-brand-yellow transition-all"></i>
+                        </div>
+                        <h3 class="font-black text-3xl uppercase tracking-tight mt-4">Teacher Review</h3>
+                    </button>
+
+                    <!-- Card 09 (Positive Soft Indigo) -->
+                    <button class="popup-trigger text-left bg-brand-indigo text-slate-900 border-4 border-slate-900 p-6 brutal-btn hover:bg-slate-900 hover:text-brand-indigo transition-colors flex flex-col group h-64" data-target="content-09">
+                        <div class="flex items-center justify-between w-full mb-auto">
+                            <span class="text-4xl font-black bg-white text-slate-900 border-4 border-slate-900 w-16 h-16 flex items-center justify-center">09</span>
+                            <i data-lucide="external-link" class="w-8 h-8 stroke-[2.5] opacity-50 group-hover:opacity-100 group-hover:text-brand-indigo transition-all"></i>
+                        </div>
+                        <h3 class="font-black text-3xl uppercase tracking-tight mt-4 leading-tight">The Learning Experience</h3>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="brutal-card p-8 md:p-12 opacity-0 bg-brand-cream max-w-5xl mx-auto" data-animate>
+                <div class="inline-flex items-center gap-4 bg-brand-teal text-slate-900 px-6 py-3 border-4 border-slate-900 mb-12">
+                    <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-center">The Workflow</h2>
+                </div>
+                
+                <div class="max-w-2xl mx-auto flex flex-col items-center relative z-10 space-y-4 font-black uppercase text-center text-slate-900">
                     
-                    <!-- Step 2 -->
-                    <div class="step">
-                        <div class="step-number bg-brand-blue">2</div>
-                        <div class="step-line"></div>
-                        <div class="step-header flex justify-between items-center brutal-btn">
-                            <h3 class="font-black text-2xl uppercase tracking-tight">Define Learner Needs</h3>
-                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 stroke-[3]"></i>
-                        </div>
-                        <div class="step-content">
-                            <div class="bg-white border-4 border-black p-6 md:p-8 shadow-brutal-sm text-xl">
-                                <div class="flex flex-wrap gap-3 items-center mb-8 font-black text-lg uppercase bg-brand-cream p-4 border-4 border-black">
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm">Learners</span>
-                                    <span class="text-brand-blue">+</span>
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm">Level</span>
-                                    <span class="text-brand-blue">+</span>
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm">Objective</span>
-                                    <span class="text-brand-blue">+</span>
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm">Context</span>
-                                </div>
-                                <p class="font-medium leading-relaxed mb-8">Teachers identify who their learners are, what they need to achieve, and what is currently missing from the learning experience.</p>
-                                
-                                <div class="bg-black text-white p-6 border-4 border-black shadow-[6px_6px_0px_0px_#93c5fd]">
-                                    <p class="font-medium mb-4">The <a href="https://www.english.com/gse/teacher-toolkit/user/lo" target="_blank" rel="noopener noreferrer" class="brutal-link bg-brand-blue text-black">GSE Teacher Toolkit <i data-lucide="external-link" class="w-5 h-5"></i></a> provides a practical reference for defining learner needs, proficiency, skills, and learning objectives.</p>
-                                </div>
-                            </div>
+                    <div class="bg-white border-4 border-slate-900 p-4 w-full">
+                        <span class="text-brand-red text-2xl block mb-1">01</span>
+                        <span class="text-2xl">Start with learners</span>
+                    </div>
+                    <i data-lucide="arrow-down" class="w-8 h-8 stroke-[3]"></i>
+
+                    <div class="bg-white border-4 border-slate-900 p-4 w-full">
+                        <span class="text-brand-orange text-2xl block mb-1">02</span>
+                        <span class="text-2xl block">Define the need</span>
+                        <span class="text-sm font-bold normal-case text-slate-900">Learners + Level + Objective + Context</span>
+                    </div>
+                    <i data-lucide="arrow-down" class="w-8 h-8 stroke-[3]"></i>
+
+                    <div class="bg-white border-4 border-slate-900 p-4 w-full">
+                        <span class="text-brand-yellow text-2xl block mb-1">03</span>
+                        <span class="text-2xl block">Decide the purpose</span>
+                        <span class="text-sm font-bold normal-case text-slate-900">Create or Integrate</span>
+                    </div>
+                    <i data-lucide="arrow-down" class="w-8 h-8 stroke-[3]"></i>
+
+                    <div class="bg-white border-4 border-slate-900 p-4 w-full">
+                        <span class="text-brand-green text-2xl block mb-1">04</span>
+                        <span class="text-2xl block">Choose the resource</span>
+                        <span class="text-sm font-bold normal-case text-slate-900">Select the tool according to the purpose</span>
+                    </div>
+                    <i data-lucide="arrow-down" class="w-8 h-8 stroke-[3]"></i>
+
+                    <div class="bg-white border-4 border-slate-900 p-4 w-full relative">
+                        <span class="text-brand-teal text-2xl block mb-1">05</span>
+                        <span class="text-2xl block mb-2">Design the pathway</span>
+                        <div class="flex justify-center gap-4 text-sm font-bold normal-case text-slate-900">
+                            <span class="bg-gray-100 border-2 border-slate-900 px-2 py-1">Teacher + AI</span>
+                            <span class="font-black mt-1 text-xs uppercase">or</span>
+                            <span class="bg-gray-100 border-2 border-slate-900 px-2 py-1">Teacher + Learners + AI</span>
                         </div>
                     </div>
+                    <i data-lucide="arrow-down" class="w-8 h-8 stroke-[3]"></i>
 
-                    <!-- Step 3 -->
-                    <div class="step">
-                        <div class="step-number bg-brand-purple">3</div>
-                        <div class="step-line"></div>
-                        <div class="step-header flex justify-between items-center brutal-btn">
-                            <h3 class="font-black text-2xl uppercase tracking-tight">Decide the Purpose</h3>
-                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 stroke-[3]"></i>
-                        </div>
-                        <div class="step-content">
-                            <div class="grid md:grid-cols-2 gap-8">
-                                <div class="bg-brand-purple border-4 border-black p-6 shadow-brutal flex flex-col h-full hover:shadow-brutal-hover transition-shadow">
-                                    <h4 class="font-black text-4xl uppercase mb-4 text-white drop-shadow-[2px_2px_0px_#000]">Create</h4>
-                                    <div class="font-black text-xl bg-white border-4 border-black inline-block px-4 py-2 self-start mb-6 shadow-sm">Teacher + AI</div>
-                                    <p class="font-medium text-xl bg-white border-4 border-black p-5 flex-grow">Use AI to create, adapt, differentiate, or extend materials for learners.</p>
-                                </div>
-                                <div class="bg-brand-green border-4 border-black p-6 shadow-brutal flex flex-col h-full hover:shadow-brutal-hover transition-shadow">
-                                    <h4 class="font-black text-4xl uppercase mb-4 text-white drop-shadow-[2px_2px_0px_#000]">Integrate</h4>
-                                    <div class="font-black text-xl bg-white border-4 border-black inline-block px-4 py-2 self-start mb-6 shadow-sm">Teacher + Learners + AI</div>
-                                    <p class="font-medium text-xl bg-white border-4 border-black p-5 flex-grow">Design a learning activity in which students interact directly with AI for a specific purpose.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="bg-white border-4 border-slate-900 p-4 w-full">
+                        <span class="text-brand-blue text-2xl block mb-1">06</span>
+                        <span class="text-2xl block">Evaluate</span>
+                        <span class="text-sm font-bold normal-case text-slate-900">Accuracy + Relevance + Appropriateness</span>
                     </div>
+                    <i data-lucide="arrow-down" class="w-8 h-8 stroke-[3]"></i>
 
-                    <!-- Step 4 -->
-                    <div class="step">
-                        <div class="step-number bg-brand-orange">4</div>
-                        <div class="step-line"></div>
-                        <div class="step-header flex justify-between items-center brutal-btn">
-                            <h3 class="font-black text-2xl uppercase tracking-tight">Choose the Tool</h3>
-                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 stroke-[3]"></i>
-                        </div>
-                        <div class="step-content">
-                            <div class="bg-white border-4 border-black p-8 shadow-brutal-sm text-xl">
-                                <p class="font-medium leading-relaxed mb-8">The tool follows the teaching purpose. Participants explore different possibilities for content creation, interactive tools, practice, multimodal materials, and specialised teacher resources.</p>
-                                
-                                <div class="flex flex-wrap gap-4">
-                                    <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="brutal-link bg-brand-yellow text-2xl py-2 px-4 shadow-[4px_4px_0px_0px_#000] hover:shadow-[2px_2px_0px_0px_#000]">
-                                        ChatGPT <i data-lucide="external-link" class="w-6 h-6"></i>
-                                    </a>
-                                    <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="brutal-link bg-brand-blue text-2xl py-2 px-4 shadow-[4px_4px_0px_0px_#000] hover:shadow-[2px_2px_0px_0px_#000]">
-                                        Gemini <i data-lucide="external-link" class="w-6 h-6"></i>
-                                    </a>
-                                    <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="brutal-link bg-brand-green text-2xl py-2 px-4 shadow-[4px_4px_0px_0px_#000] hover:shadow-[2px_2px_0px_0px_#000]">
-                                        Copilot <i data-lucide="external-link" class="w-6 h-6"></i>
-                                    </a>
-                                    <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="brutal-link bg-brand-purple text-2xl py-2 px-4 shadow-[4px_4px_0px_0px_#000] hover:shadow-[2px_2px_0px_0px_#000]">
-                                        Google AI Studio <i data-lucide="external-link" class="w-6 h-6"></i>
-                                    </a>
-                                    <a href="https://www.trinitycollege.com/qualifications/english-language/notelab-english" target="_blank" rel="noopener noreferrer" class="brutal-link bg-brand-red text-2xl py-2 px-4 shadow-[4px_4px_0px_0px_#000] hover:shadow-[2px_2px_0px_0px_#000]">
-                                        NoteLab English <i data-lucide="external-link" class="w-6 h-6"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="bg-white border-4 border-slate-900 p-4 w-full">
+                        <span class="text-brand-purple text-2xl block mb-1">07</span>
+                        <span class="text-2xl block">Review & Adapt</span>
+                        <span class="text-sm font-bold normal-case text-slate-900">Teacher judgement remains central</span>
                     </div>
+                    <i data-lucide="arrow-down" class="w-8 h-8 stroke-[3]"></i>
 
-                    <!-- STREAMING_CHUNK:Constructing the Interactive Workflow Stepper (Steps 5-8)... -->
-                    <!-- Step 5 -->
-                    <div class="step">
-                        <div class="step-number bg-black text-white">5</div>
-                        <div class="step-line"></div>
-                        <div class="step-header flex justify-between items-center brutal-btn">
-                            <h3 class="font-black text-2xl uppercase tracking-tight">Execute The Pathway</h3>
-                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 stroke-[3]"></i>
-                        </div>
-                        <div class="step-content">
-                            <div class="space-y-10">
-                                <!-- Pathway A -->
-                                <div class="bg-white border-4 border-black shadow-brutal">
-                                    <div class="bg-brand-purple border-b-4 border-black p-5 flex items-center">
-                                        <span class="bg-white font-black text-2xl border-4 border-black px-4 py-2 mr-5 shadow-[4px_4px_0px_0px_#000]">5A</span>
-                                        <h4 class="font-black text-3xl uppercase tracking-tight text-white drop-shadow-[2px_2px_0px_#000]">Create Materials</h4>
-                                    </div>
-                                    <div class="p-6 md:p-8 text-xl">
-                                        <div class="flex flex-wrap items-center font-black uppercase text-base md:text-lg gap-y-4 mb-8 bg-brand-cream p-4 border-4 border-black">
-                                            <span class="border-2 border-black px-3 py-1 bg-white">Prompt</span>
-                                            <i data-lucide="arrow-right" class="w-6 h-6 mx-2 stroke-[3]"></i>
-                                            <span class="border-2 border-black px-3 py-1 bg-white">Generate</span>
-                                            <i data-lucide="arrow-right" class="w-6 h-6 mx-2 stroke-[3]"></i>
-                                            <span class="border-2 border-black px-3 py-1 bg-white">Review</span>
-                                            <i data-lucide="arrow-right" class="w-6 h-6 mx-2 stroke-[3]"></i>
-                                            <span class="border-2 border-black px-3 py-1 bg-white">Adapt</span>
-                                            <i data-lucide="arrow-right" class="w-6 h-6 mx-2 stroke-[3]"></i>
-                                            <span class="border-4 border-black px-4 py-2 bg-brand-purple text-white shadow-sm">Teach</span>
-                                        </div>
-                                        <p class="font-medium">Teachers use AI to address a specific material need, then review and adapt the output before using it with learners.</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Pathway B -->
-                                <div class="bg-white border-4 border-black shadow-brutal">
-                                    <div class="bg-brand-green border-b-4 border-black p-5 flex items-center">
-                                        <span class="bg-white font-black text-2xl border-4 border-black px-4 py-2 mr-5 shadow-[4px_4px_0px_0px_#000]">5B</span>
-                                        <h4 class="font-black text-3xl uppercase tracking-tight text-white drop-shadow-[2px_2px_0px_#000]">Integrate AI with Learners</h4>
-                                    </div>
-                                    <div class="p-6 md:p-8 text-xl">
-                                        <div class="flex flex-wrap items-center font-black uppercase text-base md:text-lg gap-y-4 mb-8 bg-brand-cream p-4 border-4 border-black">
-                                            <span class="border-2 border-black px-3 py-1 bg-white">Prepare</span>
-                                            <i data-lucide="arrow-right" class="w-5 h-5 mx-1 stroke-[3]"></i>
-                                            <span class="border-2 border-black px-3 py-1 bg-white">Think</span>
-                                            <i data-lucide="arrow-right" class="w-5 h-5 mx-1 stroke-[3]"></i>
-                                            <span class="border-2 border-black px-3 py-1 bg-brand-yellow">Interact</span>
-                                            <i data-lucide="arrow-right" class="w-5 h-5 mx-1 stroke-[3]"></i>
-                                            <span class="border-2 border-black px-3 py-1 bg-brand-yellow">Evaluate</span>
-                                            <i data-lucide="arrow-right" class="w-5 h-5 mx-1 stroke-[3]"></i>
-                                            <span class="border-4 border-black px-3 py-2 bg-brand-green text-black shadow-sm">Revise / Reflect</span>
-                                        </div>
-                                        <p class="font-medium mb-8 pb-8 border-b-4 border-black">Students first engage with the learning task themselves. They then interact with AI for a defined purpose and evaluate what it produces. Examples from lesson plans include:</p>
-                                        
-                                        <div class="grid sm:grid-cols-2 gap-6">
-                                            <div class="bg-white border-4 border-black p-5 shadow-brutal-sm hover:shadow-brutal transition-shadow">
-                                                <h5 class="font-black uppercase text-xl mb-3 flex items-center bg-brand-blue text-black p-2 border-2 border-black"><i data-lucide="message-square" class="w-6 h-6 mr-3"></i>AI Debate Partner</h5>
-                                                <p class="font-medium text-base leading-relaxed">Students develop their own position, use AI to generate an opposing argument, debate it, and reflect on the interaction.</p>
-                                            </div>
-                                            <div class="bg-white border-4 border-black p-5 shadow-brutal-sm hover:shadow-brutal transition-shadow">
-                                                <h5 class="font-black uppercase text-xl mb-3 flex items-center bg-brand-orange text-black p-2 border-2 border-black"><i data-lucide="pen-tool" class="w-6 h-6 mr-3"></i>AI Peer Review Table</h5>
-                                                <p class="font-medium text-base leading-relaxed">Students write first, examine AI feedback, decide what to accept or reject, justify their decisions, and revise their writing.</p>
-                                            </div>
-                                            <div class="bg-white border-4 border-black p-5 shadow-brutal-sm hover:shadow-brutal transition-shadow">
-                                                <h5 class="font-black uppercase text-xl mb-3 flex items-center bg-brand-yellow text-black p-2 border-2 border-black"><i data-lucide="headphones" class="w-6 h-6 mr-3"></i>AI Listening Partner</h5>
-                                                <p class="font-medium text-base leading-relaxed">Students develop their own interpretation of a speaker's attitude, compare it with AI's interpretation, and evaluate the evidence.</p>
-                                            </div>
-                                            <div class="bg-white border-4 border-black p-5 shadow-brutal-sm hover:shadow-brutal transition-shadow">
-                                                <h5 class="font-black uppercase text-xl mb-3 flex items-center bg-brand-teal text-black p-2 border-2 border-black"><i data-lucide="book-open" class="w-6 h-6 mr-3"></i>AI Comprehension</h5>
-                                                <p class="font-medium text-base leading-relaxed">Students interpret a text first, then use AI to evaluate and challenge their interpretation.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 6 -->
-                    <div class="step">
-                        <div class="step-number bg-brand-red">6</div>
-                        <div class="step-line"></div>
-                        <div class="step-header flex justify-between items-center brutal-btn">
-                            <h3 class="font-black text-2xl uppercase tracking-tight">Ethical Check</h3>
-                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 stroke-[3]"></i>
-                        </div>
-                        <div class="step-content">
-                            <div class="bg-brand-red border-4 border-black p-6 md:p-8 shadow-brutal text-xl">
-                                <div class="flex flex-wrap gap-4 mb-8 font-black uppercase text-lg">
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm cursor-default">Age</span>
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm cursor-default">Privacy</span>
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm cursor-default">Safeguarding</span>
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm cursor-default">Accuracy</span>
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm cursor-default">Bias</span>
-                                    <span class="bg-white border-4 border-black px-4 py-2 shadow-brutal-sm cursor-default">Learning Integrity</span>
-                                </div>
-                                <p class="font-medium leading-relaxed bg-white border-4 border-black p-6">Teachers consider whether AI use is appropriate for these particular learners and this particular activity. For student-facing AI use, this includes preparing students, testing prompts, monitoring interactions, protecting personal information, and <strong>ensuring that AI does not replace the learning process</strong>.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 7 -->
-                    <div class="step">
-                        <div class="step-number bg-brand-teal">7</div>
-                        <div class="step-line"></div>
-                        <div class="step-header flex justify-between items-center brutal-btn">
-                            <h3 class="font-black text-2xl uppercase tracking-tight">Teacher Review</h3>
-                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 stroke-[3]"></i>
-                        </div>
-                        <div class="step-content">
-                            <div class="bg-white border-4 border-black p-6 md:p-8 shadow-brutal-sm text-xl">
-                                <div class="flex flex-wrap items-center font-black uppercase text-2xl mb-8 gap-4">
-                                    <span class="bg-brand-teal border-4 border-black px-4 py-2">Evaluate</span>
-                                    <i data-lucide="arrow-right" class="w-8 h-8 stroke-[3]"></i>
-                                    <span class="bg-brand-blue border-4 border-black px-4 py-2">Adapt</span>
-                                    <i data-lucide="arrow-right" class="w-8 h-8 stroke-[3]"></i>
-                                    <span class="bg-brand-yellow border-4 border-black px-4 py-2">Monitor</span>
-                                </div>
-                                <p class="font-medium leading-relaxed">Teachers review generated materials and monitor student interaction with AI. They check accuracy, language level, relevance, appropriateness, and alignment with the learning objective.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Step 8 -->
-                    <div class="step">
-                        <div class="step-number bg-brand-yellow text-black border-4 border-black">8</div>
-                        <div class="step-line"></div>
-                        <div class="step-header flex justify-between items-center brutal-btn">
-                            <h3 class="font-black text-2xl uppercase tracking-tight">Learning Experience</h3>
-                            <i data-lucide="chevron-down" class="step-arrow h-8 w-8 stroke-[3]"></i>
-                        </div>
-                        <div class="step-content">
-                            <div class="bg-black text-white border-4 border-black p-8 md:p-10 shadow-brutal text-2xl">
-                                <h4 class="text-4xl md:text-5xl font-black uppercase mb-8 text-brand-yellow leading-tight">What will learners actually do?</h4>
-                                <div class="font-medium leading-relaxed border-l-8 border-brand-teal pl-6 space-y-6">
-                                    <p>The final question is not: <br><span class="text-brand-red font-black text-3xl">What did AI generate?</span></p>
-                                    <p>It is: <br><span class="text-brand-green font-black text-3xl">What will learners do with it?</span></p>
-                                    <p class="text-xl mt-6 pt-6 border-t-2 border-gray-700">Learners should have opportunities to communicate, think, evaluate, create, revise, and make decisions.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="bg-brand-indigo text-slate-900 border-4 border-slate-900 p-6 w-full">
+                        <span class="text-slate-900 text-2xl block mb-1">08</span>
+                        <span class="text-3xl block mb-1">Design the learning experience</span>
+                        <span class="text-lg font-bold normal-case text-slate-900">What will learners actually do?</span>
                     </div>
 
                 </div>
             </div>
 
-            <!-- STREAMING_CHUNK:Building the Vibrant Core Message Grid... -->
-            <div class="brutal-card p-8 md:p-12 opacity-0 bg-white" data-animate>
-                <div class="flex items-center mb-12">
-                    <div class="h-16 w-16 bg-brand-purple flex items-center justify-center mr-5 border-4 border-black shadow-[4px_4px_0px_0px_#000]">
-                        <i data-lucide="crosshair" class="text-black w-8 h-8 stroke-[3]"></i>
+            <div class="brutal-card p-8 md:p-12 opacity-0 bg-white max-w-5xl mx-auto" data-animate>
+                <div class="flex items-center mb-10 border-b-4 border-slate-900 pb-6">
+                    <div class="h-16 w-16 bg-brand-purple flex items-center justify-center mr-5 border-4 border-slate-900">
+                        <i data-lucide="check-circle" class="text-slate-900 w-8 h-8 stroke-[2.5]"></i>
                     </div>
-                    <h2 class="text-5xl md:text-6xl font-black uppercase tracking-tight">Core Message</h2>
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900">Core Message Checklist</h2>
+                        <p class="font-bold text-lg mt-2 text-slate-800">Click to check off the principles as you apply them.</p>
+                    </div>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    <div class="border-4 border-black p-6 bg-brand-cream hover:bg-brand-yellow transition-colors brutal-btn flex items-center">
-                        <span class="font-black text-4xl mr-5 opacity-40">01</span>
-                        <span class="font-bold text-2xl uppercase">Start with learners.</span>
-                    </div>
-                    <div class="border-4 border-black p-6 bg-brand-cream hover:bg-brand-blue transition-colors brutal-btn flex items-center">
-                        <span class="font-black text-4xl mr-5 opacity-40">02</span>
-                        <span class="font-bold text-2xl uppercase">Define the purpose.</span>
-                    </div>
-                    <div class="border-4 border-black p-6 bg-brand-cream hover:bg-brand-orange transition-colors brutal-btn flex items-center">
-                        <span class="font-black text-4xl mr-5 opacity-40">03</span>
-                        <span class="font-bold text-2xl uppercase">Choose the resource.</span>
-                    </div>
-                    <div class="border-4 border-black p-6 bg-brand-cream hover:bg-brand-purple transition-colors brutal-btn flex items-center">
-                        <span class="font-black text-4xl mr-5 opacity-40">04</span>
-                        <span class="font-bold text-2xl uppercase">Create or integrate.</span>
-                    </div>
-                    <div class="border-4 border-black p-6 bg-brand-cream hover:bg-brand-red transition-colors brutal-btn flex items-center">
-                        <span class="font-black text-4xl mr-5 opacity-40">05</span>
-                        <span class="font-bold text-2xl uppercase">Evaluate critically.</span>
-                    </div>
-                    <div class="border-4 border-black p-6 bg-black text-white hover:bg-gray-900 transition-colors brutal-btn flex items-center shadow-[6px_6px_0px_0px_#5eead4]">
-                        <span class="font-black text-4xl mr-5 text-brand-teal">06</span>
-                        <span class="font-bold text-2xl uppercase">Design the learning experience.</span>
-                    </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 mb-16 text-slate-900">
+                    
+                    <label class="border-4 border-slate-900 p-4 md:p-6 bg-brand-cream hover:bg-brand-yellow transition-colors brutal-btn flex items-center cursor-pointer group select-none relative overflow-hidden">
+                        <input type="checkbox" class="peer sr-only">
+                        <!-- Proper SVG tick toggling inside via CSS pseudo-selectors on the wrapper div -->
+                        <div class="w-10 h-10 border-4 border-slate-900 mr-4 flex-shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal transition-colors z-10 [&_svg]:opacity-0 peer-checked:[&_svg]:opacity-100 [&_svg]:transition-opacity [&_svg]:duration-200">
+                            <i data-lucide="check" class="w-6 h-6 stroke-[3] text-slate-900"></i>
+                        </div>
+                        <span class="font-black text-3xl md:text-4xl mr-4 text-slate-900 opacity-40 peer-checked:opacity-20 transition-opacity z-10">01</span>
+                        <span class="font-bold text-lg md:text-xl uppercase leading-tight text-slate-900 transition-colors z-10">Start with learners.</span>
+                    </label>
+
+                    <label class="border-4 border-slate-900 p-4 md:p-6 bg-brand-cream hover:bg-brand-blue transition-colors brutal-btn flex items-center cursor-pointer group select-none relative overflow-hidden">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-10 h-10 border-4 border-slate-900 mr-4 flex-shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal transition-colors z-10 [&_svg]:opacity-0 peer-checked:[&_svg]:opacity-100 [&_svg]:transition-opacity [&_svg]:duration-200">
+                            <i data-lucide="check" class="w-6 h-6 stroke-[3] text-slate-900"></i>
+                        </div>
+                        <span class="font-black text-3xl md:text-4xl mr-4 text-slate-900 opacity-40 peer-checked:opacity-20 transition-opacity z-10">02</span>
+                        <span class="font-bold text-lg md:text-xl uppercase leading-tight text-slate-900 transition-colors z-10">Define the purpose.</span>
+                    </label>
+
+                    <label class="border-4 border-slate-900 p-4 md:p-6 bg-brand-cream hover:bg-brand-orange transition-colors brutal-btn flex items-center cursor-pointer group select-none relative overflow-hidden">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-10 h-10 border-4 border-slate-900 mr-4 flex-shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal transition-colors z-10 [&_svg]:opacity-0 peer-checked:[&_svg]:opacity-100 [&_svg]:transition-opacity [&_svg]:duration-200">
+                            <i data-lucide="check" class="w-6 h-6 stroke-[3] text-slate-900"></i>
+                        </div>
+                        <span class="font-black text-3xl md:text-4xl mr-4 text-slate-900 opacity-40 peer-checked:opacity-20 transition-opacity z-10">03</span>
+                        <span class="font-bold text-lg md:text-xl uppercase leading-tight text-slate-900 transition-colors z-10">Choose the resource.</span>
+                    </label>
+
+                    <label class="border-4 border-slate-900 p-4 md:p-6 bg-brand-cream hover:bg-brand-purple transition-colors brutal-btn flex items-center cursor-pointer group select-none relative overflow-hidden">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-10 h-10 border-4 border-slate-900 mr-4 flex-shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal transition-colors z-10 [&_svg]:opacity-0 peer-checked:[&_svg]:opacity-100 [&_svg]:transition-opacity [&_svg]:duration-200">
+                            <i data-lucide="check" class="w-6 h-6 stroke-[3] text-slate-900"></i>
+                        </div>
+                        <span class="font-black text-3xl md:text-4xl mr-4 text-slate-900 opacity-40 peer-checked:opacity-20 transition-opacity z-10">04</span>
+                        <span class="font-bold text-lg md:text-xl uppercase leading-tight text-slate-900 transition-colors z-10">Create or integrate.</span>
+                    </label>
+
+                    <label class="border-4 border-slate-900 p-4 md:p-6 bg-brand-cream hover:bg-brand-red transition-colors brutal-btn flex items-center cursor-pointer group select-none relative overflow-hidden">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-10 h-10 border-4 border-slate-900 mr-4 flex-shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal transition-colors z-10 [&_svg]:opacity-0 peer-checked:[&_svg]:opacity-100 [&_svg]:transition-opacity [&_svg]:duration-200">
+                            <i data-lucide="check" class="w-6 h-6 stroke-[3] text-slate-900"></i>
+                        </div>
+                        <span class="font-black text-3xl md:text-4xl mr-4 text-slate-900 opacity-40 peer-checked:opacity-20 transition-opacity z-10">05</span>
+                        <span class="font-bold text-lg md:text-xl uppercase leading-tight text-slate-900 transition-colors z-10">Evaluate critically.</span>
+                    </label>
+
+                    <label class="border-4 border-slate-900 p-4 md:p-6 bg-brand-indigo hover:bg-indigo-300 transition-colors brutal-btn flex items-center cursor-pointer group select-none relative overflow-hidden">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-10 h-10 border-4 border-slate-900 mr-4 flex-shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal transition-colors z-10 [&_svg]:opacity-0 peer-checked:[&_svg]:opacity-100 [&_svg]:transition-opacity [&_svg]:duration-200">
+                            <i data-lucide="check" class="w-6 h-6 stroke-[3] text-slate-900"></i>
+                        </div>
+                        <span class="font-black text-3xl md:text-4xl mr-4 text-slate-900 opacity-60 peer-checked:opacity-20 transition-opacity z-10">06</span>
+                        <span class="font-bold text-lg md:text-xl uppercase leading-tight text-slate-900 transition-colors z-10">Design the learning experience.</span>
+                    </label>
+
                 </div>
 
-                <div class="bg-brand-teal border-4 border-black p-8 md:p-10 text-center shadow-brutal">
-                    <p class="text-3xl md:text-4xl font-black uppercase tracking-tight leading-tight">
+                <div class="bg-brand-teal border-4 border-slate-900 p-8 md:p-10 text-center mt-16 relative">
+                    <h2 class="text-2xl font-black uppercase bg-slate-900 text-white inline-block px-4 py-2 mb-6 -mt-16 border-4 border-slate-900">Final Message</h2>
+                    <p class="text-2xl md:text-4xl font-black uppercase tracking-tight leading-tight text-slate-900">
                         "The goal is not simply to use AI in English teaching. It is to make deliberate decisions about how teachers and learners can use AI for meaningful language learning."
                     </p>
                 </div>
@@ -585,23 +445,529 @@
 
         </main>
 
-        <!-- STREAMING_CHUNK:Creating the Footer and Interaction Scripts... -->
         <!-- Footer -->
-        <footer class="text-center mt-32 mb-12 pt-12 border-t-8 border-black opacity-0" data-animate>
-            <h3 class="text-3xl md:text-4xl font-black uppercase mb-4 text-black">
+        <footer class="text-center mt-32 mb-12 pt-12 border-t-8 border-slate-900 opacity-0" data-animate>
+            <h3 class="text-3xl md:text-4xl font-black uppercase mb-4 text-slate-900">
                 Designed by <br class="md:hidden">
-                <a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="bg-brand-yellow px-4 py-2 border-4 border-black shadow-brutal hover:shadow-brutal-hover transition-all inline-block mt-4">
-                    fajarudinakbar.com <i data-lucide="external-link" class="inline w-6 h-6 mb-1 ml-1"></i>
+                <a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="bg-brand-yellow px-4 py-2 border-4 border-slate-900 hover:bg-slate-900 hover:text-brand-yellow transition-colors inline-block mt-4 text-slate-900">
+                    fajarudinakbar.com <i data-lucide="external-link" class="inline w-6 h-6 mb-1 ml-1 stroke-[2.5]"></i>
                 </a>
             </h3>
         </footer>
 
     </div>
-    
-    <!-- Scroll to Top Button -->
-    <button id="scrollTopBtn" class="bg-brand-orange border-4 border-black p-4 shadow-brutal brutal-btn z-50 fixed bottom-6 right-6 opacity-0 translate-y-4 pointer-events-none transition-all duration-300" aria-label="Scroll to top">
-        <i data-lucide="arrow-up" class="w-8 h-8 stroke-[4]"></i>
-    </button>
+
+    <!-- Fullscreen Modal Overlay -->
+    <div id="presentation-modal" class="modal-backdrop fixed inset-0 bg-slate-900/80 z-[100] flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm">
+        
+        <!-- Modal Content Container -->
+        <div class="modal-content-wrapper bg-white border-4 border-slate-900 w-full max-w-5xl max-h-[90vh] flex flex-col relative">
+            
+            <!-- Sticky Modal Header -->
+            <div class="bg-slate-900 text-white border-b-4 border-slate-900 p-4 flex justify-between items-center shrink-0">
+                <div class="flex items-center">
+                    <i data-lucide="monitor-play" class="w-6 h-6 mr-3 text-brand-teal stroke-[2.5]"></i>
+                    <span class="font-black uppercase tracking-wider">Content Viewer</span>
+                </div>
+                <button id="close-modal-btn" class="bg-brand-red border-4 border-white text-slate-900 w-10 h-10 flex items-center justify-center brutal-btn hover:bg-white transition-colors" aria-label="Close modal">
+                    <i data-lucide="x" class="w-6 h-6 stroke-[3]"></i>
+                </button>
+            </div>
+            
+            <!-- Scrollable Modal Body (JS will inject content here) -->
+            <div id="modal-body" class="p-6 sm:p-10 overflow-y-auto modal-scroll flex-grow bg-brand-cream relative text-slate-900">
+                <!-- Content gets injected here -->
+            </div>
+
+        </div>
+    </div>
+
+    <template id="content-01">
+        <div class="flex items-center mb-6 pb-4 border-b-4 border-slate-900">
+            <div class="h-16 w-16 bg-brand-yellow border-4 border-slate-900 flex items-center justify-center font-black text-3xl mr-5 shrink-0 text-slate-900">01</div>
+            <h3 class="font-black text-3xl md:text-4xl uppercase tracking-tight text-slate-900">The Art of Prompting</h3>
+        </div>
+        
+        <p class="font-bold text-2xl mb-4 bg-slate-900 text-white p-3 inline-block border-2 border-slate-900">Start with communication, not technology.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center bg-white p-5 border-4 border-slate-900 mb-6">
+            <a href="https://artsandculture.google.com/experiment/say-what-you-see/jwG3m7wQShZngw" target="_blank" rel="noopener noreferrer" class="brutal-btn w-full sm:w-64 flex items-center justify-center gap-2 bg-brand-orange text-slate-900 hover:bg-slate-900 hover:text-brand-orange border-4 border-slate-900 px-4 py-3 font-black uppercase text-xl transition-colors flex-shrink-0 text-center">
+                Say What You See <i data-lucide="external-link" class="w-5 h-5 stroke-[2.5]"></i>
+            </a>
+            <span class="font-bold text-lg text-slate-900">Use this experiment to experience how difficult it can be to communicate an idea precisely.</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 font-black uppercase bg-white border-2 border-slate-900 p-4 mb-6 text-sm sm:text-base text-slate-900">
+            <span class="bg-brand-orange border-2 border-slate-900 px-3 py-1">Say What You See</span>
+            <i data-lucide="arrow-right" class="w-5 h-5 stroke-[2.5]"></i>
+            <span>Task</span> <span class="text-brand-teal">+</span> <span>Context</span> <span class="text-brand-teal">+</span> <span>Outcome</span>
+        </div>
+        
+        <p class="font-bold mb-3 uppercase border-b-2 border-slate-900 pb-1 text-slate-900">Participants describe images considering:</p>
+        <div class="grid grid-cols-2 gap-3 mb-6 font-medium text-slate-900">
+            <div class="bg-white border-2 border-slate-900 p-3"><span class="font-black uppercase text-brand-orange block">Subject</span> What is there?</div>
+            <div class="bg-white border-2 border-slate-900 p-3"><span class="font-black uppercase text-brand-orange block">Detail</span> What does it look like?</div>
+            <div class="bg-white border-2 border-slate-900 p-3"><span class="font-black uppercase text-brand-orange block">Context</span> What is happening? What is relevant?</div>
+            <div class="bg-white border-2 border-slate-900 p-3"><span class="font-black uppercase text-brand-orange block">Medium</span> How is it represented?</div>
+        </div>
+
+        <p class="font-bold mb-3 uppercase border-b-2 border-slate-900 pb-1 text-slate-900">Then connect the experience to prompting:</p>
+        <ul class="space-y-3 font-medium bg-white p-5 border-2 border-slate-900 mb-8 text-slate-900">
+            <li class="flex items-start"><span class="font-black text-brand-teal mr-2">TASK:</span> What do I want the AI tool to do?</li>
+            <li class="flex items-start"><span class="font-black text-brand-teal mr-2">CONTEXT:</span> What does it need to know?</li>
+            <li class="flex items-start"><span class="font-black text-brand-teal mr-2">OUTCOME:</span> What should the result achieve?</li>
+        </ul>
+
+        <div class="bg-brand-teal border-4 border-slate-900 p-6 text-slate-900">
+            <h4 class="font-black uppercase text-2xl mb-2">Teaching Connection</h4>
+            <p class="font-bold text-lg mb-2 text-slate-900">This is not only an AI skill. It is also an English language skill.</p>
+            <p class="font-bold text-slate-900">The activity can become a writing or descriptive-language task in which learners practise communicating ideas precisely.</p>
+        </div>
+    </template>
+
+    <template id="content-02">
+        <div class="flex items-center mb-6 pb-4 border-b-4 border-slate-900 text-slate-900">
+            <div class="h-16 w-16 bg-brand-blue border-4 border-slate-900 flex items-center justify-center font-black text-3xl mr-5 shrink-0">02</div>
+            <h3 class="font-black text-3xl md:text-4xl uppercase tracking-tight">Define Learner Needs</h3>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 font-black uppercase text-lg sm:text-xl bg-slate-900 text-white p-5 border-4 border-slate-900 mb-8">
+            <span>Learners</span> <span class="text-brand-blue">+</span> <span>Level</span> <span class="text-brand-blue">+</span> <span>Objective</span> <span class="text-brand-blue">+</span> <span>Context</span>
+        </div>
+
+        <p class="font-bold text-xl mb-4 uppercase border-b-4 border-slate-900 pb-2 text-slate-900">Before choosing an AI tool, teachers identify:</p>
+        <div class="grid grid-cols-2 gap-4 mb-8 text-slate-900">
+            <div class="bg-white border-2 border-slate-900 p-4">
+                <span class="font-black text-2xl uppercase text-brand-blue block mb-1">Who</span>
+                <span class="font-bold text-slate-900">Who are the learners?</span>
+            </div>
+            <div class="bg-white border-2 border-slate-900 p-4">
+                <span class="font-black text-2xl uppercase text-brand-blue block mb-1">Level</span>
+                <span class="font-bold text-slate-900">What can they currently do?</span>
+            </div>
+            <div class="bg-white border-2 border-slate-900 p-4">
+                <span class="font-black text-2xl uppercase text-brand-blue block mb-1">Objective</span>
+                <span class="font-bold text-slate-900">What do they need to achieve?</span>
+            </div>
+            <div class="bg-white border-2 border-slate-900 p-4">
+                <span class="font-black text-2xl uppercase text-brand-blue block mb-1">Context</span>
+                <span class="font-bold text-slate-900">Where and why will they use English?</span>
+            </div>
+        </div>
+
+        <h4 class="font-black text-2xl uppercase mb-4 text-white bg-slate-900 inline-block px-4 py-2 border-4 border-slate-900">Use Evidence</h4>
+        <p class="font-bold text-lg mb-4 text-slate-900">Teachers can draw on different sources to understand learner needs:</p>
+        
+        <div class="grid sm:grid-cols-2 gap-4 font-medium mb-8 text-slate-900">
+            <div class="bg-white border-2 border-slate-900 p-5 flex flex-col">
+                <span class="font-black uppercase text-brand-blue block text-xl mb-2">GSE</span>
+                <p class="mb-4 text-slate-900 font-bold flex-grow">Use the Global Scale of English to identify proficiency levels, skills, and learning objectives.</p>
+                <a href="https://www.english.com/gse/teacher-toolkit/user/lo" target="_blank" rel="noopener noreferrer" class="brutal-btn mt-auto w-full flex items-center justify-center gap-2 bg-brand-blue hover:bg-slate-900 hover:text-brand-blue text-slate-900 border-4 border-slate-900 px-4 py-3 font-black uppercase text-sm md:text-base transition-colors text-center">
+                    GSE Teacher Toolkit <i data-lucide="external-link" class="w-4 h-4 stroke-[2.5]"></i>
+                </a>
+            </div>
+            <div class="bg-white border-2 border-slate-900 p-5 flex flex-col">
+                <span class="font-black uppercase text-brand-blue block text-xl mb-2">TOEIC</span>
+                <p class="mb-4 text-slate-900 font-bold flex-grow">Use TOEIC scores and performance patterns as evidence of learners' strengths and areas for development, particularly in workplace English contexts.</p>
+                <a href="https://www.ets.org/pdfs/toeic/toeic-listening-reading-score-descriptors.pdf" target="_blank" rel="noopener noreferrer" class="brutal-btn mt-auto w-full flex items-center justify-center gap-2 bg-brand-blue hover:bg-slate-900 hover:text-brand-blue text-slate-900 border-4 border-slate-900 px-4 py-3 font-black uppercase text-sm md:text-base transition-colors text-center">
+                    TOEIC Descriptors <i data-lucide="external-link" class="w-4 h-4 stroke-[2.5]"></i>
+                </a>
+            </div>
+            <div class="bg-white border-2 border-slate-900 p-5 flex flex-col">
+                <span class="font-black uppercase text-brand-blue block text-xl mb-2">Classroom Evidence</span>
+                <p class="mt-auto text-slate-900 font-bold">Observation, learner performance, classroom tasks, and teacher assessment.</p>
+            </div>
+            <div class="bg-white border-2 border-slate-900 p-5 flex flex-col">
+                <span class="font-black uppercase text-brand-blue block text-xl mb-2">Learner Goals</span>
+                <p class="mt-auto text-slate-900 font-bold">What learners need or want to accomplish with English.</p>
+            </div>
+        </div>
+
+        <h4 class="font-black text-2xl uppercase mb-4 text-white bg-slate-900 inline-block px-4 py-2 border-4 border-slate-900">Use Evidence</h4>
+        <p class="font-bold text-lg mb-4 text-slate-900">Teachers can draw on different sources to understand learner needs:</p>
+        
+        <div class="grid sm:grid-cols-2 gap-4 font-medium mb-8 text-slate-900">
+            <div class="bg-white border-2 border-slate-900 p-5 flex flex-col">
+                <span class="font-black uppercase text-brand-blue block text-xl mb-2">GSE</span>
+                <p class="mb-4 text-slate-800 font-bold flex-grow">Use the Global Scale of English to identify proficiency levels, skills, and learning objectives.</p>
+                <a href="https://www.english.com/gse/teacher-toolkit/user/lo" target="_blank" rel="noopener noreferrer" class="brutal-btn mt-auto w-full flex items-center justify-center gap-2 bg-brand-blue hover:bg-slate-900 hover:text-brand-blue text-slate-900 border-4 border-slate-900 px-4 py-3 font-black uppercase text-sm md:text-base transition-colors text-center">
+                    GSE Teacher Toolkit <i data-lucide="external-link" class="w-4 h-4 stroke-[2.5]"></i>
+                </a>
+            </div>
+            <div class="bg-white border-2 border-slate-900 p-5 flex flex-col">
+                <span class="font-black uppercase text-brand-blue block text-xl mb-2">TOEIC</span>
+                <p class="mb-4 text-slate-800 font-bold flex-grow">Use TOEIC scores and performance patterns as evidence of learners' strengths and areas for development, particularly in workplace English contexts.</p>
+                <a href="https://www.ets.org/pdfs/toeic/toeic-listening-reading-score-descriptors.pdf" target="_blank" rel="noopener noreferrer" class="brutal-btn mt-auto w-full flex items-center justify-center gap-2 bg-brand-blue hover:bg-slate-900 hover:text-brand-blue text-slate-900 border-4 border-slate-900 px-4 py-3 font-black uppercase text-sm md:text-base transition-colors text-center">
+                    TOEIC Descriptors <i data-lucide="external-link" class="w-4 h-4 stroke-[2.5]"></i>
+                </a>
+            </div>
+            <div class="bg-white border-2 border-slate-900 p-5 flex flex-col">
+                <span class="font-black uppercase text-brand-blue block text-xl mb-2">Classroom Evidence</span>
+                <p class="mt-auto text-slate-800 font-bold">Observation, learner performance, classroom tasks, and teacher assessment.</p>
+            </div>
+            <div class="bg-white border-2 border-slate-900 p-5 flex flex-col">
+                <span class="font-black uppercase text-brand-blue block text-xl mb-2">Learner Goals</span>
+                <p class="mt-auto text-slate-800 font-bold">What learners need or want to accomplish with English.</p>
+            </div>
+        </div>
+
+        <div class="bg-brand-blue border-4 border-slate-900 p-6 text-slate-900">
+            <p class="font-black text-2xl uppercase mb-2">The Point</p>
+            <p class="font-bold text-lg mb-4 text-slate-900">GSE, TOEIC, classroom evidence, and learner goals can help teachers build a clearer picture of learner needs before deciding what materials or learning activities to design.</p>
+            <div class="bg-slate-900 text-white p-4 border-2 border-slate-900">
+                <p class="font-black text-xl uppercase mb-1 text-brand-yellow">Key Question</p>
+                <p class="font-bold text-lg leading-tight text-white">What do these learners need to be able to do, and what evidence tells us that?</p>
+            </div>
+        </div>
+    </template>
+
+    <template id="content-03">
+        <div class="flex items-center mb-8 pb-4 border-b-4 border-slate-900 text-slate-900">
+            <div class="h-16 w-16 bg-brand-purple border-4 border-slate-900 flex items-center justify-center font-black text-3xl mr-5 shrink-0">03</div>
+            <h3 class="font-black text-3xl md:text-4xl uppercase tracking-tight">Decide the Purpose</h3>
+        </div>
+        
+        <p class="font-black text-2xl mb-8 uppercase text-center bg-white border-4 border-slate-900 py-3 text-slate-900">There are two different ways teachers can use AI.</p>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-8 text-slate-900">
+            <div class="bg-brand-purple border-4 border-slate-900 p-6 flex flex-col relative text-slate-900">
+                <h4 class="font-black text-4xl uppercase text-slate-900 mb-4 bg-white px-2 py-1 inline-block border-2 border-slate-900 self-start">Create</h4>
+                <div class="font-black text-xl bg-white border-2 border-slate-900 px-4 py-2 mb-6 inline-block w-max">Teacher + AI</div>
+                <p class="font-bold text-lg mb-3">Teachers use AI to:</p>
+                <ul class="font-bold text-lg space-y-2 mb-6 bg-white p-4 border-2 border-slate-900 flex-grow text-slate-900">
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> create materials</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> adapt existing materials</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> differentiate tasks</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> extend practice</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> generate alternative versions</li>
+                </ul>
+                <p class="text-base font-bold bg-slate-900 text-white p-3 text-center mt-auto border-2 border-slate-900">The learners may never interact with the AI tool.</p>
+            </div>
+            
+            <div class="bg-brand-green border-4 border-slate-900 p-6 flex flex-col relative text-slate-900">
+                <h4 class="font-black text-4xl uppercase text-slate-900 mb-4 bg-white px-2 py-1 inline-block border-2 border-slate-900 self-start">Integrate</h4>
+                <div class="font-black text-xl bg-white border-2 border-slate-900 px-4 py-2 mb-6 inline-block w-max">Teacher + Learners + AI</div>
+                <p class="font-bold text-lg mb-3">Teachers design a learning activity in which learners interact directly with AI for a defined purpose. Learners might:</p>
+                <ul class="font-bold text-lg grid grid-cols-2 gap-2 bg-white p-4 border-2 border-slate-900 flex-grow mb-6 text-slate-900">
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> practise</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> question</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> compare</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> challenge</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> evaluate</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> revise</li>
+                    <li class="flex items-center"><div class="w-2 h-2 bg-slate-900 mr-2"></div> reflect</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bg-slate-900 text-brand-teal text-center p-6 border-4 border-slate-900 text-2xl font-black uppercase">
+            The Distinction: <br>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 mt-4 text-slate-900">
+                <span class="bg-white px-4 py-2 border-2 border-slate-900 text-xl w-full md:w-auto">AI for preparing learning</span> 
+                <span class="text-brand-orange text-3xl font-black md:mx-2">&amp;</span>
+                <span class="bg-brand-orange px-4 py-2 border-2 border-slate-900 text-xl w-full md:w-auto">AI as part of the learning activity</span>
+            </div>
+        </div>
+    </template>
+
+    <template id="content-04">
+        <div class="flex items-center mb-6 pb-4 border-b-4 border-slate-900 text-slate-900">
+            <div class="h-16 w-16 bg-brand-orange border-4 border-slate-900 flex items-center justify-center font-black text-3xl mr-5 shrink-0">04</div>
+            <h3 class="font-black text-3xl md:text-4xl uppercase tracking-tight">Choose the Tool</h3>
+        </div>
+
+        <p class="font-black text-3xl mb-8 uppercase text-center bg-white border-4 border-slate-900 py-4 text-slate-900">The tool follows the teaching purpose.</p>
+
+        <div class="space-y-6 mb-10 text-slate-900">
+            <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center bg-white p-4 border-4 border-slate-900">
+                <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" class="brutal-btn w-full sm:w-64 flex items-center justify-center gap-2 bg-brand-yellow hover:bg-slate-900 hover:text-brand-yellow text-slate-900 border-4 border-slate-900 px-6 py-4 font-black uppercase text-2xl transition-colors flex-shrink-0">
+                    ChatGPT <i data-lucide="external-link" class="w-6 h-6 stroke-[2.5]"></i>
+                </a>
+                <span class="font-bold text-lg text-slate-900">Content creation, adaptation, feedback, interaction, and learner activities.</span>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center bg-white p-4 border-4 border-slate-900">
+                <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" class="brutal-btn w-full sm:w-64 flex items-center justify-center gap-2 bg-brand-blue hover:bg-slate-900 hover:text-brand-blue text-slate-900 border-4 border-slate-900 px-6 py-4 font-black uppercase text-2xl transition-colors flex-shrink-0">
+                    Gemini <i data-lucide="external-link" class="w-6 h-6 stroke-[2.5]"></i>
+                </a>
+                <span class="font-bold text-lg text-slate-900">Content creation, multimodal work, and interaction.</span>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center bg-white p-4 border-4 border-slate-900">
+                <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="brutal-btn w-full sm:w-64 flex items-center justify-center gap-2 bg-brand-green hover:bg-slate-900 hover:text-brand-green text-slate-900 border-4 border-slate-900 px-6 py-4 font-black uppercase text-2xl transition-colors flex-shrink-0">
+                    Copilot <i data-lucide="external-link" class="w-6 h-6 stroke-[2.5]"></i>
+                </a>
+                <span class="font-bold text-lg text-slate-900">Content creation and productivity-oriented tasks.</span>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center bg-white p-4 border-4 border-slate-900">
+                <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" class="brutal-btn w-full sm:w-64 flex items-center justify-center gap-2 bg-brand-purple hover:bg-slate-900 hover:text-brand-purple text-slate-900 border-4 border-slate-900 px-6 py-4 font-black uppercase text-2xl transition-colors flex-shrink-0">
+                    AI Studio <i data-lucide="external-link" class="w-6 h-6 stroke-[2.5]"></i>
+                </a>
+                <span class="font-bold text-lg text-slate-900">Experimenting with AI and designing interactive experiences.</span>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 items-start sm:items-center bg-white p-4 border-4 border-slate-900">
+                <a href="https://www.trinitycollege.com/qualifications/english-language/notelab-english" target="_blank" rel="noopener noreferrer" class="brutal-btn w-full sm:w-64 flex items-center justify-center gap-2 bg-brand-red hover:bg-slate-900 hover:text-brand-red text-slate-900 border-4 border-slate-900 px-6 py-4 font-black uppercase text-xl sm:text-2xl transition-colors flex-shrink-0">
+                    NoteLab <i data-lucide="external-link" class="w-6 h-6 stroke-[2.5]"></i>
+                </a>
+                <span class="font-bold text-lg text-slate-900">Specialised English teaching resources.</span>
+            </div>
+        </div>
+
+        <div class="bg-brand-orange border-4 border-slate-900 p-8 text-center text-slate-900">
+            <p class="font-black text-3xl uppercase mb-6 bg-white inline-block px-4 py-1 border-4 border-slate-900">Remember</p>
+            
+            <p class="font-bold text-xl mb-2">Do not ask:</p>
+            <p class="font-black text-2xl text-red-900 mb-6 bg-white px-4 py-2 inline-block border-2 border-red-900">Which AI tool should I use?</p>
+            
+            <p class="font-bold text-xl mb-2">Ask:</p>
+            <p class="font-black text-3xl bg-slate-900 text-white p-4 border-4 border-white inline-block">What do my learners need to do, and what resource could support that?</p>
+        </div>
+    </template>
+
+    <template id="content-05">
+        <div class="flex items-center mb-8 pb-4 border-b-4 border-slate-900 shrink-0 text-slate-900">
+            <div class="h-16 w-16 bg-white text-slate-900 border-4 border-slate-900 flex items-center justify-center font-black text-3xl mr-5 shrink-0">05</div>
+            <h3 class="font-black text-3xl md:text-4xl uppercase tracking-tight">Execute The Pathway</h3>
+        </div>
+
+        <div class="space-y-8">
+            <!-- 5A -->
+            <div class="bg-brand-purple border-4 border-slate-900 p-6 text-slate-900">
+                <h4 class="font-black text-3xl uppercase text-slate-900 mb-6 bg-white border-2 border-slate-900 px-3 py-1 inline-block">5A | Create Materials</h4>
+                
+                <div class="flex flex-wrap items-center font-black uppercase text-base md:text-lg gap-y-3 mb-6 bg-white p-4 border-4 border-slate-900">
+                    <span class="border-2 border-slate-900 px-2 py-1">Prompt</span> <i data-lucide="arrow-right" class="w-5 h-5 mx-1 md:mx-2 stroke-[2.5]"></i>
+                    <span class="border-2 border-slate-900 px-2 py-1">Generate</span> <i data-lucide="arrow-right" class="w-5 h-5 mx-1 md:mx-2 stroke-[2.5]"></i>
+                    <span class="border-2 border-slate-900 px-2 py-1">Review</span> <i data-lucide="arrow-right" class="w-5 h-5 mx-1 md:mx-2 stroke-[2.5]"></i>
+                    <span class="border-2 border-slate-900 px-2 py-1">Adapt</span> <i data-lucide="arrow-right" class="w-5 h-5 mx-1 md:mx-2 stroke-[2.5]"></i>
+                    <span class="bg-slate-900 text-brand-yellow border-2 border-slate-900 px-3 py-1">Teach</span>
+                </div>
+                
+                <p class="font-bold text-xl mb-4 bg-white px-3 py-2 inline-block border-2 border-slate-900">Teachers use AI to address a specific material need. Then the teacher:</p>
+                <div class="grid sm:grid-cols-2 gap-3 font-bold text-lg mb-6 text-slate-900">
+                    <div class="bg-white border-2 border-slate-900 p-3"><strong class="font-black uppercase text-brand-purple block">Reviews</strong> Is it accurate?</div>
+                    <div class="bg-white border-2 border-slate-900 p-3"><strong class="font-black uppercase text-brand-purple block">Adapts</strong> Does it fit these learners?</div>
+                    <div class="bg-white border-2 border-slate-900 p-3"><strong class="font-black uppercase text-brand-purple block">Checks</strong> Is the language appropriate?</div>
+                    <div class="bg-white border-2 border-slate-900 p-3"><strong class="font-black uppercase text-brand-purple block">Decides</strong> Does it support the objective?</div>
+                    <div class="sm:col-span-2 bg-slate-900 text-white border-2 border-slate-900 p-3"><strong class="font-black uppercase text-brand-yellow block">Teaches</strong> How will learners actually use it?</div>
+                </div>
+                
+                <div class="bg-white p-4 border-4 border-slate-900 text-center">
+                    <p class="font-black uppercase text-xl mb-1">Teacher Role: DIRECT → REVIEW → ADAPT → DECIDE</p>
+                    <p class="font-bold text-lg text-slate-900">AI output is a starting point, not a finished lesson.</p>
+                </div>
+            </div>
+
+            <!-- 5B -->
+            <div class="bg-brand-green border-4 border-slate-900 p-6 text-slate-900">
+                <h4 class="font-black text-3xl uppercase text-slate-900 mb-3 bg-white border-2 border-slate-900 px-3 py-1 inline-block leading-tight">5B | Integrate AI with Learners</h4>
+                <p class="font-black text-xl bg-white inline-block px-3 py-1 border-2 border-slate-900 mb-6 block">The sequence matters.</p>
+                
+                <div class="flex flex-wrap items-center font-black uppercase text-sm md:text-base gap-y-3 mb-6 bg-white p-4 border-4 border-slate-900">
+                    <span class="border-2 border-slate-900 px-2 py-1">Prepare</span> <i data-lucide="arrow-right" class="w-4 h-4 mx-1 stroke-[2.5]"></i>
+                    <span class="border-2 border-slate-900 px-2 py-1">Think</span> <i data-lucide="arrow-right" class="w-4 h-4 mx-1 stroke-[2.5]"></i>
+                    <span class="bg-brand-yellow border-2 border-slate-900 px-2 py-1">Interact</span> <i data-lucide="arrow-right" class="w-4 h-4 mx-1 stroke-[2.5]"></i>
+                    <span class="bg-brand-yellow border-2 border-slate-900 px-2 py-1">Evaluate</span> <i data-lucide="arrow-right" class="w-4 h-4 mx-1 stroke-[2.5]"></i>
+                    <span class="bg-slate-900 text-white border-2 border-slate-900 px-2 py-1">Revise / Reflect</span>
+                </div>
+                
+                <p class="font-bold text-xl mb-4 bg-white px-3 py-2 inline-block border-2 border-slate-900">Learners should not simply ask AI for an answer. Instead:</p>
+                <ul class="font-bold text-lg bg-white p-5 border-4 border-slate-900 space-y-3 text-slate-900">
+                    <li class="flex items-start"><span class="font-black text-white uppercase bg-slate-900 px-2 py-1 border-2 border-slate-900 mr-3 text-sm shrink-0 w-24 text-center">PREPARE</span> Understand the task and expectations.</li>
+                    <li class="flex items-start"><span class="font-black text-white uppercase bg-slate-900 px-2 py-1 border-2 border-slate-900 mr-3 text-sm shrink-0 w-24 text-center">THINK</span> Attempt the task themselves.</li>
+                    <li class="flex items-start"><span class="font-black uppercase bg-brand-yellow px-2 py-1 border-2 border-slate-900 mr-3 text-sm shrink-0 w-24 text-center">INTERACT</span> Use AI for a defined purpose.</li>
+                    <li class="flex items-start"><span class="font-black uppercase bg-brand-yellow px-2 py-1 border-2 border-slate-900 mr-3 text-sm shrink-0 w-24 text-center">EVALUATE</span> Examine what the AI tool produces.</li>
+                    <li class="flex items-start"><span class="font-black text-white uppercase bg-slate-900 px-2 py-1 border-2 border-slate-900 mr-3 text-sm shrink-0 w-24 text-center">REVISE</span> Make decisions and improve their work.</li>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="content-06">
+        <div class="flex items-center mb-8 pb-4 border-b-4 border-slate-900 text-slate-900">
+            <div class="h-16 w-16 bg-brand-pink border-4 border-slate-900 flex items-center justify-center font-black text-3xl mr-5 shrink-0">06</div>
+            <h3 class="font-black text-2xl md:text-4xl uppercase tracking-tight leading-tight">What Can Learners Actually Do With AI?</h3>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 mb-8 text-slate-900">
+            
+            <div class="bg-white border-4 border-slate-900 p-5 flex flex-col">
+                <h5 class="font-black uppercase text-xl mb-4 bg-brand-blue text-slate-900 p-2 border-4 border-slate-900 w-max flex items-center"><i data-lucide="message-square" class="w-6 h-6 mr-2 stroke-[2.5]"></i>AI Debate Partner</h5>
+                <p class="font-bold text-lg flex-grow mb-4 text-slate-900">Learners develop their own position. Then they use AI to generate an opposing argument. They respond, evaluate the argument, and reflect on the interaction.</p>
+                <div class="bg-slate-900 text-white text-sm font-bold p-3 border-2 border-slate-900 mt-auto">
+                    <span class="text-brand-blue">Language focus:</span> argumentation, reasoning, speaking, interaction.
+                </div>
+            </div>
+            
+            <div class="bg-white border-4 border-slate-900 p-5 flex flex-col">
+                <h5 class="font-black uppercase text-xl mb-4 bg-brand-orange text-slate-900 p-2 border-4 border-slate-900 w-max flex items-center"><i data-lucide="pen-tool" class="w-6 h-6 mr-2 stroke-[2.5]"></i>AI Peer Review</h5>
+                <p class="font-bold text-lg mb-3 text-slate-900">Learners write first. They then examine AI feedback and decide:</p>
+                <div class="flex gap-2 font-black uppercase text-sm mb-3">
+                    <span class="bg-brand-green border-2 border-slate-900 px-2 py-1">Accept</span>
+                    <span class="bg-brand-red border-2 border-slate-900 px-2 py-1">Reject</span>
+                    <span class="bg-brand-yellow border-2 border-slate-900 px-2 py-1">Modify</span>
+                </div>
+                <p class="font-bold text-lg flex-grow mb-4 text-slate-900">They justify their decisions and revise their writing.</p>
+                <div class="bg-slate-900 text-white text-sm font-bold p-3 border-2 border-slate-900 mt-auto">
+                    <span class="text-brand-orange">Language focus:</span> writing, editing, metalinguistic awareness.
+                </div>
+            </div>
+            
+            <div class="bg-white border-4 border-slate-900 p-5 flex flex-col">
+                <h5 class="font-black uppercase text-xl mb-4 bg-brand-yellow text-slate-900 p-2 border-4 border-slate-900 w-max flex items-center"><i data-lucide="headphones" class="w-6 h-6 mr-2 stroke-[2.5]"></i>AI Listening Partner</h5>
+                <p class="font-bold text-lg flex-grow mb-4 text-slate-900">Learners listen and develop their own interpretation of a speaker's attitude. They then compare their interpretation with AI-generated analysis and examine the evidence.</p>
+                <div class="bg-slate-900 text-white text-sm font-bold p-3 border-2 border-slate-900 mt-auto">
+                    <span class="text-brand-yellow">Language focus:</span> listening, inference, interpretation.
+                </div>
+            </div>
+            
+            <div class="bg-white border-4 border-slate-900 p-5 flex flex-col">
+                <h5 class="font-black uppercase text-xl mb-4 bg-brand-teal text-slate-900 p-2 border-4 border-slate-900 w-max flex items-center"><i data-lucide="book-open" class="w-6 h-6 mr-2 stroke-[2.5]"></i>AI Comprehension</h5>
+                <p class="font-bold text-lg flex-grow mb-4 text-slate-900">Learners interpret a text independently. They then use AI to challenge or evaluate their interpretation. The learner decides whether the AI interpretation is convincing.</p>
+                <div class="bg-slate-900 text-white text-sm font-bold p-3 border-2 border-slate-900 mt-auto">
+                    <span class="text-brand-teal">Language focus:</span> reading, comprehension, critical evaluation.
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="mt-8 border-t-4 border-slate-900 pt-8 text-slate-900">
+            <h4 class="font-black text-2xl md:text-3xl uppercase mb-6 bg-white inline-block px-4 py-2 border-4 border-slate-900">Explore More Resources</h4>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="bg-white border-4 border-slate-900 p-5 flex flex-col">
+                    <p class="font-bold text-lg mb-4 flex-grow text-slate-900">See a practical example of a Teacher + Learners + AI activity in action.</p>
+                    <a href="https://www.teachingenglish.org.uk/teaching-resources/teaching-secondary/lesson-plans/pre-intermediate-a2/my-ai-teacher" target="_blank" rel="noopener noreferrer" class="brutal-btn w-full flex items-center justify-center gap-2 bg-brand-yellow hover:bg-slate-900 hover:text-brand-yellow text-slate-900 border-4 border-slate-900 px-4 py-3 font-black uppercase text-sm sm:text-base transition-colors text-center">
+                        <i data-lucide="file-text" class="w-5 h-5 shrink-0 stroke-[2.5]"></i> "My AI Teacher" Plan <i data-lucide="external-link" class="w-5 h-5 shrink-0 stroke-[2.5]"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white border-4 border-slate-900 p-5 flex flex-col">
+                    <p class="font-bold text-lg mb-4 flex-grow text-slate-900">Explore a teacher-created sample lesson integrating AI for B1 reading.</p>
+                    <a href="https://teacher.fajarudinakbar.com/b1-reading-social-networks.html" target="_blank" rel="noopener noreferrer" class="brutal-btn w-full flex items-center justify-center gap-2 bg-brand-pink hover:bg-slate-900 hover:text-brand-pink text-slate-900 border-4 border-slate-900 px-4 py-3 font-black uppercase text-sm sm:text-base transition-colors text-center">
+                        <i data-lucide="layout" class="w-5 h-5 shrink-0 stroke-[2.5]"></i> B1 Reading Plan <i data-lucide="external-link" class="w-5 h-5 shrink-0 stroke-[2.5]"></i>
+                    </a>
+                </div>
+
+                <div class="bg-white border-4 border-slate-900 p-5 flex flex-col">
+                    <p class="font-bold text-lg mb-4 flex-grow text-slate-900">Discover a comprehensive collection of AI-integrated learning activities.</p>
+                    <a href="https://www.teachingenglish.org.uk/publications/resource-books/ai-activities-and-resources-english-language-teachers" target="_blank" rel="noopener noreferrer" class="brutal-btn w-full flex items-center justify-center gap-2 bg-brand-teal hover:bg-slate-900 hover:text-brand-teal text-slate-900 border-4 border-slate-900 px-4 py-3 font-black uppercase text-sm sm:text-base transition-colors text-center">
+                        <i data-lucide="book" class="w-5 h-5 shrink-0 stroke-[2.5]"></i> AI Activities Book <i data-lucide="external-link" class="w-5 h-5 shrink-0 stroke-[2.5]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="content-07">
+        <div class="flex items-center mb-8 pb-4 border-b-4 border-slate-900">
+            <div class="h-16 w-16 bg-white border-4 border-slate-900 flex items-center justify-center font-black text-3xl mr-5 shrink-0 text-slate-900">07</div>
+            <h3 class="font-black text-3xl md:text-4xl uppercase tracking-tight text-red-700">Ethical Check</h3>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-3 font-black uppercase text-sm sm:text-base bg-slate-900 text-white p-4 border-4 border-slate-900 mb-8">
+            <span>Age</span> <span class="text-brand-red">+</span> 
+            <span>Privacy</span> <span class="text-brand-red">+</span> 
+            <span>Safeguarding</span> <span class="text-brand-red">+</span> 
+            <span>Accuracy</span> <span class="text-brand-red">+</span> 
+            <span>Bias</span> <span class="text-brand-red">+</span> 
+            <span>Learning Integrity</span>
+        </div>
+
+        <p class="font-bold text-2xl mb-6 uppercase text-slate-900 bg-white p-3 border-4 border-slate-900 inline-block">Before learners interact directly with AI, teachers consider:</p>
+        
+        <div class="grid sm:grid-cols-2 gap-4 mb-8 font-bold text-lg text-slate-900">
+            <div class="bg-white border-4 border-slate-900 p-4"><span class="font-black text-2xl uppercase text-red-700 block mb-1">Age</span> Is the activity appropriate for these learners?</div>
+            <div class="bg-white border-4 border-slate-900 p-4"><span class="font-black text-2xl uppercase text-red-700 block mb-1">Privacy</span> What information are learners sharing?</div>
+            <div class="bg-white border-4 border-slate-900 p-4"><span class="font-black text-2xl uppercase text-red-700 block mb-1">Safeguarding</span> What could learners encounter?</div>
+            <div class="bg-white border-4 border-slate-900 p-4"><span class="font-black text-2xl uppercase text-red-700 block mb-1">Accuracy</span> Could the AI output be incorrect?</div>
+            <div class="bg-white border-4 border-slate-900 p-4"><span class="font-black text-2xl uppercase text-red-700 block mb-1">Bias</span> What assumptions or perspectives might appear?</div>
+            <div class="bg-white border-4 border-slate-900 p-4"><span class="font-black text-2xl uppercase text-red-700 block mb-1 leading-tight">Learning Integrity</span> Is AI supporting learning, or replacing the learning process?</div>
+        </div>
+        
+        <div class="bg-brand-red border-4 border-slate-900 p-8 text-center text-slate-900">
+            <h4 class="font-black text-3xl uppercase mb-4 bg-white inline-block px-4 py-2 border-4 border-slate-900">For student-facing AI</h4>
+            <p class="font-bold text-xl bg-slate-900 text-white p-6 border-4 border-white">Teachers should prepare learners, test prompts, establish boundaries, monitor interactions, and protect personal information.</p>
+        </div>
+    </template>
+
+    <template id="content-08">
+        <div class="flex items-center mb-8 pb-4 border-b-4 border-slate-900 text-slate-900">
+            <div class="h-16 w-16 bg-white border-4 border-slate-900 flex items-center justify-center font-black text-3xl mr-5 shrink-0 text-slate-900">08</div>
+            <h3 class="font-black text-3xl md:text-4xl uppercase tracking-tight text-slate-900">Teacher Review</h3>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center font-black uppercase text-2xl md:text-3xl mb-8 gap-4 bg-white p-6 border-4 border-slate-900 text-slate-900">
+            <span class="bg-brand-teal px-4 py-2 border-4 border-slate-900">Evaluate</span>
+            <i data-lucide="arrow-right" class="w-8 h-8 stroke-[3]"></i>
+            <span class="bg-brand-teal px-4 py-2 border-4 border-slate-900">Adapt</span>
+            <i data-lucide="arrow-right" class="w-8 h-8 stroke-[3]"></i>
+            <span class="bg-brand-teal px-4 py-2 border-4 border-slate-900">Monitor</span>
+        </div>
+        
+        <p class="font-black text-3xl uppercase mb-8 bg-slate-900 text-white p-4 border-4 border-brand-teal text-center inline-block w-full">Teachers remain responsible for the learning experience.</p>
+        
+        <div class="bg-white border-4 border-slate-900 p-8 mb-8 text-slate-900">
+            <p class="font-black text-2xl mb-4 uppercase inline-block border-b-4 border-slate-900 pb-1">Review:</p>
+            <ul class="space-y-4 font-bold text-lg">
+                <li class="flex items-start"><strong class="uppercase text-brand-teal text-xl w-48 shrink-0">Accuracy:</strong> <span>Is the content correct?</span></li>
+                <li class="flex items-start"><strong class="uppercase text-brand-teal text-xl w-48 shrink-0">Language Level:</strong> <span>Is it appropriate for the learners?</span></li>
+                <li class="flex items-start"><strong class="uppercase text-brand-teal text-xl w-48 shrink-0">Relevance:</strong> <span>Does it relate to their needs?</span></li>
+                <li class="flex items-start"><strong class="uppercase text-brand-teal text-xl w-48 shrink-0">Appropriateness:</strong> <span>Is it suitable for the context?</span></li>
+                <li class="flex items-start"><strong class="uppercase text-brand-teal text-xl w-48 shrink-0">Objective Alignment:</strong> <span>Does it support what learners are expected to achieve?</span></li>
+            </ul>
+        </div>
+
+        <div class="bg-brand-teal border-4 border-slate-900 p-8 text-center text-slate-900">
+            <p class="font-black text-2xl uppercase bg-white inline-block px-4 py-2 border-4 border-slate-900 mb-4">For learner-facing activities:</p>
+            <p class="font-black text-4xl mb-3">MONITOR THE INTERACTION</p>
+            <p class="font-bold text-xl bg-slate-900 text-white p-3 border-2 border-slate-900 inline-block">The teacher does not disappear when learners start using AI.</p>
+        </div>
+    </template>
+
+    <template id="content-09">
+        <div class="flex items-center mb-8 pb-4 border-b-4 border-slate-900 text-slate-900">
+            <div class="h-16 w-16 bg-brand-indigo text-slate-900 border-4 border-slate-900 flex items-center justify-center font-black text-3xl mr-5 shrink-0">09</div>
+            <h3 class="font-black text-3xl md:text-4xl uppercase tracking-tight leading-tight">The Learning Experience</h3>
+        </div>
+
+        <div class="bg-brand-indigo text-slate-900 border-4 border-slate-900 p-8 mb-8 text-center">
+            <h4 class="text-4xl md:text-5xl font-black uppercase mb-2">What will learners actually do?</h4>
+        </div>
+        
+        <div class="font-bold leading-relaxed bg-white text-slate-900 border-4 border-slate-900 p-8 space-y-8 mb-8 text-center">
+            <div class="p-4 bg-slate-100 border-4 border-slate-900">
+                <p class="text-2xl font-bold uppercase mb-2 text-slate-900">The important question is not:</p>
+                <p class="text-red-700 font-black text-4xl mt-2 line-through decoration-4">WHAT DID AI GENERATE?</p>
+            </div>
+            
+            <i data-lucide="arrow-down" class="w-10 h-10 mx-auto stroke-[3] text-slate-900"></i>
+            
+            <div class="p-6 bg-brand-teal border-4 border-slate-900 text-slate-900">
+                <p class="text-2xl font-bold uppercase mb-2 bg-white inline-block px-3 py-1 border-2 border-slate-900">The important question is:</p>
+                <p class="font-black text-4xl md:text-5xl mt-3">WHAT WILL LEARNERS DO WITH IT?</p>
+            </div>
+        </div>
+        
+        <div class="bg-slate-900 text-white border-4 border-white p-8 text-center">
+            <p class="mb-6 font-bold uppercase text-xl bg-brand-indigo text-slate-900 inline-block px-4 py-2 border-2 border-white">A meaningful AI-supported English lesson should create opportunities for learners to:</p>
+            <div class="flex flex-wrap justify-center gap-3 font-black uppercase text-xl md:text-2xl text-white mb-8">
+                <span class="border-4 border-brand-indigo px-4 py-2 hover:bg-brand-indigo hover:text-slate-900 transition-colors">Communicate</span>
+                <span class="border-4 border-brand-indigo px-4 py-2 hover:bg-brand-indigo hover:text-slate-900 transition-colors">Think</span>
+                <span class="border-4 border-brand-indigo px-4 py-2 hover:bg-brand-indigo hover:text-slate-900 transition-colors">Question</span>
+                <span class="border-4 border-brand-indigo px-4 py-2 hover:bg-brand-indigo hover:text-slate-900 transition-colors">Evaluate</span>
+                <span class="border-4 border-brand-indigo px-4 py-2 hover:bg-brand-indigo hover:text-slate-900 transition-colors">Create</span>
+                <span class="border-4 border-brand-indigo px-4 py-2 hover:bg-brand-indigo hover:text-slate-900 transition-colors">Revise</span>
+                <span class="border-4 border-brand-indigo px-4 py-2 hover:bg-brand-indigo hover:text-slate-900 transition-colors">Make Decisions</span>
+                <span class="border-4 border-brand-indigo px-4 py-2 hover:bg-brand-indigo hover:text-slate-900 transition-colors">Reflect</span>
+            </div>
+            <p class="mt-6 text-center text-brand-teal font-black text-2xl uppercase border-t-4 border-slate-700 pt-6">
+                <span class="text-white block mb-2">AI is the resource.</span>
+                <span class="bg-white text-slate-900 px-4 py-2 border-2 border-slate-900 inline-block">The learning remains the learners' work.</span>
+            </p>
+        </div>
+    </template>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -610,43 +976,66 @@
                 try { lucide.createIcons(); } catch (e) { console.error('Error running lucide.createIcons():', e); }
             }
 
-            // Stepper Logic
-            const stepperContainer = document.getElementById('stepper-container');
-            if (stepperContainer) {
-                stepperContainer.addEventListener('click', function (event) {
-                    const header = event.target.closest('.step-header');
-                    if (!header) return;
+            // Modal Logic
+            const modal = document.getElementById('presentation-modal');
+            const modalBody = document.getElementById('modal-body');
+            const closeBtn = document.getElementById('close-modal-btn');
+            const triggers = document.querySelectorAll('.popup-trigger');
+            
+            const toggleBodyScroll = (isModalOpen) => {
+                if(isModalOpen) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            };
 
-                    const step = header.parentElement;
-                    const allSteps = stepperContainer.querySelectorAll('.step');
-                    const wasActive = step.classList.contains('active');
-
-                    // Close all
-                    allSteps.forEach(s => s.classList.remove('active'));
-
-                    // Toggle clicked
-                    if (!wasActive) step.classList.add('active');
-                });
-                
-                // Open first step by default
-                const firstStep = stepperContainer.querySelector('.step');
-                if(firstStep) firstStep.classList.add('active');
-            }
-
-            // Scroll to Top Logic
-            const scrollTopBtn = document.getElementById('scrollTopBtn');
-            if (scrollTopBtn) {
-                window.addEventListener('scroll', function() {
-                    if (window.scrollY > 400) {
-                        scrollTopBtn.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-                        scrollTopBtn.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
-                    } else {
-                        scrollTopBtn.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                        scrollTopBtn.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            const openModal = (targetId) => {
+                const template = document.getElementById(targetId);
+                if (template) {
+                    modalBody.innerHTML = '';
+                    modalBody.appendChild(template.content.cloneNode(true));
+                    
+                    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                        lucide.createIcons({ root: modalBody });
                     }
+                    
+                    modal.classList.add('is-open');
+                    toggleBodyScroll(true);
+                    modalBody.scrollTop = 0;
+                }
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('is-open');
+                setTimeout(() => { modalBody.innerHTML = ''; }, 300);
+                toggleBodyScroll(false);
+            };
+
+            triggers.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const target = btn.getAttribute('data-target');
+                    openModal(target);
                 });
-                scrollTopBtn.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
-            }
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if(e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+            });
+
+            // Checklist Logic (Animation scaling on click)
+            const checkLabels = document.querySelectorAll('label input[type="checkbox"]');
+            checkLabels.forEach(cb => {
+                cb.addEventListener('change', (e) => {
+                    const label = e.target.parentElement;
+                    label.style.transform = 'scale(0.98)';
+                    setTimeout(() => label.style.transform = 'scale(1)', 150);
+                });
+            });
             
             // Scroll Animations
             const observer = new IntersectionObserver((entries) => {
