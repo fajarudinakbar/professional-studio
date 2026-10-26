@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Can Learners Do with AI in English? Exploring New GSE Learning Objectives</title>
+    
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="What Can Learners Do with AI in English? Exploring New GSE Learning Objectives">
+    <meta property="og:description" content="Learner agency first: AI as a resource, not a replacement. A practical reflection for English language teachers.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Space+Grotesk:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            800: '#0f172a',
+                            900: '#0f172a',
+                        },
+                        brand: {
+                            yellow: '#fde047',
+                            blue: '#bfdbfe',
+                            green: '#bbf7d0',
+                            red: '#fecaca',
+                            purple: '#e9d5ff',
+                            orange: '#fed7aa',
+                            teal: '#99f6e4',
+                            cream: '#fdfbf7',
+                            pink: '#fbcfe8',
+                            indigo: '#c7d2fe'
+                        }
+                    },
+                    boxShadow: {
+                        'brutal-sm': '3px 3px 0px 0px #0f172a',
+                        'brutal': '4px 4px 0px 0px #0f172a',
+                        'brutal-lg': '8px 8px 0px 0px #0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc; 
+            color: #0f172a; 
+            font-weight: 600;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Enforce accessible dark slate text globally */
+        *, *::before, *::after {
+            color: #0f172a;
+        }
+
+        /* Graph paper grid */
+        .bg-grid {
+            background-size: 36px 36px;
+            background-image: 
+                linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .brutal-card {
+            background: #ffffff;
+            border: 4px solid #0f172a;
+            box-shadow: 6px 6px 0px 0px #0f172a;
+        }
+
+        .brutal-btn {
+            border: 4px solid #0f172a;
+            box-shadow: 4px 4px 0px 0px #0f172a;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+            cursor: pointer;
+        }
+        .brutal-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #0f172a;
+        }
+        .brutal-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px 0px #0f172a;
+        }
+
+        /* Custom Scrollbar for Modal */
+        .modal-scroll::-webkit-scrollbar {
+            width: 10px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #fdfbf7; 
+            border-left: 3px solid #0f172a;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background-color: #99f6e4; 
+            border: 2px solid #0f172a;
+        }
+
+        ::selection {
+            background-color: #fde047;
+            color: #0f172a;
+        }
+
+        *:focus-visible {
+            outline: 4px dashed #0f172a;
+            outline-offset: 4px;
+        }
+        
+        /* Modal Transition */
+        .modal-backdrop {
+            transition: opacity 0.2s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .modal-backdrop.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content-wrapper {
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+            transform: scale(0.95) translateY(12px);
+            opacity: 0;
+        }
+        .modal-backdrop.is-open .modal-content-wrapper {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-900 text-lg leading-relaxed">
+    
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <div class="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+
+        <!-- HEADER SECTION -->
+        <header class="mb-14 animate__animated animate__fadeInDown">
+            <div class="inline-flex flex-wrap items-center gap-2 border-4 border-slate-900 bg-brand-purple px-4 py-1 mb-6 shadow-brutal-sm text-slate-900 font-bold uppercase text-xs md:text-sm tracking-wider">
+                <span>Fajarudin Akbar | English Australia Ed-Tech Symposium 2026</span>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                <div class="lg:col-span-8 flex flex-col justify-center">
+                    <h1 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-black uppercase leading-[1.1] tracking-tight text-slate-900 flex flex-col items-start gap-3">
+                        <span class="bg-brand-yellow px-5 py-2.5 border-4 border-slate-900 shadow-brutal">
+                            What Can Learners Do with AI in English?
+                        </span>
+                        <span class="bg-brand-teal px-5 py-2 border-4 border-slate-900 shadow-brutal text-xl sm:text-2xl lg:text-3xl">
+                            Exploring New GSE Learning Objectives
+                        </span>
+                    </h1>
+                </div>
+
+                <div class="lg:col-span-4 bg-white border-4 border-slate-900 shadow-brutal p-6 flex flex-col justify-center">
+                    <span class="font-black uppercase text-xs bg-brand-orange px-2 py-0.5 border-2 border-slate-900 w-max mb-3">Key Stance</span>
+                    <p class="font-black text-xl uppercase mb-2 leading-snug">
+                        Learner agency first: AI as a resource, not a replacement.
+                    </p>
+                    <p class="font-body font-bold text-base text-slate-900">
+                        A practical reflection for English language teachers.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <main class="space-y-14">
+
+            <!-- 1. PRESENTATION SUMMARY -->
+            <section class="brutal-card p-6 md:p-8 opacity-0 bg-white" data-animate aria-labelledby="summary-heading">
+                <div class="border-b-4 border-slate-900 pb-3 mb-6 flex justify-between items-center">
+                    <h2 id="summary-heading" class="text-xl md:text-2xl font-black uppercase tracking-tight">Presentation Summary</h2>
+                    <span class="font-black text-xs uppercase bg-brand-cream border-2 border-slate-900 px-2 py-1">Overview</span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal-sm p-5 flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="h-10 w-10 bg-brand-yellow border-2 border-slate-900 flex items-center justify-center font-black text-lg shrink-0">01</span>
+                            <h3 class="font-black text-lg uppercase leading-tight">Learner Agency First</h3>
+                        </div>
+                        <p class="font-body font-bold text-sm md:text-base leading-relaxed">
+                            AI is a resource, not a replacement. The learner remains responsible for purpose, meaning, choices, and final communication.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal-sm p-5 flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="h-10 w-10 bg-brand-blue border-2 border-slate-900 flex items-center justify-center font-black text-lg shrink-0">02</span>
+                            <h3 class="font-black text-lg uppercase leading-tight">Capabilities and Thinking</h3>
+                        </div>
+                        <p class="font-body font-bold text-sm md:text-base leading-relaxed">
+                            Using GSE Learning Objectives for GenAI Interactions to keep learners intellectually and communicatively active.
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal-sm p-5 flex flex-col">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="h-10 w-10 bg-brand-green border-2 border-slate-900 flex items-center justify-center font-black text-lg shrink-0">03</span>
+                            <h3 class="font-black text-lg uppercase leading-tight">Visible Evidence</h3>
+                        </div>
+                        <p class="font-body font-bold text-sm md:text-base leading-relaxed">
+                            Assess reasoning, evaluation, and communicative choices rather than only a polished final text.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. THE PRESENTATION SLIDES (3x2 Grid) -->
+            <section class="opacity-0" data-animate aria-labelledby="presentation-heading">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <div class="bg-brand-purple text-slate-900 px-5 py-2 border-4 border-slate-900 shadow-brutal-sm">
+                        <h2 id="presentation-heading" class="text-xl md:text-2xl font-black uppercase tracking-wider">The Presentation Slides</h2>
+                    </div>
+                    
+                    <p class="text-sm md:text-base font-black bg-white px-3 py-1.5 border-4 border-slate-900 shadow-brutal-sm">
+                        Select a card to view slide content:
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    
+                    <!-- Card 01 (Slide 2) -->
+                    <button class="popup-trigger text-left bg-brand-yellow p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-01">
+                        <div class="flex items-center justify-between w-full">
+                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">01</span>
+                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">AI in Learners' Reality</h3>
+                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        </div>
+                    </button>
+
+                    <!-- Card 02 (Slide 3) -->
+                    <button class="popup-trigger text-left bg-brand-blue p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-02">
+                        <div class="flex items-center justify-between w-full">
+                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">02</span>
+                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">Think First. <br> Use AI with Purpose.</h3>
+                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        </div>
+                    </button>
+
+                    <!-- Card 03 (Slide 4) -->
+                    <button class="popup-trigger text-left bg-brand-purple p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-03">
+                        <div class="flex items-center justify-between w-full">
+                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">03</span>
+                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">GSE GenAI Capabilities</h3>
+                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        </div>
+                    </button>
+
+                    <!-- Card 04 (Slide 5) -->
+                    <button class="popup-trigger text-left bg-brand-orange p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-04">
+                        <div class="flex items-center justify-between w-full">
+                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">04</span>
+                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 5</span>
+                        </div>
+                        <div>
+                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">Make Thinking<br> Part of the Task</h3>
+                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        </div>
+                    </button>
+
+                    <!-- Card 05 (Slide 6) -->
+                    <button class="popup-trigger text-left bg-brand-teal p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-05">
+                        <div class="flex items-center justify-between w-full">
+                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">05</span>
+                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 6</span>
+                        </div>
+                        <div>
+                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">Assess Decisions,<br> Not Just Output</h3>
+                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        </div>
+                    </button>
+
+                    <!-- Card 06 (Slide 7) -->
+                    <button class="popup-trigger text-left bg-brand-pink p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-06">
+                        <div class="flex items-center justify-between w-full">
+                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">06</span>
+                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 7</span>
+                        </div>
+                        <div>
+                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">Authors of Their Thinking</h3>
+                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        </div>
+                    </button>
+
+                </div>
+            </section>
+
+            <!-- 3. PRACTICAL TAKEAWAY WORKFLOW -->
+            <section class="brutal-card p-6 md:p-8 opacity-0 bg-brand-cream" data-animate aria-labelledby="workflow-heading">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <div class="bg-brand-teal px-5 py-2 border-4 border-slate-900 shadow-brutal-sm">
+                        <h2 id="workflow-heading" class="text-xl md:text-2xl font-black uppercase tracking-tight">Practical Takeaway Workflow</h2>
+                    </div>
+                    <span class="font-black uppercase text-xs md:text-sm bg-white px-3 py-1.5 border-2 border-slate-900">
+                        Purpose &rarr; Active Thinking &rarr; Selective Support &rarr; Evidence
+                    </span>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-brand-yellow border-2 border-slate-900 px-2 py-0.5 font-black text-xs uppercase inline-block mb-3">Stage 01</span>
+                            <h3 class="font-black text-xl uppercase mb-1">Purpose</h3>
+                            <p class="font-body text-sm font-bold">Define intent and communicative goal.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-brand-blue border-2 border-slate-900 px-2 py-0.5 font-black text-xs uppercase inline-block mb-3">Stage 02</span>
+                            <h3 class="font-black text-xl uppercase mb-1">Active Thinking</h3>
+                            <p class="font-body text-sm font-bold">Clarify the task and form a first view independently.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-brand-purple border-2 border-slate-900 px-2 py-0.5 font-black text-xs uppercase inline-block mb-3">Stage 03</span>
+                            <h3 class="font-black text-xl uppercase mb-1">Selective Support</h3>
+                            <p class="font-body text-sm font-bold">Consult AI purposefully and challenge suggestions.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-brand-teal border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-white border-2 border-slate-900 px-2 py-0.5 font-black text-xs uppercase inline-block mb-3">Stage 04</span>
+                            <h3 class="font-black text-xl uppercase mb-1">Evidence</h3>
+                            <p class="font-body text-sm font-bold">Show reasoning, evaluation, and owned language choices.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 4. CORE MESSAGE CHECKLIST -->
+            <section class="brutal-card p-6 md:p-8 opacity-0 bg-white" data-animate aria-labelledby="checklist-heading">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6 border-b-4 border-slate-900 pb-3">
+                    <h2 id="checklist-heading" class="text-xl md:text-2xl font-black uppercase tracking-tight">Core Message Checklist</h2>
+                    <p class="font-body font-bold text-xs md:text-sm">Click items to check off principles as you apply them:</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                    
+                    <label class="p-3.5 bg-brand-cream hover:bg-brand-yellow brutal-btn flex items-center cursor-pointer select-none">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
+                            <span class="opacity-0 peer-checked:opacity-100">X</span>
+                        </div>
+                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">01</span>
+                        <span class="font-black text-sm uppercase leading-tight">Keep learner agency first.</span>
+                    </label>
+
+                    <label class="p-3.5 bg-brand-cream hover:bg-brand-blue brutal-btn flex items-center cursor-pointer select-none">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
+                            <span class="opacity-0 peer-checked:opacity-100">X</span>
+                        </div>
+                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">02</span>
+                        <span class="font-black text-sm uppercase leading-tight">Think first before consulting AI.</span>
+                    </label>
+
+                    <label class="p-3.5 bg-brand-cream hover:bg-brand-purple brutal-btn flex items-center cursor-pointer select-none">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
+                            <span class="opacity-0 peer-checked:opacity-100">X</span>
+                        </div>
+                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">03</span>
+                        <span class="font-black text-sm uppercase leading-tight">Build specific GenAI capabilities.</span>
+                    </label>
+
+                    <label class="p-3.5 bg-brand-cream hover:bg-brand-orange brutal-btn flex items-center cursor-pointer select-none">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
+                            <span class="opacity-0 peer-checked:opacity-100">X</span>
+                        </div>
+                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">04</span>
+                        <span class="font-black text-sm uppercase leading-tight">Make learner thinking visible.</span>
+                    </label>
+
+                    <label class="p-3.5 bg-brand-cream hover:bg-brand-pink brutal-btn flex items-center cursor-pointer select-none">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
+                            <span class="opacity-0 peer-checked:opacity-100">X</span>
+                        </div>
+                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">05</span>
+                        <span class="font-black text-sm uppercase leading-tight">Assess decisions, not just polish.</span>
+                    </label>
+
+                    <label class="p-3.5 bg-brand-indigo hover:bg-brand-yellow brutal-btn flex items-center cursor-pointer select-none">
+                        <input type="checkbox" class="peer sr-only">
+                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-yellow font-black text-xs">
+                            <span class="opacity-0 peer-checked:opacity-100">X</span>
+                        </div>
+                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">06</span>
+                        <span class="font-black text-sm uppercase leading-tight">Keep learners authors of meaning.</span>
+                    </label>
+
+                </div>
+
+                <div class="bg-brand-teal border-4 border-slate-900 shadow-brutal p-6 text-left relative">
+                    <span class="text-xs font-black uppercase bg-brand-yellow inline-block px-3 py-1 mb-2 border-2 border-slate-900">Closing Question</span>
+                    <p class="text-xl md:text-2xl font-black uppercase tracking-tight leading-snug">
+                        "What can learners do with AI in English, and how can we make their learning visible?"
+                    </p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="text-center mt-12 mb-6 opacity-0" data-animate>
+            <h3 class="text-xl md:text-2xl font-black uppercase">
+                Designed by 
+                <a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="bg-brand-yellow px-4 py-1.5 brutal-btn hover:bg-brand-teal inline-block ml-1">
+                    fajarudinakbar.com
+                </a>
+            </h3>
+        </footer>
+
+    </div>
+
+    <!-- MODAL OVERLAY -->
+    <div id="presentation-modal" class="modal-backdrop fixed inset-0 bg-slate-900/70 z-[100] flex items-center justify-center p-4 sm:p-6 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-viewer-title">
+        
+        <div class="modal-content-wrapper bg-white border-4 border-slate-900 shadow-brutal-lg w-full max-w-4xl max-h-[88vh] flex flex-col relative">
+            
+            <div class="bg-brand-yellow border-b-4 border-slate-900 px-5 py-3 flex justify-between items-center shrink-0">
+                <span id="modal-viewer-title" class="font-black uppercase tracking-wider text-base">Slide Viewer</span>
+                <button id="close-modal-btn" class="bg-brand-red border-2 border-slate-900 w-8 h-8 flex items-center justify-center font-black text-base brutal-btn hover:bg-white" aria-label="Close modal">
+                    X
+                </button>
+            </div>
+            
+            <div id="modal-body" class="p-6 sm:p-8 overflow-y-auto modal-scroll flex-grow bg-brand-cream relative">
+                <!-- Injected via JavaScript -->
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TEMPLATES FOR SLIDES 2 TO 7 -->
+
+    <!-- Template 01: Slide 2 -->
+    <template id="content-01">
+        <div class="mb-5 pb-3 border-b-4 border-slate-900">
+            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 2</span>
+            <h3 class="font-black text-2xl uppercase tracking-tight">AI is Already Part of My Learners' Reality</h3>
+        </div>
+
+        <p class="font-body font-bold text-base bg-white p-3.5 border-4 border-slate-900 shadow-brutal-sm mb-5">
+            In my Business English teaching, some learners interact directly with AI at work:
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black uppercase text-sm bg-brand-yellow px-2.5 py-0.5 border border-slate-900 inline-block mb-2">01. Explore ideas</span>
+                <p class="font-body font-bold text-sm">Consider possibilities.</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black uppercase text-sm bg-brand-blue px-2.5 py-0.5 border border-slate-900 inline-block mb-2">02. Draft or revise</span>
+                <p class="font-body font-bold text-sm">Work with wording and tone.</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black uppercase text-sm bg-brand-purple px-2.5 py-0.5 border border-slate-900 inline-block mb-2">03. Summarise</span>
+                <p class="font-body font-bold text-sm">Condense information.</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black uppercase text-sm bg-brand-green px-2.5 py-0.5 border border-slate-900 inline-block mb-2">04. Respond</span>
+                <p class="font-body font-bold text-sm">Prepare language for a purpose.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black uppercase text-xs bg-white px-2 py-0.5 border border-slate-900 inline-block mb-1.5">Learner Responsibility</span>
+                <p class="font-black uppercase text-base">
+                    The learner remains responsible for purpose, meaning, choices, and final communication.
+                </p>
+            </div>
+
+            <div class="bg-brand-yellow border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black uppercase text-xs bg-white px-2 py-0.5 border border-slate-900 inline-block mb-1.5">Teaching Question</span>
+                <p class="font-black text-base">
+                    How can we use AI without outsourcing our thinking or communication?
+                </p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template 02: Slide 3 -->
+    <template id="content-02">
+        <div class="mb-5 pb-3 border-b-4 border-slate-900">
+            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 3</span>
+            <h3 class="font-black text-2xl uppercase tracking-tight">Think First. Use AI with Purpose.</h3>
+        </div>
+
+        <p class="font-body font-bold text-base bg-white p-3.5 border-4 border-slate-900 shadow-brutal-sm mb-5">
+            A learner is preparing a message in English. The learner, not the tool, owns the communication.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black text-sm uppercase bg-brand-yellow px-2.5 py-0.5 border border-slate-900 inline-block mb-2">01. Define intent</span>
+                <p class="font-body font-bold text-sm">What am I trying to communicate?</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black text-sm uppercase bg-brand-blue px-2.5 py-0.5 border border-slate-900 inline-block mb-2">02. Consult if useful</span>
+                <p class="font-body font-bold text-sm">What feedback might help?</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black text-sm uppercase bg-brand-purple px-2.5 py-0.5 border border-slate-900 inline-block mb-2">03. Evaluate</span>
+                <p class="font-body font-bold text-sm">Does it fit my purpose and the available facts?</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black text-sm uppercase bg-brand-teal px-2.5 py-0.5 border border-slate-900 inline-block mb-2">04. Decide and express</span>
+                <p class="font-body font-bold text-sm">What will I accept, change, or reject?</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-brand-orange border-4 border-slate-900 shadow-brutal-sm p-4">
+                <p class="font-black text-base uppercase">
+                    AI may offer options. The learner decides what serves the purpose.
+                </p>
+            </div>
+            <div class="bg-brand-yellow border-4 border-slate-900 shadow-brutal-sm p-4">
+                <p class="font-black text-base uppercase">
+                    Sometimes the best first step is to work it out independently.
+                </p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Template 03: Slide 4 -->
+    <template id="content-03">
+        <div class="mb-5 pb-3 border-b-4 border-slate-900">
+            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 4</span>
+            <h3 class="font-black text-2xl uppercase tracking-tight">What Capabilities Might Learners Need?</h3>
+        </div>
+
+        <p class="font-body font-bold text-base bg-white p-3.5 border-4 border-slate-900 shadow-brutal-sm mb-5">
+            Examples from the GSE Learning Objectives for GenAI Interactions:
+        </p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black text-xs uppercase bg-brand-yellow px-2 py-0.5 border border-slate-900 inline-block mb-2">
+                    A2 / GSE 34 (Prompting)
+                </span>
+                <p class="font-body font-bold text-sm">
+                    "Can use simple language to prompt an AI tool for information, given a model."
+                </p>
+            </div>
+            
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black text-xs uppercase bg-brand-blue px-2 py-0.5 border border-slate-900 inline-block mb-2">
+                    B2 / GSE 62 (Checking accuracy)
+                </span>
+                <p class="font-body font-bold text-sm">
+                    "Can read AI-generated texts on familiar topics to identify factual inaccuracies."
+                </p>
+            </div>
+
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black text-xs uppercase bg-brand-teal px-2 py-0.5 border border-slate-900 inline-block mb-2">
+                    B2+ / GSE 67 (Evaluating relevance)
+                </span>
+                <p class="font-body font-bold text-sm">
+                    "Can evaluate the relevance of an AI-generated answer in response to the prompt."
+                </p>
+            </div>
+
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4">
+                <span class="font-black text-xs uppercase bg-brand-purple px-2 py-0.5 border border-slate-900 inline-block mb-2">
+                    C1 / GSE 78 (Adapting a text)
+                </span>
+                <p class="font-body font-bold text-sm">
+                    "Can adapt a straightforward AI-generated text to meet cultural or contextual expectations."
+                </p>
+            </div>
+        </div>
+
+        <div class="bg-brand-cream border-4 border-slate-900 p-5 shadow-brutal flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+                <span class="font-black text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1.5">Interactive Resource</span>
+                <p class="font-black text-sm md:text-base uppercase leading-snug">
+                    These are examples of different capabilities,<br> not a required sequence.
+                </p>
+            </div>
+            <a href="https://www.english.com/gse/teacher-toolkit/user/lo" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center font-black uppercase text-sm sm:text-base bg-brand-yellow hover:bg-brand-teal text-slate-900 border-4 border-slate-900 px-6 py-3.5 shadow-brutal hover:shadow-brutal-lg transition-all duration-150 transform hover:-translate-x-1 hover:-translate-y-1 active:translate-x-0.5 active:translate-y-0.5 shrink-0 inline-flex items-center justify-center gap-3">
+                <span>Explore GSE Teacher Toolkit</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7v7M10 14L21 3M21 14v7h-7M3 10V3h7"/></svg>
+            </a>
+        </div>
+    </template>
+
+    <!-- Template 04: Slide 5 -->
+    <template id="content-04">
+        <div class="mb-5 pb-3 border-b-4 border-slate-900">
+            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 5</span>
+            <h3 class="font-black text-2xl uppercase tracking-tight">Make Learner Thinking Part of the Task</h3>
+        </div>
+
+        <p class="font-body font-bold text-base bg-brand-yellow p-3.5 border-4 border-slate-900 shadow-brutal-sm mb-5">
+            Example focus: Evaluating the relevance of an AI-generated answer.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <div class="bg-white border-4 border-slate-900 p-4 shadow-brutal-sm">
+                <span class="font-black text-sm uppercase bg-brand-yellow px-2 py-0.5 border border-slate-900 inline-block mb-1.5">1. Think</span>
+                <p class="font-body font-bold text-sm">Clarify the task and form a first view.</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 p-4 shadow-brutal-sm">
+                <span class="font-black text-sm uppercase bg-brand-blue px-2 py-0.5 border border-slate-900 inline-block mb-1.5">2. Consult</span>
+                <p class="font-body font-bold text-sm">Use AI selectively for ideas or feedback.</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 p-4 shadow-brutal-sm">
+                <span class="font-black text-sm uppercase bg-brand-orange px-2 py-0.5 border border-slate-900 inline-block mb-1.5">3. Challenge</span>
+                <p class="font-body font-bold text-sm">Compare suggestions with your purpose and evidence.</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 p-4 shadow-brutal-sm">
+                <span class="font-black text-sm uppercase bg-brand-green px-2 py-0.5 border border-slate-900 inline-block mb-1.5">4. Own the response</span>
+                <p class="font-body font-bold text-sm">Decide, communicate, and explain the choice.</p>
+            </div>
+        </div>
+
+        <div class="bg-brand-blue border-4 border-slate-900 shadow-brutal-sm p-4 mb-4">
+            <h4 class="font-black text-xs uppercase mb-2 bg-white inline-block px-2.5 py-0.5 border border-slate-900">
+                Language That Makes Thinking Visible
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="bg-white border-2 border-slate-900 p-3">
+                    <p class="font-body font-extrabold text-sm">"My initial view is... The AI suggests..., but..."</p>
+                </div>
+                <div class="bg-white border-2 border-slate-900 p-3">
+                    <p class="font-body font-extrabold text-sm">"I would accept or reject this because..."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-brand-teal border-4 border-slate-900 p-4 shadow-brutal-sm text-left">
+            <p class="font-black text-base uppercase">
+                The goal is not to avoid AI. It is to keep the learner intellectually and communicatively active.
+            </p>
+        </div>
+    </template>
+
+    <!-- Template 05: Slide 6 -->
+    <template id="content-05">
+        <div class="mb-5 pb-3 border-b-4 border-slate-900">
+            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 6</span>
+            <h3 class="font-black text-2xl uppercase tracking-tight">Assess Decisions, Not Just the Output</h3>
+        </div>
+
+        <p class="font-body font-bold text-base bg-white p-3.5 border-4 border-slate-900 shadow-brutal-sm mb-5">
+            Evidence should reveal the capability named in the learning objective:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col">
+                <span class="font-black text-sm uppercase bg-brand-yellow px-2 py-0.5 border border-slate-900 w-max mb-2">01. Initial thinking</span>
+                <p class="font-body font-bold text-sm">The learner states a purpose, position, or first interpretation.</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col">
+                <span class="font-black text-sm uppercase bg-brand-orange px-2 py-0.5 border border-slate-900 w-max mb-2">02. Evaluation</span>
+                <p class="font-body font-bold text-sm">The learner explains what is useful, questionable, or unsuitable, and why.</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col">
+                <span class="font-black text-sm uppercase bg-brand-green px-2 py-0.5 border border-slate-900 w-max mb-2">03. Owned communication</span>
+                <p class="font-body font-bold text-sm">The learner revises a response and justifies key choices.</p>
+            </div>
+        </div>
+
+        <div class="bg-brand-teal border-4 border-slate-900 shadow-brutal-sm p-5">
+            <span class="font-black text-sm uppercase bg-brand-yellow px-2.5 py-0.5 border border-slate-900 inline-block mb-2">
+                Show the process, not just the polish.
+            </span>
+            <p class="font-body font-bold text-sm mb-1.5">
+                AI can contribute suggestions. The learner remains responsible for judgement and meaning.
+            </p>
+            <p class="font-black text-base uppercase">
+                Assess reasoning and communicative choices, not only a polished final text.
+            </p>
+        </div>
+    </template>
+
+    <!-- Template 06: Slide 7 -->
+    <template id="content-06">
+        <div class="mb-5 pb-3 border-b-4 border-slate-900">
+            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 7</span>
+            <h3 class="font-black text-2xl uppercase tracking-tight">How Do We Keep Learners Authors of Their Thinking?</h3>
+        </div>
+
+        <p class="font-body font-bold text-base bg-white p-3.5 border-4 border-slate-900 shadow-brutal-sm mb-5">
+            Choose one task your learners already do, or might do, with AI:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col">
+                <span class="font-black text-sm uppercase bg-brand-yellow px-2 py-0.5 border border-slate-900 w-max mb-2">01. Intent</span>
+                <p class="font-body font-bold text-sm">What do learners need to understand or communicate?</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col">
+                <span class="font-black text-sm uppercase bg-brand-blue px-2 py-0.5 border border-slate-900 w-max mb-2">02. Appropriate support</span>
+                <p class="font-body font-bold text-sm">Where might AI help, and where should learners work independently?</p>
+            </div>
+            <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col">
+                <span class="font-black text-sm uppercase bg-brand-purple px-2 py-0.5 border border-slate-900 w-max mb-2">03. Evidence</span>
+                <p class="font-body font-bold text-sm">How will learners show their own reasoning and language choices?</p>
+            </div>
+        </div>
+
+        <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <span class="font-black text-xs uppercase bg-brand-orange px-2.5 py-1 border border-slate-900 w-max shrink-0">
+                A Practical Takeaway
+            </span>
+            <div class="flex flex-wrap items-center gap-1.5 font-black uppercase text-xs md:text-sm">
+                <span class="bg-brand-yellow border border-slate-900 px-2 py-0.5">Purpose</span>
+                <span>&rarr;</span>
+                <span class="bg-brand-blue border border-slate-900 px-2 py-0.5">Active thinking</span>
+                <span>&rarr;</span>
+                <span class="bg-brand-purple border border-slate-900 px-2 py-0.5">Selective support</span>
+                <span>&rarr;</span>
+                <span class="bg-brand-teal border border-slate-900 px-2 py-0.5">Evidence</span>
+            </div>
+        </div>
+
+        <div class="bg-brand-yellow border-4 border-slate-900 shadow-brutal-sm p-4 text-left">
+            <span class="font-black text-xs uppercase bg-white px-2 py-0.5 border border-slate-900 inline-block mb-1.5">Closing Question</span>
+            <p class="font-black text-lg uppercase leading-snug">
+                What can learners do with AI in English, and how can we make their learning visible?
+            </p>
+        </div>
+    </template>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('presentation-modal');
+            const modalBody = document.getElementById('modal-body');
+            const closeBtn = document.getElementById('close-modal-btn');
+            const triggers = document.querySelectorAll('.popup-trigger');
+            let lastFocusedTrigger = null;
+            
+            const toggleBodyScroll = (isOpen) => {
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            };
+
+            const openModal = (targetId, triggerElement) => {
+                const template = document.getElementById(targetId);
+                if (template) {
+                    lastFocusedTrigger = triggerElement;
+                    modalBody.innerHTML = '';
+                    modalBody.appendChild(template.content.cloneNode(true));
+                    
+                    modal.classList.add('is-open');
+                    toggleBodyScroll(true);
+                    modalBody.scrollTop = 0;
+                    setTimeout(() => closeBtn.focus(), 50);
+                }
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('is-open');
+                setTimeout(() => { modalBody.innerHTML = ''; }, 200);
+                toggleBodyScroll(false);
+                if (lastFocusedTrigger) {
+                    lastFocusedTrigger.focus();
+                }
+            };
+
+            triggers.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const target = btn.getAttribute('data-target');
+                    openModal(target, e.currentTarget);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+            });
+
+            // Scroll Animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                        entry.target.classList.remove('opacity-0');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: "0px 0px -30px 0px" });
+
+            document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
