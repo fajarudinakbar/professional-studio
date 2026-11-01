@@ -9,6 +9,9 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 3000;
 
+// Serve /assets from public/assets directory
+app.use('/assets', express.static(path.join(__dirname, 'public', 'assets')));
+
 // Serve static files from root directory, automatically serving .html files for extensionless routes
 app.use(express.static(__dirname, { extensions: ['html'] }));
 
