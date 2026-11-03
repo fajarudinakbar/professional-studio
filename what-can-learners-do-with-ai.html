@@ -208,128 +208,164 @@
         <main class="space-y-14">
 
             <!-- 1. PRESENTATION SUMMARY -->
-            <section class="brutal-card p-6 md:p-8 opacity-0 bg-white" data-animate aria-labelledby="summary-heading">
-                <div class="border-b-4 border-slate-900 pb-3 mb-6 flex justify-between items-center">
-                    <h2 id="summary-heading" class="text-xl md:text-2xl font-black uppercase tracking-tight">Presentation Summary</h2>
-                    <span class="font-black text-xs uppercase bg-brand-cream border-2 border-slate-900 px-2 py-1">Overview</span>
+            <section class="brutal-card p-6 md:p-8 opacity-0 bg-white shadow-brutal-lg rounded-sm" data-animate aria-labelledby="summary-heading">
+                <div class="border-b-4 border-slate-900 pb-4 mb-6 flex justify-between items-center">
+                    <h2 id="summary-heading" class="text-xl md:text-2xl font-black uppercase tracking-tight text-slate-900">Presentation Summary</h2>
+                    <span class="font-black text-xs uppercase bg-brand-cream border-2 border-slate-900 px-3 py-1 shadow-brutal-sm">Overview</span>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                    <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal-sm p-5 flex flex-col">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="h-10 w-10 bg-brand-yellow border-2 border-slate-900 flex items-center justify-center font-black text-lg shrink-0">01</span>
-                            <h3 class="font-black text-lg uppercase leading-tight">Learner Agency First</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal p-6 flex flex-col justify-between rounded-sm hover:bg-white transition-colors">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="h-12 w-12 bg-brand-yellow border-3 border-slate-900 shadow-brutal-sm flex items-center justify-center font-black text-xl shrink-0 rounded-sm">01</span>
+                                <h3 class="font-black text-xl uppercase leading-tight text-slate-900">Learner Agency First</h3>
+                            </div>
+                            <p class="font-body font-bold text-base leading-relaxed text-slate-800">
+                                AI is a resource, not a replacement. The learner remains responsible for purpose, meaning, choices, and final communication.
+                            </p>
                         </div>
-                        <p class="font-body font-bold text-sm md:text-base leading-relaxed">
-                            AI is a resource, not a replacement. The learner remains responsible for purpose, meaning, choices, and final communication.
-                        </p>
                     </div>
                     
-                    <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal-sm p-5 flex flex-col">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="h-10 w-10 bg-brand-blue border-2 border-slate-900 flex items-center justify-center font-black text-lg shrink-0">02</span>
-                            <h3 class="font-black text-lg uppercase leading-tight">Capabilities and Thinking</h3>
+                    <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal p-6 flex flex-col justify-between rounded-sm hover:bg-white transition-colors">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="h-12 w-12 bg-brand-blue border-3 border-slate-900 shadow-brutal-sm flex items-center justify-center font-black text-xl shrink-0 rounded-sm">02</span>
+                                <h3 class="font-black text-xl uppercase leading-tight text-slate-900">Capabilities & Thinking</h3>
+                            </div>
+                            <p class="font-body font-bold text-base leading-relaxed text-slate-800">
+                                Using GSE Learning Objectives for GenAI Interactions to keep learners intellectually and communicatively active.
+                            </p>
                         </div>
-                        <p class="font-body font-bold text-sm md:text-base leading-relaxed">
-                            Using GSE Learning Objectives for GenAI Interactions to keep learners intellectually and communicatively active.
-                        </p>
                     </div>
 
-                    <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal-sm p-5 flex flex-col">
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="h-10 w-10 bg-brand-green border-2 border-slate-900 flex items-center justify-center font-black text-lg shrink-0">03</span>
-                            <h3 class="font-black text-lg uppercase leading-tight">Visible Evidence</h3>
+                    <div class="bg-brand-cream border-4 border-slate-900 shadow-brutal p-6 flex flex-col justify-between rounded-sm hover:bg-white transition-colors">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="h-12 w-12 bg-brand-green border-3 border-slate-900 shadow-brutal-sm flex items-center justify-center font-black text-xl shrink-0 rounded-sm">03</span>
+                                <h3 class="font-black text-xl uppercase leading-tight text-slate-900">Visible Evidence</h3>
+                            </div>
+                            <p class="font-body font-bold text-base leading-relaxed text-slate-800">
+                                Assess reasoning, evaluation, and communicative choices rather than only a polished final text.
+                            </p>
                         </div>
-                        <p class="font-body font-bold text-sm md:text-base leading-relaxed">
-                            Assess reasoning, evaluation, and communicative choices rather than only a polished final text.
-                        </p>
                     </div>
                 </div>
             </section>
 
-            <!-- 2. THE PRESENTATION SLIDES (3x2 Grid) -->
+            <!-- 2. THE PRESENTATION MODULES (3x2 Grid) -->
             <section class="opacity-0" data-animate aria-labelledby="presentation-heading">
-                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-                    <div class="bg-brand-purple text-slate-900 px-5 py-2 border-4 border-slate-900 shadow-brutal-sm">
-                        <h2 id="presentation-heading" class="text-xl md:text-2xl font-black uppercase tracking-wider">The Presentation Slides</h2>
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-8">
+                    <div class="bg-brand-purple text-slate-900 px-6 py-2.5 border-4 border-slate-900 shadow-brutal rounded-sm">
+                        <h2 id="presentation-heading" class="text-xl md:text-2xl font-black uppercase tracking-wider">The Presentation Modules</h2>
                     </div>
                     
-                    <p class="text-sm md:text-base font-black bg-white px-3 py-1.5 border-4 border-slate-900 shadow-brutal-sm">
-                        Select a card to view slide content:
+                    <p class="text-sm md:text-base font-black bg-white px-4 py-2 border-4 border-slate-900 shadow-brutal rounded-sm">
+                        Select a card to explore content:
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
-                    <!-- Card 01 (Slide 2) -->
-                    <button class="popup-trigger text-left bg-brand-yellow p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-01">
-                        <div class="flex items-center justify-between w-full">
-                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">01</span>
-                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 2</span>
+                    <!-- Card 01 -->
+                    <button class="popup-trigger text-left bg-brand-yellow text-slate-900 border-4 border-slate-900 p-6 brutal-btn flex flex-col justify-between group rounded-sm shadow-brutal hover:shadow-brutal-lg transition-all min-h-[220px]" data-target="content-01">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <span class="text-2xl font-black bg-white text-slate-900 border-3 border-slate-900 w-12 h-12 flex items-center justify-center rounded-sm shadow-brutal-sm">01</span>
+                            <div class="w-10 h-10 bg-white text-slate-900 border-2 border-slate-900 rounded-sm flex items-center justify-center shadow-brutal-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">AI in Learners' Reality</h3>
-                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
-                        </div>
-                    </button>
-
-                    <!-- Card 02 (Slide 3) -->
-                    <button class="popup-trigger text-left bg-brand-blue p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-02">
-                        <div class="flex items-center justify-between w-full">
-                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">02</span>
-                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 3</span>
-                        </div>
-                        <div>
-                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">Think First. <br> Use AI with Purpose.</h3>
-                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        <div class="mt-auto">
+                            <h3 class="font-black text-xl sm:text-2xl uppercase tracking-tight leading-snug mb-3">AI in Learners' Reality</h3>
+                            <div class="inline-flex items-center gap-1.5 text-xs font-black uppercase bg-white text-slate-900 px-3 py-1 border-2 border-slate-900 shadow-brutal-sm">
+                                <span>Explore Content</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
                         </div>
                     </button>
 
-                    <!-- Card 03 (Slide 4) -->
-                    <button class="popup-trigger text-left bg-brand-purple p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-03">
-                        <div class="flex items-center justify-between w-full">
-                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">03</span>
-                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 4</span>
+                    <!-- Card 02 -->
+                    <button class="popup-trigger text-left bg-brand-blue text-slate-900 border-4 border-slate-900 p-6 brutal-btn flex flex-col justify-between group rounded-sm shadow-brutal hover:shadow-brutal-lg transition-all min-h-[220px]" data-target="content-02">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <span class="text-2xl font-black bg-white text-slate-900 border-3 border-slate-900 w-12 h-12 flex items-center justify-center rounded-sm shadow-brutal-sm">02</span>
+                            <div class="w-10 h-10 bg-white text-slate-900 border-2 border-slate-900 rounded-sm flex items-center justify-center shadow-brutal-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">GSE GenAI Capabilities</h3>
-                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
-                        </div>
-                    </button>
-
-                    <!-- Card 04 (Slide 5) -->
-                    <button class="popup-trigger text-left bg-brand-orange p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-04">
-                        <div class="flex items-center justify-between w-full">
-                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">04</span>
-                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 5</span>
-                        </div>
-                        <div>
-                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">Make Thinking<br> Part of the Task</h3>
-                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        <div class="mt-auto">
+                            <h3 class="font-black text-xl sm:text-2xl uppercase tracking-tight leading-snug mb-3">Think First.<br>Use AI with Purpose.</h3>
+                            <div class="inline-flex items-center gap-1.5 text-xs font-black uppercase bg-white text-slate-900 px-3 py-1 border-2 border-slate-900 shadow-brutal-sm">
+                                <span>Explore Content</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
                         </div>
                     </button>
 
-                    <!-- Card 05 (Slide 6) -->
-                    <button class="popup-trigger text-left bg-brand-teal p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-05">
-                        <div class="flex items-center justify-between w-full">
-                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">05</span>
-                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 6</span>
+                    <!-- Card 03 -->
+                    <button class="popup-trigger text-left bg-brand-purple text-slate-900 border-4 border-slate-900 p-6 brutal-btn flex flex-col justify-between group rounded-sm shadow-brutal hover:shadow-brutal-lg transition-all min-h-[220px]" data-target="content-03">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <span class="text-2xl font-black bg-white text-slate-900 border-3 border-slate-900 w-12 h-12 flex items-center justify-center rounded-sm shadow-brutal-sm">03</span>
+                            <div class="w-10 h-10 bg-white text-slate-900 border-2 border-slate-900 rounded-sm flex items-center justify-center shadow-brutal-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">Assess Decisions,<br> Not Just Output</h3>
-                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        <div class="mt-auto">
+                            <h3 class="font-black text-xl sm:text-2xl uppercase tracking-tight leading-snug mb-3">GSE GenAI Capabilities</h3>
+                            <div class="inline-flex items-center gap-1.5 text-xs font-black uppercase bg-white text-slate-900 px-3 py-1 border-2 border-slate-900 shadow-brutal-sm">
+                                <span>Explore Content</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
                         </div>
                     </button>
 
-                    <!-- Card 06 (Slide 7) -->
-                    <button class="popup-trigger text-left bg-brand-pink p-5 brutal-btn hover:bg-brand-cream flex flex-col justify-between group h-52" data-target="content-06">
-                        <div class="flex items-center justify-between w-full">
-                            <span class="text-xl font-black bg-white border-2 border-slate-900 w-10 h-10 flex items-center justify-center shadow-brutal-sm">06</span>
-                            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900">Slide 7</span>
+                    <!-- Card 04 -->
+                    <button class="popup-trigger text-left bg-brand-orange text-slate-900 border-4 border-slate-900 p-6 brutal-btn flex flex-col justify-between group rounded-sm shadow-brutal hover:shadow-brutal-lg transition-all min-h-[220px]" data-target="content-04">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <span class="text-2xl font-black bg-white text-slate-900 border-3 border-slate-900 w-12 h-12 flex items-center justify-center rounded-sm shadow-brutal-sm">04</span>
+                            <div class="w-10 h-10 bg-white text-slate-900 border-2 border-slate-900 rounded-sm flex items-center justify-center shadow-brutal-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-black text-xl uppercase tracking-tight leading-snug">Authors of Their Thinking</h3>
-                            <span class="font-body font-bold text-xs uppercase mt-2 inline-block border-b-2 border-slate-900">Open Slide</span>
+                        <div class="mt-auto">
+                            <h3 class="font-black text-xl sm:text-2xl uppercase tracking-tight leading-snug mb-3">Make Thinking<br>Part of the Task</h3>
+                            <div class="inline-flex items-center gap-1.5 text-xs font-black uppercase bg-white text-slate-900 px-3 py-1 border-2 border-slate-900 shadow-brutal-sm">
+                                <span>Explore Content</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Card 05 -->
+                    <button class="popup-trigger text-left bg-brand-teal text-slate-900 border-4 border-slate-900 p-6 brutal-btn flex flex-col justify-between group rounded-sm shadow-brutal hover:shadow-brutal-lg transition-all min-h-[220px]" data-target="content-05">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <span class="text-2xl font-black bg-white text-slate-900 border-3 border-slate-900 w-12 h-12 flex items-center justify-center rounded-sm shadow-brutal-sm">05</span>
+                            <div class="w-10 h-10 bg-white text-slate-900 border-2 border-slate-900 rounded-sm flex items-center justify-center shadow-brutal-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <h3 class="font-black text-xl sm:text-2xl uppercase tracking-tight leading-snug mb-3">Assess Decisions,<br>Not Just Output</h3>
+                            <div class="inline-flex items-center gap-1.5 text-xs font-black uppercase bg-white text-slate-900 px-3 py-1 border-2 border-slate-900 shadow-brutal-sm">
+                                <span>Explore Content</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Card 06 -->
+                    <button class="popup-trigger text-left bg-brand-pink text-slate-900 border-4 border-slate-900 p-6 brutal-btn flex flex-col justify-between group rounded-sm shadow-brutal hover:shadow-brutal-lg transition-all min-h-[220px]" data-target="content-06">
+                        <div class="flex items-center justify-between w-full mb-4">
+                            <span class="text-2xl font-black bg-white text-slate-900 border-3 border-slate-900 w-12 h-12 flex items-center justify-center rounded-sm shadow-brutal-sm">06</span>
+                            <div class="w-10 h-10 bg-white text-slate-900 border-2 border-slate-900 rounded-sm flex items-center justify-center shadow-brutal-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[2.5]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <h3 class="font-black text-xl sm:text-2xl uppercase tracking-tight leading-snug mb-3">Authors of Their Thinking</h3>
+                            <div class="inline-flex items-center gap-1.5 text-xs font-black uppercase bg-white text-slate-900 px-3 py-1 border-2 border-slate-900 shadow-brutal-sm">
+                                <span>Explore Content</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                            </div>
                         </div>
                     </button>
 
@@ -337,121 +373,96 @@
             </section>
 
             <!-- 3. PRACTICAL TAKEAWAY WORKFLOW -->
-            <section class="brutal-card p-6 md:p-8 opacity-0 bg-brand-cream" data-animate aria-labelledby="workflow-heading">
-                <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
-                    <div class="bg-brand-teal px-5 py-2 border-4 border-slate-900 shadow-brutal-sm">
-                        <h2 id="workflow-heading" class="text-xl md:text-2xl font-black uppercase tracking-tight">Practical Takeaway Workflow</h2>
+            <section class="brutal-card p-6 md:p-8 opacity-0 bg-brand-cream shadow-brutal-lg rounded-sm" data-animate aria-labelledby="workflow-heading">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-8">
+                    <div class="bg-brand-teal px-6 py-2.5 border-4 border-slate-900 shadow-brutal rounded-sm">
+                        <h2 id="workflow-heading" class="text-xl md:text-2xl font-black uppercase tracking-tight text-slate-900">Practical Takeaway Workflow</h2>
                     </div>
-                    <span class="font-black uppercase text-xs md:text-sm bg-white px-3 py-1.5 border-2 border-slate-900">
+                    <span class="font-black uppercase text-xs md:text-sm bg-white px-4 py-2 border-3 border-slate-900 shadow-brutal-sm rounded-sm text-slate-900">
                         Purpose &rarr; Active Thinking &rarr; Selective Support &rarr; Evidence
                     </span>
                 </div>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     
-                    <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col justify-between">
+                    <div class="bg-white border-4 border-slate-900 shadow-brutal p-5 flex flex-col justify-between rounded-sm hover:translate-y-[-2px] transition-transform">
                         <div>
-                            <span class="bg-brand-yellow border-2 border-slate-900 px-2 py-0.5 font-black text-xs uppercase inline-block mb-3">Stage 01</span>
-                            <h3 class="font-black text-xl uppercase mb-1">Purpose</h3>
-                            <p class="font-body text-sm font-bold">Define intent and communicative goal.</p>
+                            <span class="bg-brand-yellow border-2 border-slate-900 px-3 py-1 font-black text-xs uppercase inline-block mb-3 shadow-brutal-sm rounded-sm">Stage 01</span>
+                            <h3 class="font-black text-xl uppercase mb-2 text-slate-900">Purpose</h3>
+                            <p class="font-body text-sm md:text-base font-bold text-slate-800">Define intent and communicative goal.</p>
                         </div>
                     </div>
 
-                    <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col justify-between">
+                    <div class="bg-white border-4 border-slate-900 shadow-brutal p-5 flex flex-col justify-between rounded-sm hover:translate-y-[-2px] transition-transform">
                         <div>
-                            <span class="bg-brand-blue border-2 border-slate-900 px-2 py-0.5 font-black text-xs uppercase inline-block mb-3">Stage 02</span>
-                            <h3 class="font-black text-xl uppercase mb-1">Active Thinking</h3>
-                            <p class="font-body text-sm font-bold">Clarify the task and form a first view independently.</p>
+                            <span class="bg-brand-blue border-2 border-slate-900 px-3 py-1 font-black text-xs uppercase inline-block mb-3 shadow-brutal-sm rounded-sm">Stage 02</span>
+                            <h3 class="font-black text-xl uppercase mb-2 text-slate-900">Active Thinking</h3>
+                            <p class="font-body text-sm md:text-base font-bold text-slate-800">Clarify the task and form a first view independently.</p>
                         </div>
                     </div>
 
-                    <div class="bg-white border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col justify-between">
+                    <div class="bg-white border-4 border-slate-900 shadow-brutal p-5 flex flex-col justify-between rounded-sm hover:translate-y-[-2px] transition-transform">
                         <div>
-                            <span class="bg-brand-purple border-2 border-slate-900 px-2 py-0.5 font-black text-xs uppercase inline-block mb-3">Stage 03</span>
-                            <h3 class="font-black text-xl uppercase mb-1">Selective Support</h3>
-                            <p class="font-body text-sm font-bold">Consult AI purposefully and challenge suggestions.</p>
+                            <span class="bg-brand-purple border-2 border-slate-900 px-3 py-1 font-black text-xs uppercase inline-block mb-3 shadow-brutal-sm rounded-sm">Stage 03</span>
+                            <h3 class="font-black text-xl uppercase mb-2 text-slate-900">Selective Support</h3>
+                            <p class="font-body text-sm md:text-base font-bold text-slate-800">Consult AI purposefully and challenge suggestions.</p>
                         </div>
                     </div>
 
-                    <div class="bg-brand-teal border-4 border-slate-900 shadow-brutal-sm p-4 flex flex-col justify-between">
+                    <div class="bg-brand-teal border-4 border-slate-900 shadow-brutal p-5 flex flex-col justify-between rounded-sm hover:translate-y-[-2px] transition-transform">
                         <div>
-                            <span class="bg-white border-2 border-slate-900 px-2 py-0.5 font-black text-xs uppercase inline-block mb-3">Stage 04</span>
-                            <h3 class="font-black text-xl uppercase mb-1">Evidence</h3>
-                            <p class="font-body text-sm font-bold">Show reasoning, evaluation, and owned language choices.</p>
+                            <span class="bg-white border-2 border-slate-900 px-3 py-1 font-black text-xs uppercase inline-block mb-3 shadow-brutal-sm rounded-sm">Stage 04</span>
+                            <h3 class="font-black text-xl uppercase mb-2 text-slate-900">Evidence</h3>
+                            <p class="font-body text-sm md:text-base font-bold text-slate-900">Show reasoning, evaluation, and owned language choices.</p>
                         </div>
                     </div>
 
                 </div>
             </section>
 
-            <!-- 4. CORE MESSAGE CHECKLIST -->
-            <section class="brutal-card p-6 md:p-8 opacity-0 bg-white" data-animate aria-labelledby="checklist-heading">
-                <div class="flex flex-wrap items-center justify-between gap-3 mb-6 border-b-4 border-slate-900 pb-3">
-                    <h2 id="checklist-heading" class="text-xl md:text-2xl font-black uppercase tracking-tight">Core Message Checklist</h2>
-                    <p class="font-body font-bold text-xs md:text-sm">Click items to check off principles as you apply them:</p>
+            <!-- 4. CORE MESSAGE PRINCIPLES -->
+            <section class="brutal-card p-6 md:p-8 opacity-0 bg-white shadow-brutal-lg rounded-sm" data-animate aria-labelledby="checklist-heading">
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-6 border-b-4 border-slate-900 pb-4">
+                    <h2 id="checklist-heading" class="text-xl md:text-2xl font-black uppercase tracking-tight text-slate-900">Core Message Principles</h2>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
                     
-                    <label class="p-3.5 bg-brand-cream hover:bg-brand-yellow brutal-btn flex items-center cursor-pointer select-none">
-                        <input type="checkbox" class="peer sr-only">
-                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
-                            <span class="opacity-0 peer-checked:opacity-100">X</span>
-                        </div>
-                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">01</span>
-                        <span class="font-black text-sm uppercase leading-tight">Keep learner agency first.</span>
-                    </label>
+                    <div class="p-4 bg-brand-cream border-3 border-slate-900 shadow-brutal-sm rounded-sm flex items-center">
+                        <span class="font-black text-xs mr-3 bg-white border border-slate-900 px-2 py-0.5 shadow-brutal-sm text-slate-900">01</span>
+                        <span class="font-black text-sm uppercase leading-tight text-slate-900">Keep learner agency first.</span>
+                    </div>
 
-                    <label class="p-3.5 bg-brand-cream hover:bg-brand-blue brutal-btn flex items-center cursor-pointer select-none">
-                        <input type="checkbox" class="peer sr-only">
-                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
-                            <span class="opacity-0 peer-checked:opacity-100">X</span>
-                        </div>
-                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">02</span>
-                        <span class="font-black text-sm uppercase leading-tight">Think first before consulting AI.</span>
-                    </label>
+                    <div class="p-4 bg-brand-cream border-3 border-slate-900 shadow-brutal-sm rounded-sm flex items-center">
+                        <span class="font-black text-xs mr-3 bg-white border border-slate-900 px-2 py-0.5 shadow-brutal-sm text-slate-900">02</span>
+                        <span class="font-black text-sm uppercase leading-tight text-slate-900">Think first before consulting AI.</span>
+                    </div>
 
-                    <label class="p-3.5 bg-brand-cream hover:bg-brand-purple brutal-btn flex items-center cursor-pointer select-none">
-                        <input type="checkbox" class="peer sr-only">
-                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
-                            <span class="opacity-0 peer-checked:opacity-100">X</span>
-                        </div>
-                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">03</span>
-                        <span class="font-black text-sm uppercase leading-tight">Build specific GenAI capabilities.</span>
-                    </label>
+                    <div class="p-4 bg-brand-cream border-3 border-slate-900 shadow-brutal-sm rounded-sm flex items-center">
+                        <span class="font-black text-xs mr-3 bg-white border border-slate-900 px-2 py-0.5 shadow-brutal-sm text-slate-900">03</span>
+                        <span class="font-black text-sm uppercase leading-tight text-slate-900">Build specific GenAI capabilities.</span>
+                    </div>
 
-                    <label class="p-3.5 bg-brand-cream hover:bg-brand-orange brutal-btn flex items-center cursor-pointer select-none">
-                        <input type="checkbox" class="peer sr-only">
-                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
-                            <span class="opacity-0 peer-checked:opacity-100">X</span>
-                        </div>
-                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">04</span>
-                        <span class="font-black text-sm uppercase leading-tight">Make learner thinking visible.</span>
-                    </label>
+                    <div class="p-4 bg-brand-cream border-3 border-slate-900 shadow-brutal-sm rounded-sm flex items-center">
+                        <span class="font-black text-xs mr-3 bg-white border border-slate-900 px-2 py-0.5 shadow-brutal-sm text-slate-900">04</span>
+                        <span class="font-black text-sm uppercase leading-tight text-slate-900">Make learner thinking visible.</span>
+                    </div>
 
-                    <label class="p-3.5 bg-brand-cream hover:bg-brand-pink brutal-btn flex items-center cursor-pointer select-none">
-                        <input type="checkbox" class="peer sr-only">
-                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-teal font-black text-xs">
-                            <span class="opacity-0 peer-checked:opacity-100">X</span>
-                        </div>
-                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">05</span>
-                        <span class="font-black text-sm uppercase leading-tight">Assess decisions, not just polish.</span>
-                    </label>
+                    <div class="p-4 bg-brand-cream border-3 border-slate-900 shadow-brutal-sm rounded-sm flex items-center">
+                        <span class="font-black text-xs mr-3 bg-white border border-slate-900 px-2 py-0.5 shadow-brutal-sm text-slate-900">05</span>
+                        <span class="font-black text-sm uppercase leading-tight text-slate-900">Assess decisions, not just polish.</span>
+                    </div>
 
-                    <label class="p-3.5 bg-brand-indigo hover:bg-brand-yellow brutal-btn flex items-center cursor-pointer select-none">
-                        <input type="checkbox" class="peer sr-only">
-                        <div class="w-6 h-6 border-2 border-slate-900 mr-3 shrink-0 flex items-center justify-center bg-white peer-checked:bg-brand-yellow font-black text-xs">
-                            <span class="opacity-0 peer-checked:opacity-100">X</span>
-                        </div>
-                        <span class="font-black text-xs mr-2 bg-white border border-slate-900 px-1.5 py-0.5">06</span>
-                        <span class="font-black text-sm uppercase leading-tight">Keep learners authors of meaning.</span>
-                    </label>
+                    <div class="p-4 bg-brand-indigo border-3 border-slate-900 shadow-brutal-sm rounded-sm flex items-center">
+                        <span class="font-black text-xs mr-3 bg-white border border-slate-900 px-2 py-0.5 shadow-brutal-sm text-slate-900">06</span>
+                        <span class="font-black text-sm uppercase leading-tight text-slate-900">Keep learners authors of meaning.</span>
+                    </div>
 
                 </div>
 
-                <div class="bg-brand-teal border-4 border-slate-900 shadow-brutal p-6 text-left relative">
-                    <span class="text-xs font-black uppercase bg-brand-yellow inline-block px-3 py-1 mb-2 border-2 border-slate-900">Closing Question</span>
-                    <p class="text-xl md:text-2xl font-black uppercase tracking-tight leading-snug">
+                <div class="bg-brand-teal border-4 border-slate-900 shadow-brutal p-6 text-left relative rounded-sm">
+                    <span class="text-xs font-black uppercase bg-brand-yellow inline-block px-3 py-1 mb-2 border-2 border-slate-900 shadow-brutal-sm rounded-sm">Closing Question</span>
+                    <p class="text-xl md:text-2xl font-black uppercase tracking-tight leading-snug text-slate-900">
                         "What can learners do with AI in English, and how can we make their learning visible?"
                     </p>
                 </div>
@@ -477,7 +488,7 @@
         <div class="modal-content-wrapper bg-white border-4 border-slate-900 shadow-brutal-lg w-full max-w-4xl max-h-[88vh] flex flex-col relative">
             
             <div class="bg-brand-yellow border-b-4 border-slate-900 px-5 py-3 flex justify-between items-center shrink-0">
-                <span id="modal-viewer-title" class="font-black uppercase tracking-wider text-base">Slide Viewer</span>
+                <span id="modal-viewer-title" class="font-black uppercase tracking-wider text-base">Content Viewer</span>
                 <button id="close-modal-btn" class="bg-brand-red border-2 border-slate-900 w-8 h-8 flex items-center justify-center font-black text-base brutal-btn hover:bg-white" aria-label="Close modal">
                     X
                 </button>
@@ -490,12 +501,11 @@
         </div>
     </div>
 
-    <!-- TEMPLATES FOR SLIDES 2 TO 7 -->
+    <!-- CONTENT TEMPLATES -->
 
-    <!-- Template 01: Slide 2 -->
+    <!-- Template 01 -->
     <template id="content-01">
         <div class="mb-5 pb-3 border-b-4 border-slate-900">
-            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 2</span>
             <h3 class="font-black text-2xl uppercase tracking-tight">AI is Already Part of My Learners' Reality</h3>
         </div>
 
@@ -539,10 +549,9 @@
         </div>
     </template>
 
-    <!-- Template 02: Slide 3 -->
+    <!-- Template 02 -->
     <template id="content-02">
         <div class="mb-5 pb-3 border-b-4 border-slate-900">
-            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 3</span>
             <h3 class="font-black text-2xl uppercase tracking-tight">Think First. Use AI with Purpose.</h3>
         </div>
 
@@ -583,10 +592,9 @@
         </div>
     </template>
 
-    <!-- Template 03: Slide 4 -->
+    <!-- Template 03 -->
     <template id="content-03">
         <div class="mb-5 pb-3 border-b-4 border-slate-900">
-            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 4</span>
             <h3 class="font-black text-2xl uppercase tracking-tight">What Capabilities Might Learners Need?</h3>
         </div>
 
@@ -646,10 +654,9 @@
         </div>
     </template>
 
-    <!-- Template 04: Slide 5 -->
+    <!-- Template 04 -->
     <template id="content-04">
         <div class="mb-5 pb-3 border-b-4 border-slate-900">
-            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 5</span>
             <h3 class="font-black text-2xl uppercase tracking-tight">Make Learner Thinking Part of the Task</h3>
         </div>
 
@@ -697,10 +704,9 @@
         </div>
     </template>
 
-    <!-- Template 05: Slide 6 -->
+    <!-- Template 05 -->
     <template id="content-05">
         <div class="mb-5 pb-3 border-b-4 border-slate-900">
-            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 6</span>
             <h3 class="font-black text-2xl uppercase tracking-tight">Assess Decisions, Not Just the Output</h3>
         </div>
 
@@ -736,10 +742,9 @@
         </div>
     </template>
 
-    <!-- Template 06: Slide 7 -->
+    <!-- Template 06 -->
     <template id="content-06">
         <div class="mb-5 pb-3 border-b-4 border-slate-900">
-            <span class="font-body font-extrabold text-xs uppercase bg-white px-2 py-0.5 border-2 border-slate-900 inline-block mb-1">Slide 7</span>
             <h3 class="font-black text-2xl uppercase tracking-tight">How Do We Keep Learners Authors of Their Thinking?</h3>
         </div>
 
