@@ -43,7 +43,7 @@
     <!-- Google Fonts for Graphic Novel Aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -59,6 +59,7 @@
                     },
                     boxShadow: {
                         'comic': '8px 8px 0px 0px #0f172a',
+                        'comic-lg': '12px 12px 0px 0px #0f172a',
                         'comic-sm': '4px 4px 0px 0px #0f172a',
                         'comic-hover': '2px 2px 0px 0px #0f172a',
                     },
@@ -67,7 +68,8 @@
                         'comic-blue': '#3B82F6',
                         'comic-red': '#EF4444',
                         'comic-indigo': '#4F46E5',
-                        'comic-emerald': '#10B981'
+                        'comic-emerald': '#10B981',
+                        'comic-cream': '#FFFDF5'
                     }
                 }
             }
@@ -75,20 +77,36 @@
     </script>
 
     <style>
-        /* Base Comic Styles */
+        /* Base Neo-Brutalist Comic Styles */
         body {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
-            background-size: 24px 24px;
+            background-color: #FFFDF5;
+            background-image: radial-gradient(#cbd5e1 1.75px, transparent 1.75px);
+            background-size: 28px 28px;
             color: #0f172a;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Halftone Overlay Effects */
+        .halftone-bg {
+            background-image: radial-gradient(rgba(15, 23, 42, 0.08) 2px, transparent 2px);
+            background-size: 16px 16px;
+        }
+
+        .halftone-dark {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.12) 2px, transparent 2px);
+            background-size: 20px 20px;
+        }
+
         .comic-panel {
             border: 4px solid #0f172a;
             box-shadow: 8px 8px 0px 0px #0f172a;
-            transition: all 0.3s ease-in-out;
+            transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .comic-card-hover:hover {
+            transform: translate(-4px, -6px);
+            box-shadow: 12px 14px 0px 0px #0f172a;
         }
 
         .text-pretty {
@@ -98,14 +116,16 @@
         .comic-btn {
             border: 4px solid #0f172a;
             box-shadow: 6px 6px 0px 0px #0f172a;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
             font-weight: 900;
             text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
         }
         
         .comic-btn:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 8px 8px 0px 0px #0f172a;
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px 0px #0f172a;
         }
 
         .comic-btn:active {
@@ -116,7 +136,7 @@
         /* Navigation Links */
         .nav-link {
             border: 3px solid transparent;
-            transition: all 0.2s;
+            transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
             font-weight: 800;
             text-transform: uppercase;
         }
@@ -127,11 +147,27 @@
             transform: translateY(-2px);
         }
 
+        /* Floating Animation for Hero Badges */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(3deg); }
+        }
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(7px) rotate(-3deg); }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+        .animate-float-reverse {
+            animation: floatReverse 4.5s ease-in-out infinite;
+        }
+
         /* Subtle Reveal Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: translateY(36px);
+            transition: all 0.75s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .reveal.active {
             opacity: 1;
@@ -146,7 +182,7 @@
             overflow: hidden;
         }
         #mobile-menu.open {
-            max-height: 500px;
+            max-height: 550px;
             opacity: 1;
         }
 
@@ -165,44 +201,77 @@
             width: 100%;
             height: 100%;
         }
+
+        /* Comic Speech Tail */
+        .speech-bubble {
+            position: relative;
+        }
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 16px 14px 0;
+            border-style: solid;
+            border-color: #0f172a transparent;
+            display: block;
+            width: 0;
+        }
+        .speech-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 14px 11px 0;
+            border-style: solid;
+            border-color: #FACC15 transparent;
+            display: block;
+            width: 0;
+            z-index: 1;
+        }
     </style>
 </head>
 <body class="selection:bg-comic-yellow selection:text-slate-900">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white border-b-4 border-slate-900 shadow-comic transition-all duration-300 top-0">
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b-4 border-slate-900 shadow-comic transition-all duration-300 top-0">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Brand -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer">
-                    <a href="index.html" class="font-comic text-2xl md:text-3xl text-slate-900 tracking-widest uppercase flex items-center gap-2.5" style="text-shadow: 2px 2px 0 #FACC15;">
-                        <img src="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png" alt="Fajarudin Akbar" class="w-8 h-8 md:w-9 md:h-9 rounded-full border-2 border-slate-900 object-cover inline-block shadow-comic-sm">
+                    <a href="index.html" class="font-comic text-2xl md:text-3xl text-slate-900 tracking-widest uppercase flex items-center gap-3 group" style="text-shadow: 2px 2px 0 #FACC15;">
+                        <div class="relative">
+                            <img src="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png" alt="Fajarudin Akbar" class="w-10 h-10 md:w-11 md:h-11 rounded-full border-3 border-slate-900 object-cover inline-block shadow-comic-sm group-hover:scale-105 transition-transform bg-comic-yellow">
+                            <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-comic-emerald border-2 border-slate-900 rounded-full"></span>
+                        </div>
                         <span>Fajarudin<span class="text-comic-blue">Akbar</span></span>
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-3 items-center">
-                    <a href="index.html" class="nav-link text-slate-800 px-3 py-2 rounded-lg text-sm flex items-center gap-1.5"><i class="fa-solid fa-house text-xs"></i> Portfolio</a>
-                    <a href="#philosophy" class="nav-link text-slate-800 px-3 py-2 rounded-lg text-sm">Methodology</a>
-                    <a href="#about" class="nav-link text-slate-800 px-3 py-2 rounded-lg text-sm">Profile</a>
-                    <a href="#programs" class="nav-link text-slate-800 px-3 py-2 rounded-lg text-sm">Programs</a>
-                    <button id="lang-toggle-nav-desktop" class="comic-btn bg-comic-yellow text-slate-900 px-3 py-2 rounded-lg text-xs hover:bg-yellow-400 flex items-center gap-1.5 cursor-pointer">
+                <div class="hidden md:flex space-x-2.5 items-center">
+                    <a href="index.html" class="nav-link text-slate-800 px-3.5 py-2 rounded-xl text-sm flex items-center gap-1.5"><i class="fa-solid fa-house text-xs"></i> Portfolio</a>
+                    <a href="#philosophy" class="nav-link text-slate-800 px-3.5 py-2 rounded-xl text-sm">Methodology</a>
+                    <a href="#about" class="nav-link text-slate-800 px-3.5 py-2 rounded-xl text-sm">Profile</a>
+                    <a href="#programs" class="nav-link text-slate-800 px-3.5 py-2 rounded-xl text-sm">Programs</a>
+                    <button id="lang-toggle-nav-desktop" class="comic-btn bg-comic-yellow text-slate-900 px-3.5 py-2 rounded-xl text-xs hover:bg-yellow-300 flex items-center gap-1.5 cursor-pointer">
                         <i class="fa-solid fa-globe text-sm"></i>
                         <span id="nav-toggle-text-desktop">International ($10/hr)</span>
                     </button>
-                    <a href="#contact" class="comic-btn bg-comic-indigo text-white px-5 py-2 rounded-lg text-sm hover:bg-indigo-500">
+                    <a href="#contact" class="comic-btn bg-comic-indigo text-white px-5 py-2 rounded-xl text-sm hover:bg-indigo-500">
                         Contact
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center gap-2">
-                    <button id="lang-toggle-nav-badge" class="comic-btn bg-comic-yellow text-slate-900 px-2.5 py-1.5 rounded-lg text-xs font-black uppercase flex items-center gap-1">
+                <div class="md:hidden flex items-center gap-2.5">
+                    <button id="lang-toggle-nav-badge" class="comic-btn bg-comic-yellow text-slate-900 px-3 py-1.5 rounded-xl text-xs font-black uppercase flex items-center gap-1.5">
                         <i class="fa-solid fa-globe"></i>
                         <span id="mobile-badge-text">Rp100k/hr</span>
                     </button>
-                    <button id="mobile-menu-btn" class="comic-btn bg-white p-2 rounded-lg text-slate-900 focus:outline-none" aria-label="Toggle Menu">
+                    <button id="mobile-menu-btn" class="comic-btn bg-white p-2 rounded-xl text-slate-900 focus:outline-none" aria-label="Toggle Menu">
                         <i class="fa-solid fa-bars text-xl w-6 h-6 flex items-center justify-center"></i>
                     </button>
                 </div>
@@ -210,7 +279,7 @@
         </div>
 
         <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t-4 border-slate-900 shadow-xl absolute w-full left-0">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t-4 border-slate-900 shadow-2xl absolute w-full left-0">
             <div class="px-4 pt-4 pb-6 space-y-3">
                 <button id="lang-toggle-nav-mobile" class="w-full text-slate-900 bg-comic-yellow border-4 border-slate-900 px-4 py-3 rounded-xl text-base font-black uppercase text-center hover:bg-yellow-400 transition-colors shadow-comic-sm flex items-center justify-center gap-2">
                     <i class="fa-solid fa-globe text-lg"></i>
@@ -226,204 +295,278 @@
     </nav>
 
     <main>
-        <!-- Hero Section: Comic Impact -->
-        <section class="min-h-screen flex items-center pt-20 relative overflow-hidden">
-            <!-- Decorative Background Elements -->
-            <div class="absolute top-20 right-10 text-comic-yellow opacity-40 hidden lg:block z-0">
+        <!-- Hero Section: High-Converting Comic Impact -->
+        <section class="min-h-screen flex items-center pt-24 pb-12 relative overflow-hidden">
+            <!-- Decorative Background Accents -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-comic-yellow/25 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-10 -left-24 w-80 h-80 bg-comic-blue/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-28 right-12 text-comic-yellow opacity-50 hidden lg:block z-0 animate-pulse pointer-events-none">
                 <i class="fa-solid fa-burst text-9xl"></i>
             </div>
             
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 md:py-0 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center reveal active">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-6 md:py-10 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center reveal active">
                     
-                    <!-- Mobile Image -->
-                    <div class="lg:hidden flex justify-center mb-4">
+                    <!-- Mobile Image Showcase -->
+                    <div class="lg:hidden flex justify-center mb-2">
                         <div class="relative group">
+                            <div class="absolute inset-0 bg-comic-indigo rounded-3xl transform rotate-6 border-4 border-slate-900 shadow-comic-sm"></div>
+                            <div class="absolute inset-0 bg-comic-yellow rounded-3xl transform -rotate-3 border-4 border-slate-900"></div>
                             <img src="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png" 
                                  alt="Teacher Fajarudin Akbar" 
-                                 class="w-48 h-48 rounded-full object-cover comic-panel bg-white p-2">
-                            <div class="absolute -bottom-2 -right-2 bg-comic-yellow comic-panel rounded-full w-12 h-12 flex items-center justify-center z-20">
-                                <i class="fa-solid fa-graduation-cap text-xl text-slate-900"></i>
+                                 class="relative z-10 w-52 h-52 rounded-3xl object-cover comic-panel bg-white p-2">
+                            <div class="absolute -bottom-3 -right-3 bg-comic-yellow comic-panel rounded-2xl w-14 h-14 flex items-center justify-center z-20 transform rotate-6">
+                                <i class="fa-solid fa-graduation-cap text-2xl text-slate-900"></i>
                             </div>
                         </div>
                     </div>
 
-                    <div class="space-y-6 md:space-y-8 text-center lg:text-left">
+                    <!-- Left Column: Copy & Action -->
+                    <div class="lg:col-span-7 space-y-6 md:space-y-7 text-center lg:text-left">
                         <!-- Student Type Switcher Banner -->
                         <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2 bg-slate-900 p-2 rounded-2xl comic-panel text-white">
-                            <span class="text-xs font-black uppercase tracking-wide px-2 flex items-center gap-1.5">
+                            <span class="text-xs font-black uppercase tracking-wider px-2.5 flex items-center gap-1.5">
                                 <i class="fa-solid fa-earth-americas text-comic-yellow text-sm"></i> Student Mode:
                             </span>
-                            <div class="flex items-center gap-1 bg-slate-800 p-1 rounded-xl">
-                                <button id="btn-mode-id" class="px-3 py-1.5 text-xs font-black rounded-lg transition-all border-2 border-slate-900 bg-comic-yellow text-slate-900 shadow-comic-sm">
+                            <div class="flex items-center gap-1.5 bg-slate-800 p-1 rounded-xl">
+                                <button id="btn-mode-id" class="px-3.5 py-1.5 text-xs font-black rounded-lg transition-all border-2 border-slate-900 bg-comic-yellow text-slate-900 shadow-comic-sm cursor-pointer">
                                     🇮🇩 Indonesia (Rp100k/hr)
                                 </button>
-                                <button id="btn-mode-en" class="px-3 py-1.5 text-xs font-black rounded-lg transition-all text-slate-300 hover:text-white">
+                                <button id="btn-mode-en" class="px-3.5 py-1.5 text-xs font-black rounded-lg transition-all text-slate-300 hover:text-white cursor-pointer">
                                     🌐 International ($10/hr)
                                 </button>
                             </div>
                         </div>
 
                         <div>
-                            <span data-i18n="hero-badge" class="inline-block bg-comic-yellow text-slate-900 border-4 border-slate-900 px-4 py-2 rounded-full font-black uppercase text-sm shadow-comic-sm mb-4">
-                                Private English Mentorship
-                            </span>
+                            <div class="inline-flex items-center gap-2 bg-comic-yellow text-slate-900 border-4 border-slate-900 px-4 py-1.5 rounded-full font-black uppercase text-xs sm:text-sm shadow-comic-sm mb-4 transform -rotate-1">
+                                <i class="fa-solid fa-star text-slate-900"></i>
+                                <span data-i18n="hero-badge">Private English Mentorship</span>
+                            </div>
                             
-                            <h1 data-i18n="hero-title" class="font-comic text-6xl sm:text-7xl md:text-8xl tracking-wider text-slate-900 leading-none" style="text-shadow: 4px 4px 0 #fff, 8px 8px 0 #3B82F6;">
+                            <h1 data-i18n="hero-title" class="font-comic text-6xl sm:text-7xl md:text-8xl tracking-wider text-slate-900 leading-[0.95]" style="text-shadow: 4px 4px 0 #fff, 8px 8px 0 #3B82F6;">
                                 USE ENGLISH,<br>
                                 <span class="text-comic-indigo">GO GLOBAL.</span>
                             </h1>
                         </div>
                         
-                        <div data-i18n="hero-desc" class="text-sm sm:text-base md:text-lg font-bold text-slate-800 bg-white comic-panel p-4 sm:p-5 rounded-2xl max-w-xl mx-auto lg:mx-0 text-left">
-                            <div class="space-y-3 text-left">
-                                <div class="flex items-center gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-comic-emerald text-lg flex-shrink-0"></i>
-                                    <span class="leading-snug">Fokus ke komunikasi nyata lewat materi yang mudah dipahami</span>
-                                </div>
-                                <div class="flex items-center gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-comic-emerald text-lg flex-shrink-0"></i>
-                                    <span class="leading-snug">Didukung tools teknologi modern &amp; wawasan lintas budaya</span>
-                                </div>
-                                <div class="flex items-start sm:items-center gap-2.5">
-                                    <i class="fa-solid fa-circle-check text-comic-emerald text-lg flex-shrink-0 mt-0.5 sm:mt-0"></i>
-                                    <span class="leading-snug">Relevan untuk kebutuhan <span class="bg-comic-yellow px-2 py-0.5 border-2 border-slate-900 rounded font-black inline-block whitespace-nowrap shadow-comic-sm">akademik &amp; karier profesional</span></span>
+                        <!-- Value Proposition Box -->
+                        <div class="relative max-w-xl mx-auto lg:mx-0">
+                            <div class="absolute -inset-1 bg-comic-blue rounded-2xl border-4 border-slate-900 transform rotate-1 hidden sm:block"></div>
+                            <div data-i18n="hero-desc" class="relative text-sm sm:text-base md:text-lg font-bold text-slate-800 bg-white comic-panel p-5 sm:p-6 rounded-2xl text-left">
+                                <div class="space-y-3.5 text-left">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-comic-emerald text-xl flex-shrink-0"></i>
+                                        <span class="leading-snug">Fokus ke komunikasi nyata lewat materi yang mudah dipahami</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-comic-emerald text-xl flex-shrink-0"></i>
+                                        <span class="leading-snug">Didukung tools teknologi modern &amp; wawasan lintas budaya</span>
+                                    </div>
+                                    <div class="flex items-start sm:items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-comic-emerald text-xl flex-shrink-0 mt-0.5 sm:mt-0"></i>
+                                        <span class="leading-snug">Relevan untuk kebutuhan <span class="bg-comic-yellow px-2 py-0.5 border-2 border-slate-900 rounded font-black inline-block whitespace-nowrap shadow-comic-sm">akademik &amp; karier profesional</span></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="flex flex-col sm:flex-row items-center lg:items-center gap-4 md:gap-6 pt-2">
-                            <a href="#contact" class="comic-btn bg-comic-red text-white px-8 py-4 rounded-xl text-lg w-full sm:w-auto text-center hover:bg-red-500 flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-bolt"></i> <span data-i18n="book-consult">Book Consultation</span>
+                        <!-- CTA & Rate Ticket Bar -->
+                        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 md:gap-5 pt-2">
+                            <a href="#contact" class="comic-btn bg-comic-red text-white px-8 py-4 rounded-2xl text-lg sm:text-xl text-center hover:bg-red-500 flex items-center justify-center gap-2.5 group">
+                                <i class="fa-solid fa-bolt text-comic-yellow group-hover:scale-125 transition-transform"></i>
+                                <span data-i18n="book-consult">Book Consultation</span>
                             </a>
-                            <div class="comic-panel bg-white px-6 py-3 rounded-xl w-full sm:w-auto flex items-center justify-center gap-3">
-                                <span data-i18n="rate-label" class="font-black text-slate-500 uppercase">Rate:</span>
-                                <span id="hero-rate-value" class="font-comic text-2xl tracking-wide text-slate-900">Rp100ribu<span class="text-sm font-sans font-bold">/jam</span></span>
+                            
+                            <!-- Ticket-style Rate Badge -->
+                            <div class="comic-panel bg-comic-cream px-6 py-3.5 rounded-2xl flex items-center justify-center gap-3 relative overflow-hidden">
+                                <div class="w-2 h-full bg-comic-yellow absolute left-0 top-0 border-r-4 border-slate-900"></div>
+                                <span data-i18n="rate-label" class="font-black text-slate-600 uppercase text-sm pl-2">Rate:</span>
+                                <span id="hero-rate-value" class="font-comic text-3xl tracking-wide text-slate-900">Rp100ribu<span class="text-sm font-sans font-extrabold text-slate-700">/jam</span></span>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- Desktop Visual -->
-                    <div class="hidden lg:flex justify-center relative">
-                        <div class="relative group">
-                            <!-- Background comic burst -->
-                            <div class="absolute inset-0 bg-comic-yellow rounded-full transform -translate-x-4 translate-y-4 scale-105 border-4 border-slate-900 shadow-comic opacity-50 transition-transform group-hover:-translate-x-6 group-hover:translate-y-6"></div>
+                    <!-- Right Column: Framed Mentor Visual -->
+                    <div class="hidden lg:flex lg:col-span-5 justify-center relative">
+                        <div class="relative group w-80 xl:w-96">
+                            <!-- Tilted Offset Comic Layers -->
+                            <div class="absolute inset-0 bg-comic-indigo rounded-[2.5rem] transform rotate-6 translate-x-3 translate-y-3 border-4 border-slate-900 shadow-comic transition-transform duration-300 group-hover:rotate-8 group-hover:translate-x-5"></div>
+                            <div class="absolute inset-0 bg-comic-yellow rounded-[2.5rem] transform -rotate-3 -translate-x-2 translate-y-2 border-4 border-slate-900 transition-transform duration-300 group-hover:-rotate-6"></div>
                             
-                            <img src="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png" 
-                                 alt="Teacher Fajarudin Akbar" 
-                                 class="relative z-10 w-80 h-80 object-cover rounded-full comic-panel bg-white p-3 transform group-hover:scale-105 transition-transform duration-500">
+                            <!-- Main Portrait Frame -->
+                            <div class="relative z-10 bg-white comic-panel rounded-[2.5rem] p-3.5 overflow-hidden">
+                                <div class="bg-gradient-to-b from-blue-50 to-indigo-100 rounded-[1.8rem] border-4 border-slate-900 overflow-hidden relative">
+                                    <div class="absolute inset-0 halftone-bg"></div>
+                                    <img src="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png" 
+                                         alt="Teacher Fajarudin Akbar" 
+                                         class="relative z-10 w-full h-80 xl:h-96 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                                </div>
+                            </div>
                                  
-                            <div class="absolute top-10 -right-4 bg-comic-blue comic-panel rounded-full w-20 h-20 flex items-center justify-center z-20">
-                                <i class="fa-solid fa-globe text-3xl text-white"></i>
+                            <!-- Floating Badge Top Right -->
+                            <div class="absolute -top-6 -right-6 bg-comic-blue comic-panel rounded-2xl w-20 h-20 flex items-center justify-center z-20 animate-float">
+                                <i class="fa-solid fa-globe text-4xl text-white"></i>
+                            </div>
+
+                            <!-- Floating Badge Bottom Left -->
+                            <div class="absolute -bottom-5 -left-6 bg-comic-emerald comic-panel rounded-2xl w-16 h-16 flex items-center justify-center z-20 animate-float-reverse">
+                                <i class="fa-solid fa-comments text-2xl text-slate-900"></i>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
         <!-- Philosophy: Comic Grid -->
-        <section id="philosophy" class="py-16 md:py-24">
+        <section id="philosophy" class="py-20 md:py-28 relative border-t-4 border-slate-900 bg-white/60">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 reveal relative inline-block w-full">
-                    <h2 data-i18n="philo-title" class="font-comic text-5xl md:text-6xl text-slate-900 tracking-wider inline-block bg-white px-8 py-3 border-4 border-slate-900 shadow-comic">
-                        How We Learn
-                    </h2>
-                    <p data-i18n="philo-sub" class="mt-8 max-w-2xl mx-auto text-xl font-bold text-slate-700 bg-comic-yellow p-4 border-4 border-slate-900 shadow-comic-sm rounded-xl">
+                <div class="text-center mb-16 md:mb-20 reveal relative">
+                    <div class="inline-block relative">
+                        <div class="absolute -inset-1.5 bg-comic-indigo border-4 border-slate-900 transform rotate-2"></div>
+                        <h2 data-i18n="philo-title" class="relative font-comic text-5xl md:text-6xl text-slate-900 tracking-wider inline-block bg-white px-10 py-3.5 border-4 border-slate-900 shadow-comic">
+                            How We Learn
+                        </h2>
+                    </div>
+                    <p data-i18n="philo-sub" class="mt-8 max-w-2xl mx-auto text-lg sm:text-xl font-bold text-slate-900 bg-comic-yellow p-5 border-4 border-slate-900 shadow-comic rounded-2xl transform -rotate-1">
                         Belajar yang fleksibel dan fokus ke progres nyata. Kita sesuaikan materinya bareng-bareng agar benar-benar pas dengan ritme dan target belajar kita.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 pt-4">
                     <!-- Item 1 -->
-                    <div class="comic-panel bg-blue-50 p-8 rounded-2xl relative transform hover:-translate-y-2 transition-transform duration-300 reveal">
-                        <div class="absolute -top-6 -left-6 bg-comic-blue border-4 border-slate-900 rounded-full w-14 h-14 flex items-center justify-center shadow-comic-sm">
-                            <i class="fa-solid fa-users text-white text-2xl"></i>
+                    <div class="comic-panel comic-card-hover bg-white rounded-3xl relative reveal flex flex-col justify-between overflow-hidden">
+                        <div class="h-4 bg-comic-blue border-b-4 border-slate-900"></div>
+                        <div class="p-8 pt-10 relative flex-1">
+                            <div class="w-16 h-16 bg-comic-blue border-4 border-slate-900 rounded-2xl flex items-center justify-center shadow-comic-sm mb-6 transform -rotate-3">
+                                <i class="fa-solid fa-users text-white text-2xl"></i>
+                            </div>
+                            <h3 data-i18n="philo-1-title" class="font-comic text-3xl tracking-wide text-slate-900 mb-3">Personal Mentorship</h3>
+                            <p data-i18n="philo-1-desc" class="text-slate-700 font-bold leading-relaxed text-base sm:text-lg">
+                                Ngobrol dan belajar langsung tanpa perantara. Kita work together lewat feedback yang jujur, suportif, dan ruang diskusi yang santai.
+                            </p>
                         </div>
-                        <h3 data-i18n="philo-1-title" class="font-comic text-3xl tracking-wide text-slate-900 mb-4 mt-2">Personal Mentorship</h3>
-                        <p data-i18n="philo-1-desc" class="text-slate-800 font-bold leading-relaxed text-lg">
-                            Ngobrol dan belajar langsung tanpa perantara. Kita work together lewat feedback yang jujur, suportif, dan ruang diskusi yang santai.
-                        </p>
+                        <div class="px-8 py-3 bg-blue-50 border-t-4 border-slate-900 flex justify-end">
+                            <span class="font-comic text-xl text-comic-blue tracking-widest">01 // DIRECT</span>
+                        </div>
                     </div>
 
                     <!-- Item 2 -->
-                    <div class="comic-panel bg-rose-50 p-8 rounded-2xl relative transform hover:-translate-y-2 transition-transform duration-300 reveal">
-                        <div class="absolute -top-6 left-1/2 -ml-7 bg-comic-red border-4 border-slate-900 rounded-full w-14 h-14 flex items-center justify-center shadow-comic-sm">
-                            <i class="fa-solid fa-sliders text-white text-2xl"></i>
+                    <div class="comic-panel comic-card-hover bg-white rounded-3xl relative reveal flex flex-col justify-between overflow-hidden" style="transition-delay: 100ms;">
+                        <div class="h-4 bg-comic-red border-b-4 border-slate-900"></div>
+                        <div class="p-8 pt-10 relative flex-1">
+                            <div class="w-16 h-16 bg-comic-red border-4 border-slate-900 rounded-2xl flex items-center justify-center shadow-comic-sm mb-6 transform rotate-3 mx-auto md:mx-0">
+                                <i class="fa-solid fa-sliders text-white text-2xl"></i>
+                            </div>
+                            <h3 data-i18n="philo-2-title" class="font-comic text-3xl tracking-wide text-slate-900 mb-3 text-center md:text-left">Adaptive Pace</h3>
+                            <p data-i18n="philo-2-desc" class="text-slate-700 font-bold leading-relaxed text-base sm:text-lg text-center md:text-left">
+                                Materi yang fleksibel menyesuaikan kebutuhanmu. Silabus kita susun bareng sesuai ritme, minat, kebutuhan studi, atau target karier kita.
+                            </p>
                         </div>
-                        <h3 data-i18n="philo-2-title" class="font-comic text-3xl tracking-wide text-slate-900 mb-4 mt-2 text-center md:text-left">Adaptive Pace</h3>
-                        <p data-i18n="philo-2-desc" class="text-slate-800 font-bold leading-relaxed text-lg text-center md:text-left">
-                            Materi yang fleksibel menyesuaikan kebutuhanmu. Silabus kita susun bareng sesuai ritme, minat, kebutuhan studi, atau target karier kita.
-                        </p>
+                        <div class="px-8 py-3 bg-rose-50 border-t-4 border-slate-900 flex justify-end">
+                            <span class="font-comic text-xl text-comic-red tracking-widest">02 // FLEXIBLE</span>
+                        </div>
                     </div>
 
                     <!-- Item 3 -->
-                    <div class="comic-panel bg-emerald-50 p-8 rounded-2xl relative transform hover:-translate-y-2 transition-transform duration-300 reveal">
-                        <div class="absolute -top-6 -right-6 bg-comic-emerald border-4 border-slate-900 rounded-full w-14 h-14 flex items-center justify-center shadow-comic-sm">
-                            <i class="fa-solid fa-earth-americas text-slate-900 text-2xl"></i>
+                    <div class="comic-panel comic-card-hover bg-white rounded-3xl relative reveal flex flex-col justify-between overflow-hidden" style="transition-delay: 200ms;">
+                        <div class="h-4 bg-comic-emerald border-b-4 border-slate-900"></div>
+                        <div class="p-8 pt-10 relative flex-1">
+                            <div class="w-16 h-16 bg-comic-emerald border-4 border-slate-900 rounded-2xl flex items-center justify-center shadow-comic-sm mb-6 transform -rotate-3 ml-auto md:ml-0">
+                                <i class="fa-solid fa-earth-americas text-slate-900 text-2xl"></i>
+                            </div>
+                            <h3 data-i18n="philo-3-title" class="font-comic text-3xl tracking-wide text-slate-900 mb-3 text-right md:text-left">Practical Foundation</h3>
+                            <p data-i18n="philo-3-desc" class="text-slate-700 font-bold leading-relaxed text-base sm:text-lg text-right md:text-left">
+                                Pendekatan berbasis TESOL & TEFL yang berfokus pada komunikasi nyata dan pemahaman lintas budaya untuk kebutuhan akademik maupun profesional.
+                            </p>
                         </div>
-                        <h3 data-i18n="philo-3-title" class="font-comic text-3xl tracking-wide text-slate-900 mb-4 mt-2 text-right md:text-left">Practical Foundation</h3>
-                        <p data-i18n="philo-3-desc" class="text-slate-800 font-bold leading-relaxed text-lg text-right md:text-left">
-                            Pendekatan berbasis TESOL & TEFL yang berfokus pada komunikasi nyata dan pemahaman lintas budaya untuk kebutuhan akademik maupun profesional.
-                        </p>
+                        <div class="px-8 py-3 bg-emerald-50 border-t-4 border-slate-900 flex justify-end">
+                            <span class="font-comic text-xl text-emerald-700 tracking-widest">03 // GLOBAL</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Profile Section -->
-        <section id="about" class="py-16 md:py-24 overflow-hidden relative">
-            <div class="absolute inset-0 bg-slate-900 -z-10 h-full w-full opacity-5"></div>
+        <!-- Profile Section: Mentor Dossier -->
+        <section id="about" class="py-20 md:py-28 overflow-hidden relative border-t-4 border-slate-900 bg-gradient-to-b from-indigo-50/70 to-amber-50/50">
+            <div class="absolute inset-0 halftone-bg pointer-events-none"></div>
             
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="reveal text-center">
                     
-                    <h2 data-i18n="about-title" class="font-comic text-5xl md:text-6xl text-slate-900 tracking-wider mb-4 uppercase" style="text-shadow: 2px 2px 0 #10B981;">
+                    <h2 data-i18n="about-title" class="font-comic text-5xl sm:text-6xl md:text-7xl text-slate-900 tracking-wider mb-6 uppercase" style="text-shadow: 3px 3px 0 #10B981;">
                         Language Meets Tech
                     </h2>
                     
-                    <div class="inline-block bg-comic-yellow border-4 border-slate-900 px-4 py-2 shadow-comic-sm mb-6">
-                        <p data-i18n="about-callout" class="text-slate-900 text-xl font-black uppercase">Call me Teacher Fajar!</p>
+                    <!-- Speech Bubble Callout -->
+                    <div class="inline-block bg-comic-yellow border-4 border-slate-900 px-6 py-2.5 rounded-2xl shadow-comic-sm mb-10 speech-bubble transform -rotate-1">
+                        <p data-i18n="about-callout" class="text-slate-900 text-xl sm:text-2xl font-black uppercase tracking-wide">Call me Teacher Fajar!</p>
                     </div>
                     
-                    <div data-i18n="about-bio" class="text-slate-800 font-bold text-base sm:text-lg leading-relaxed mb-8 bg-white comic-panel p-6 sm:p-8 rounded-2xl max-w-2xl sm:max-w-3xl mx-auto text-left space-y-4 text-pretty">
-                        <p class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
-                            Belajar English yang kontekstual, bermakna, dan langsung terpakai.
-                        </p>
-                        <p class="leading-relaxed">
-                            Di sini, kita belajar lewat materi dan obrolan nyata yang mudah dipahami (<em>comprehensible input</em>) agar bahasa diserap secara alami untuk kebutuhan komunikasi harian, studi, maupun dunia kerja.
-                        </p>
-                        <p class="leading-relaxed">
-                            Didukung tools teknologi interaktif dan wawasan lintas budaya (<em>intercultural understanding</em>), kita asah kemampuan komunikasi kamu dari <strong>perspektif akademik dan profesional</strong> — siap untuk presentasi, riset, dan kolaborasi global.
-                        </p>
-                        <p class="pt-2 text-comic-indigo font-black text-lg border-t-2 border-slate-100 flex items-center gap-2">
-                            <i class="fa-solid fa-arrow-trend-up text-comic-emerald text-xl"></i>
-                            <span>Step-by-step, kita berproses bareng sampai kita percaya diri berkomunikasi di kancah global!</span>
-                        </p>
+                    <!-- Dossier Window Card -->
+                    <div class="max-w-3xl mx-auto mb-10 bg-white comic-panel rounded-3xl overflow-hidden text-left">
+                        <!-- Retro Window Top Bar -->
+                        <div class="bg-slate-900 px-5 py-3.5 border-b-4 border-slate-900 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3.5 h-3.5 rounded-full bg-comic-red border border-white/20"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-comic-yellow border border-white/20"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-comic-emerald border border-white/20"></span>
+                            </div>
+                            <span class="font-mono text-xs font-bold uppercase tracking-widest text-slate-300">MENTOR_PROFILE.EXE</span>
+                            <i class="fa-solid fa-terminal text-comic-yellow text-xs"></i>
+                        </div>
+
+                        <div data-i18n="about-bio" class="text-slate-800 font-bold text-base sm:text-lg leading-relaxed p-6 sm:p-10 space-y-4 text-pretty">
+                            <p class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
+                                Belajar English yang kontekstual, bermakna, dan langsung terpakai.
+                            </p>
+                            <p class="leading-relaxed">
+                                Di sini, kita belajar lewat materi dan obrolan nyata yang mudah dipahami (<em>comprehensible input</em>) agar bahasa diserap secara alami untuk kebutuhan komunikasi harian, studi, maupun dunia kerja.
+                            </p>
+                            <p class="leading-relaxed">
+                                Didukung tools teknologi interaktif dan wawasan lintas budaya (<em>intercultural understanding</em>), kita asah kemampuan komunikasi kamu dari <strong>perspektif akademik dan profesional</strong> — siap untuk presentasi, riset, dan kolaborasi global.
+                            </p>
+                            <p class="pt-3 text-comic-indigo font-black text-lg border-t-2 border-slate-100 flex items-center gap-2.5">
+                                <i class="fa-solid fa-arrow-trend-up text-comic-emerald text-xl"></i>
+                                <span>Step-by-step, kita berproses bareng sampai kita percaya diri berkomunikasi di kancah global!</span>
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-10 text-left bg-indigo-50 comic-panel p-6 rounded-2xl max-w-2xl sm:max-w-3xl mx-auto">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-comic-blue text-xl border-2 border-slate-900 rounded-full bg-white"></i>
-                            <span data-i18n="about-feat-1" class="text-slate-900 font-black uppercase">Communicative Focus</span>
+                    <!-- 4 Feature Pill Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 text-left max-w-3xl mx-auto">
+                        <div class="flex items-center gap-3.5 bg-white comic-panel p-4 rounded-2xl hover:bg-comic-yellow transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-comic-blue border-2 border-slate-900 flex items-center justify-center flex-shrink-0 text-white shadow-comic-hover">
+                                <i class="fa-solid fa-check text-lg"></i>
+                            </div>
+                            <span data-i18n="about-feat-1" class="text-slate-900 font-black uppercase text-base sm:text-lg">Communicative Focus</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-comic-blue text-xl border-2 border-slate-900 rounded-full bg-white"></i>
-                            <span data-i18n="about-feat-2" class="text-slate-900 font-black uppercase">Contextual Input</span>
+                        <div class="flex items-center gap-3.5 bg-white comic-panel p-4 rounded-2xl hover:bg-comic-yellow transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-comic-emerald border-2 border-slate-900 flex items-center justify-center flex-shrink-0 text-slate-900 shadow-comic-hover">
+                                <i class="fa-solid fa-check text-lg"></i>
+                            </div>
+                            <span data-i18n="about-feat-2" class="text-slate-900 font-black uppercase text-base sm:text-lg">Contextual Input</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-comic-blue text-xl border-2 border-slate-900 rounded-full bg-white"></i>
-                            <span data-i18n="about-feat-3" class="text-slate-900 font-black uppercase">Intercultural Insight</span>
+                        <div class="flex items-center gap-3.5 bg-white comic-panel p-4 rounded-2xl hover:bg-comic-yellow transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-comic-red border-2 border-slate-900 flex items-center justify-center flex-shrink-0 text-white shadow-comic-hover">
+                                <i class="fa-solid fa-check text-lg"></i>
+                            </div>
+                            <span data-i18n="about-feat-3" class="text-slate-900 font-black uppercase text-base sm:text-lg">Intercultural Insight</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-comic-blue text-xl border-2 border-slate-900 rounded-full bg-white"></i>
-                            <span data-i18n="about-feat-4" class="text-slate-900 font-black uppercase">Tech-Enhanced</span>
+                        <div class="flex items-center gap-3.5 bg-white comic-panel p-4 rounded-2xl hover:bg-comic-yellow transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-comic-indigo border-2 border-slate-900 flex items-center justify-center flex-shrink-0 text-white shadow-comic-hover">
+                                <i class="fa-solid fa-check text-lg"></i>
+                            </div>
+                            <span data-i18n="about-feat-4" class="text-slate-900 font-black uppercase text-base sm:text-lg">Tech-Enhanced</span>
                         </div>
                     </div>
 
                     <div class="flex justify-center gap-4">
-                        <a href="https://linkedin.com/in/fajarudinakbar" target="_blank" rel="noopener noreferrer" class="comic-btn inline-block bg-comic-indigo text-white px-8 py-4 rounded-xl text-lg hover:bg-indigo-500 group">
-                            View Portfolio <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-2 transition-transform"></i>
+                        <a href="https://linkedin.com/in/fajarudinakbar" target="_blank" rel="noopener noreferrer" class="comic-btn inline-flex items-center bg-comic-indigo text-white px-9 py-4 rounded-2xl text-lg hover:bg-indigo-500 group">
+                            View Portfolio <i class="fa-solid fa-arrow-right ml-2.5 transform group-hover:translate-x-2 transition-transform"></i>
                         </a>
                     </div>
 
@@ -431,59 +574,74 @@
             </div>
         </section>
 
-        <!-- Programs: Burst Cards -->
-        <section id="programs" class="py-16 md:py-24">
+        <!-- Programs: High-Value Tier Cards -->
+        <section id="programs" class="py-20 md:py-28 border-t-4 border-slate-900">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="mb-16 reveal text-center">
-                    <span class="inline-block bg-comic-blue text-white border-4 border-slate-900 px-4 py-2 rounded-full font-black uppercase text-sm shadow-comic-sm mb-4">Curriculum</span>
-                    <h2 data-i18n="prog-title" class="font-comic text-5xl md:text-6xl text-slate-900 tracking-wider block" style="text-shadow: 3px 3px 0 #fff;">Learning Pathways</h2>
+                <div class="mb-20 reveal text-center">
+                    <span class="inline-block bg-comic-blue text-white border-4 border-slate-900 px-5 py-2 rounded-full font-black uppercase text-sm shadow-comic-sm mb-4 transform rotate-1">Curriculum</span>
+                    <h2 data-i18n="prog-title" class="font-comic text-5xl sm:text-6xl md:text-7xl text-slate-900 tracking-wider block" style="text-shadow: 3px 3px 0 #FACC15;">Learning Pathways</h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mt-12 items-stretch">
                     
                     <!-- Card 1 -->
-                    <div class="comic-panel bg-white p-8 rounded-2xl relative transform hover:-translate-y-2 transition-transform duration-300 reveal mt-8 md:mt-0">
-                        <div class="absolute -top-8 left-1/2 -ml-10 w-20 h-20 bg-comic-yellow border-4 border-slate-900 rounded-full flex items-center justify-center shadow-comic-sm z-10">
+                    <div class="comic-panel comic-card-hover bg-white p-8 rounded-3xl relative reveal mt-6 md:mt-0 flex flex-col justify-between">
+                        <div class="absolute -top-9 left-1/2 -ml-10 w-20 h-20 bg-comic-yellow border-4 border-slate-900 rounded-2xl transform -rotate-6 flex items-center justify-center shadow-comic-sm z-10">
                             <span class="font-comic text-4xl text-slate-900">01</span>
                         </div>
-                        <h3 class="font-comic text-3xl text-slate-900 mt-10 mb-4 text-center tracking-wide uppercase">Academic English</h3>
-                        <p data-i18n="prog-1-desc" class="text-slate-800 font-bold text-base leading-relaxed mb-6 text-center border-b-4 border-slate-100 pb-6">
-                            Belajar bareng journal writing, academic essays, dan presentation skills untuk persiapan kuliah atau studi lanjut.
-                        </p>
-                        <ul class="text-base font-black text-slate-900 space-y-3 uppercase">
+                        <div>
+                            <div class="text-center mt-8 mb-3">
+                                <i class="fa-solid fa-book-open-reader text-3xl text-comic-blue"></i>
+                            </div>
+                            <h3 class="font-comic text-3xl sm:text-4xl text-slate-900 mb-4 text-center tracking-wide uppercase">Academic English</h3>
+                            <p data-i18n="prog-1-desc" class="text-slate-700 font-bold text-base leading-relaxed mb-6 text-center border-b-4 border-slate-100 pb-6">
+                                Belajar bareng journal writing, academic essays, dan presentation skills untuk persiapan kuliah atau studi lanjut.
+                            </p>
+                        </div>
+                        <ul class="text-base font-black text-slate-900 space-y-3 uppercase bg-slate-50 p-4 rounded-2xl border-2 border-slate-900">
                             <li class="flex items-center gap-3"><i class="fa-solid fa-caret-right text-comic-red text-xl"></i> Thesis Writing</li>
                             <li class="flex items-center gap-3"><i class="fa-solid fa-caret-right text-comic-red text-xl"></i> Academic Vocab</li>
                         </ul>
                     </div>
 
-                    <!-- Card 2 -->
-                    <div class="comic-panel bg-comic-indigo p-8 rounded-2xl relative transform hover:-translate-y-2 transition-transform duration-300 reveal md:-translate-y-4 shadow-[12px_12px_0px_0px_#0f172a] z-10 mt-8 md:mt-0" style="transition-delay: 100ms;">
-                        <div class="absolute -top-8 left-1/2 -ml-10 w-20 h-20 bg-comic-red border-4 border-slate-900 rounded-full flex items-center justify-center shadow-comic-sm z-10">
+                    <!-- Card 2 (Featured Center) -->
+                    <div class="comic-panel comic-card-hover bg-comic-indigo p-8 rounded-3xl relative reveal md:-translate-y-5 shadow-comic-lg z-10 mt-6 md:mt-0 flex flex-col justify-between" style="transition-delay: 100ms;">
+                        <div class="absolute -top-9 left-1/2 -ml-10 w-20 h-20 bg-comic-red border-4 border-slate-900 rounded-2xl transform rotate-6 flex items-center justify-center shadow-comic-sm z-10">
                             <span class="font-comic text-4xl text-white">02</span>
                         </div>
-                        <div class="absolute top-0 right-0 p-4 opacity-20">
+                        <div class="absolute top-4 right-4 opacity-10 pointer-events-none">
                             <i class="fa-solid fa-briefcase text-8xl text-white"></i>
                         </div>
-                        <h3 class="font-comic text-3xl text-white mt-10 mb-4 text-center tracking-wide uppercase relative z-10">Business English</h3>
-                        <p data-i18n="prog-2-desc" class="text-white font-bold text-base leading-relaxed mb-6 text-center border-b-4 border-indigo-400 pb-6 relative z-10">
-                            Asah professional email, interview prep, dan komunikasi yang luwes serta percaya diri untuk kebutuhan dunia kerja.
-                        </p>
-                        <ul class="text-base font-black text-comic-yellow space-y-3 uppercase relative z-10">
+                        <div class="relative z-10">
+                            <div class="text-center mt-8 mb-3">
+                                <i class="fa-solid fa-briefcase text-3xl text-comic-yellow"></i>
+                            </div>
+                            <h3 class="font-comic text-3xl sm:text-4xl text-white mb-4 text-center tracking-wide uppercase">Business English</h3>
+                            <p data-i18n="prog-2-desc" class="text-indigo-50 font-bold text-base leading-relaxed mb-6 text-center border-b-4 border-indigo-400/50 pb-6">
+                                Asah professional email, interview prep, dan komunikasi yang luwes serta percaya diri untuk kebutuhan dunia kerja.
+                            </p>
+                        </div>
+                        <ul class="text-base font-black text-comic-yellow space-y-3 uppercase relative z-10 bg-slate-900/40 p-4 rounded-2xl border-2 border-slate-900">
                             <li class="flex items-center gap-3"><i class="fa-solid fa-caret-right text-white text-xl"></i> Professional Email</li>
                             <li class="flex items-center gap-3"><i class="fa-solid fa-caret-right text-white text-xl"></i> Interview Prep</li>
                         </ul>
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="comic-panel bg-white p-8 rounded-2xl relative transform hover:-translate-y-2 transition-transform duration-300 reveal mt-8 md:mt-0" style="transition-delay: 200ms;">
-                        <div class="absolute -top-8 left-1/2 -ml-10 w-20 h-20 bg-comic-emerald border-4 border-slate-900 rounded-full flex items-center justify-center shadow-comic-sm z-10">
+                    <div class="comic-panel comic-card-hover bg-white p-8 rounded-3xl relative reveal mt-6 md:mt-0 flex flex-col justify-between" style="transition-delay: 200ms;">
+                        <div class="absolute -top-9 left-1/2 -ml-10 w-20 h-20 bg-comic-emerald border-4 border-slate-900 rounded-2xl transform -rotate-3 flex items-center justify-center shadow-comic-sm z-10">
                             <span class="font-comic text-4xl text-slate-900">03</span>
                         </div>
-                        <h3 class="font-comic text-3xl text-slate-900 mt-10 mb-4 text-center tracking-wide uppercase">Exam Prep</h3>
-                        <p data-i18n="prog-3-desc" class="text-slate-800 font-bold text-base leading-relaxed mb-6 text-center border-b-4 border-slate-100 pb-6">
-                            Latihan terarah untuk persiapan TOEFL/IELTS. Kita bedah area yang perlu dilatih bareng teknik time management yang tenang.
-                        </p>
-                        <ul class="text-base font-black text-slate-900 space-y-3 uppercase">
+                        <div>
+                            <div class="text-center mt-8 mb-3">
+                                <i class="fa-solid fa-bullseye text-3xl text-comic-emerald"></i>
+                            </div>
+                            <h3 class="font-comic text-3xl sm:text-4xl text-slate-900 mb-4 text-center tracking-wide uppercase">Exam Prep</h3>
+                            <p data-i18n="prog-3-desc" class="text-slate-700 font-bold text-base leading-relaxed mb-6 text-center border-b-4 border-slate-100 pb-6">
+                                Latihan terarah untuk persiapan TOEFL/IELTS. Kita bedah area yang perlu dilatih bareng teknik time management yang tenang.
+                            </p>
+                        </div>
+                        <ul class="text-base font-black text-slate-900 space-y-3 uppercase bg-slate-50 p-4 rounded-2xl border-2 border-slate-900">
                             <li class="flex items-center gap-3"><i class="fa-solid fa-caret-right text-comic-emerald text-xl"></i> Mock Tests</li>
                             <li class="flex items-center gap-3"><i class="fa-solid fa-caret-right text-comic-emerald text-xl"></i> Scoring Strategy</li>
                         </ul>
@@ -493,15 +651,27 @@
             </div>
         </section>
 
-        <!-- Media Container -->
-        <section class="py-16 md:py-24">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-                <h2 data-i18n="media-title" class="font-comic text-5xl md:text-6xl text-slate-900 tracking-wider mb-10 bg-white inline-block px-8 py-2 border-4 border-slate-900 shadow-comic">
-                    International Stages
-                </h2>
+        <!-- Media Container: Dark Cinema Stage -->
+        <section class="py-20 md:py-28 bg-slate-900 border-y-4 border-slate-900 relative overflow-hidden">
+            <div class="absolute inset-0 halftone-dark pointer-events-none"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal relative z-10">
+                <div class="inline-block relative mb-12">
+                    <div class="absolute -inset-1.5 bg-comic-yellow border-4 border-slate-900 transform -rotate-1"></div>
+                    <h2 data-i18n="media-title" class="relative font-comic text-5xl md:text-6xl text-slate-900 tracking-wider bg-white inline-block px-8 py-3 border-4 border-slate-900">
+                        International Stages
+                    </h2>
+                </div>
                 
-                <div class="comic-panel bg-slate-900 p-2 sm:p-4 rounded-2xl">
-                    <div class="video-container border-4 border-slate-900 rounded-xl overflow-hidden bg-black">
+                <!-- Retro TV / Broadcast Monitor Frame -->
+                <div class="comic-panel bg-comic-yellow p-3 sm:p-5 rounded-3xl shadow-[10px_10px_0px_0px_#3B82F6]">
+                    <div class="bg-slate-900 px-4 py-2.5 rounded-t-xl flex items-center justify-between border-b-2 border-slate-800">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-comic-red animate-pulse"></span>
+                            <span class="text-xs font-black uppercase tracking-widest text-white">FEATURED SPEAKING ENGAGEMENTS</span>
+                        </div>
+                        <i class="fa-brands fa-youtube text-comic-red text-xl"></i>
+                    </div>
+                    <div class="video-container border-4 border-slate-900 rounded-b-xl overflow-hidden bg-black">
                         <iframe 
                             class="absolute top-0 left-0 w-full h-full"
                             src="https://www.youtube.com/embed/videoseries?list=PL9a2kUfbEt5sQ9ASDoAjDMLfiojAMU0Kn" 
@@ -516,23 +686,26 @@
         </section>
 
         <!-- CTA Section -->
-        <section id="contact" class="py-16 md:py-24">
+        <section id="contact" class="py-20 md:py-28">
             <div class="max-w-5xl mx-auto px-4 reveal">
-                <div class="bg-comic-yellow comic-panel rounded-3xl p-8 md:p-16 text-center relative overflow-hidden">
+                <div class="bg-comic-yellow comic-panel rounded-[2.5rem] p-8 sm:p-12 md:p-16 text-center relative overflow-hidden shadow-comic-lg">
                     <!-- Action lines -->
-                    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background: repeating-linear-gradient(45deg, transparent, transparent 10px, #000 10px, #000 20px);"></div>
+                    <div class="absolute inset-0 opacity-10 pointer-events-none" style="background: repeating-linear-gradient(45deg, transparent, transparent 12px, #000 12px, #000 24px);"></div>
                     
                     <div class="relative z-10">
-                        <h2 data-i18n="cta-title" class="font-comic text-6xl md:text-7xl text-slate-900 tracking-wider mb-6" style="text-shadow: 3px 3px 0 #fff;">LET'S CONNECT</h2>
-                        <p data-i18n="cta-desc" class="mb-10 max-w-2xl mx-auto text-xl font-bold text-slate-800 bg-white p-5 border-4 border-slate-900 shadow-comic-sm rounded-2xl">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white border-4 border-slate-900 shadow-comic-sm mb-6 transform -rotate-6">
+                            <i class="fa-solid fa-paper-plane text-2xl text-comic-indigo"></i>
+                        </div>
+                        <h2 data-i18n="cta-title" class="font-comic text-6xl sm:text-7xl md:text-8xl text-slate-900 tracking-wider mb-6" style="text-shadow: 4px 4px 0 #fff;">LET'S CONNECT</h2>
+                        <p data-i18n="cta-desc" class="mb-10 max-w-2xl mx-auto text-lg sm:text-xl font-bold text-slate-800 bg-white p-6 border-4 border-slate-900 shadow-comic rounded-2xl leading-relaxed">
                             Yuk ngobrol santai dulu lewat <span class="bg-comic-yellow px-1 border-2 border-slate-900 rounded uppercase font-black">Free initial consultation</span> buat saling kenal dan mapping target belajar kita. We can start this journey together bareng Teacher Fajar!
                         </p>
                         
-                        <div class="flex flex-col sm:flex-row justify-center gap-6">
-                            <a href="https://wa.me/6282225642124" target="_blank" rel="noopener noreferrer" class="comic-btn bg-white text-slate-900 px-8 py-5 rounded-xl text-xl flex items-center justify-center gap-3 hover:bg-slate-100">
+                        <div class="flex flex-col sm:flex-row justify-center gap-5 sm:gap-6">
+                            <a href="https://wa.me/6282225642124" target="_blank" rel="noopener noreferrer" class="comic-btn bg-white text-slate-900 px-8 py-5 rounded-2xl text-xl flex items-center justify-center gap-3 hover:bg-emerald-50">
                                 <i class="fa-brands fa-whatsapp text-green-500 text-3xl"></i> Chat on WhatsApp
                             </a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScpDn7N4ouzyJj1zK-egWxdU3ZYFiJQer7F0USumJSPr5QwTg/viewform" target="_blank" rel="noopener noreferrer" class="comic-btn bg-comic-indigo text-white px-8 py-5 rounded-xl text-xl flex items-center justify-center gap-3 hover:bg-indigo-600">
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScpDn7N4ouzyJj1zK-egWxdU3ZYFiJQer7F0USumJSPr5QwTg/viewform" target="_blank" rel="noopener noreferrer" class="comic-btn bg-comic-indigo text-white px-8 py-5 rounded-2xl text-xl flex items-center justify-center gap-3 hover:bg-indigo-500">
                                 <i class="fa-solid fa-pen-to-square text-2xl"></i> Enrollment Form
                             </a>
                         </div>
@@ -543,11 +716,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-center my-10 py-6">
+    <footer class="text-center pb-12 pt-6">
         <div class="max-w-6xl mx-auto px-4 text-center">
-            <h3 class="text-xl sm:text-2xl font-black uppercase tracking-wider text-slate-900 flex flex-wrap items-center justify-center gap-2">
+            <h3 class="text-xl sm:text-2xl font-black uppercase tracking-wider text-slate-900 flex flex-wrap items-center justify-center gap-2.5">
                 <span>Designed by</span>
-                <a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="bg-comic-yellow px-4 py-2 border-4 border-slate-900 hover:bg-slate-900 hover:text-comic-yellow transition-colors inline-flex items-center gap-2 text-slate-900 font-black comic-btn shadow-comic-sm">
+                <a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="bg-comic-yellow px-4 py-2 rounded-xl border-4 border-slate-900 hover:bg-slate-900 hover:text-comic-yellow transition-colors inline-flex items-center gap-2 text-slate-900 font-black comic-btn shadow-comic-sm">
                     fajarudinakbar.com
                 </a>
             </h3>
@@ -560,12 +733,12 @@
         const yearEl = document.getElementById('year');
         if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-        // Language & Rate Switcher Logic
+        // Language & Rate Switcher Logic (Exact Unchanged Copywriting)
         const i18nData = {
             id: {
                 'hero-badge': 'Private English Mentorship',
                 'hero-title': 'USE ENGLISH,<br><span class="text-comic-indigo">GO GLOBAL.</span>',
-                'hero-desc': '<div class="space-y-3 text-left"><div class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-comic-emerald text-lg flex-shrink-0"></i><span class="leading-snug">Fokus ke komunikasi nyata lewat materi yang mudah dipahami</span></div><div class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-comic-emerald text-lg flex-shrink-0"></i><span class="leading-snug">Didukung tools teknologi modern & wawasan lintas budaya</span></div><div class="flex items-start sm:items-center gap-2.5"><i class="fa-solid fa-circle-check text-comic-emerald text-lg flex-shrink-0 mt-0.5 sm:mt-0"></i><span class="leading-snug">Relevan untuk kebutuhan <span class="bg-comic-yellow px-2 py-0.5 border-2 border-slate-900 rounded font-black inline-block whitespace-nowrap shadow-comic-sm">akademik & karier profesional</span></span></div></div>',
+                'hero-desc': '<div class="space-y-3.5 text-left"><div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-comic-emerald text-xl flex-shrink-0"></i><span class="leading-snug">Fokus ke komunikasi nyata lewat materi yang mudah dipahami</span></div><div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-comic-emerald text-xl flex-shrink-0"></i><span class="leading-snug">Didukung tools teknologi modern & wawasan lintas budaya</span></div><div class="flex items-start sm:items-center gap-3"><i class="fa-solid fa-circle-check text-comic-emerald text-xl flex-shrink-0 mt-0.5 sm:mt-0"></i><span class="leading-snug">Relevan untuk kebutuhan <span class="bg-comic-yellow px-2 py-0.5 border-2 border-slate-900 rounded font-black inline-block whitespace-nowrap shadow-comic-sm">akademik & karier profesional</span></span></div></div>',
                 'rate-label': 'Rate:',
                 'rate-value': 'Rp100ribu<span class="text-sm font-sans font-bold">/jam</span>',
                 'book-consult': 'Book Consultation',
@@ -595,7 +768,7 @@
             en: {
                 'hero-badge': 'Personal English Mentorship',
                 'hero-title': 'USE ENGLISH,<br><span class="text-comic-indigo">GO GLOBAL.</span>',
-                'hero-desc': '<div class="space-y-3 text-left"><div class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-comic-emerald text-lg flex-shrink-0"></i><span class="leading-snug">Focused on authentic communication through accessible, real-world input</span></div><div class="flex items-center gap-2.5"><i class="fa-solid fa-circle-check text-comic-emerald text-lg flex-shrink-0"></i><span class="leading-snug">Enhanced by modern tech tools & cross-cultural understanding</span></div><div class="flex items-start sm:items-center gap-2.5"><i class="fa-solid fa-circle-check text-comic-emerald text-lg flex-shrink-0 mt-0.5 sm:mt-0"></i><span class="leading-snug">Relevant for <span class="bg-comic-yellow px-2 py-0.5 border-2 border-slate-900 rounded font-black inline-block whitespace-nowrap shadow-comic-sm">academic & professional careers</span></span></div></div>',
+                'hero-desc': '<div class="space-y-3.5 text-left"><div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-comic-emerald text-xl flex-shrink-0"></i><span class="leading-snug">Focused on authentic communication through accessible, real-world input</span></div><div class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-comic-emerald text-xl flex-shrink-0"></i><span class="leading-snug">Enhanced by modern tech tools & cross-cultural understanding</span></div><div class="flex items-start sm:items-center gap-3"><i class="fa-solid fa-circle-check text-comic-emerald text-xl flex-shrink-0 mt-0.5 sm:mt-0"></i><span class="leading-snug">Relevant for <span class="bg-comic-yellow px-2 py-0.5 border-2 border-slate-900 rounded font-black inline-block whitespace-nowrap shadow-comic-sm">academic & professional careers</span></span></div></div>',
                 'rate-label': 'Rate:',
                 'rate-value': '$10<span class="text-sm font-sans font-bold">/hour</span>',
                 'book-consult': 'Book Consultation',
@@ -657,8 +830,8 @@
                 // Mode Pills styling
                 const btnEn = document.getElementById('btn-mode-en');
                 const btnId = document.getElementById('btn-mode-id');
-                if (btnEn) btnEn.className = 'px-3 py-1.5 text-xs font-black rounded-lg transition-all border-2 border-slate-900 bg-comic-yellow text-slate-900 shadow-comic-sm';
-                if (btnId) btnId.className = 'px-3 py-1.5 text-xs font-black rounded-lg transition-all text-slate-300 hover:text-white';
+                if (btnEn) btnEn.className = 'px-3.5 py-1.5 text-xs font-black rounded-lg transition-all border-2 border-slate-900 bg-comic-yellow text-slate-900 shadow-comic-sm cursor-pointer';
+                if (btnId) btnId.className = 'px-3.5 py-1.5 text-xs font-black rounded-lg transition-all text-slate-300 hover:text-white cursor-pointer';
             } else {
                 if (navDesktop) navDesktop.textContent = 'International ($10/hr)';
                 if (navMobile) navMobile.textContent = 'International Student ($10/hr)';
@@ -667,8 +840,8 @@
                 // Mode Pills styling
                 const btnEn = document.getElementById('btn-mode-en');
                 const btnId = document.getElementById('btn-mode-id');
-                if (btnId) btnId.className = 'px-3 py-1.5 text-xs font-black rounded-lg transition-all border-2 border-slate-900 bg-comic-yellow text-slate-900 shadow-comic-sm';
-                if (btnEn) btnEn.className = 'px-3 py-1.5 text-xs font-black rounded-lg transition-all text-slate-300 hover:text-white';
+                if (btnId) btnId.className = 'px-3.5 py-1.5 text-xs font-black rounded-lg transition-all border-2 border-slate-900 bg-comic-yellow text-slate-900 shadow-comic-sm cursor-pointer';
+                if (btnEn) btnEn.className = 'px-3.5 py-1.5 text-xs font-black rounded-lg transition-all text-slate-300 hover:text-white cursor-pointer';
             }
         }
 
