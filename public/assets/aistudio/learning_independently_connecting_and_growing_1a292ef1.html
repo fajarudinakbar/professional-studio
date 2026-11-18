@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Learning Independently, Connecting, and Growing | Fajarudin Akbar</title>
+
+    <!-- Meta Description & Author -->
+    <meta name="description" content="Practical skills for navigating learning and opportunities: A presentation and institutional guide for school representatives by Fajarudin Akbar.">
+    <meta name="author" content="Fajarudin Akbar">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Learning Independently, Connecting, and Growing | Fajarudin Akbar">
+    <meta property="og:site_name" content="Fajarudin Akbar Portfolio">
+    <meta property="og:description" content="Practical skills for navigating learning and opportunities: A presentation and institutional guide for school representatives.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome & Lucide Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0f172a',
+                        accent: '#0d9488',
+                        'accent-hover': '#0f766e',
+                        highlight: '#facc15',
+                        paper: '#f8fafc',
+                        brand: {
+                            yellow: '#fcd34d',
+                            blue: '#93c5fd',
+                            green: '#86efac',
+                            red: '#fca5a5',
+                            purple: '#d8b4fe',
+                            orange: '#fdba74',
+                            teal: '#5eead4',
+                            cream: '#f8fafc',
+                            pink: '#f9a8d4',
+                            indigo: '#a5b4fc'
+                        }
+                    },
+                    borderWidth: {
+                        DEFAULT: '1px',
+                        '0': '0',
+                        '2': '2px',
+                        '3': '3px',
+                        '4': '4px',
+                        '8': '8px',
+                    },
+                    boxShadow: {
+                        'brutal-sm': '3px 3px 0px 0px #0f172a',
+                        'brutal': '5px 5px 0px 0px #0f172a',
+                        'brutal-lg': '8px 8px 0px 0px #0f172a',
+                        'brutal-yellow': '6px 6px 0px 0px #facc15',
+                        'brutal-teal': '6px 6px 0px 0px #0d9488',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        /* Combined Graph & Dot Grid Background */
+        .bg-grid {
+            background-size: 36px 36px;
+            background-image: 
+                linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+                radial-gradient(#cbd5e1 1.25px, transparent 1.25px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .neo-card {
+            border: 3px solid #0f172a;
+            box-shadow: 6px 6px 0px 0px #0f172a;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            background-color: #ffffff;
+        }
+        .neo-card-interactive:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px 0px #0f172a;
+        }
+
+        .neo-btn {
+            border: 3px solid #0f172a;
+            box-shadow: 4px 4px 0px 0px #0f172a;
+            transition: all 0.15s ease-in-out;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .neo-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #0f172a;
+        }
+        .neo-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #0f172a;
+        }
+
+        .opp-tab-panel {
+            display: none;
+        }
+        .opp-tab-panel.active {
+            display: block;
+        }
+
+        /* Language Switcher Visibility */
+        html[data-lang="en"] [data-lang-id] {
+            display: none !important;
+        }
+        html[data-lang="id"] [data-lang-en] {
+            display: none !important;
+        }
+
+        /* Modal Scrollbar & Transitions */
+        .modal-scroll::-webkit-scrollbar {
+            width: 12px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #f8fafc;
+            border-left: 3px solid #0f172a;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background-color: #0f172a;
+            border: 2px solid #f8fafc;
+        }
+
+        .modal-backdrop {
+            transition: opacity 0.25s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .modal-backdrop.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-content-wrapper {
+            transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+            transform: scale(0.92) translateY(16px);
+            opacity: 0;
+        }
+        .modal-backdrop.is-open .modal-content-wrapper {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+
+        ::selection {
+            background-color: #0f172a;
+            color: #facc15;
+        }
+
+        @media print {
+            body { background: white !important; color: black !important; }
+            .bg-grid, header, .no-print { display: none !important; }
+            .neo-card { box-shadow: none !important; border: 2px solid #000 !important; break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans antialiased text-dark text-lg sm:text-xl leading-relaxed">
+
+    <div class="bg-grid"></div>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-8 py-8 sm:py-14 space-y-14 sm:space-y-20">
+
+        <!-- HERO SECTION & 5-STEP LEARNER JOURNEY -->
+        <section class="neo-card p-6 sm:p-12 bg-white relative overflow-hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 pb-4 border-b-2 border-slate-200">
+                <div class="flex flex-wrap items-center gap-3">
+                    <span class="bg-accent text-white font-heading font-black text-sm sm:text-base uppercase px-4 py-1.5 border-2 border-dark shadow-brutal-sm tracking-wider">
+                        <span data-lang-en>For School Representatives &amp; Educators in Indonesia</span>
+                        <span data-lang-id>Untuk Perwakilan Sekolah &amp; Pendidik di Indonesia</span>
+                    </span>
+                    <span class="bg-brand-yellow text-dark font-heading font-black text-sm sm:text-base uppercase px-4 py-1.5 border-2 border-dark shadow-brutal-sm tracking-wider">
+                        <span data-lang-en>Independent Learning &amp; Opportunity Navigation</span>
+                        <span data-lang-id>Belajar Mandiri &amp; Navigasi Peluang</span>
+                    </span>
+                </div>
+
+                <!-- Language Toggle Tab -->
+                <div class="no-print inline-flex items-center bg-slate-100 p-1.5 border-3 border-dark shadow-brutal-sm self-start md:self-auto shrink-0">
+                    <button onclick="setLanguage('en')" class="lang-switch-btn lang-btn-en px-3.5 py-1.5 text-sm sm:text-base font-heading font-black uppercase bg-dark text-white border-2 border-dark transition-all">
+                        EN | English
+                    </button>
+                    <button onclick="setLanguage('id')" class="lang-switch-btn lang-btn-id px-3.5 py-1.5 text-sm sm:text-base font-heading font-black uppercase bg-white text-dark border-2 border-dark transition-all hover:bg-brand-yellow ml-1.5">
+                        ID | Bahasa Indonesia
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-start gap-3 mb-8">
+                <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-black uppercase leading-tight tracking-tight text-dark flex flex-col items-start gap-2.5">
+                    <span class="inline-block bg-brand-yellow px-4 py-2 border-3 border-dark shadow-brutal-sm">
+                        <span data-lang-en>Learning Independently,</span>
+                        <span data-lang-id>Belajar Mandiri,</span>
+                    </span>
+                    <span class="inline-block bg-brand-teal px-4 py-2 border-3 border-dark shadow-brutal-sm">
+                        <span data-lang-en>Connecting, &amp; Growing:</span>
+                        <span data-lang-id>Terhubung, &amp; Berkembang:</span>
+                    </span>
+                    <span class="inline-block bg-brand-blue px-4 py-2 border-3 border-dark shadow-brutal-sm text-xl sm:text-3xl lg:text-4xl">
+                        <span data-lang-en>Practical Skills for Navigating Opportunities</span>
+                        <span data-lang-id>Keterampilan Praktis Menavigasi Peluang</span>
+                    </span>
+                </h1>
+            </div>
+
+            <p class="text-slate-900 font-medium text-xl sm:text-2xl leading-relaxed max-w-5xl mb-6">
+                <span data-lang-en>Independent learning is not studying alone. It is the ability to <strong>identify learning needs, find and evaluate information, use resources effectively, ask informed questions, and take initiative</strong>.</span>
+                <span data-lang-id>Belajar mandiri bukan berarti belajar sendirian. Ini adalah kemampuan untuk <strong>mengenali kebutuhan belajar, mencari dan menilai informasi, memanfaatkan sumber belajar dengan efektif, bertanya secara tepat, serta mengambil inisiatif</strong>.</span>
+            </p>
+
+            <div class="bg-amber-50 border-3 border-dark p-5 sm:p-6 shadow-brutal-sm mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                    <span class="bg-dark text-white font-heading font-black text-sm sm:text-base uppercase px-3 py-1 self-start shrink-0">
+                        <span data-lang-en>Main Message</span>
+                        <span data-lang-id>Pesan Utama</span>
+                    </span>
+                    <p class="text-slate-900 text-lg sm:text-2xl font-bold leading-snug">
+                        <span data-lang-en>Students need more than access to information. They need the skills to <strong>understand, evaluate, and act</strong> on that information.</span>
+                        <span data-lang-id>Siswa membutuhkan lebih dari sekadar akses informasi. Mereka perlu keterampilan untuk <strong>memahami, menilai, dan menindaklanjuti</strong> informasi tersebut.</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- 5 Connected Steps Strip -->
+            <div>
+                <span class="text-sm sm:text-base font-heading font-black uppercase tracking-wider text-slate-700 block mb-3">
+                    <span data-lang-en>The Five-Step Learner Journey:</span>
+                    <span data-lang-id>Lima Langkah Perjalanan Belajar Siswa:</span>
+                </span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4">
+                    <div class="bg-brand-yellow border-3 border-dark p-4 shadow-brutal-sm">
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase block opacity-80"><span data-lang-en>Step 01</span><span data-lang-id>Langkah 01</span></span>
+                        <span class="font-heading font-black text-lg sm:text-xl uppercase leading-tight block mt-1"><span data-lang-en>Identify a Need</span><span data-lang-id>Kenali Kebutuhan</span></span>
+                    </div>
+                    <div class="bg-brand-blue border-3 border-dark p-4 shadow-brutal-sm">
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase block opacity-80"><span data-lang-en>Step 02</span><span data-lang-id>Langkah 02</span></span>
+                        <span class="font-heading font-black text-lg sm:text-xl uppercase leading-tight block mt-1"><span data-lang-en>Find Resources</span><span data-lang-id>Cari Sumber Belajar</span></span>
+                    </div>
+                    <div class="bg-brand-green border-3 border-dark p-4 shadow-brutal-sm">
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase block opacity-80"><span data-lang-en>Step 03</span><span data-lang-id>Langkah 03</span></span>
+                        <span class="font-heading font-black text-lg sm:text-xl uppercase leading-tight block mt-1"><span data-lang-en>Evaluate Info</span><span data-lang-id>Evaluasi Informasi</span></span>
+                    </div>
+                    <div class="bg-brand-orange border-3 border-dark p-4 shadow-brutal-sm">
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase block opacity-80"><span data-lang-en>Step 04</span><span data-lang-id>Langkah 04</span></span>
+                        <span class="font-heading font-black text-lg sm:text-xl uppercase leading-tight block mt-1"><span data-lang-en>Build Skills</span><span data-lang-id>Bangun Keterampilan</span></span>
+                    </div>
+                    <div class="bg-brand-teal border-3 border-dark p-4 shadow-brutal-sm">
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase block opacity-80"><span data-lang-en>Step 05</span><span data-lang-id>Langkah 05</span></span>
+                        <span class="font-heading font-black text-lg sm:text-xl uppercase leading-tight block mt-1"><span data-lang-en>Access Opportunities</span><span data-lang-id>Raih Peluang</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE PRESENTATION DECK CARDS (8 Modules) -->
+        <section id="presentation-deck">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+                <div class="inline-flex items-center gap-3 bg-brand-purple text-dark px-5 py-2.5 border-3 border-dark shadow-brutal-sm self-start">
+                    <h2 class="font-heading text-2xl sm:text-4xl font-black uppercase tracking-tight">
+                        <span data-lang-en>Presentation Modules (1–8)</span>
+                        <span data-lang-id>Modul Presentasi (1–8)</span>
+                    </h2>
+                </div>
+                <p class="text-base sm:text-lg font-bold bg-white text-dark px-4 py-2 border-2 border-dark shadow-brutal-sm self-start sm:self-auto">
+                    <span data-lang-en>Click any card for full-screen slide view</span>
+                    <span data-lang-id>Klik kartu untuk tampilan slide layar penuh</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <!-- Card 01 -->
+                <button onclick="openModal('content-01')" class="text-left bg-brand-yellow text-dark border-3 border-dark p-5 neo-btn hover:bg-dark hover:text-white transition-colors flex flex-col justify-between group min-h-[13rem]">
+                    <div class="flex items-center justify-between w-full mb-4">
+                        <span class="font-heading text-3xl font-black bg-white text-dark border-2 border-dark w-12 h-12 flex items-center justify-center shadow-brutal-sm">01</span>
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase px-2.5 py-1 border-2 border-dark bg-white text-dark"><span data-lang-en>Open Slide</span><span data-lang-id>Buka Slide</span></span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight mb-1.5"><span data-lang-en>Why Independent Learning Matters</span><span data-lang-id>Mengapa Belajar Mandiri Penting</span></h3>
+                        <p class="text-sm sm:text-base font-bold opacity-90"><span data-lang-en>Decisions beyond formal exams</span><span data-lang-id>Keputusan di luar ujian sekolah</span></p>
+                    </div>
+                </button>
+
+                <!-- Card 02 -->
+                <button onclick="openModal('content-02')" class="text-left bg-brand-blue text-dark border-3 border-dark p-5 neo-btn hover:bg-dark hover:text-white transition-colors flex flex-col justify-between group min-h-[13rem]">
+                    <div class="flex items-center justify-between w-full mb-4">
+                        <span class="font-heading text-3xl font-black bg-white text-dark border-2 border-dark w-12 h-12 flex items-center justify-center shadow-brutal-sm">02</span>
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase px-2.5 py-1 border-2 border-dark bg-white text-dark"><span data-lang-en>Open Slide</span><span data-lang-id>Buka Slide</span></span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight mb-1.5"><span data-lang-en>Understanding Independent Learning</span><span data-lang-id>Memahami Belajar Mandiri</span></h3>
+                        <p class="text-sm sm:text-base font-bold opacity-90"><span data-lang-en>Passive vs. independent behaviours</span><span data-lang-id>Perilaku pasif vs. mandiri</span></p>
+                    </div>
+                </button>
+
+                <!-- Card 03 -->
+                <button onclick="openModal('content-03')" class="text-left bg-brand-green text-dark border-3 border-dark p-5 neo-btn hover:bg-dark hover:text-white transition-colors flex flex-col justify-between group min-h-[13rem]">
+                    <div class="flex items-center justify-between w-full mb-4">
+                        <span class="font-heading text-3xl font-black bg-white text-dark border-2 border-dark w-12 h-12 flex items-center justify-center shadow-brutal-sm">03</span>
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase px-2.5 py-1 border-2 border-dark bg-white text-dark"><span data-lang-en>Open Slide</span><span data-lang-id>Buka Slide</span></span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight mb-1.5"><span data-lang-en>Core Independent Study Skills</span><span data-lang-id>Keterampilan Inti Belajar Mandiri</span></h3>
+                        <p class="text-sm sm:text-base font-bold opacity-90"><span data-lang-en>Goals, time, reading &amp; retrieval</span><span data-lang-id>Target, waktu, membaca &amp; evaluasi</span></p>
+                    </div>
+                </button>
+
+                <!-- Card 04 -->
+                <button onclick="openModal('content-04')" class="text-left bg-brand-orange text-dark border-3 border-dark p-5 neo-btn hover:bg-dark hover:text-white transition-colors flex flex-col justify-between group min-h-[13rem]">
+                    <div class="flex items-center justify-between w-full mb-4">
+                        <span class="font-heading text-3xl font-black bg-white text-dark border-2 border-dark w-12 h-12 flex items-center justify-center shadow-brutal-sm">04</span>
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase px-2.5 py-1 border-2 border-dark bg-white text-dark"><span data-lang-en>Open Slide</span><span data-lang-id>Buka Slide</span></span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight mb-1.5"><span data-lang-en>Finding &amp; Evaluating Resources</span><span data-lang-id>Mencari &amp; Menilai Sumber Belajar</span></h3>
+                        <p class="text-sm sm:text-base font-bold opacity-90"><span data-lang-en>4 platforms &amp; 7 evaluation checks</span><span data-lang-id>4 platform &amp; 7 langkah evaluasi</span></p>
+                    </div>
+                </button>
+
+                <!-- Card 05 -->
+                <button onclick="openModal('content-05')" class="text-left bg-brand-teal text-dark border-3 border-dark p-5 neo-btn hover:bg-dark hover:text-white transition-colors flex flex-col justify-between group min-h-[13rem]">
+                    <div class="flex items-center justify-between w-full mb-4">
+                        <span class="font-heading text-3xl font-black bg-white text-dark border-2 border-dark w-12 h-12 flex items-center justify-center shadow-brutal-sm">05</span>
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase px-2.5 py-1 border-2 border-dark bg-white text-dark"><span data-lang-en>Open Slide</span><span data-lang-id>Buka Slide</span></span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight mb-1.5"><span data-lang-en>English as a Tool for Learning</span><span data-lang-id>Bahasa Inggris sebagai Alat Belajar</span></h3>
+                        <p class="text-sm sm:text-base font-bold opacity-90"><span data-lang-en>Language use vs. proficiency tests</span><span data-lang-id>Kemampuan bahasa vs. tes kemahiran</span></p>
+                    </div>
+                </button>
+
+                <!-- Card 06 -->
+                <button onclick="openModal('content-06')" class="text-left bg-brand-pink text-dark border-3 border-dark p-5 neo-btn hover:bg-dark hover:text-white transition-colors flex flex-col justify-between group min-h-[13rem]">
+                    <div class="flex items-center justify-between w-full mb-4">
+                        <span class="font-heading text-3xl font-black bg-white text-dark border-2 border-dark w-12 h-12 flex items-center justify-center shadow-brutal-sm">06</span>
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase px-2.5 py-1 border-2 border-dark bg-white text-dark"><span data-lang-en>Open Slide</span><span data-lang-id>Buka Slide</span></span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight mb-1.5"><span data-lang-en>Searching for Opportunities</span><span data-lang-id>Mencari Peluang Pendidikan</span></h3>
+                        <p class="text-sm sm:text-base font-bold opacity-90"><span data-lang-en>Focused search &amp; official sources</span><span data-lang-id>Pencarian terfokus &amp; sumber resmi</span></p>
+                    </div>
+                </button>
+
+                <!-- Card 07 -->
+                <button onclick="openModal('content-07')" class="text-left bg-brand-purple text-dark border-3 border-dark p-5 neo-btn hover:bg-dark hover:text-white transition-colors flex flex-col justify-between group min-h-[13rem]">
+                    <div class="flex items-center justify-between w-full mb-4">
+                        <span class="font-heading text-3xl font-black bg-white text-dark border-2 border-dark w-12 h-12 flex items-center justify-center shadow-brutal-sm">07</span>
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase px-2.5 py-1 border-2 border-dark bg-white text-dark"><span data-lang-en>Open Slide</span><span data-lang-id>Buka Slide</span></span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight mb-1.5"><span data-lang-en>Communicating &amp; Finding Support</span><span data-lang-id>Berkomunikasi &amp; Mencari Bantuan</span></h3>
+                        <p class="text-sm sm:text-base font-bold opacity-90"><span data-lang-en>Who to contact &amp; enquiry emails</span><span data-lang-id>Kontak resmi &amp; email pertanyaan</span></p>
+                    </div>
+                </button>
+
+                <!-- Card 08 -->
+                <button onclick="openModal('content-08')" class="text-left bg-brand-indigo text-dark border-3 border-dark p-5 neo-btn hover:bg-dark hover:text-white transition-colors flex flex-col justify-between group min-h-[13rem]">
+                    <div class="flex items-center justify-between w-full mb-4">
+                        <span class="font-heading text-3xl font-black bg-white text-dark border-2 border-dark w-12 h-12 flex items-center justify-center shadow-brutal-sm">08</span>
+                        <span class="text-xs sm:text-sm font-heading font-black uppercase px-2.5 py-1 border-2 border-dark bg-white text-dark"><span data-lang-en>Open Slide</span><span data-lang-id>Buka Slide</span></span>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-black text-xl sm:text-2xl uppercase tracking-tight leading-tight mb-1.5"><span data-lang-en>School Implementation</span><span data-lang-id>Penerapan di Sekolah</span></h3>
+                        <p class="text-sm sm:text-base font-bold opacity-90"><span data-lang-en>6 practical actions for schools</span><span data-lang-id>6 langkah praktis bagi sekolah</span></p>
+                    </div>
+                </button>
+            </div>
+        </section>
+
+        <!-- MODULE 4 IN ACTION: 4 ONLINE LEARNING PLATFORMS + 7 EVALUATION CHECKS -->
+        <section id="resources" class="neo-card p-6 sm:p-10 bg-white">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-5 border-b-3 border-dark">
+                <div>
+                    <span class="bg-brand-orange text-dark font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark shadow-brutal-sm inline-block mb-2">
+                        <span data-lang-en>Finding &amp; Evaluating Learning Resources</span>
+                        <span data-lang-id>Mencari &amp; Menilai Sumber Belajar</span>
+                    </span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-black uppercase text-dark tracking-tight">
+                        <span data-lang-en>Four Curated Online Learning Platforms</span>
+                        <span data-lang-id>Empat Platform Belajar Daring Pilihan</span>
+                    </h2>
+                </div>
+
+                <!-- Interactive Filter Buttons (4 Platforms) -->
+                <div class="no-print flex flex-wrap items-center gap-2 bg-slate-100 p-2 border-2 border-dark shadow-brutal-sm self-start md:self-auto">
+                    <button onclick="filterPlatforms('all')" id="btn-plat-all" class="plat-filter-btn px-3.5 py-1.5 text-sm sm:text-base font-black uppercase bg-dark text-white border-2 border-dark transition-all">
+                        <span data-lang-en>All (4)</span><span data-lang-id>Semua (4)</span>
+                    </button>
+                    <button onclick="filterPlatforms('free-open')" id="btn-plat-free-open" class="plat-filter-btn px-3.5 py-1.5 text-sm sm:text-base font-black uppercase bg-white text-dark border-2 border-dark transition-all hover:bg-brand-yellow">
+                        <span data-lang-en>Open Access (1)</span><span data-lang-id>Akses Terbuka (1)</span>
+                    </button>
+                    <button onclick="filterPlatforms('freemium')" id="btn-plat-freemium" class="plat-filter-btn px-3.5 py-1.5 text-sm sm:text-base font-black uppercase bg-white text-dark border-2 border-dark transition-all hover:bg-brand-yellow">
+                        <span data-lang-en>Audit / Paid Options (3)</span><span data-lang-id>Opsi Gratis / Berbayar (3)</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10" id="platforms-grid">
+                <!-- OpenLearn -->
+                <article class="platform-card bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between" data-category="free-open">
+                    <div>
+                        <span class="bg-emerald-100 text-emerald-950 border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-black uppercase inline-block mb-3">The Open University</span>
+                        <h3 class="font-heading text-2xl font-black uppercase text-dark mb-2">OpenLearn</h3>
+                        <p class="text-slate-800 text-base sm:text-lg font-medium mb-5">
+                            <span data-lang-en>Free learning resources and courses from The Open University.</span>
+                            <span data-lang-id>Materi belajar dan kursus daring gratis dari The Open University.</span>
+                        </p>
+                    </div>
+                    <a href="https://www.open.edu/openlearn/" target="_blank" rel="noopener" class="neo-btn bg-brand-yellow hover:bg-yellow-300 text-dark p-3 text-sm sm:text-base text-center block">
+                        OPENLEARN.EDU &rarr;
+                    </a>
+                </article>
+
+                <!-- FutureLearn -->
+                <article class="platform-card bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between" data-category="freemium">
+                    <div>
+                        <span class="bg-amber-100 text-amber-950 border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-black uppercase inline-block mb-3"><span data-lang-en>University Partners</span><span data-lang-id>Mitra Universitas</span></span>
+                        <h3 class="font-heading text-2xl font-black uppercase text-dark mb-2">FutureLearn</h3>
+                        <p class="text-slate-800 text-base sm:text-lg font-medium mb-5">
+                            <span data-lang-en>Online courses from universities and other educational organisations.</span>
+                            <span data-lang-id>Kursus daring dari berbagai universitas dan lembaga pendidikan.</span>
+                        </p>
+                    </div>
+                    <a href="https://www.futurelearn.com/" target="_blank" rel="noopener" class="neo-btn bg-brand-pink hover:bg-pink-300 text-dark p-3 text-sm sm:text-base text-center block">
+                        FUTURELEARN.COM &rarr;
+                    </a>
+                </article>
+
+                <!-- Coursera -->
+                <article class="platform-card bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between" data-category="freemium">
+                    <div>
+                        <span class="bg-sky-100 text-sky-950 border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-black uppercase inline-block mb-3"><span data-lang-en>Uni &amp; Industry</span><span data-lang-id>Kampus &amp; Industri</span></span>
+                        <h3 class="font-heading text-2xl font-black uppercase text-dark mb-2">Coursera</h3>
+                        <p class="text-slate-800 text-base sm:text-lg font-medium mb-5">
+                            <span data-lang-en>Courses and professional learning programmes from universities and industry partners.</span>
+                            <span data-lang-id>Kursus dan program pengembangan profesional dari universitas serta mitra industri.</span>
+                        </p>
+                    </div>
+                    <a href="https://www.coursera.org/" target="_blank" rel="noopener" class="neo-btn bg-brand-blue hover:bg-blue-300 text-dark p-3 text-sm sm:text-base text-center block">
+                        COURSERA.ORG &rarr;
+                    </a>
+                </article>
+
+                <!-- edX -->
+                <article class="platform-card bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between" data-category="freemium">
+                    <div>
+                        <span class="bg-sky-100 text-sky-950 border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-black uppercase inline-block mb-3"><span data-lang-en>Global Institutions</span><span data-lang-id>Institusi Global</span></span>
+                        <h3 class="font-heading text-2xl font-black uppercase text-dark mb-2">edX</h3>
+                        <p class="text-slate-800 text-base sm:text-lg font-medium mb-5">
+                            <span data-lang-en>Online courses and programmes from universities and other institutions.</span>
+                            <span data-lang-id>Kursus dan program belajar daring setingkat universitas dari institusi dunia.</span>
+                        </p>
+                    </div>
+                    <a href="https://www.edx.org/" target="_blank" rel="noopener" class="neo-btn bg-brand-orange hover:bg-orange-300 text-dark p-3 text-sm sm:text-base text-center block">
+                        EDX.ORG &rarr;
+                    </a>
+                </article>
+            </div>
+
+            <!-- 7 Checks Framework -->
+            <div class="border-t-3 border-dark pt-8">
+                <div class="mb-5">
+                    <h3 class="font-heading text-2xl sm:text-3xl font-black uppercase text-dark">
+                        <span data-lang-en>Seven Checks for Evaluating a Learning Resource</span>
+                        <span data-lang-id>Tujuh Pemeriksaan untuk Menilai Sumber Belajar</span>
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                    <div class="border-2 border-dark p-4 bg-brand-cream flex flex-col justify-between h-full">
+                        <div>
+                            <span class="font-heading font-black text-sm sm:text-base uppercase bg-brand-yellow px-2.5 py-1 border-2 border-dark inline-block"><span data-lang-en>1. Provider</span><span data-lang-id>1. Penyedia</span></span>
+                            <p class="text-base sm:text-lg font-semibold text-slate-900 mt-2"><span data-lang-en>Who created or provides the resource?</span><span data-lang-id>Siapa lembaga yang membuat atau menyediakan materi ini?</span></p>
+                        </div>
+                    </div>
+                    <div class="border-2 border-dark p-4 bg-brand-cream flex flex-col justify-between h-full">
+                        <div>
+                            <span class="font-heading font-black text-sm sm:text-base uppercase bg-brand-blue px-2.5 py-1 border-2 border-dark inline-block"><span data-lang-en>2. Level</span><span data-lang-id>2. Tingkat</span></span>
+                            <p class="text-base sm:text-lg font-semibold text-slate-900 mt-2"><span data-lang-en>Is it appropriate for the learner's current level?</span><span data-lang-id>Apakah sesuai dengan kemampuan siswa saat ini?</span></p>
+                        </div>
+                    </div>
+                    <div class="border-2 border-dark p-4 bg-brand-cream flex flex-col justify-between h-full">
+                        <div>
+                            <span class="font-heading font-black text-sm sm:text-base uppercase bg-brand-green px-2.5 py-1 border-2 border-dark inline-block"><span data-lang-en>3. Objectives</span><span data-lang-id>3. Tujuan</span></span>
+                            <p class="text-base sm:text-lg font-semibold text-slate-900 mt-2"><span data-lang-en>What will the learner be able to do?</span><span data-lang-id>Apa keterampilan yang akan dikuasai setelah belajar?</span></p>
+                        </div>
+                    </div>
+                    <div class="border-2 border-dark p-4 bg-brand-cream flex flex-col justify-between h-full">
+                        <div>
+                            <span class="font-heading font-black text-sm sm:text-base uppercase bg-brand-orange px-2.5 py-1 border-2 border-dark inline-block"><span data-lang-en>4. Tasks &amp; Assessment</span><span data-lang-id>4. Latihan &amp; Evaluasi</span></span>
+                            <p class="text-base sm:text-lg font-semibold text-slate-900 mt-2"><span data-lang-en>Does it include meaningful practice?</span><span data-lang-id>Apakah ada latihan atau evaluasi yang bermakna?</span></p>
+                        </div>
+                    </div>
+                    <div class="border-2 border-dark p-4 bg-brand-cream flex flex-col justify-between h-full">
+                        <div>
+                            <span class="font-heading font-black text-sm sm:text-base uppercase bg-brand-purple px-2.5 py-1 border-2 border-dark inline-block"><span data-lang-en>5. Time Required</span><span data-lang-id>5. Durasi Belajar</span></span>
+                            <p class="text-base sm:text-lg font-semibold text-slate-900 mt-2"><span data-lang-en>How much time is needed?</span><span data-lang-id>Berapa banyak waktu yang dibutuhkan?</span></p>
+                        </div>
+                    </div>
+                    <div class="border-2 border-dark p-4 bg-brand-cream flex flex-col justify-between h-full">
+                        <div>
+                            <span class="font-heading font-black text-sm sm:text-base uppercase bg-brand-pink px-2.5 py-1 border-2 border-dark inline-block"><span data-lang-en>6. Cost</span><span data-lang-id>6. Biaya</span></span>
+                            <p class="text-base sm:text-lg font-semibold text-slate-900 mt-2"><span data-lang-en>Which parts are free and which require payment?</span><span data-lang-id>Bagian mana yang gratis dan mana yang berbayar?</span></p>
+                        </div>
+                    </div>
+                    <div class="border-2 border-dark p-4 bg-brand-cream flex flex-col justify-between h-full">
+                        <div>
+                            <span class="font-heading font-black text-sm sm:text-base uppercase bg-highlight px-2.5 py-1 border-2 border-dark inline-block"><span data-lang-en>7. Certificate</span><span data-lang-id>7. Sertifikat</span></span>
+                            <p class="text-base sm:text-lg font-semibold text-slate-900 mt-2"><span data-lang-en>What does the certificate represent, and who recognises it?</span><span data-lang-id>Apa arti sertifikatnya, dan siapa yang mengakuinya?</span></p>
+                        </div>
+                    </div>
+                    <div class="border-2 border-dark p-4 bg-amber-50 flex flex-col justify-between h-full">
+                        <div>
+                            <span class="font-heading font-black text-sm sm:text-base uppercase bg-dark text-white px-2.5 py-1 border-2 border-dark inline-block"><span data-lang-en>Key Reminder</span><span data-lang-id>Pengingat Penting</span></span>
+                            <p class="text-base sm:text-lg font-bold text-slate-900 mt-2"><span data-lang-en>Completing a course is not the same as learning—focus on what students can apply.</span><span data-lang-id>Sertifikat tidak otomatis berarti paham—fokuslah pada apa yang bisa diterapkan siswa.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 5 IN ACTION: ENGLISH AS A TOOL FOR LEARNING & PROFICIENCY TESTS -->
+        <section class="neo-card p-6 sm:p-10 bg-white">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 pb-5 border-b-3 border-dark">
+                <div>
+                    <span class="bg-brand-teal text-dark font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark shadow-brutal-sm inline-block mb-2">
+                        <span data-lang-en>English as a Tool for Learning</span>
+                        <span data-lang-id>Bahasa Inggris sebagai Alat Belajar</span>
+                    </span>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-black uppercase text-dark tracking-tight">
+                        <span data-lang-en>Learning English vs. Taking a Proficiency Test</span>
+                        <span data-lang-id>Belajar Bahasa Inggris vs. Mengikuti Tes Kemahiran</span>
+                    </h2>
+                </div>
+                <div class="bg-amber-50 border-3 border-dark px-5 py-3 shadow-brutal-sm max-w-xl">
+                    <p class="text-base sm:text-lg font-bold text-slate-900">
+                        <span data-lang-en><strong>Key Message:</strong> Choose a test based on the actual university or scholarship requirement, not simply because it is familiar or widely advertised.</span>
+                        <span data-lang-id><strong>Pesan Utama:</strong> Pilih tes berdasarkan syarat resmi universitas atau beasiswa tujuan, bukan sekadar karena populer.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+                <div class="bg-teal-50 border-3 border-dark p-5 sm:p-6">
+                    <span class="bg-accent text-white font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 inline-block mb-2"><span data-lang-en>Continuous Capability</span><span data-lang-id>Kemampuan Berkelanjutan</span></span>
+                    <h3 class="font-heading text-2xl font-black uppercase text-dark mb-2"><span data-lang-en>Learning English</span><span data-lang-id>Belajar Bahasa Inggris</span></h3>
+                    <p class="text-base sm:text-lg font-medium text-slate-900">
+                        <span data-lang-en>Develops the ability to read academic materials, participate in webinars, write, discuss ideas, and communicate with people from different backgrounds.</span>
+                        <span data-lang-id>Mengembangkan kemampuan membaca materi akademik, mengikuti webinar, menulis, berdiskusi, dan berkomunikasi lintas budaya.</span>
+                    </p>
+                </div>
+                <div class="bg-sky-50 border-3 border-dark p-5 sm:p-6">
+                    <span class="bg-dark text-white font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 inline-block mb-2"><span data-lang-en>Targeted Evidence</span><span data-lang-id>Bukti Kemahiran Resmi</span></span>
+                    <h3 class="font-heading text-2xl font-black uppercase text-dark mb-2"><span data-lang-en>Proficiency Testing</span><span data-lang-id>Tes Kemahiran Bahasa</span></h3>
+                    <p class="text-base sm:text-lg font-medium text-slate-900">
+                        <span data-lang-en>Provides formal evidence of English ability for a particular university admission, scholarship, or placement requirement.</span>
+                        <span data-lang-id>Memberikan bukti resmi kemampuan bahasa Inggris untuk memenuhi syarat pendaftaran universitas, beasiswa, atau penempatan.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse border-3 border-dark text-left text-base sm:text-lg">
+                    <thead>
+                        <tr class="bg-dark text-white font-heading uppercase">
+                            <th class="p-4 border-r-2 border-slate-700"><span data-lang-en>Test</span><span data-lang-id>Nama Tes</span></th>
+                            <th class="p-4 border-r-2 border-slate-700"><span data-lang-en>Typical Purpose &amp; Guidance</span><span data-lang-id>Kegunaan Umum &amp; Panduan</span></th>
+                            <th class="p-4 text-center w-48"><span data-lang-en>Official Website</span><span data-lang-id>Situs Resmi</span></th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y-2 divide-dark font-medium">
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 border-r-2 border-dark font-heading font-black uppercase text-lg sm:text-xl">IELTS Academic</td>
+                            <td class="p-4 border-r-2 border-dark text-slate-800">
+                                <span data-lang-en>International university admission and scholarship applications. Check minimum overall and individual band scores.</span>
+                                <span data-lang-id>Pendaftaran universitas internasional dan beasiswa. Periksa syarat skor total dan skor per bagian (band score).</span>
+                            </td>
+                            <td class="p-4 text-center"><a href="https://ielts.org/" target="_blank" rel="noopener" class="neo-btn bg-brand-yellow px-3.5 py-2 text-sm sm:text-base inline-block whitespace-nowrap">ielts.org &rarr;</a></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 border-r-2 border-dark font-heading font-black uppercase text-lg sm:text-xl">TOEFL iBT</td>
+                            <td class="p-4 border-r-2 border-dark text-slate-800">
+                                <span data-lang-en>International university admission and academic programmes. Verify score requirements directly with the target institution.</span>
+                                <span data-lang-id>Pendaftaran universitas internasional dan program akademik. Pastikan syarat skor langsung di situs kampus tujuan.</span>
+                            </td>
+                            <td class="p-4 text-center"><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener" class="neo-btn bg-brand-blue px-3.5 py-2 text-sm sm:text-base inline-block whitespace-nowrap">ets.org/toefl &rarr;</a></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 border-r-2 border-dark font-heading font-black uppercase text-lg sm:text-xl">PTE Academic</td>
+                            <td class="p-4 border-r-2 border-dark text-slate-800">
+                                <span data-lang-en>Academic English proficiency test accepted by many universities and governments. Confirm institutional acceptance before booking.</span>
+                                <span data-lang-id>Tes bahasa Inggris akademik yang diterima di banyak kampus dunia. Pastikan kampus/beasiswa tujuan menerimanya sebelum mendaftar.</span>
+                            </td>
+                            <td class="p-4 text-center"><a href="https://www.pearsonpte.com/" target="_blank" rel="noopener" class="neo-btn bg-brand-orange px-3.5 py-2 text-sm sm:text-base inline-block whitespace-nowrap">pearsonpte &rarr;</a></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 border-r-2 border-dark font-heading font-black uppercase text-lg sm:text-xl">Cambridge English</td>
+                            <td class="p-4 border-r-2 border-dark text-slate-800">
+                                <span data-lang-en>CEFR-aligned qualifications (e.g., B2 First, C1 Advanced) recognised by participating universities and employers.</span>
+                                <span data-lang-id>Kualifikasi berbasis CEFR (mis. B2 First, C1 Advanced) yang diakui oleh universitas dan perusahaan mitra.</span>
+                            </td>
+                            <td class="p-4 text-center"><a href="https://www.cambridgeenglish.org/exams-and-tests/" target="_blank" rel="noopener" class="neo-btn bg-brand-purple px-3.5 py-2 text-sm sm:text-base inline-block whitespace-nowrap">cambridge &rarr;</a></td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="p-4 border-r-2 border-dark font-heading font-black uppercase text-lg sm:text-xl">Duolingo English Test</td>
+                            <td class="p-4 border-r-2 border-dark text-slate-800">
+                                <span data-lang-en>Online proficiency test accepted by participating institutions. Check whether both the university and scholarship accept it.</span>
+                                <span data-lang-id>Tes kemahiran daring yang diterima oleh institusi mitra. Cek apakah universitas sekaligus penyedia beasiswa menerimanya.</span>
+                            </td>
+                            <td class="p-4 text-center"><a href="https://englishtest.duolingo.com/" target="_blank" rel="noopener" class="neo-btn bg-brand-green px-3.5 py-2 text-sm sm:text-base inline-block whitespace-nowrap">duolingo &rarr;</a></td>
+                        </tr>
+                        <tr class="bg-amber-50/80">
+                            <td class="p-4 border-r-2 border-dark font-heading font-black uppercase text-lg sm:text-xl">TOEFL ITP &amp; TOEIC</td>
+                            <td class="p-4 border-r-2 border-dark text-slate-900">
+                                <span data-lang-en>Useful for institutional placement, domestic requirements, or workplace readiness—<strong>do not assume</strong> every international university or scholarship accepts them for degree admission.</span>
+                                <span data-lang-id>Berguna untuk pemetaan internal, syarat dalam negeri, atau dunia kerja—<strong>jangan berasumsi</strong> semua kampus atau beasiswa luar negeri menerimanya untuk pendaftaran kuliah.</span>
+                            </td>
+                            <td class="p-4 text-center">
+                                <div class="flex flex-col gap-2">
+                                    <a href="https://www.ets.org/toefl/itp.html" target="_blank" rel="noopener" class="neo-btn bg-white px-3 py-1.5 text-sm inline-block whitespace-nowrap">TOEFL ITP &rarr;</a>
+                                    <a href="https://www.ets.org/toeic.html" target="_blank" rel="noopener" class="neo-btn bg-white px-3 py-1.5 text-sm inline-block whitespace-nowrap">TOEIC &rarr;</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- OPPORTUNITIES EXPLORER, COMMON REQUIREMENTS, 6-STEP CHECK & 6-STEP APPLICATION WORKFLOW -->
+        <section id="opportunities" class="space-y-14 sm:space-y-20">
+            <div class="neo-card p-6 sm:p-10 bg-white">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8 pb-5 border-b-3 border-dark">
+                    <div>
+                        <span class="bg-brand-yellow text-dark font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark shadow-brutal-sm inline-block mb-2">
+                            <span data-lang-en>Practical Application of Independent Learning</span>
+                            <span data-lang-id>Penerapan Praktis Belajar Mandiri</span>
+                        </span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-black uppercase text-dark tracking-tight">
+                            <span data-lang-en>Navigating Official Opportunities &amp; Requirements</span>
+                            <span data-lang-id>Menelusuri Peluang &amp; Persyaratan Resmi</span>
+                        </h2>
+                    </div>
+
+                    <!-- Interactive Tabs -->
+                    <div class="no-print flex flex-wrap gap-2 bg-slate-100 p-2 border-2 border-dark shadow-brutal-sm self-start">
+                        <button onclick="switchOppTab('tab-indo')" id="btn-tab-indo" class="opp-tab-btn px-4 py-2 text-sm sm:text-base font-heading font-black uppercase bg-dark text-white border border-dark transition-all">
+                            <span data-lang-en>1. Indonesian Scholarships (6)</span>
+                            <span data-lang-id>1. Beasiswa Indonesia (6)</span>
+                        </button>
+                        <button onclick="switchOppTab('tab-intl')" id="btn-tab-intl" class="opp-tab-btn px-4 py-2 text-sm sm:text-base font-heading font-black uppercase bg-white text-dark border border-dark transition-all hover:bg-brand-yellow">
+                            <span data-lang-en>2. International Scholarships (6)</span>
+                            <span data-lang-id>2. Beasiswa Internasional (6)</span>
+                        </button>
+                        <button onclick="switchOppTab('tab-reqs')" id="btn-tab-reqs" class="opp-tab-btn px-4 py-2 text-sm sm:text-base font-heading font-black uppercase bg-white text-dark border border-dark transition-all hover:bg-brand-yellow">
+                            <span data-lang-en>3. Common Requirements (A–D)</span>
+                            <span data-lang-id>3. Syarat Umum (A–D)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- TAB 1: INDONESIAN SCHOLARSHIPS -->
+                <div id="tab-indo" class="opp-tab-panel active">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-4">
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block"><span data-lang-en>Ministry of Finance</span><span data-lang-id>Kementerian Keuangan</span></span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">LPDP</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>Indonesian government scholarship programmes supporting postgraduate studies.</span>
+                                    <span data-lang-id>Program beasiswa pemerintah Indonesia untuk studi lanjut jenjang magister dan doktoral.</span>
+                                </p>
+                            </div>
+                            <a href="https://lpdp.kemenkeu.go.id/" target="_blank" rel="noopener" class="neo-btn bg-brand-yellow text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official LPDP Website &rarr;</span><span data-lang-id>Situs Resmi LPDP &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block">Kemdiktisaintek</span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">KIP Kuliah</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>Government financial assistance helping eligible students access higher education in Indonesia.</span>
+                                    <span data-lang-id>Bantuan biaya pendidikan pemerintah bagi lulusan sekolah yang memenuhi syarat untuk kuliah di Indonesia.</span>
+                                </p>
+                            </div>
+                            <a href="https://kip-kuliah.kemdiktisaintek.go.id/" target="_blank" rel="noopener" class="neo-btn bg-brand-teal text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official KIP Kuliah Site &rarr;</span><span data-lang-id>Situs Resmi KIP Kuliah &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block">Kemdiktisaintek</span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">Beasiswa Garuda</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>Indonesian government degree scholarship programme supporting undergraduate studies at leading international universities.</span>
+                                    <span data-lang-id>Program beasiswa bergelar pemerintah Indonesia untuk studi sarjana di universitas terkemuka dunia.</span>
+                                </p>
+                            </div>
+                            <a href="https://beasiswagaruda.kemdiktisaintek.go.id" target="_blank" rel="noopener" class="neo-btn bg-brand-purple text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official Beasiswa Garuda &rarr;</span><span data-lang-id>Situs Beasiswa Garuda &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block">Kemendikdasmen</span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">Beasiswa Unggulan</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>Government scholarship supporting eligible Indonesian students across degree levels.</span>
+                                    <span data-lang-id>Beasiswa pemerintah bagi mahasiswa berprestasi untuk jenjang sarjana, magister, dan doktoral.</span>
+                                </p>
+                            </div>
+                            <a href="https://beasiswaunggulan.kemendikdasmen.go.id/" target="_blank" rel="noopener" class="neo-btn bg-brand-blue text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official Beasiswa Unggulan &rarr;</span><span data-lang-id>Situs Beasiswa Unggulan &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block"><span data-lang-en>Kemendikdasmen Official Release</span><span data-lang-id>Rilis Resmi Kemendikdasmen</span></span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">Beasiswa Talenta Indonesia</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>State recognition programme supporting high-achieving students progressing to undergraduate study.</span>
+                                    <span data-lang-id>Program apresiasi pemerintah bagi siswa berprestasi untuk melanjutkan pendidikan jenjang sarjana.</span>
+                                </p>
+                            </div>
+                            <a href="https://www.kemendikdasmen.go.id/siaran-pers/14770-kemendikdasmen-luncurkan-beasiswa-talenta-indonesia-wujud-apresiasi-negara-bagi-siswa-berprestasi" target="_blank" rel="noopener" class="neo-btn bg-brand-orange text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official Kemendikdasmen Release &rarr;</span><span data-lang-id>Rilis Resmi Kemendikdasmen &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block"><span data-lang-en>Ministry of Religious Affairs &amp; LPDP</span><span data-lang-id>Kementerian Agama &amp; LPDP</span></span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">Beasiswa Indonesia Bangkit</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>Collaborative scholarship programme supporting eligible students through higher education pathways.</span>
+                                    <span data-lang-id>Beasiswa kolaborasi Kemenag dan LPDP untuk mendukung studi lanjut di berbagai jalur pendidikan tinggi.</span>
+                                </p>
+                            </div>
+                            <a href="https://beasiswa.kemenag.go.id/" target="_blank" rel="noopener" class="neo-btn bg-brand-green text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official BIB Kemenag Site &rarr;</span><span data-lang-id>Situs Resmi BIB Kemenag &rarr;</span></a>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- TAB 2: INTERNATIONAL SCHOLARSHIPS & DESTINATIONS NOTE -->
+                <div id="tab-intl" class="opp-tab-panel">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block">Australia</span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">Australia Awards Indonesia</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>Australian Government scholarships for eligible Indonesian applicants.</span>
+                                    <span data-lang-id>Beasiswa Pemerintah Australia bagi pendaftar Indonesia yang memenuhi syarat.</span>
+                                </p>
+                            </div>
+                            <a href="https://www.australiaawardsindonesia.org/" target="_blank" rel="noopener" class="neo-btn bg-brand-yellow text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official Australia Awards &rarr;</span><span data-lang-id>Situs Australia Awards &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block"><span data-lang-en>United States</span><span data-lang-id>Amerika Serikat</span></span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">Fulbright / AMINEF</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>US educational exchange programmes administered in Indonesia by AMINEF.</span>
+                                    <span data-lang-id>Program beasiswa dan pertukaran pendidikan AS yang dikelola di Indonesia oleh AMINEF.</span>
+                                </p>
+                            </div>
+                            <a href="https://www.aminef.or.id/" target="_blank" rel="noopener" class="neo-btn bg-brand-blue text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official AMINEF Website &rarr;</span><span data-lang-id>Situs Resmi AMINEF &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block"><span data-lang-en>United Kingdom</span><span data-lang-id>Inggris (UK)</span></span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">Chevening Indonesia</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>UK government scholarship programme for one-year master's degrees.</span>
+                                    <span data-lang-id>Program beasiswa pemerintah Inggris untuk studi magister satu tahun di UK.</span>
+                                </p>
+                            </div>
+                            <a href="https://www.chevening.org/scholarship/indonesia/" target="_blank" rel="noopener" class="neo-btn bg-brand-purple text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official Chevening Site &rarr;</span><span data-lang-id>Situs Resmi Chevening &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block"><span data-lang-en>European Union</span><span data-lang-id>Uni Eropa</span></span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">Erasmus Mundus Joint Masters</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>International master's programmes offered by university consortia.</span>
+                                    <span data-lang-id>Program magister internasional bersama yang diselenggarakan oleh konsorsium universitas Eropa.</span>
+                                </p>
+                            </div>
+                            <a href="https://erasmus-plus.ec.europa.eu/opportunities/individuals/students/erasmus-mundus-joint-masters" target="_blank" rel="noopener" class="neo-btn bg-brand-teal text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Official Erasmus+ Portal &rarr;</span><span data-lang-id>Portal Resmi Erasmus+ &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block"><span data-lang-en>Embassy of Japan in Indonesia</span><span data-lang-id>Kedutaan Besar Jepang</span></span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">MEXT Scholarship</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>Japanese Government scholarship information published via the Embassy of Japan.</span>
+                                    <span data-lang-id>Informasi beasiswa Pemerintah Jepang (Monbukagakusho) melalui Kedutaan Besar Jepang.</span>
+                                </p>
+                            </div>
+                            <a href="https://www.id.emb-japan.go.jp/" target="_blank" rel="noopener" class="neo-btn bg-brand-orange text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Embassy of Japan Website &rarr;</span><span data-lang-id>Situs Kedubes Jepang &rarr;</span></a>
+                        </article>
+
+                        <article class="bg-brand-cream border-3 border-dark p-5 shadow-brutal-sm flex flex-col justify-between">
+                            <div>
+                                <span class="bg-white border-2 border-dark px-2.5 py-0.5 text-xs sm:text-sm font-heading font-black uppercase inline-block"><span data-lang-en>Embassy of the Republic of Korea</span><span data-lang-id>Kedutaan Besar Republik Korea</span></span>
+                                <h3 class="font-heading text-2xl font-black uppercase text-dark mt-2 mb-1.5">Global Korea Scholarship</h3>
+                                <p class="text-base sm:text-lg text-slate-800 font-medium mb-4">
+                                    <span data-lang-en>Korean Government scholarship announcements via the Korean Embassy in Indonesia.</span>
+                                    <span data-lang-id>Pengumuman beasiswa Pemerintah Korea Selatan (GKS) melalui Kedutaan Besar Korea di Indonesia.</span>
+                                </p>
+                            </div>
+                            <a href="https://id.mofa.go.kr/id-id/index.do" target="_blank" rel="noopener" class="neo-btn bg-brand-pink text-dark p-3 text-sm sm:text-base text-center block"><span data-lang-en>Embassy of Korea Website &rarr;</span><span data-lang-id>Situs Kedubes Korea &rarr;</span></a>
+                        </article>
+                    </div>
+
+                    <div class="bg-amber-50 border-3 border-dark p-5 text-base sm:text-lg font-medium text-slate-900">
+                        <strong class="font-heading font-black uppercase text-dark block mb-1.5 text-lg sm:text-xl">
+                            <span data-lang-en>International University Admissions &amp; Language of Instruction:</span>
+                            <span data-lang-id>Pendaftaran Universitas Internasional &amp; Bahasa Pengantar:</span>
+                        </strong>
+                        <span data-lang-en>Countries such as <strong>Germany, the Netherlands, Japan, Hungary, South Korea, and Taiwan</strong> also offer selected English-taught degree programmes. However, not all universities or programmes in these countries are taught in English. Students must check <strong>individual university admissions pages</strong> and official scholarship providers for exact admission criteria and language requirements.</span>
+                        <span data-lang-id>Negara seperti <strong>Jerman, Belanda, Jepang, Hungaria, Korea Selatan, dan Taiwan</strong> juga menawarkan program studi tertentu dengan pengantar bahasa Inggris. Namun, tidak semua jurusan di negara tersebut diajarkan dalam bahasa Inggris. Siswa wajib memeriksa <strong>halaman pendaftaran resmi masing-masing universitas</strong> dan penyedia beasiswa untuk memastikan syarat masuk serta bahasa pengantarnya.</span>
+                    </div>
+                </div>
+
+                <!-- TAB 3: UNDERSTANDING COMMON APPLICATION REQUIREMENTS (A-D) -->
+                <div id="tab-reqs" class="opp-tab-panel">
+                    <div class="bg-amber-50 border-3 border-dark p-4 sm:p-5 mb-6 text-base sm:text-lg font-bold text-slate-900">
+                        <span data-lang-en>Important: Requirements differ according to the scholarship, university, academic level, programme, and application cycle. These are common examples, not a universal checklist.</span>
+                        <span data-lang-id>Penting: Persyaratan berbeda-beda tergantung beasiswa, universitas, jenjang studi, jurusan, dan periode pendaftaran. Daftar berikut adalah contoh umum, bukan syarat mutlak untuk semua program.</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
+                        <div class="bg-brand-cream border-3 border-dark p-5">
+                            <span class="bg-brand-yellow font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block mb-3"><span data-lang-en>A. Academic Documents</span><span data-lang-id>A. Dokumen Akademik</span></span>
+                            <ul class="text-base sm:text-lg space-y-2.5 font-medium text-slate-900">
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>High school diploma or previous degree certificate</span><span data-lang-id>Ijazah sekolah menengah atau ijazah pendidikan sebelumnya</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Academic transcripts</span><span data-lang-id>Transkrip nilai atau rapor akademik</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Official or certified translations (e.g., into English or the target language), if documents are in Indonesian</span><span data-lang-id>Terjemahan resmi/tersumpah (mis. ke bahasa Inggris atau bahasa tujuan) jika dokumen asli berbahasa Indonesia</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Minimum GPA or academic performance requirements</span><span data-lang-id>Syarat nilai rata-rata atau IPK minimum</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Proof of current enrolment or expected graduation (where applicable)</span><span data-lang-id>Surat keterangan siswa/mahasiswa aktif atau keterangan lulus sementara (jika relevan)</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Evidence of qualification equivalency, if required</span><span data-lang-id>Bukti penyetaraan ijazah, jika diminta</span></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-brand-cream border-3 border-dark p-5">
+                            <span class="bg-brand-blue font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block mb-3"><span data-lang-en>B. English Proficiency</span><span data-lang-id>B. Kemahiran Bahasa Inggris</span></span>
+                            <ul class="text-base sm:text-lg space-y-2.5 font-medium text-slate-900">
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>An accepted English proficiency test</span><span data-lang-id>Jenis tes kemahiran bahasa Inggris yang diterima</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Minimum overall score</span><span data-lang-id>Skor total minimum</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Minimum score for individual skills, where applicable</span><span data-lang-id>Skor minimum untuk setiap keterampilan (listening, reading, writing, speaking)</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Test result validity period</span><span data-lang-id>Masa berlaku sertifikat hasil tes</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Possible exemptions based on previous education or conditions</span><span data-lang-id>Ketentuan pengecualian (jika ada) berdasarkan bahasa pengantar pendidikan sebelumnya</span></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-brand-cream border-3 border-dark p-5">
+                            <span class="bg-brand-green font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block mb-3"><span data-lang-en>C. Personal &amp; Supporting Documents</span><span data-lang-id>C. Dokumen Pribadi &amp; Pendukung</span></span>
+                            <ul class="text-base sm:text-lg space-y-2.5 font-medium text-slate-900">
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Curriculum Vitae (CV) or résumé</span><span data-lang-id>Daftar Riwayat Hidup (CV) atau resume</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Motivation letter or personal statement / Statement of Purpose (SOP)</span><span data-lang-id>Motivation letter, personal statement, atau Statement of Purpose (SOP)</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Study plan &amp; recommendation letters (translated if required)</span><span data-lang-id>Rencana studi (study plan) &amp; surat rekomendasi (diterjemahkan jika diminta)</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Passport or national identity document &amp; achievement certificates</span><span data-lang-id>Paspor atau KTP serta sertifikat prestasi pendukung</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Portfolio, writing sample, or research proposal (where relevant)</span><span data-lang-id>Portofolio, contoh tulisan, atau proposal riset (jika relevan)</span></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-brand-cream border-3 border-dark p-5">
+                            <span class="bg-brand-purple font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block mb-3"><span data-lang-en>D. Scholarship-Specific Requirements</span><span data-lang-id>D. Syarat Khusus Beasiswa</span></span>
+                            <ul class="text-base sm:text-lg space-y-2.5 font-medium text-slate-900">
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Evidence of financial circumstances</span><span data-lang-id>Keterangan kondisi ekonomi keluarga (jika disyaratkan)</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Leadership, community involvement, or relevant work experience</span><span data-lang-id>Pengalaman kepemimpinan, organisasi, pengabdian masyarakat, atau kerja</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>University admission offer / Letter of Acceptance (LoA)</span><span data-lang-id>Surat penerimaan dari universitas / Letter of Acceptance (LoA)</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Institutional nomination &amp; commitment to return to Indonesia</span><span data-lang-id>Rekomendasi institusi &amp; komitmen kembali berkontribusi di Indonesia</span></span></li>
+                                <li class="flex items-start gap-2.5"><span class="font-black text-dark shrink-0">&bull;</span><span><span data-lang-en>Additional tests or interviews</span><span data-lang-id>Seleksi tambahan seperti tes skolastik atau wawancara</span></span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-dark text-white p-5 sm:p-6 border-3 border-dark">
+                        <span class="bg-brand-yellow text-dark font-heading font-black text-sm sm:text-base uppercase px-3 py-1 inline-block mb-2"><span data-lang-en>Important Distinction</span><span data-lang-id>Perbedaan Penting</span></span>
+                        <p class="text-base sm:text-xl font-bold leading-relaxed">
+                            <span data-lang-en>University admission and scholarship applications are not always the same process. A student may need to satisfy two separate sets of requirements: <strong>(1) the university's academic admission requirements</strong> and <strong>(2) the scholarship provider's eligibility requirements</strong>. Meeting one does not automatically mean meeting the other.</span>
+                            <span data-lang-id>Pendaftaran universitas dan pendaftaran beasiswa tidak selalu merupakan proses yang sama. Siswa sering kali harus memenuhi dua persyaratan terpisah: <strong>(1) syarat penerimaan akademik dari universitas</strong> dan <strong>(2) syarat kelayakan dari penyedia beasiswa</strong>. Memenuhi salah satunya tidak otomatis memenuhi yang lain.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HOW TO CHECK REQUIREMENTS (READ BEFORE YOU APPLY) & HOW TO APPLY WORKFLOW (STACKED FULL-WIDTH) -->
+            <div class="space-y-14 sm:space-y-20">
+                <!-- Top Section: Read Before You Apply (6 Steps) -->
+                <div class="neo-card p-6 sm:p-10 bg-white">
+                    <div class="mb-6 pb-4 border-b-3 border-dark">
+                        <span class="bg-brand-teal text-dark font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark shadow-brutal-sm inline-block mb-2">
+                            <span data-lang-en>How to Check Requirements</span>
+                            <span data-lang-id>Cara Memeriksa Persyaratan</span>
+                        </span>
+                        <h3 class="font-heading text-3xl sm:text-4xl font-black uppercase text-dark tracking-tight">
+                            <span data-lang-en>Read Before You Apply (6 Steps)</span>
+                            <span data-lang-id>Baca Sebelum Mendaftar (6 Langkah)</span>
+                        </h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 text-base sm:text-lg">
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-yellow font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark inline-block mb-2.5"><span data-lang-en>Step 01</span><span data-lang-id>Langkah 01</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1.5"><span data-lang-en>Find the official website</span><span data-lang-id>Temukan situs web resmi</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Start with the scholarship provider, government institution, embassy, or university. Avoid third-party summaries.</span><span data-lang-id>Mulai dari situs resmi penyedia beasiswa, kementerian, kedutaan, atau universitas. Jangan hanya mengandalkan ringkasan pihak ketiga.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-blue font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark inline-block mb-2.5"><span data-lang-en>Step 02</span><span data-lang-id>Langkah 02</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1.5"><span data-lang-en>Open the latest guidelines</span><span data-lang-id>Buka panduan terbaru</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Check the application year, cycle, academic level, and category. Do not assume last year's rules still apply.</span><span data-lang-id>Periksa tahun pendaftaran, gelombang, jenjang studi, dan kategori pendaftar. Jangan berasumsi aturan tahun lalu masih berlaku.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-green font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark inline-block mb-2.5"><span data-lang-en>Step 03</span><span data-lang-id>Langkah 03</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1.5"><span data-lang-en>Check eligibility</span><span data-lang-id>Periksa syarat kelayakan</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Look for nationality, age, academic background, GPA, study level, and subject area.</span><span data-lang-id>Perhatikan syarat kewarganegaraan, batas usia, latar belakang pendidikan, nilai minimum, dan bidang studi.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-orange font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark inline-block mb-2.5"><span data-lang-en>Step 04</span><span data-lang-id>Langkah 04</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1.5"><span data-lang-en>Check required documents</span><span data-lang-id>Cek kelengkapan dokumen</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Identify uploads, official/certified translations (if documents are not in English), recommendation letters, or LoA requirements.</span><span data-lang-id>Catat dokumen yang harus diunggah, kebutuhan terjemahan resmi/tersumpah, surat rekomendasi, atau syarat LoA.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-purple font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark inline-block mb-2.5"><span data-lang-en>Step 05</span><span data-lang-id>Langkah 05</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1.5"><span data-lang-en>Check language requirements</span><span data-lang-id>Pastikan syarat bahasa</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Confirm accepted tests, overall/sub-skill scores, validity periods, and exemptions.</span><span data-lang-id>Pastikan jenis tes yang diterima, skor total maupun per bagian, masa berlaku sertifikat, serta ketentuan pengecualian.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-pink font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark inline-block mb-2.5"><span data-lang-en>Step 06</span><span data-lang-id>Langkah 06</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1.5"><span data-lang-en>Check the timeline</span><span data-lang-id>Catat jadwal penting</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Record opening/closing dates, document deadlines, interviews, and result dates.</span><span data-lang-id>Catat tanggal pembukaan, penutupan pendaftaran, batas unggah dokumen, jadwal wawancara, dan pengumuman hasil.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Section: How to Apply (6-Step Workflow + 4 Key Reminders) -->
+                <div class="neo-card p-6 sm:p-10 bg-white">
+                    <div class="mb-6 pb-4 border-b-3 border-dark">
+                        <span class="bg-brand-purple text-dark font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark shadow-brutal-sm inline-block mb-2">
+                            <span data-lang-en>Practical Application Workflow</span>
+                            <span data-lang-id>Alur Pendaftaran Praktis</span>
+                        </span>
+                        <h3 class="font-heading text-3xl sm:text-4xl font-black uppercase text-dark tracking-tight">
+                            <span data-lang-en>How to Apply (6 Steps)</span>
+                            <span data-lang-id>Cara Mendaftar (6 Langkah)</span>
+                        </h3>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8 text-base sm:text-lg">
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-yellow font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-0.5 border-2 border-dark inline-block mb-2"><span data-lang-en>Step 01</span><span data-lang-id>Langkah 01</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1"><span data-lang-en>Research &amp; Shortlist</span><span data-lang-id>Riset &amp; Pilih Program</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Find opportunities matching academic background, interests, and goals.</span><span data-lang-id>Cari peluang studi atau beasiswa yang sesuai dengan latar belakang akademik, minat, dan tujuan.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-blue font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-0.5 border-2 border-dark inline-block mb-2"><span data-lang-en>Step 02</span><span data-lang-id>Langkah 02</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1"><span data-lang-en>Check Eligibility</span><span data-lang-id>Pastikan Kelayakan</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Confirm requirements before spending time or money on an application.</span><span data-lang-id>Pastikan semua syarat terpenuhi sebelum mengeluarkan waktu atau biaya pendaftaran.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-green font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-0.5 border-2 border-dark inline-block mb-2"><span data-lang-en>Step 03</span><span data-lang-id>Langkah 03</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1"><span data-lang-en>Prepare Documents</span><span data-lang-id>Siapkan Dokumen</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Organise certificates, transcripts, certified translations (where required), ID, test results, CV, and references.</span><span data-lang-id>Rapikan ijazah, transkrip, terjemahan resmi (jika diminta), identitas, sertifikat bahasa, CV, dan rekomendasi.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-orange font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-0.5 border-2 border-dark inline-block mb-2"><span data-lang-en>Step 04</span><span data-lang-id>Langkah 04</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1"><span data-lang-en>Prepare Written Materials</span><span data-lang-id>Susun Esai &amp; Rencana Studi</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Draft the required personal statement, motivation letter, study plan, or research proposal.</span><span data-lang-id>Tulis personal statement, motivation letter, rencana studi, atau proposal sesuai panduan resmi.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-purple font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-0.5 border-2 border-dark inline-block mb-2"><span data-lang-en>Step 05</span><span data-lang-id>Langkah 05</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1"><span data-lang-en>Complete &amp; Review</span><span data-lang-id>Lengkapi &amp; Periksa Ulang</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Upload files in the requested format and verify spelling, scan quality, file names, and completeness.</span><span data-lang-id>Unggah dokumen sesuai format, lalu periksa ejaan, kejelasan hasil pindai (scan), nama berkas, dan kelengkapannya.</span></p>
+                            </div>
+                        </div>
+                        <div class="p-5 bg-brand-cream border-3 border-dark shadow-brutal-sm flex flex-col justify-between h-full">
+                            <div>
+                                <span class="bg-brand-teal font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-0.5 border-2 border-dark inline-block mb-2"><span data-lang-en>Step 06</span><span data-lang-id>Langkah 06</span></span>
+                                <strong class="font-heading font-black uppercase block text-dark text-xl mb-1"><span data-lang-en>Submit &amp; Monitor</span><span data-lang-id>Kirim &amp; Pantau Berkala</span></strong>
+                                <p class="text-slate-800 font-medium"><span data-lang-en>Save the final submission confirmation and monitor the portal and official email regularly.</span><span data-lang-id>Simpan bukti pengiriman akhir, lalu pantau portal pendaftaran serta email resmi secara berkala.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-teal-50 border-3 border-dark p-6 shadow-brutal-sm">
+                        <span class="font-heading font-black text-sm sm:text-base uppercase bg-brand-teal px-3 py-1 border-2 border-dark inline-block mb-3">
+                            <span data-lang-en>Four Key Application Reminders</span>
+                            <span data-lang-id>Empat Pengingat Penting Saat Mendaftar</span>
+                        </span>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-base sm:text-lg font-bold text-slate-900">
+                            <div class="bg-white border-2 border-dark p-4 flex items-start gap-2.5 h-full"><span class="font-heading font-black text-accent shrink-0">01.</span><span><span data-lang-en>Start well before the deadline and keep digital copies of all submitted files.</span><span data-lang-id>Mulai jauh sebelum tenggat waktu dan simpan salinan digital semua berkas.</span></span></div>
+                            <div class="bg-white border-2 border-dark p-4 flex items-start gap-2.5 h-full"><span class="font-heading font-black text-accent shrink-0">02.</span><span><span data-lang-en>Use accurate, consistent personal details and follow file format/naming rules.</span><span data-lang-id>Gunakan data diri yang konsisten serta ikuti aturan format dan penamaan berkas.</span></span></div>
+                            <div class="bg-white border-2 border-dark p-4 flex items-start gap-2.5 h-full"><span class="font-heading font-black text-accent shrink-0">03.</span><span><span data-lang-en>Saving an application draft is not the same as final submission.</span><span data-lang-id>Menyimpan draf pendaftaran belum berarti mengirim lamaran akhir (submit).</span></span></div>
+                            <div class="bg-white border-2 border-dark p-4 flex items-start gap-2.5 h-full"><span class="font-heading font-black text-accent shrink-0">04.</span><span><span data-lang-en>Check email (including spam) regularly for official interview or document updates.</span><span data-lang-id>Cek email (termasuk folder spam) secara rutin untuk info wawancara atau berkas tambahan.</span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 7 IN ACTION: CONSOLIDATED COMMUNICATING, SUPPORT, ENQUIRY EMAIL & FRAUD PREVENTION -->
+        <section id="support" class="neo-card p-6 sm:p-10 bg-white space-y-8">
+            <div class="border-b-3 border-dark pb-5">
+                <span class="bg-brand-pink text-dark font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark shadow-brutal-sm inline-block mb-2">
+                    <span data-lang-en>Module 7: Communicating, Support &amp; Verification</span>
+                    <span data-lang-id>Modul 7: Komunikasi, Layanan Bantuan &amp; Verifikasi</span>
+                </span>
+                <h2 class="font-heading text-3xl sm:text-4xl font-black uppercase text-dark tracking-tight">
+                    <span data-lang-en>Finding Official Support &amp; Preventing Fraud</span>
+                    <span data-lang-id>Menghubungi Layanan Resmi &amp; Mencegah Penipuan</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <!-- Who to Contact Table (7 cols) -->
+                <div class="lg:col-span-7 flex flex-col gap-6">
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border-3 border-dark text-left text-base sm:text-lg">
+                            <thead>
+                                <tr class="bg-dark text-white font-heading uppercase">
+                                    <th class="p-3.5 border-r-2 border-slate-700"><span data-lang-en>Question or Problem</span><span data-lang-id>Pertanyaan atau Kendala</span></th>
+                                    <th class="p-3.5"><span data-lang-en>Who to Contact</span><span data-lang-id>Pihak yang Dihubungi</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y-2 divide-dark font-medium">
+                                <tr>
+                                    <td class="p-3.5 border-r-2 border-dark font-bold"><span data-lang-en>Scholarship eligibility &amp; rules</span><span data-lang-id>Syarat &amp; aturan pendaftaran beasiswa</span></td>
+                                    <td class="p-3.5"><span data-lang-en>Scholarship provider or programme helpdesk</span><span data-lang-id>Layanan bantuan (helpdesk) resmi penyedia beasiswa</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r-2 border-dark font-bold"><span data-lang-en>Technical portal problems</span><span data-lang-id>Kendala teknis pada portal pendaftaran</span></td>
+                                    <td class="p-3.5"><span data-lang-en>Official technical support</span><span data-lang-id>Tim dukungan teknis resmi pada portal</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r-2 border-dark font-bold"><span data-lang-en>University admission &amp; English rules</span><span data-lang-id>Syarat masuk universitas &amp; tes bahasa Inggris</span></td>
+                                    <td class="p-3.5"><span data-lang-en>University admissions office or scholarship provider</span><span data-lang-id>Kantor admisi universitas atau penyedia beasiswa</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r-2 border-dark font-bold"><span data-lang-en>Academic programme suitability</span><span data-lang-id>Kesesuaian kurikulum atau program studi</span></td>
+                                    <td class="p-3.5"><span data-lang-en>Faculty, department, or programme coordinator</span><span data-lang-id>Fakultas, jurusan, atau koordinator program studi</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r-2 border-dark font-bold"><span data-lang-en>International student &amp; embassy queries</span><span data-lang-id>Layanan mahasiswa internasional &amp; beasiswa kedutaan</span></td>
+                                    <td class="p-3.5"><span data-lang-en>University international office or embassy education section</span><span data-lang-id>Kantor urusan internasional kampus atau bagian pendidikan kedutaan</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 border-r-2 border-dark font-bold"><span data-lang-en>School documents &amp; recommendation letters</span><span data-lang-id>Dokumen sekolah &amp; surat rekomendasi</span></td>
+                                    <td class="p-3.5"><span data-lang-en>School administration, teacher, principal, or supervisor</span><span data-lang-id>Tata usaha sekolah, guru, kepala sekolah, atau pembimbing</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Official Support Portals -->
+                    <div class="bg-brand-cream border-3 border-dark p-4 sm:p-5">
+                        <span class="font-heading font-black text-sm sm:text-base uppercase block mb-3">
+                            <span data-lang-en>Verified Official Support &amp; Guidance Pages:</span>
+                            <span data-lang-id>Halaman Panduan &amp; Layanan Bantuan Resmi:</span>
+                        </span>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="https://bantuan.lpdp.kemenkeu.go.id/" target="_blank" rel="noopener" class="neo-btn bg-white px-3.5 py-1.5 text-sm sm:text-base"><span data-lang-en>LPDP Helpdesk &rarr;</span><span data-lang-id>Bantuan LPDP &rarr;</span></a>
+                            <a href="https://kip-kuliah.kemdiktisaintek.go.id/panduan" target="_blank" rel="noopener" class="neo-btn bg-white px-3.5 py-1.5 text-sm sm:text-base"><span data-lang-en>KIP Kuliah Guide &rarr;</span><span data-lang-id>Panduan KIP Kuliah &rarr;</span></a>
+                            <a href="https://beasiswaunggulan.kemendikdasmen.go.id/faq/" target="_blank" rel="noopener" class="neo-btn bg-white px-3.5 py-1.5 text-sm sm:text-base">FAQ Beasiswa Unggulan &rarr;</a>
+                            <a href="https://beasiswaunggulan.kemendikdasmen.go.id/kontak-kami/" target="_blank" rel="noopener" class="neo-btn bg-white px-3.5 py-1.5 text-sm sm:text-base"><span data-lang-en>Beasiswa Unggulan Contact &rarr;</span><span data-lang-id>Kontak Beasiswa Unggulan &rarr;</span></a>
+                            <a href="https://www.australiaawardsindonesia.org/" target="_blank" rel="noopener" class="neo-btn bg-white px-3.5 py-1.5 text-sm sm:text-base">Australia Awards &rarr;</a>
+                            <a href="https://www.aminef.or.id/" target="_blank" rel="noopener" class="neo-btn bg-white px-3.5 py-1.5 text-sm sm:text-base">AMINEF &rarr;</a>
+                            <a href="https://www.chevening.org/scholarship/indonesia/" target="_blank" rel="noopener" class="neo-btn bg-white px-3.5 py-1.5 text-sm sm:text-base">Chevening &rarr;</a>
+                            <a href="https://erasmus-plus.ec.europa.eu/opportunities/individuals/students/erasmus-mundus-joint-masters" target="_blank" rel="noopener" class="neo-btn bg-white px-3.5 py-1.5 text-sm sm:text-base">Erasmus Mundus &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practical Activity: Write an Enquiry Email (5 cols) -->
+                <div class="lg:col-span-5 bg-amber-50 border-3 border-dark p-5 sm:p-6 shadow-brutal-sm flex flex-col gap-5">
+                    <div>
+                        <span class="bg-brand-yellow font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block mb-3">
+                            <span data-lang-en>Practical Activity: Write an Enquiry Email</span>
+                            <span data-lang-id>Latihan Praktis: Menulis Email Pertanyaan Resmi</span>
+                        </span>
+                        <p class="text-base sm:text-lg font-bold text-slate-900 mb-4">
+                            <span data-lang-en><strong>Scenario:</strong> A student wants to apply for an English-taught undergraduate programme at a university in Germany, but cannot find clear information on which English tests are accepted.</span>
+                            <span data-lang-id><strong>Skenario:</strong> Seorang siswa ingin mendaftar program sarjana berbahasa Inggris di salah satu universitas di Jerman, tetapi belum menemukan informasi jelas mengenai jenis tes bahasa Inggris yang diterima.</span>
+                        </p>
+
+                        <div class="bg-white border-3 border-dark p-4 sm:p-5 text-sm sm:text-base font-mono text-slate-900 space-y-3 leading-relaxed">
+                            <div class="border-b-2 border-slate-300 pb-2 font-sans font-black text-dark text-base sm:text-lg">
+                                Subject: Enquiry About English Language Requirements
+                            </div>
+                            <p>Dear Admissions Team,</p>
+                            <p>I am interested in applying for the [Programme Name] at [University Name].</p>
+                            <p>I would like to ask which English proficiency tests are accepted for admission to this programme. Are TOEFL iBT and IELTS Academic both accepted? Could you also confirm the minimum overall and individual skill scores required?</p>
+                            <p>Thank you for your time and assistance. I look forward to your response.</p>
+                            <p>Kind regards,<br>[Your Name]</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border-2 border-dark p-4 text-sm sm:text-base">
+                        <strong class="font-heading font-black uppercase block mb-2 text-base sm:text-lg">
+                            <span data-lang-en>Reflection Questions for Students:</span>
+                            <span data-lang-id>Pertanyaan Evaluasi untuk Siswa:</span>
+                        </strong>
+                        <ul class="font-bold text-slate-800 space-y-1.5">
+                            <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Is the question specific and easy to answer?</span><span data-lang-id>Apakah pertanyaannya spesifik dan mudah dijawab?</span></span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Does the email clearly identify the programme?</span><span data-lang-id>Apakah nama program studi sudah disebutkan dengan jelas?</span></span></li>
+                            <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Is the tone professional and polite?</span><span data-lang-id>Apakah bahasa yang digunakan sopan dan profesional?</span></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consolidated Contact Guidance & Fraud Prevention Bar -->
+            <div class="bg-rose-50 border-3 border-dark p-6 shadow-brutal-sm">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <span class="bg-brand-red text-dark font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block self-start">
+                        <span data-lang-en>Verify Before You Trust: Contact &amp; Fraud Prevention</span>
+                        <span data-lang-id>Verifikasi Sebelum Percaya: Panduan Kontak &amp; Cegah Penipuan</span>
+                    </span>
+                    <span class="text-sm sm:text-base font-bold text-slate-800">
+                        <span data-lang-en>Use only contact details published on official portals</span>
+                        <span data-lang-id>Gunakan hanya kontak yang tercantum di situs resmi</span>
+                    </span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-base sm:text-lg font-bold text-slate-900">
+                    <div class="bg-white border-2 border-dark p-4 flex items-start gap-2.5 h-full"><span class="bg-brand-red border-2 border-dark font-heading font-black text-xs px-2 py-0.5 shrink-0">01</span><span><span data-lang-en>Check the exact website domain and latest official guidelines first.</span><span data-lang-id>Periksa alamat domain situs resmi dan baca panduan terbaru terlebih dahulu.</span></span></div>
+                    <div class="bg-white border-2 border-dark p-4 flex items-start gap-2.5 h-full"><span class="bg-brand-red border-2 border-dark font-heading font-black text-xs px-2 py-0.5 shrink-0">02</span><span><span data-lang-en>Verify official Helpdesk, FAQ, or Admissions contacts before sending personal documents.</span><span data-lang-id>Pastikan keaslian kontak Helpdesk atau Admisi sebelum mengirim dokumen pribadi.</span></span></div>
+                    <div class="bg-white border-2 border-dark p-4 flex items-start gap-2.5 h-full"><span class="bg-brand-red border-2 border-dark font-heading font-black text-xs px-2 py-0.5 shrink-0">03</span><span><span data-lang-en>Be cautious of "guaranteed" scholarship offers and never pay unofficial accounts.</span><span data-lang-id>Waspadai janji "jaminan lolos beasiswa" dan jangan pernah mentransfer uang ke rekening pribadi/tidak resmi.</span></span></div>
+                    <div class="bg-white border-2 border-dark p-4 flex items-start gap-2.5 h-full"><span class="bg-brand-red border-2 border-dark font-heading font-black text-xs px-2 py-0.5 shrink-0">04</span><span><span data-lang-en>Never share passwords or OTP codes; ask one clear question at a time via official channels.</span><span data-lang-id>Jangan pernah membagikan kata sandi atau kode OTP; ajukan pertanyaan singkat dan jelas melalui kanal resmi.</span></span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODULE 8 IN ACTION: 6-ITEM SCHOOL IMPLEMENTATION PLAN & CORE TAKEAWAY -->
+        <section id="implementation" class="space-y-14 sm:space-y-20">
+            <div class="neo-card p-6 sm:p-10 bg-white">
+                <div class="mb-6 pb-4 border-b-3 border-dark flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <span class="bg-brand-indigo text-dark font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark shadow-brutal-sm inline-block mb-1.5">
+                            <span data-lang-en>Module 8: Institutional Action Plan</span>
+                            <span data-lang-id>Modul 8: Rencana Tindak Lanjut Sekolah</span>
+                        </span>
+                        <h2 class="font-heading text-3xl sm:text-4xl font-black uppercase tracking-tight text-dark">
+                            <span data-lang-en>Six Practical Actions for Schools</span>
+                            <span data-lang-id>Enam Langkah Praktis bagi Sekolah</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="border-3 border-dark p-5 bg-brand-cream shadow-brutal-sm flex flex-col justify-between h-full">
+                        <span class="bg-brand-yellow font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark self-start mb-3"><span data-lang-en>Action 01</span><span data-lang-id>Langkah 01</span></span>
+                        <p class="font-heading font-bold text-base sm:text-lg uppercase leading-snug"><span data-lang-en>Help students identify academic interests and set specific learning goals</span><span data-lang-id>Bantu siswa mengenali minat akademik dan menetapkan target belajar yang spesifik</span></p>
+                    </div>
+
+                    <div class="border-3 border-dark p-5 bg-brand-cream shadow-brutal-sm flex flex-col justify-between h-full">
+                        <span class="bg-brand-blue font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark self-start mb-3"><span data-lang-en>Action 02</span><span data-lang-id>Langkah 02</span></span>
+                        <p class="font-heading font-bold text-base sm:text-lg uppercase leading-snug"><span data-lang-en>Introduce official learning platforms, scholarship portals, and university websites</span><span data-lang-id>Kenalkan platform belajar resmi, portal beasiswa, dan situs web universitas</span></p>
+                    </div>
+
+                    <div class="border-3 border-dark p-5 bg-brand-cream shadow-brutal-sm flex flex-col justify-between h-full">
+                        <span class="bg-brand-green font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark self-start mb-3"><span data-lang-en>Action 03</span><span data-lang-id>Langkah 03</span></span>
+                        <p class="font-heading font-bold text-base sm:text-lg uppercase leading-snug"><span data-lang-en>Practise focused searching and evaluating online resources critically</span><span data-lang-id>Latih siswa melakukan pencarian terfokus dan menilai informasi daring secara kritis</span></p>
+                    </div>
+
+                    <div class="border-3 border-dark p-5 bg-brand-cream shadow-brutal-sm flex flex-col justify-between h-full">
+                        <span class="bg-brand-orange font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark self-start mb-3"><span data-lang-en>Action 04</span><span data-lang-id>Langkah 04</span></span>
+                        <p class="font-heading font-bold text-base sm:text-lg uppercase leading-snug"><span data-lang-en>Guide students to check eligibility, language rules, and required documents early</span><span data-lang-id>Bimbing siswa memeriksa syarat kelayakan, aturan bahasa, dan dokumen sejak dini</span></p>
+                    </div>
+
+                    <div class="border-3 border-dark p-5 bg-brand-cream shadow-brutal-sm flex flex-col justify-between h-full">
+                        <span class="bg-brand-teal font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark self-start mb-3"><span data-lang-en>Action 05</span><span data-lang-id>Langkah 05</span></span>
+                        <p class="font-heading font-bold text-base sm:text-lg uppercase leading-snug"><span data-lang-en>Develop English skills for academic study, applications, and professional enquiry emails</span><span data-lang-id>Kembangkan keterampilan bahasa Inggris untuk studi akademik, dokumen aplikasi, dan email resmi</span></p>
+                    </div>
+
+                    <div class="border-3 border-dark p-5 bg-brand-cream shadow-brutal-sm flex flex-col justify-between h-full">
+                        <span class="bg-brand-purple font-heading font-black text-xs sm:text-sm uppercase px-2.5 py-1 border-2 border-dark self-start mb-3"><span data-lang-en>Action 06</span><span data-lang-id>Langkah 06</span></span>
+                        <p class="font-heading font-bold text-base sm:text-lg uppercase leading-snug"><span data-lang-en>Model digital verification habits before trusting announcements or submitting files</span><span data-lang-id>Biasakan verifikasi informasi digital sebelum mempercayai pengumuman atau mengirim berkas</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Takeaway Banner -->
+            <div class="neo-card p-8 sm:p-12 bg-accent text-white shadow-brutal-teal">
+                <span class="bg-highlight text-dark font-heading font-black text-sm sm:text-base uppercase px-3.5 py-1 border-2 border-dark shadow-brutal-sm mb-4 inline-block">
+                    <span data-lang-en>CORE TAKEAWAY</span>
+                    <span data-lang-id>KESIMPULAN UTAMA</span>
+                </span>
+                <h2 class="font-heading text-3xl sm:text-5xl font-black uppercase text-white mb-4 tracking-tight">
+                    <span data-lang-en>Empowering Lifelong Learners</span>
+                    <span data-lang-id>Membentuk Pembelajar Sepanjang Hayat</span>
+                </h2>
+                <p class="text-teal-50 text-xl sm:text-2xl font-medium leading-relaxed max-w-5xl">
+                    <span data-lang-en>Finding an opportunity is only the beginning. By developing research habits, language proficiency, critical evaluation, and initiative, students gain the confidence to understand requirements, prepare strong applications, and ask informed questions throughout their lives.</span>
+                    <span data-lang-id>Menemukan peluang hanyalah langkah awal. Dengan membangun kebiasaan riset, kemahiran bahasa, evaluasi kritis, dan inisiatif, siswa memiliki kepercayaan diri untuk memahami persyaratan, menyiapkan lamaran yang kuat, dan mengajukan pertanyaan yang tepat sepanjang hidup mereka.</span>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center my-12 py-8 border-t-4 border-dark bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <h3 class="text-xl sm:text-3xl font-heading font-black uppercase text-dark flex flex-wrap items-center justify-center gap-3">
+                <span><span data-lang-en>Presentation &amp; Guide Designed by</span><span data-lang-id>Presentasi &amp; Panduan Dirancang oleh</span></span>
+                <a href="https://fajarudinakbar.com" target="_blank" rel="noopener noreferrer" class="bg-highlight px-4 py-2 border-3 border-dark hover:bg-dark hover:text-highlight transition-colors inline-flex items-center gap-2 text-dark font-black shadow-brutal-sm">
+                    fajarudinakbar.com
+                </a>
+            </h3>
+        </div>
+    </footer>
+
+    <!-- FULLSCREEN MODAL CONTENT VIEWER (Style 2 Interactive Presentation Viewer) -->
+    <div id="presentation-modal" class="modal-backdrop fixed inset-0 bg-slate-900/85 z-50 flex items-center justify-center p-3 sm:p-6 backdrop-blur-sm">
+        <div class="modal-content-wrapper bg-white border-4 border-dark w-full max-w-6xl max-h-[92vh] flex flex-col relative shadow-brutal-lg">
+            
+            <!-- Sticky Modal Header with Slide Switcher & Language Toggle -->
+            <div class="bg-dark text-white border-b-4 border-dark p-4 sm:p-5 flex flex-wrap justify-between items-center shrink-0 gap-3">
+                <div class="flex items-center gap-3">
+                    <span class="font-heading font-black uppercase tracking-wider text-base sm:text-xl text-brand-yellow" id="modal-slide-indicator">Presentation Slide Viewer</span>
+                </div>
+                <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                    <div class="inline-flex items-center bg-slate-800 p-1 border border-slate-600 mr-1">
+                        <button onclick="setLanguage('en')" class="lang-switch-btn lang-btn-en px-2.5 py-1 text-xs sm:text-sm font-heading font-black uppercase bg-dark text-white border border-white transition-all">EN</button>
+                        <button onclick="setLanguage('id')" class="lang-switch-btn lang-btn-id px-2.5 py-1 text-xs sm:text-sm font-heading font-black uppercase bg-white text-dark border border-white transition-all ml-1">ID</button>
+                    </div>
+                    <button id="prev-slide-btn" onclick="navigateSlide(-1)" class="bg-slate-800 hover:bg-brand-yellow hover:text-dark text-white border-2 border-white px-4 py-1.5 text-sm sm:text-base font-heading font-black uppercase transition-colors">
+                        &larr; <span data-lang-en>Prev</span><span data-lang-id>Sebelumnya</span>
+                    </button>
+                    <button id="next-slide-btn" onclick="navigateSlide(1)" class="bg-slate-800 hover:bg-brand-yellow hover:text-dark text-white border-2 border-white px-4 py-1.5 text-sm sm:text-base font-heading font-black uppercase transition-colors">
+                        <span data-lang-en>Next</span><span data-lang-id>Berikutnya</span> &rarr;
+                    </button>
+                    <button id="close-modal-btn" onclick="closeModal()" class="bg-brand-red border-2 border-white text-dark w-10 h-10 flex items-center justify-center font-black text-2xl hover:bg-white transition-colors ml-1" aria-label="Close modal">
+                        &times;
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scrollable Modal Body -->
+            <div id="modal-body" class="p-6 sm:p-12 overflow-y-auto modal-scroll flex-grow bg-brand-cream text-dark text-lg sm:text-xl leading-relaxed">
+                <!-- Dynamic Slide Template Content Injected Here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SLIDE TEMPLATES FOR THE 8 PRESENTATION MODULES
+         ========================================== -->
+
+    <!-- MODULE 01 -->
+    <template id="content-01">
+        <div class="flex items-center mb-8 pb-5 border-b-4 border-dark">
+            <div class="h-16 w-16 sm:h-20 sm:w-20 bg-brand-yellow border-3 border-dark flex items-center justify-center font-heading font-black text-3xl sm:text-4xl mr-5 shrink-0 shadow-brutal-sm">01</div>
+            <div>
+                <span class="text-sm sm:text-base font-black uppercase tracking-widest text-accent block"><span data-lang-en>Module 1 of 8</span><span data-lang-id>Modul 1 dari 8</span></span>
+                <h3 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight"><span data-lang-en>Why Independent Learning Matters</span><span data-lang-id>Mengapa Belajar Mandiri Penting</span></h3>
+            </div>
+        </div>
+
+        <p class="font-bold text-xl sm:text-2xl mb-8 bg-dark text-white p-5 border-3 border-dark">
+            <span data-lang-en>Schools prepare students not only for examinations, but also for learning and making decisions beyond formal education.</span>
+            <span data-lang-id>Sekolah menyiapkan siswa bukan hanya untuk menghadapi ujian, tetapi juga untuk terus belajar dan mengambil keputusan setelah lulus.</span>
+        </p>
+
+        <h4 class="font-heading font-black text-xl sm:text-2xl uppercase mb-4"><span data-lang-en>Students Need to Be Able To:</span><span data-lang-id>Siswa Perlu Memiliki Kemampuan Untuk:</span></h4>
+        <div class="grid sm:grid-cols-2 gap-4 mb-8 font-medium text-lg sm:text-xl">
+            <div class="bg-white border-3 border-dark p-4 shadow-brutal-sm flex items-start gap-2.5">
+                <span class="font-black text-accent shrink-0">&bull;</span><span><span data-lang-en>Learn about topics <strong>beyond the school curriculum</strong>.</span><span data-lang-id>Mempelajari topik baru <strong>di luar kurikulum sekolah</strong>.</span></span>
+            </div>
+            <div class="bg-white border-3 border-dark p-4 shadow-brutal-sm flex items-start gap-2.5">
+                <span class="font-black text-accent shrink-0">&bull;</span><span><span data-lang-en>Find information <strong>without being given direct links</strong>.</span><span data-lang-id>Mencari informasi <strong>tanpa harus selalu diberi tautan langsung</strong>.</span></span>
+            </div>
+            <div class="bg-white border-3 border-dark p-4 shadow-brutal-sm flex items-start gap-2.5">
+                <span class="font-black text-accent shrink-0">&bull;</span><span><span data-lang-en>Understand <strong>unfamiliar instructions</strong>.</span><span data-lang-id>Memahami <strong>panduan atau instruksi baru</strong>.</span></span>
+            </div>
+            <div class="bg-white border-3 border-dark p-4 shadow-brutal-sm flex items-start gap-2.5">
+                <span class="font-black text-accent shrink-0">&bull;</span><span><span data-lang-en>Explore <strong>academic and career pathways</strong>.</span><span data-lang-id>Menelusuri <strong>jalur studi lanjut dan karier</strong>.</span></span>
+            </div>
+            <div class="bg-white border-3 border-dark p-4 shadow-brutal-sm flex items-start gap-2.5">
+                <span class="font-black text-accent shrink-0">&bull;</span><span><span data-lang-en>Communicate with <strong>universities and institutions</strong>.</span><span data-lang-id>Berkomunikasi secara sopan dengan <strong>universitas dan lembaga resmi</strong>.</span></span>
+            </div>
+            <div class="bg-white border-3 border-dark p-4 shadow-brutal-sm flex items-start gap-2.5">
+                <span class="font-black text-accent shrink-0">&bull;</span><span><span data-lang-en>Adapt to <strong>changing expectations and opportunities</strong>.</span><span data-lang-id>Beradaptasi dengan <strong>perubahan tuntutan dan peluang baru</strong>.</span></span>
+            </div>
+        </div>
+
+        <div class="bg-brand-yellow border-3 border-dark p-6 sm:p-8 shadow-brutal">
+            <h4 class="font-heading font-black uppercase text-2xl sm:text-3xl mb-4">
+                <span data-lang-en>Discussion Questions for School Representatives</span>
+                <span data-lang-id>Bahan Diskusi untuk Perwakilan Sekolah</span>
+            </h4>
+            <ul class="space-y-3 font-bold text-lg sm:text-xl">
+                <li class="bg-white border-2 border-dark p-4 flex items-start gap-3"><span class="font-heading font-black text-accent shrink-0">01.</span><span><span data-lang-en>How often do students take the initiative to find learning resources?</span><span data-lang-id>Seberapa sering siswa berinisiatif mencari sumber belajar sendiri?</span></span></li>
+                <li class="bg-white border-2 border-dark p-4 flex items-start gap-3"><span class="font-heading font-black text-accent shrink-0">02.</span><span><span data-lang-en>Can they search for information without being given a direct link?</span><span data-lang-id>Dapatkah mereka mencari informasi tanpa diberikan tautan langsung?</span></span></li>
+                <li class="bg-white border-2 border-dark p-4 flex items-start gap-3"><span class="font-heading font-black text-accent shrink-0">03.</span><span><span data-lang-en>Can they identify reliable information?</span><span data-lang-id>Dapatkah mereka membedakan informasi yang tepercaya?</span></span></li>
+                <li class="bg-white border-2 border-dark p-4 flex items-start gap-3"><span class="font-heading font-black text-accent shrink-0">04.</span><span><span data-lang-en>Do they know where and how to ask for help?</span><span data-lang-id>Apakah mereka tahu ke mana dan bagaimana cara meminta bantuan dengan tepat?</span></span></li>
+            </ul>
+        </div>
+    </template>
+
+    <!-- MODULE 02 -->
+    <template id="content-02">
+        <div class="flex items-center mb-8 pb-5 border-b-4 border-dark">
+            <div class="h-16 w-16 sm:h-20 sm:w-20 bg-brand-blue border-3 border-dark flex items-center justify-center font-heading font-black text-3xl sm:text-4xl mr-5 shrink-0 shadow-brutal-sm">02</div>
+            <div>
+                <span class="text-sm sm:text-base font-black uppercase tracking-widest text-accent block"><span data-lang-en>Module 2 of 8</span><span data-lang-id>Modul 2 dari 8</span></span>
+                <h3 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight"><span data-lang-en>Understanding Independent Learning</span><span data-lang-id>Memahami Belajar Mandiri</span></h3>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-rose-100 border-3 border-dark p-6">
+                <h4 class="font-heading font-black text-xl sm:text-2xl uppercase mb-4 bg-white px-3.5 py-1 border-2 border-dark inline-block"><span data-lang-en>Passive Behaviours</span><span data-lang-id>Perilaku Belajar Pasif</span></h4>
+                <ul class="space-y-3 text-lg sm:text-xl font-bold text-rose-950">
+                    <li class="flex items-start gap-2.5"><span class="shrink-0">&bull;</span><span><span data-lang-en>Waiting for resources and instructions.</span><span data-lang-id>Menunggu materi dan instruksi diberikan.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="shrink-0">&bull;</span><span><span data-lang-en>Accepting information without checking its reliability.</span><span data-lang-id>Menerima informasi begitu saja tanpa memeriksa kebenarannya.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="shrink-0">&bull;</span><span><span data-lang-en>Giving up when instructions are unclear.</span><span data-lang-id>Mudah menyerah saat menemui petunjuk yang belum jelas.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="shrink-0">&bull;</span><span><span data-lang-en>Studying only when required or reminded.</span><span data-lang-id>Belajar hanya ketika disuruh atau diingatkan.</span></span></li>
+                </ul>
+            </div>
+            <div class="bg-emerald-100 border-3 border-dark p-6">
+                <h4 class="font-heading font-black text-xl sm:text-2xl uppercase mb-4 bg-white px-3.5 py-1 border-2 border-dark inline-block"><span data-lang-en>Independent Behaviours</span><span data-lang-id>Perilaku Belajar Mandiri</span></h4>
+                <ul class="space-y-3 text-lg sm:text-xl font-bold text-emerald-950">
+                    <li class="flex items-start gap-2.5"><span class="shrink-0">&bull;</span><span><span data-lang-en>Searching for relevant resources and possible next steps.</span><span data-lang-id>Mencari sumber belajar yang relevan dan menentukan langkah berikutnya.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="shrink-0">&bull;</span><span><span data-lang-en>Checking the reliability and relevance of information.</span><span data-lang-id>Memeriksa keakuratan dan relevansi informasi dari sumber resmi.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="shrink-0">&bull;</span><span><span data-lang-en>Exploring alternatives and asking questions.</span><span data-lang-id>Mencari alternatif solusi dan berani bertanya secara jelas.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="shrink-0">&bull;</span><span><span data-lang-en>Setting personal goals and managing deadlines.</span><span data-lang-id>Menetapkan target belajar pribadi dan mengatur jadwal/tenggat waktu.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="shrink-0">&bull;</span><span><span data-lang-en>Taking responsibility for following up on opportunities.</span><span data-lang-id>Bertanggung jawab menindaklanjuti peluang yang ditemukan.</span></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bg-dark text-white p-6 sm:p-8 border-3 border-dark text-center">
+            <span class="bg-brand-yellow text-dark font-heading font-black text-sm sm:text-base uppercase px-3.5 py-1 inline-block mb-3"><span data-lang-en>Key Message</span><span data-lang-id>Pesan Utama</span></span>
+            <p class="font-heading font-black text-xl sm:text-3xl uppercase leading-snug">
+                <span data-lang-en>"The goal is not to make students independent of teachers. It is to help them become more confident in making decisions and taking action without needing constant instructions."</span>
+                <span data-lang-id>"Tujuannya bukan membuat siswa tidak membutuhkan guru, melainkan membantu mereka lebih percaya diri dalam mengambil keputusan dan bertindak tanpa harus terus-menerus menunggu instruksi."</span>
+            </p>
+        </div>
+    </template>
+
+    <!-- MODULE 03 -->
+    <template id="content-03">
+        <div class="flex items-center mb-8 pb-5 border-b-4 border-dark">
+            <div class="h-16 w-16 sm:h-20 sm:w-20 bg-brand-green border-3 border-dark flex items-center justify-center font-heading font-black text-3xl sm:text-4xl mr-5 shrink-0 shadow-brutal-sm">03</div>
+            <div>
+                <span class="text-sm sm:text-base font-black uppercase tracking-widest text-accent block"><span data-lang-en>Module 3 of 8</span><span data-lang-id>Modul 3 dari 8</span></span>
+                <h3 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight"><span data-lang-en>Core Independent Study Skills</span><span data-lang-id>Keterampilan Inti Belajar Mandiri</span></h3>
+            </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5 mb-8">
+            <div class="bg-white border-3 border-dark p-6 shadow-brutal-sm">
+                <span class="bg-brand-yellow font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block mb-3"><span data-lang-en>A. Setting Specific Goals</span><span data-lang-id>A. Menetapkan Target Spesifik</span></span>
+                <p class="text-lg sm:text-xl font-medium text-slate-900">
+                    <span data-lang-en>Replace general intentions such as "improve English" with clear targets, realistic timeframes, and regular progress checks.</span>
+                    <span data-lang-id>Ubah niat umum seperti "ingin lancar bahasa Inggris" menjadi target keterampilan yang spesifik, berbatas waktu realistis, dan dievaluasi rutin.</span>
+                </p>
+            </div>
+
+            <div class="bg-white border-3 border-dark p-6 shadow-brutal-sm">
+                <span class="bg-brand-blue font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block mb-3"><span data-lang-en>B. Managing Time</span><span data-lang-id>B. Mengatur Waktu Belajar</span></span>
+                <p class="text-lg sm:text-xl font-medium text-slate-900">
+                    <span data-lang-en>Break large tasks into smaller steps, prioritise deadlines, and maintain a balanced study routine.</span>
+                    <span data-lang-id>Pecah tugas besar menjadi langkah-langkah kecil, prioritaskan tenggat waktu, dan bangun rutinitas belajar yang teratur.</span>
+                </p>
+            </div>
+
+            <div class="bg-white border-3 border-dark p-6 shadow-brutal-sm">
+                <span class="bg-brand-orange font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block mb-3"><span data-lang-en>C. Reading with a Purpose</span><span data-lang-id>C. Membaca secara Efektif</span></span>
+                <p class="text-lg sm:text-xl font-medium text-slate-900">
+                    <span data-lang-en>Practise skimming for general information, scanning for details, summarising in their own words, and organising digital notes.</span>
+                    <span data-lang-id>Latih teknik skimming untuk gambaran umum, scanning untuk mencari detail penting, merangkum dengan kalimat sendiri, dan merapikan catatan digital.</span>
+                </p>
+            </div>
+
+            <div class="bg-white border-3 border-dark p-6 shadow-brutal-sm">
+                <span class="bg-brand-purple font-heading font-black text-sm sm:text-base uppercase px-3 py-1 border-2 border-dark inline-block mb-3"><span data-lang-en>D. Retrieval &amp; Review</span><span data-lang-id>D. Mengingat Kembali &amp; Evaluasi</span></span>
+                <p class="text-lg sm:text-xl font-medium text-slate-900">
+                    <span data-lang-en>Practise recalling information without looking at notes, using new vocabulary in context, reviewing at spaced intervals, and checking progress.</span>
+                    <span data-lang-id>Latih mengingat materi tanpa melihat catatan, gunakan kosakata baru dalam kalimat, ulangi secara berkala, dan periksa perkembangan belajar.</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="bg-brand-green border-3 border-dark p-6">
+            <strong class="font-heading font-black uppercase text-dark text-xl block mb-1.5"><span data-lang-en>School Application:</span><span data-lang-id>Penerapan di Sekolah:</span></strong>
+            <p class="text-lg sm:text-xl font-bold text-slate-900">
+                <span data-lang-en>Introduce short independent learning tasks into regular lessons. Ask students to set a goal, complete a task, and reflect on what they have learned.</span>
+                <span data-lang-id>Sisipkan tugas belajar mandiri singkat di kelas reguler. Minta siswa menetapkan satu target kecil, menyelesaikan tugas, lalu merefleksikan apa yang telah dipelajari.</span>
+            </p>
+        </div>
+    </template>
+
+    <!-- MODULE 04 -->
+    <template id="content-04">
+        <div class="flex items-center mb-8 pb-5 border-b-4 border-dark">
+            <div class="h-16 w-16 sm:h-20 sm:w-20 bg-brand-orange border-3 border-dark flex items-center justify-center font-heading font-black text-3xl sm:text-4xl mr-5 shrink-0 shadow-brutal-sm">04</div>
+            <div>
+                <span class="text-sm sm:text-base font-black uppercase tracking-widest text-accent block"><span data-lang-en>Module 4 of 8</span><span data-lang-id>Modul 4 dari 8</span></span>
+                <h3 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight"><span data-lang-en>Finding &amp; Evaluating Learning Resources</span><span data-lang-id>Mencari &amp; Menilai Sumber Belajar</span></h3>
+            </div>
+        </div>
+
+        <div class="bg-white border-3 border-dark p-6 mb-6">
+            <h4 class="font-heading font-black uppercase text-xl sm:text-2xl mb-4 text-accent"><span data-lang-en>Four Online Learning Platforms</span><span data-lang-id>Empat Platform Belajar Daring</span></h4>
+            <div class="grid sm:grid-cols-2 gap-4 text-base sm:text-lg font-medium">
+                <div class="p-4 bg-brand-cream border-2 border-dark">
+                    <strong class="font-heading uppercase block text-lg sm:text-xl">OpenLearn</strong>
+                    <span data-lang-en>Free learning resources and courses from The Open University.</span>
+                    <span data-lang-id>Materi belajar dan kursus gratis dari The Open University.</span>
+                </div>
+                <div class="p-4 bg-brand-cream border-2 border-dark">
+                    <strong class="font-heading uppercase block text-lg sm:text-xl">FutureLearn</strong>
+                    <span data-lang-en>Online courses from universities and other educational organisations.</span>
+                    <span data-lang-id>Kursus daring dari berbagai universitas dan lembaga pendidikan.</span>
+                </div>
+                <div class="p-4 bg-brand-cream border-2 border-dark">
+                    <strong class="font-heading uppercase block text-lg sm:text-xl">Coursera</strong>
+                    <span data-lang-en>Courses and professional learning programmes from universities and industry partners.</span>
+                    <span data-lang-id>Kursus dan program profesional dari universitas serta mitra industri.</span>
+                </div>
+                <div class="p-4 bg-brand-cream border-2 border-dark">
+                    <strong class="font-heading uppercase block text-lg sm:text-xl">edX</strong>
+                    <span data-lang-en>Online courses and programmes from universities and other institutions.</span>
+                    <span data-lang-id>Kursus dan program belajar daring dari universitas terkemuka dunia.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white border-3 border-dark p-6 mb-6">
+            <h4 class="font-heading font-black uppercase text-xl sm:text-2xl mb-4"><span data-lang-en>Seven Checks for Evaluating a Resource:</span><span data-lang-id>Tujuh Langkah Menilai Sumber Belajar:</span></h4>
+            <div class="grid sm:grid-cols-2 gap-3 text-base sm:text-lg font-bold">
+                <div class="p-3.5 bg-slate-100 border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">01.</span><span><span data-lang-en>Provider: Who created or provides the resource?</span><span data-lang-id>Penyedia: Siapa institusi yang membuat materi ini?</span></span></div>
+                <div class="p-3.5 bg-slate-100 border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">02.</span><span><span data-lang-en>Level: Is it appropriate for the learner's current level?</span><span data-lang-id>Tingkat: Apakah sesuai dengan level kemampuan siswa?</span></span></div>
+                <div class="p-3.5 bg-slate-100 border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">03.</span><span><span data-lang-en>Objectives: What will the learner be able to do?</span><span data-lang-id>Tujuan: Keterampilan apa yang akan dikuasai?</span></span></div>
+                <div class="p-3.5 bg-slate-100 border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">04.</span><span><span data-lang-en>Tasks &amp; assessment: Does it include meaningful practice?</span><span data-lang-id>Latihan: Apakah ada latihan atau evaluasi yang bermakna?</span></span></div>
+                <div class="p-3.5 bg-slate-100 border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">05.</span><span><span data-lang-en>Time required: How much time is needed?</span><span data-lang-id>Waktu: Berapa jam/minggu waktu belajar yang dibutuhkan?</span></span></div>
+                <div class="p-3.5 bg-slate-100 border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">06.</span><span><span data-lang-en>Cost: Which parts are free and which require payment?</span><span data-lang-id>Biaya: Bagian mana yang gratis dan mana yang berbayar?</span></span></div>
+                <div class="p-3.5 bg-amber-100 border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">07.</span><span><span data-lang-en>Certificate: What does it represent, and who recognises it?</span><span data-lang-id>Sertifikat: Apa arti sertifikatnya dan siapa yang mengakuinya?</span></span></div>
+                <div class="p-3.5 bg-amber-50 border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-dark shrink-0">&rarr;</span><span><span data-lang-en>Focus: Prioritise understanding and application over certificates.</span><span data-lang-id>Fokus: Utamakan pemahaman dan keterampilan nyata, bukan sekadar sertifikat.</span></span></div>
+            </div>
+        </div>
+
+        <div class="bg-dark text-white p-5 border-3 border-dark text-center font-heading font-black uppercase text-base sm:text-xl">
+            <span data-lang-en>Key Message: Completing a course or receiving a certificate does not automatically mean that learning has taken place. Students should focus on what they understand and can apply.</span>
+            <span data-lang-id>Pesan Utama: Menyelesaikan kursus atau mendapat sertifikat tidak otomatis berarti sudah menguasai materi. Siswa harus fokus pada apa yang benar-benar dipahami dan bisa diterapkan.</span>
+        </div>
+    </template>
+
+    <!-- MODULE 05 -->
+    <template id="content-05">
+        <div class="flex items-center mb-8 pb-5 border-b-4 border-dark">
+            <div class="h-16 w-16 sm:h-20 sm:w-20 bg-brand-teal border-3 border-dark flex items-center justify-center font-heading font-black text-3xl sm:text-4xl mr-5 shrink-0 shadow-brutal-sm">05</div>
+            <div>
+                <span class="text-sm sm:text-base font-black uppercase tracking-widest text-accent block"><span data-lang-en>Module 5 of 8</span><span data-lang-id>Modul 5 dari 8</span></span>
+                <h3 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight"><span data-lang-en>English as a Tool for Learning</span><span data-lang-id>Bahasa Inggris sebagai Alat Belajar</span></h3>
+            </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5 mb-6">
+            <div class="bg-teal-50 border-3 border-dark p-6">
+                <h4 class="font-heading font-black text-xl sm:text-2xl uppercase mb-2"><span data-lang-en>Learning English</span><span data-lang-id>Belajar Bahasa Inggris</span></h4>
+                <p class="text-lg sm:text-xl font-medium text-slate-900">
+                    <span data-lang-en>Develops the ability to read academic materials, participate in webinars, write, discuss ideas, and communicate across contexts.</span>
+                    <span data-lang-id>Membangun kemampuan membaca referensi akademik, mengikuti seminar internasional, menulis esai, dan berkomunikasi secara efektif.</span>
+                </p>
+            </div>
+            <div class="bg-amber-50 border-3 border-dark p-6">
+                <h4 class="font-heading font-black text-xl sm:text-2xl uppercase mb-2"><span data-lang-en>Proficiency Testing</span><span data-lang-id>Tes Kemahiran Bahasa</span></h4>
+                <p class="text-lg sm:text-xl font-medium text-slate-900">
+                    <span data-lang-en>Provides formal evidence of English ability for a specific university admission, scholarship, or placement requirement.</span>
+                    <span data-lang-id>Memberikan bukti skor resmi kemampuan bahasa Inggris untuk syarat pendaftaran universitas, beasiswa, atau penempatan.</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="bg-white border-3 border-dark p-6 mb-6">
+            <h4 class="font-heading font-black uppercase text-xl sm:text-2xl mb-4"><span data-lang-en>Strategic Test Selection (See Main Comparison Table):</span><span data-lang-id>Memilih Tes secara Tepat (Lihat Tabel Perbandingan Utama):</span></h4>
+            <ul class="space-y-3 text-lg sm:text-xl font-bold text-slate-900">
+                <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Check the exact accepted test, minimum overall score, sub-scores, and validity period on the target university or scholarship website before booking.</span><span data-lang-id>Periksa jenis tes yang diterima, skor minimum total, skor per bagian, serta masa berlaku sertifikat di situs resmi kampus atau beasiswa sebelum mendaftar tes.</span></span></li>
+                <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Institutional or workplace tests (such as TOEFL ITP or TOEIC) should not be assumed to meet international degree admission requirements.</span><span data-lang-id>Tes institusional atau kesiapan kerja (seperti TOEFL ITP atau TOEIC) tidak selalu diterima untuk pendaftaran kuliah di luar negeri—pastikan syarat resminya terlebih dahulu.</span></span></li>
+            </ul>
+        </div>
+
+        <div class="bg-dark text-white p-5 border-3 border-dark text-center font-heading font-black uppercase text-base sm:text-xl">
+            <span data-lang-en>Key Message: Choose a test based on the actual requirement, not simply because it is familiar or widely advertised.</span>
+            <span data-lang-id>Pesan Utama: Pilih tes berdasarkan persyaratan resmi lembaga tujuan, bukan sekadar karena populer atau sering diiklankan.</span>
+        </div>
+    </template>
+
+    <!-- MODULE 06 -->
+    <template id="content-06">
+        <div class="flex items-center mb-8 pb-5 border-b-4 border-dark">
+            <div class="h-16 w-16 sm:h-20 sm:w-20 bg-brand-pink border-3 border-dark flex items-center justify-center font-heading font-black text-3xl sm:text-4xl mr-5 shrink-0 shadow-brutal-sm">06</div>
+            <div>
+                <span class="text-sm sm:text-base font-black uppercase tracking-widest text-accent block"><span data-lang-en>Module 6 of 8</span><span data-lang-id>Modul 6 dari 8</span></span>
+                <h3 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight"><span data-lang-en>Searching for Opportunities</span><span data-lang-id>Mencari Peluang Pendidikan</span></h3>
+            </div>
+        </div>
+
+        <h4 class="font-heading font-black uppercase text-xl sm:text-2xl mb-3"><span data-lang-en>Moving from Broad to Focused Searches:</span><span data-lang-id>Dari Pencarian Umum ke Pencarian Terfokus:</span></h4>
+        <div class="overflow-x-auto mb-6">
+            <table class="w-full border-collapse border-3 border-dark text-left text-base sm:text-xl">
+                <thead>
+                    <tr class="bg-dark text-white font-heading uppercase">
+                        <th class="p-4 border-r-2 border-slate-700 w-1/3"><span data-lang-en>Broad Search</span><span data-lang-id>Kata Kunci Terlalu Umum</span></th>
+                        <th class="p-4"><span data-lang-en>More Focused Search</span><span data-lang-id>Kata Kunci Lebih Terfokus</span></th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y-2 divide-dark bg-white font-bold">
+                    <tr>
+                        <td class="p-3.5 border-r-2 border-dark text-rose-800">Scholarship</td>
+                        <td class="p-3.5 text-emerald-900">Undergraduate scholarship for Indonesian students</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3.5 border-r-2 border-dark text-rose-800">Study abroad</td>
+                        <td class="p-3.5 text-emerald-900">English-taught master's programme in Germany</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3.5 border-r-2 border-dark text-rose-800">University</td>
+                        <td class="p-3.5 text-emerald-900">University admission requirements for international students</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3.5 border-r-2 border-dark text-rose-800">English requirement</td>
+                        <td class="p-3.5 text-emerald-900">Accepted English tests for a specific degree programme</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+            <div class="bg-white border-3 border-dark p-5">
+                <h5 class="font-heading font-black uppercase text-base sm:text-lg mb-3 bg-brand-yellow px-3 py-1 border-2 border-dark inline-block"><span data-lang-en>Opportunity Categories</span><span data-lang-id>Kategori Peluang</span></h5>
+                <ul class="text-base sm:text-lg space-y-2 font-bold text-slate-900">
+                    <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Domestic scholarships (LPDP, KIP Kuliah, Beasiswa Garuda, Beasiswa Unggulan, Talenta Indonesia, BIB)</span><span data-lang-id>Beasiswa pemerintah Indonesia (LPDP, KIP Kuliah, Beasiswa Garuda, Beasiswa Unggulan, Talenta Indonesia, BIB)</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>International scholarships (Australia Awards, Fulbright, Chevening, Erasmus Mundus, MEXT, GKS)</span><span data-lang-id>Beasiswa internasional (Australia Awards, Fulbright, Chevening, Erasmus Mundus, MEXT, GKS)</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>University admission opportunities</span><span data-lang-id>Jalur pendaftaran langsung universitas</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Online academic programmes</span><span data-lang-id>Program kursus akademik daring</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Competitions, exchange programmes, and youth initiatives</span><span data-lang-id>Kompetisi, pertukaran pelajar, dan program kepemudaan</span></span></li>
+                </ul>
+            </div>
+            <div class="bg-white border-3 border-dark p-5">
+                <h5 class="font-heading font-black uppercase text-base sm:text-lg mb-3 bg-brand-teal px-3 py-1 border-2 border-dark inline-block"><span data-lang-en>Read Before You Apply (6 Steps)</span><span data-lang-id>Baca Sebelum Mendaftar (6 Langkah)</span></h5>
+                <ol class="text-base sm:text-lg space-y-2 font-bold text-slate-900">
+                    <li class="flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">01.</span><span><span data-lang-en>Find the official website</span><span data-lang-id>Temukan situs web resmi</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">02.</span><span><span data-lang-en>Open the latest application guidelines</span><span data-lang-id>Buka buku panduan pendaftaran terbaru</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">03.</span><span><span data-lang-en>Check eligibility</span><span data-lang-id>Periksa syarat kelayakan</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">04.</span><span><span data-lang-en>Check required documents &amp; certified translations</span><span data-lang-id>Periksa daftar dokumen &amp; syarat terjemahan resmi</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">05.</span><span><span data-lang-en>Check language requirements</span><span data-lang-id>Pastikan syarat skor bahasa</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">06.</span><span><span data-lang-en>Check the timeline</span><span data-lang-id>Catat jadwal dan tenggat waktu</span></span></li>
+                </ol>
+            </div>
+        </div>
+    </template>
+
+    <!-- MODULE 07 -->
+    <template id="content-07">
+        <div class="flex items-center mb-8 pb-5 border-b-4 border-dark">
+            <div class="h-16 w-16 sm:h-20 sm:w-20 bg-brand-purple border-3 border-dark flex items-center justify-center font-heading font-black text-3xl sm:text-4xl mr-5 shrink-0 shadow-brutal-sm">07</div>
+            <div>
+                <span class="text-sm sm:text-base font-black uppercase tracking-widest text-accent block"><span data-lang-en>Module 7 of 8</span><span data-lang-id>Modul 7 dari 8</span></span>
+                <h3 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight"><span data-lang-en>Communicating &amp; Finding Support</span><span data-lang-id>Berkomunikasi &amp; Mencari Bantuan</span></h3>
+            </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5 mb-6">
+            <div class="bg-white border-3 border-dark p-5">
+                <h4 class="font-heading font-black uppercase text-base sm:text-lg mb-3 bg-brand-yellow px-3 py-1 border-2 border-dark inline-block"><span data-lang-en>How to Contact Official Support</span><span data-lang-id>Cara Menghubungi Layanan Resmi</span></h4>
+                <ul class="text-base sm:text-lg space-y-2 font-bold text-slate-900">
+                    <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Check the latest official guidelines and FAQ pages first.</span><span data-lang-id>Baca panduan terbaru dan halaman Tanya Jawab (FAQ) terlebih dahulu.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Locate the right desk: Admissions, International Office, or Scholarship Helpdesk.</span><span data-lang-id>Hubungi bagian yang tepat: Admisi Kampus, Kantor Internasional, atau Helpdesk Beasiswa.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Use only contact details published on official domains.</span><span data-lang-id>Gunakan hanya alamat kontak yang tercantum di situs web resmi.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-accent font-black shrink-0">&bull;</span><span><span data-lang-en>Ask one clear, specific question at a time.</span><span data-lang-id>Ajukan pertanyaan secara singkat, jelas, dan spesifik.</span></span></li>
+                </ul>
+            </div>
+            <div class="bg-white border-3 border-dark p-5">
+                <h4 class="font-heading font-black uppercase text-base sm:text-lg mb-3 bg-brand-red px-3 py-1 border-2 border-dark inline-block"><span data-lang-en>Fraud Prevention Reminders</span><span data-lang-id>Pencegahan Penipuan</span></h4>
+                <ul class="text-base sm:text-lg space-y-2 font-bold text-slate-900">
+                    <li class="flex items-start gap-2.5"><span class="text-rose-700 font-black shrink-0">&bull;</span><span><span data-lang-en>Verify the exact website domain before uploading personal documents.</span><span data-lang-id>Pastikan alamat domain situs resmi sebelum mengunggah dokumen pribadi.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-rose-700 font-black shrink-0">&bull;</span><span><span data-lang-en>Be cautious of "guaranteed" scholarship offers.</span><span data-lang-id>Waspadai pihak yang menjanjikan "kelulusan beasiswa 100%".</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-rose-700 font-black shrink-0">&bull;</span><span><span data-lang-en>Never transfer money to unofficial individuals or accounts.</span><span data-lang-id>Jangan pernah mentransfer uang ke rekening pribadi atau pihak tidak resmi.</span></span></li>
+                    <li class="flex items-start gap-2.5"><span class="text-rose-700 font-black shrink-0">&bull;</span><span><span data-lang-en>Never share passwords or verification codes.</span><span data-lang-id>Jangan pernah memberikan kata sandi akun atau kode OTP kepada siapa pun.</span></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bg-brand-cream border-3 border-dark p-5">
+            <h4 class="font-heading font-black uppercase text-lg sm:text-xl mb-2"><span data-lang-en>Enquiry Email Checklist (See Full Sample on Page):</span><span data-lang-id>Komponen Email Pertanyaan Resmi (Lihat Contoh Lengkap di Halaman):</span></h4>
+            <div class="grid sm:grid-cols-2 gap-3 text-base sm:text-lg font-bold text-slate-900">
+                <div class="bg-white border-2 border-dark p-3 flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">01.</span><span><span data-lang-en>Clear subject line &amp; polite salutation</span><span data-lang-id>Subjek email yang jelas &amp; salam pembuka yang sopan</span></span></div>
+                <div class="bg-white border-2 border-dark p-3 flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">02.</span><span><span data-lang-en>Exact programme name &amp; intended intake</span><span data-lang-id>Nama program studi yang dituju secara spesifik</span></span></div>
+                <div class="bg-white border-2 border-dark p-3 flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">03.</span><span><span data-lang-en>Specific question not answered on the website</span><span data-lang-id>Pertanyaan spesifik yang belum tercantum di situs web</span></span></div>
+                <div class="bg-white border-2 border-dark p-3 flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">04.</span><span><span data-lang-en>Professional sign-off &amp; full name</span><span data-lang-id>Penutup yang sopan beserta nama lengkap</span></span></div>
+            </div>
+        </div>
+    </template>
+
+    <!-- MODULE 08 -->
+    <template id="content-08">
+        <div class="flex items-center mb-8 pb-5 border-b-4 border-dark">
+            <div class="h-16 w-16 sm:h-20 sm:w-20 bg-brand-indigo border-3 border-dark flex items-center justify-center font-heading font-black text-3xl sm:text-4xl mr-5 shrink-0 shadow-brutal-sm">08</div>
+            <div>
+                <span class="text-sm sm:text-base font-black uppercase tracking-widest text-accent block"><span data-lang-en>Module 8 of 8</span><span data-lang-id>Modul 8 dari 8</span></span>
+                <h3 class="font-heading font-black text-3xl sm:text-5xl uppercase tracking-tight"><span data-lang-en>School Implementation</span><span data-lang-id>Penerapan di Sekolah</span></h3>
+            </div>
+        </div>
+
+        <div class="bg-white border-3 border-dark p-6 mb-6">
+            <h4 class="font-heading font-black uppercase text-lg sm:text-xl mb-4 bg-brand-yellow px-3.5 py-1 border-2 border-dark inline-block"><span data-lang-en>Six Practical Actions for Schools</span><span data-lang-id>Enam Langkah Praktis bagi Sekolah</span></h4>
+            <div class="grid sm:grid-cols-2 gap-4 text-base sm:text-lg font-bold text-slate-900">
+                <div class="p-4 bg-brand-cream border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">01.</span><span><span data-lang-en>Help students identify academic interests and set specific learning goals.</span><span data-lang-id>Bantu siswa mengenali minat akademik dan menetapkan target belajar yang spesifik.</span></span></div>
+                <div class="p-4 bg-brand-cream border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">02.</span><span><span data-lang-en>Introduce official learning platforms, scholarship portals, and university websites.</span><span data-lang-id>Kenalkan platform belajar resmi, portal beasiswa, dan situs web universitas.</span></span></div>
+                <div class="p-4 bg-brand-cream border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">03.</span><span><span data-lang-en>Practise focused searching and evaluating online resources critically.</span><span data-lang-id>Latih siswa melakukan pencarian terfokus dan menilai informasi daring secara kritis.</span></span></div>
+                <div class="p-4 bg-brand-cream border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">04.</span><span><span data-lang-en>Guide students to check eligibility, language rules, and required documents early.</span><span data-lang-id>Bimbing siswa memeriksa syarat kelayakan, aturan bahasa, dan dokumen sejak dini.</span></span></div>
+                <div class="p-4 bg-brand-cream border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">05.</span><span><span data-lang-en>Develop English skills for academic study, applications, and professional enquiry emails.</span><span data-lang-id>Kembangkan keterampilan bahasa Inggris untuk studi akademik, dokumen aplikasi, dan email resmi.</span></span></div>
+                <div class="p-4 bg-brand-cream border-2 border-dark flex items-start gap-2.5"><span class="font-heading font-black text-accent shrink-0">06.</span><span><span data-lang-en>Model digital verification habits before trusting announcements or submitting files.</span><span data-lang-id>Biasakan verifikasi informasi digital sebelum mempercayai pengumuman atau mengirim berkas.</span></span></div>
+            </div>
+        </div>
+
+        <div class="bg-dark text-white p-6 sm:p-8 border-3 border-dark text-center">
+            <p class="font-heading font-black text-2xl sm:text-4xl uppercase text-brand-yellow mb-3">
+                <span data-lang-en>Empowering Lifelong Learners</span>
+                <span data-lang-id>Membentuk Pembelajar Sepanjang Hayat</span>
+            </p>
+            <p class="text-lg sm:text-xl font-medium text-slate-100">
+                <span data-lang-en>Finding an opportunity is only the beginning. Students also need the skills to understand requirements, prepare applications, ask the right questions, and follow the process.</span>
+                <span data-lang-id>Menemukan peluang hanyalah langkah awal. Siswa juga memerlukan keterampilan untuk memahami persyaratan, menyiapkan berkas lamaran, mengajukan pertanyaan yang tepat, dan mengikuti prosesnya dengan tuntas.</span>
+            </p>
+        </div>
+    </template>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize default language on root html element
+        document.documentElement.setAttribute('data-lang', 'en');
+        let currentLang = 'en';
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Language Switcher Function
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.setAttribute('data-lang', lang);
+            document.documentElement.setAttribute('lang', lang);
+
+            document.querySelectorAll('.lang-btn-en').forEach(btn => {
+                if (lang === 'en') {
+                    btn.classList.remove('bg-white', 'text-dark');
+                    btn.classList.add('bg-dark', 'text-white');
+                } else {
+                    btn.classList.remove('bg-dark', 'text-white');
+                    btn.classList.add('bg-white', 'text-dark');
+                }
+            });
+
+            document.querySelectorAll('.lang-btn-id').forEach(btn => {
+                if (lang === 'id') {
+                    btn.classList.remove('bg-white', 'text-dark');
+                    btn.classList.add('bg-dark', 'text-white');
+                } else {
+                    btn.classList.remove('bg-dark', 'text-white');
+                    btn.classList.add('bg-white', 'text-dark');
+                }
+            });
+
+            if (modal && modal.classList.contains('is-open')) {
+                updateSlideIndicatorText();
+            }
+        }
+
+        function updateSlideIndicatorText() {
+            const label = currentLang === 'id' ? 'Modul' : 'Module';
+            slideIndicator.textContent = `${label} 0${currentSlideIndex + 1} / 0${slideIds.length}`;
+        }
+
+        // Slide list for modal navigation
+        const slideIds = [
+            'content-01', 'content-02', 'content-03', 'content-04',
+            'content-05', 'content-06', 'content-07', 'content-08'
+        ];
+        let currentSlideIndex = 0;
+
+        const modal = document.getElementById('presentation-modal');
+        const modalBody = document.getElementById('modal-body');
+        const slideIndicator = document.getElementById('modal-slide-indicator');
+
+        function openModal(targetId) {
+            const idx = slideIds.indexOf(targetId);
+            if (idx !== -1) currentSlideIndex = idx;
+            renderSlide();
+            modal.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function renderSlide() {
+            const targetId = slideIds[currentSlideIndex];
+            const template = document.getElementById(targetId);
+            if (template) {
+                modalBody.innerHTML = '';
+                modalBody.appendChild(template.content.cloneNode(true));
+                updateSlideIndicatorText();
+                lucide.createIcons({ root: modalBody });
+                modalBody.scrollTop = 0;
+            }
+        }
+
+        function navigateSlide(direction) {
+            currentSlideIndex = (currentSlideIndex + direction + slideIds.length) % slideIds.length;
+            renderSlide();
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on backdrop click or Escape/Arrow keys
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('is-open')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') navigateSlide(1);
+            if (e.key === 'ArrowLeft') navigateSlide(-1);
+        });
+
+        // Interactive Filter for Learning Platforms
+        function filterPlatforms(category) {
+            const cards = document.querySelectorAll('.platform-card');
+            const buttons = document.querySelectorAll('.plat-filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-dark', 'text-white');
+                btn.classList.add('bg-white', 'text-dark');
+            });
+
+            const activeBtn = document.getElementById(`btn-plat-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-dark');
+                activeBtn.classList.add('bg-dark', 'text-white');
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Interactive Tabs for Opportunities & Common Requirements
+        function switchOppTab(tabId) {
+            document.querySelectorAll('.opp-tab-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            document.querySelectorAll('.opp-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-dark', 'text-white');
+                btn.classList.add('bg-white', 'text-dark');
+            });
+
+            const targetPanel = document.getElementById(tabId);
+            if (targetPanel) targetPanel.classList.add('active');
+
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-dark');
+                activeBtn.classList.add('bg-dark', 'text-white');
+            }
+        }
+    </script>
+</body>
+</html>
