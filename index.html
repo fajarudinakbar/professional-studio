@@ -517,14 +517,40 @@
         <!-- Projects Section -->
         <section id="projects" class="py-16 sm:py-24 bg-dark text-white fade-in-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12 sm:mb-16">
+                <div class="text-center mb-8 sm:mb-10">
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-white uppercase inline-block bg-accent px-4 sm:px-6 py-2 border-3 border-white shadow-[4px_4px_0px_0px_#ffffff] sm:shadow-[6px_6px_0px_0px_#ffffff]">Key Projects & Initiatives</h2>
                     <p class="mt-6 sm:mt-8 max-w-2xl mx-auto text-base sm:text-lg text-slate-300 font-medium">From founding platforms to academic research and practical applications, these projects demonstrate my commitment to solving real-world teaching challenges.</p>
                 </div>
 
-                <div class="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Project Search Bar -->
+                <div class="max-w-lg mx-auto mb-10 sm:mb-12">
+                    <div class="relative flex items-center bg-white border-3 border-white shadow-[4px_4px_0px_0px_#FACC15] focus-within:shadow-[6px_6px_0px_0px_#0D9488] transition-shadow">
+                        <span class="pl-4 pr-2 text-slate-500 pointer-events-none" aria-hidden="true">
+                            <i class="fa-solid fa-magnifying-glass text-sm sm:text-base"></i>
+                        </span>
+                        <input
+                            id="project-search-input"
+                            type="search"
+                            autocomplete="off"
+                            aria-label="Search projects"
+                            placeholder="Search projects (e.g. AI, GSE, MOOC, IELTS)..."
+                            class="w-full py-3 pr-10 bg-transparent text-dark placeholder-slate-400 font-bold text-sm sm:text-base focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+                        >
+                        <button
+                            id="project-search-clear"
+                            type="button"
+                            aria-label="Clear project search"
+                            class="hidden absolute right-2.5 w-7 h-7 items-center justify-center bg-slate-100 hover:bg-highlight text-dark border-2 border-dark text-xs font-black transition-colors cursor-pointer"
+                        >
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <p id="project-search-count" class="hidden mt-3 text-center text-xs sm:text-sm font-extrabold uppercase tracking-wider text-highlight" aria-live="polite"></p>
+                </div>
+
+                <div id="projects-grid" class="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                     <!-- Project 1 -->
-                    <a href="https://moocguru.com" target="_blank" class="neo-btn group bg-white text-dark block p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#FACC15] hover:shadow-[8px_8px_0px_0px_#FACC15]">
+                    <a href="https://moocguru.com" target="_blank" data-keywords="mooc guru platform open cpd free english courses professional development oer" class="project-card neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#FACC15] hover:shadow-[8px_8px_0px_0px_#FACC15]">
                         <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">MOOC Guru Platform</h3>
                         <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">Created a comprehensive online platform providing Open CPD, free English courses, and professional development resources for a global community.</p>
                         <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
@@ -534,7 +560,7 @@
                     </a>
 
                     <!-- Project 3 -->
-                    <a href="https://fajarudinakbar.com/static-to-app" target="_blank" class="neo-btn group bg-white text-dark block p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#ffffff] hover:shadow-[8px_8px_0px_0px_#ffffff]">
+                    <a href="https://fajarudinakbar.com/static-to-app" target="_blank" data-keywords="static to interactive app web ai edcommunity materials digital transformation" class="project-card neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#ffffff] hover:shadow-[8px_8px_0px_0px_#ffffff]">
                         <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3 flex flex-wrap items-center gap-1">Static <i class="fa-solid fa-arrow-right-long text-slate-400"></i> Interactive</h3>
                         <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">Transformed traditional materials into dynamic experiences using AI. Highlighted as a "standout project" by edCommunity.</p>
                         <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
@@ -544,7 +570,7 @@
                     </a>
 
                     <!-- Project 4 -->
-                    <a href="https://fajarudinakbar.com/genai-and-gse" target="_blank" class="neo-btn group bg-white text-dark block p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#ffffff] hover:shadow-[8px_8px_0px_0px_#ffffff]">
+                    <a href="https://fajarudinakbar.com/genai-and-gse" target="_blank" data-keywords="genai gse global scale of english pearson prompt engineering generative ai lesson planning guide" class="project-card neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#ffffff] hover:shadow-[8px_8px_0px_0px_#ffffff]">
                         <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">GenAI & GSE Guide</h3>
                         <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">An interactive guide on using the GSE framework to create effective prompts for generative AI in lesson planning.</p>
                         <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
@@ -554,7 +580,7 @@
                     </a>
 
                     <!-- Project 5 -->
-                    <a href="https://fajarudinakbar.com/fyp-framework" target="_blank" class="neo-btn group bg-white text-dark block p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#0D9488] hover:shadow-[8px_8px_0px_0px_#0D9488]">
+                    <a href="https://fajarudinakbar.com/fyp-framework" target="_blank" data-keywords="fyp framework find personalize plan lessons edtech pedagogy educators" class="project-card neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#0D9488] hover:shadow-[8px_8px_0px_0px_#0D9488]">
                         <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">The FYP Framework</h3>
                         <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">A practical framework for educators to Find, Personalize, and Plan lessons using modern EdTech tools and pedagogical strategies.</p>
                         <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
@@ -564,7 +590,7 @@
                     </a>
 
                     <!-- Project 6 -->
-                    <a href="https://fajarudinakbar.com/handson-genai" target="_blank" class="neo-btn group bg-highlight text-dark block p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#FACC15] hover:shadow-[8px_8px_0px_0px_#FACC15]">
+                    <a href="https://fajarudinakbar.com/handson-genai" target="_blank" data-keywords="hands-on genai generative ai trinity college london workshop framework educators" class="project-card neo-btn group bg-highlight text-dark p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#FACC15] hover:shadow-[8px_8px_0px_0px_#FACC15]">
                         <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">Hands-On GenAI</h3>
                         <p class="font-medium text-slate-800 flex-grow normal-case text-sm sm:text-base">A practical framework and guide for educators to leverage generative AI, presented for Trinity College London.</p>
                         <div class="mt-6 font-black text-dark text-xs sm:text-sm flex items-center justify-between border-t-2 border-dark pt-4">
@@ -574,7 +600,7 @@
                     </a>
 
                     <!-- Project 7 - DIGITAL LESSONS PROJECT -->
-                    <a href="https://teacher.fajarudinakbar.com" target="_blank" class="neo-btn group bg-white text-dark block p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#ffffff] hover:shadow-[8px_8px_0px_0px_#ffffff]">
+                    <a href="https://teacher.fajarudinakbar.com" target="_blank" data-keywords="digital lessons project web app teaching resources edtech tools english learners" class="project-card neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#ffffff] hover:shadow-[8px_8px_0px_0px_#ffffff]">
                         <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">Digital Lessons Project</h3>
                         <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">An interactive web application showcasing digital teaching resources and modern educational technology tools for English language learners.</p>
                         <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
@@ -584,7 +610,7 @@
                     </a>
 
                     <!-- Project 8 - TEACHING ENGLISH WITH AI GUIDE -->
-                    <a href="teaching-english-with-ai-guide.html" target="_blank" class="neo-btn group bg-white text-dark block p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#FACC15] hover:shadow-[8px_8px_0px_0px_#FACC15]">
+                    <a href="teaching-english-with-ai-guide.html" target="_blank" data-keywords="teaching english with ai guide workflow prompting materials creation integration elt" class="project-card neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#FACC15] hover:shadow-[8px_8px_0px_0px_#FACC15]">
                         <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3 w-[280px]">Teaching English with AI</h3>
                         <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">From learner needs to materials and learning experiences: a directed workflow for prompting, materials creation, and student AI integration.</p>
                         <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
@@ -594,7 +620,7 @@
                     </a>
 
                     <!-- Project 9 - MICROCREDENTIALS GUIDE -->
-                    <a href="microcredentials-guide.html" target="_blank" class="neo-btn group bg-white text-dark block p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#0D9488] hover:shadow-[8px_8px_0px_0px_#0D9488]">
+                    <a href="microcredentials-guide.html" target="_blank" data-keywords="microcredentials guide cpd professional learning elt educators certificates badges" class="project-card neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#0D9488] hover:shadow-[8px_8px_0px_0px_#0D9488]">
                         <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">Microcredentials Guide</h3>
                         <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">A practical guide to microcredentials and focused professional learning for ELT educators, featuring program criteria, provider examples, and evaluation steps.</p>
                         <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
@@ -604,7 +630,7 @@
                     </a>
 
                     <!-- Project 9 - EXCLUSIVE ENGLISH CLASS -->
-                    <a href="kursus.html" class="neo-btn group bg-highlight text-dark block p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#0D9488] hover:shadow-[8px_8px_0px_0px_#0D9488]">
+                    <a href="kursus.html" data-keywords="exclusive english class kursus private mentorship academic business toefl ielts exam prep tesol tefl" class="project-card neo-btn group bg-highlight text-dark p-6 sm:p-8 relative overflow-hidden h-full flex flex-col border-white shadow-[6px_6px_0px_0px_#0D9488] hover:shadow-[8px_8px_0px_0px_#0D9488]">
                         <div class="flex items-center justify-between mb-2">
                             <span class="bg-dark text-white text-[10px] uppercase font-black px-2 py-0.5 border border-dark">Private Mentorship</span>
                             <span class="font-black text-xs text-dark">$10/hr</span>
@@ -616,6 +642,66 @@
                             <i class="fa-solid fa-arrow-right project-link-icon text-base sm:text-lg"></i>
                         </div>
                     </a>
+
+                    <!-- Search-Only Project: What Can Learners Do with AI -->
+                    <a href="what-can-learners-do-with-ai.html" target="_blank" data-search-only="true" data-keywords="what-can-learners-do-with-ai what can learners do with ai in english gse learning objectives can-do descriptors student facing ai capabilities practical tasks elt" class="project-card hidden neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex-col border-white shadow-[6px_6px_0px_0px_#ffffff] hover:shadow-[8px_8px_0px_0px_#ffffff]">
+                        <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">What Can Learners Do with AI?</h3>
+                        <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">Exploring student-facing AI capabilities, new GSE learning objectives, can-do descriptors, and practical learning tasks for English language learners.</p>
+                        <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
+                            <span>EXPLORE RESOURCE</span>
+                            <i class="fa-solid fa-arrow-right project-link-icon text-base sm:text-lg"></i>
+                        </div>
+                    </a>
+
+                    <!-- Search-Only Project: Teaching English with AI: Goals to Materials -->
+                    <a href="teaching-english-with-ai-goals-materials.html" target="_blank" data-search-only="true" data-keywords="teaching-english-with-ai-goals-materials teaching english with ai from meaningful goals to effective materials pedagogical roadmap classroom tasks elt" class="project-card hidden neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex-col border-white shadow-[6px_6px_0px_0px_#FACC15] hover:shadow-[8px_8px_0px_0px_#FACC15]">
+                        <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">AI: From Goals to Materials</h3>
+                        <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">A practical roadmap connecting clear pedagogical goals to effective AI-generated materials and classroom tasks for English teaching.</p>
+                        <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
+                            <span>VIEW ROADMAP</span>
+                            <i class="fa-solid fa-arrow-right project-link-icon text-base sm:text-lg"></i>
+                        </div>
+                    </a>
+
+                    <!-- Search-Only Project: Teaching English Innovatively with AI -->
+                    <a href="teaching-english-innovatively-ai.html" target="_blank" data-search-only="true" data-keywords="teaching-english-innovatively-ai teaching english innovatively with ai innovative classroom strategies prompt activities ai-powered learning workflows elt" class="project-card hidden neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex-col border-white shadow-[6px_6px_0px_0px_#0D9488] hover:shadow-[8px_8px_0px_0px_#0D9488]">
+                        <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">Teaching English Innovatively with AI</h3>
+                        <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">Innovative classroom strategies, prompt activities, and AI-powered learning workflows for English language teachers.</p>
+                        <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
+                            <span>EXPLORE GUIDE</span>
+                            <i class="fa-solid fa-arrow-right project-link-icon text-base sm:text-lg"></i>
+                        </div>
+                    </a>
+
+                    <!-- Search-Only Project: Learning Independently, Connecting, and Growing -->
+                    <a href="learning-independently-connecting-and-growing.html" target="_blank" data-search-only="true" data-keywords="learning-independently-connecting-and-growing learning independently connecting and growing opportunities scholarships lpdp kip kuliah beasiswa school representatives indonesia study skills" class="project-card hidden neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex-col border-white shadow-[6px_6px_0px_0px_#FACC15] hover:shadow-[8px_8px_0px_0px_#FACC15]">
+                        <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">Learning Independently, Connecting & Growing</h3>
+                        <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">Practical skills for navigating learning and opportunities: a bilingual presentation and institutional guide for school representatives and educators.</p>
+                        <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
+                            <span>OPEN PRESENTATION</span>
+                            <i class="fa-solid fa-arrow-right project-link-icon text-base sm:text-lg"></i>
+                        </div>
+                    </a>
+
+                    <!-- Search-Only Project: Generative AI in ELT (GBAI) -->
+                    <a href="GBAI.html" target="_blank" data-search-only="true" data-keywords="gbai generative ai in elt workshop modules practical framework resources prompt engineering multimodal coding companions" class="project-card hidden neo-btn group bg-white text-dark p-6 sm:p-8 relative overflow-hidden h-full flex-col border-white shadow-[6px_6px_0px_0px_#0D9488] hover:shadow-[8px_8px_0px_0px_#0D9488]">
+                        <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight mb-3">Generative AI in ELT (GBAI)</h3>
+                        <p class="font-medium text-slate-600 flex-grow normal-case text-sm sm:text-base">Generative AI in English Language Teaching workshop modules and practical framework resources for hands-on educator exploration.</p>
+                        <div class="mt-6 font-black text-accent text-xs sm:text-sm flex items-center justify-between border-t-2 border-slate-100 pt-4">
+                            <span>ACCESS MODULES</span>
+                            <i class="fa-solid fa-arrow-right project-link-icon text-base sm:text-lg"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Empty Search State -->
+                <div id="project-search-empty" class="hidden max-w-md mx-auto text-center bg-slate-800/80 border-3 border-white p-8 shadow-[6px_6px_0px_0px_#FACC15]">
+                    <i class="fa-solid fa-folder-open text-3xl text-highlight mb-3"></i>
+                    <p class="font-black text-lg uppercase tracking-tight text-white mb-1">No Matching Projects</p>
+                    <p class="text-sm text-slate-300 font-medium mb-5">Try another keyword like <span class="text-highlight font-bold">AI</span>, <span class="text-highlight font-bold">Guide</span>, <span class="text-highlight font-bold">MOOC</span>, or <span class="text-highlight font-bold">IELTS</span>.</p>
+                    <button id="project-search-reset" type="button" class="neo-btn bg-highlight text-dark px-5 py-2 text-xs sm:text-sm uppercase border-dark cursor-pointer">
+                        Reset Search
+                    </button>
                 </div>
             </div>
         </section>
@@ -1041,6 +1127,73 @@
 
             if (bridgePopupClose) bridgePopupClose.addEventListener('click', closeBridgePopup);
             if (bridgePopupBackdrop) bridgePopupBackdrop.addEventListener('click', closeBridgePopup);
+
+            // Project Search Functionality
+            const projectSearchInput = document.getElementById('project-search-input');
+            const projectSearchClear = document.getElementById('project-search-clear');
+            const projectSearchCount = document.getElementById('project-search-count');
+            const projectSearchEmpty = document.getElementById('project-search-empty');
+            const projectSearchReset = document.getElementById('project-search-reset');
+            const projectCards = Array.from(document.querySelectorAll('#projects-grid .project-card'));
+
+            if (projectSearchInput && projectCards.length > 0) {
+                const searchableProjects = projectCards.map(card => ({
+                    el: card,
+                    searchOnly: card.getAttribute('data-search-only') === 'true',
+                    text: `${card.textContent || ''} ${card.getAttribute('data-keywords') || ''}`.toLowerCase().replace(/\s+/g, ' ').trim()
+                }));
+
+                const filterProjects = () => {
+                    const rawQuery = projectSearchInput.value.trim().toLowerCase();
+                    const terms = rawQuery ? rawQuery.split(/\s+/) : [];
+                    const hasQuery = terms.length > 0;
+                    let visibleCount = 0;
+
+                    searchableProjects.forEach(({ el, searchOnly, text }) => {
+                        const isVisible = hasQuery
+                            ? terms.every(term => text.includes(term))
+                            : !searchOnly;
+                        el.classList.toggle('hidden', !isVisible);
+                        el.classList.toggle('flex', isVisible);
+                        if (isVisible) visibleCount++;
+                    });
+
+                    if (projectSearchClear) {
+                        projectSearchClear.classList.toggle('hidden', !hasQuery);
+                        projectSearchClear.classList.toggle('flex', hasQuery);
+                    }
+
+                    if (projectSearchCount) {
+                        if (hasQuery) {
+                            const label = visibleCount === 1 ? 'project' : 'projects';
+                            projectSearchCount.textContent = `Found ${visibleCount} matching ${label}`;
+                            projectSearchCount.classList.remove('hidden');
+                        } else {
+                            projectSearchCount.classList.add('hidden');
+                        }
+                    }
+
+                    if (projectSearchEmpty) {
+                        projectSearchEmpty.classList.toggle('hidden', visibleCount > 0);
+                    }
+                };
+
+                const clearProjectSearch = () => {
+                    projectSearchInput.value = '';
+                    filterProjects();
+                    projectSearchInput.focus();
+                };
+
+                projectSearchInput.addEventListener('input', filterProjects);
+                projectSearchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && projectSearchInput.value) {
+                        clearProjectSearch();
+                    }
+                });
+
+                if (projectSearchClear) projectSearchClear.addEventListener('click', clearProjectSearch);
+                if (projectSearchReset) projectSearchReset.addEventListener('click', clearProjectSearch);
+            }
         });
     </script>
 </body>
